@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IC6GO1IpViw=",
+  "dgSpecHash": "O5OBo9tbttY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\order-service\\Order.Domain\\Order.Domain.csproj",
+  "projectFilePath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\order-service\\Order.Domain\\Order.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TranVanDu\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\TranVanDu\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",

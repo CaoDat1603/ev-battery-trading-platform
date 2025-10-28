@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MwAwmbjDBBQ=",
+  "dgSpecHash": "VBu1H8Y4J80=",
   "success": true,
-  "projectFilePath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TranVanDu\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\TranVanDu\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.16\\microsoft.aspnetcore.authentication.jwtbearer.8.0.16.nupkg.sha512",

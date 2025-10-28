@@ -1,0 +1,4 @@
+C:\Users\TranVanDu\Desktop\project\src\complaint-service\Complaints.Domain\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\complaint-service\Complaints.Domain\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\complaint-service\Complaints.Domain\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\complaint-service\Complaints.Domain\obj\Debug\net8.0\staticwebassets.build.json

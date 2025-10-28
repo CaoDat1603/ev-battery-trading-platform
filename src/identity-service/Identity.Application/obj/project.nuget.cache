@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KgVkW1QeFKI=",
+  "dgSpecHash": "3TDl2pNDQTU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
+  "projectFilePath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TranVanDu\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\TranVanDu\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.16\\microsoft.aspnetcore.authentication.jwtbearer.8.0.16.nupkg.sha512",

@@ -4,6 +4,8 @@ networks:
 volumes:
   pg_catalog: {}
   pg_identity: {}
+  pg_complaint: {}
+  pg_rating: {}
 
 
 services:
@@ -61,6 +63,55 @@ services:
     networks: [evnet]
     restart: unless-stopped
 
+  complaint-db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: ${COMPLAINT_DB_USER}
+      POSTGRES_PASSWORD: ${COMPLAINT_DB_PASSWORD}
+      POSTGRES_DB: ${COMPLAINT_DB_NAME}
+    ports:
+      - "5436:5432"   # để connect từ host
+    volumes:
+      - pg_complaint:/var/lib/postgresql/data
+    networks: [evnet]
+  complaint-api:
+    build:
+      context: .
+      dockerfile: src/complaint-service/Complaints.API/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__Default: "Host=complaint-db;Port=5432;Database=${COMPLAINT_DB_NAME};Username=${COMPLAINT_DB_USER};Password=${COMPLAINT_DB_PASSWORD}"
+    depends_on:
+      - complaint-db
+    ports:
+      - "8105:8080"   # bypass Kong, test trực tiếp
+    networks: [evnet]
+    restart: unless-stopped
+
+  rating-db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: ${RATING_DB_USER}
+      POSTGRES_PASSWORD: ${RATING_DB_PASSWORD}
+      POSTGRES_DB: ${RATING_DB_NAME}
+    ports:
+      - "5437:5432"   # để connect từ host
+    volumes:
+      - pg_rating:/var/lib/postgresql/data
+    networks: [evnet]
+  rating-api:
+    build:
+      context: .
+      dockerfile: src/rating-service/Rating.API/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__Default: "Host=rating-db;Port=5432;Database=${RATING_DB_NAME};Username=${RATING_DB_USER};Password=${RATING_DB_PASSWORD}"
+    depends_on:
+      - rating-db
+    ports:
+      - "8106:8080"   # bypass Kong, test trực tiếp
+    networks: [evnet]
+    restart: unless-stopped
 
   kong:
     image: kong:3.7
@@ -82,6 +133,9 @@ services:
       - "8001:8001"   # Admin API
     depends_on:
       - catalog-api
+      - complaint-api
+      - identity-api
+      - rating-api
     networks:
       evnet:
         aliases:

@@ -12,3 +12,6 @@ C:\Users\TranVanDu\source\repos\ElectronicVehicleStoreBE\src\identity-service\Id
 C:\Users\TranVanDu\source\repos\ElectronicVehicleStoreBE\src\identity-service\Identity.Domain\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\TranVanDu\source\repos\ElectronicVehicleStoreBE\src\identity-service\Identity.Domain\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\TranVanDu\source\repos\ElectronicVehicleStoreBE\src\identity-service\Identity.Domain\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\identity-service\Identity.Domain\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\identity-service\Identity.Domain\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\identity-service\Identity.Domain\obj\Debug\net8.0\staticwebassets.build.json

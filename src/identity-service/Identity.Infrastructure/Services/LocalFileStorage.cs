@@ -11,6 +11,8 @@ namespace Identity.Infrastructure.Services
         }
         public async Task<string?> SaveFileAsync(string folder, string fileName, Stream fileStream, CancellationToken cancellationToken)
         {
+            Console.WriteLine(_env.WebRootPath); // thường là /app/wwwroot trong Docker
+
             var userFolder = Path.Combine(_env.WebRootPath, folder);
             if (!Directory.Exists(userFolder))
                 Directory.CreateDirectory(userFolder);

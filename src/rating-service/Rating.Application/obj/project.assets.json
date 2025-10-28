@@ -88,6 +88,22 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Rating.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Swashbuckle.AspNetCore": "6.6.2"
+        },
+        "compile": {
+          "bin/placeholder/Rating.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Rating.Domain.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -439,10 +455,16 @@
         "swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "Rating.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Rating.Domain/Rating.Domain.csproj",
+      "msbuildProject": "../Rating.Domain/Rating.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Rating.Domain >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
   },
@@ -453,11 +475,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\rating-service\\Rating.Application\\Rating.Application.csproj",
+      "projectUniqueName": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Application\\Rating.Application.csproj",
       "projectName": "Rating.Application",
-      "projectPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\rating-service\\Rating.Application\\Rating.Application.csproj",
+      "projectPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Application\\Rating.Application.csproj",
       "packagesPath": "C:\\Users\\TranVanDu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\rating-service\\Rating.Application\\obj\\",
+      "outputPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -477,7 +499,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj": {
+              "projectPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

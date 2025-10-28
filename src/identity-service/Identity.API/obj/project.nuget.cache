@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cnmVp7VK7DQ=",
+  "dgSpecHash": "aYNozZZtDZQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\identity-service\\Identity.API\\Identity.API.csproj",
+  "projectFilePath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.API\\Identity.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TranVanDu\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\TranVanDu\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

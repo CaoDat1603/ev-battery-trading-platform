@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\auction-service\\Auction.Infrastructure\\Auction.Infrastructure.csproj": {}
+    "C:\\Users\\TranVanDu\\Desktop\\project\\src\\auction-service\\Auction.Infrastructure\\Auction.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\auction-service\\Auction.Infrastructure\\Auction.Infrastructure.csproj": {
+    "C:\\Users\\TranVanDu\\Desktop\\project\\src\\auction-service\\Auction.Infrastructure\\Auction.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\auction-service\\Auction.Infrastructure\\Auction.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\auction-service\\Auction.Infrastructure\\Auction.Infrastructure.csproj",
         "projectName": "Auction.Infrastructure",
-        "projectPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\auction-service\\Auction.Infrastructure\\Auction.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\auction-service\\Auction.Infrastructure\\Auction.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\TranVanDu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\auction-service\\Auction.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\auction-service\\Auction.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
