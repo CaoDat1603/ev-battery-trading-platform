@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "33zSytMBZqo=",
+  "dgSpecHash": "moMRxdTiwPw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\rating-service\\Rating.Application\\Rating.Application.csproj",
+  "projectFilePath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Application\\Rating.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TranVanDu\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\TranVanDu\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
