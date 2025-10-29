@@ -1,29 +1,131 @@
-# .NET build folders
+# ============================
+#   C# / .NET Core .gitignore
+# ============================
+
+## Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
 [Bb]in/
 [Oo]bj/
+[Ll]og/
+[Ll]ogs/
 
-# Visual Studio
-.vs/
+## User-specific files
 *.user
 *.suo
+*.userosscache
+*.sln.docstates
 
-# Visual Studio Code
+## Visual Studio
+.vs/
 .vscode/
+.idea/
 
-# Logs and cache
-*.log
-*.cache
+## JetBrains Rider
+.idea/
+*.sln.iml
+
+## Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+## NUnit
+*.VisualState.xml
+TestResult.xml
+nunit-*.xml
+
+## MSTest
+*.trx
+
+## Coverage results
+*.coverage
+*.coveragexml
+coverage*.json
+coverage*.xml
+.coverage/
+lcov.info
+
+## Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+## Tye
+.tye/
+
+## Docker
+docker-compose.override.yml
+docker-compose.debug.yml
+docker-compose.release.yml
+*.db
+*.pid
+*.seed
+*.bak
+
+## Entity Framework Migrations (optional)
+#migrations/
+#migrations_backup/
+
+## Cache
+*~ 
+*.swp
 *.tmp
+*.temp
+*.cache
+*.log
+*.pid
+*.seed
 *.dbmdl
 
-# Docker files
-**/docker-compose.override.yml
-**/Dockerfile.*
+## Rider / ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
 
-# Environment files
+## Publish
+publish/
+out/
+dist/
+
+## Packages
+*.nupkg
+*.snupkg
+*.nuspec
+*.bak
+*.tmp
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## Azure
+.csx/
+*.azurePubxml
+*.pubxml
+*.publishproj
+PublishScripts/
+
+## Others
 .env
 .env.*
+secrets.json
+appsettings.Local.json
+appsettings.Development.json
+appsettings.*.local.json
 
-# System files
-Thumbs.db
+## OS generated files
 .DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
+
+
+
