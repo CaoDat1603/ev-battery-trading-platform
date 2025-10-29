@@ -1,0 +1,32 @@
+# Stage 1: Build the application
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /app
+
+# Copy the solution file
+COPY ElectronicVehicleStoreBE.sln ./
+
+# Copy all project files from the Order service
+# This helps with restoring dependencies before copying the rest of the code
+COPY src/order-service/Order.API/Order.API.csproj src/order-service/Order.API/
+COPY src/order-service/Order.Application/Order.Application.csproj src/order-service/Order.Application/
+COPY src/order-service/Order.Domain/Order.Domain.csproj src/order-service/Order.Domain/
+COPY src/order-service/Order.Infrastructure/Order.Infrastructure.csproj src/order-service/Order.Infrastructure/
+
+# Restore NuGet packages for the API project, which will also restore for its dependencies
+RUN dotnet restore src/order-service/Order.API/Order.API.csproj
+
+# Copy the rest of the source code
+COPY . .
+
+# Publish the application
+RUN dotnet publish src/order-service/Order.API/Order.API.csproj -c Release -o /out /p:UseAppHost=false
+
+# Stage 2: Create the runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+
+# Copy the published output from the build stage
+COPY --from=build /out .
+
+# Define the entry point for the container
+ENTRYPOINT ["dotnet", "Order.API.dll"]
