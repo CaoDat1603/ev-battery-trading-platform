@@ -1,1 +1,24 @@
-{"Version":1,"Hash":"F5poEwKyu2wnKxGyh0/wvJscoZnowbJY075wdCU8tW8=","Source":"Payment.Infrastructure","BasePath":"_content/Payment.Infrastructure","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "1Aw+PZv7yjoujMG0jCSNjl834XEPX36adXhkrFj6fOU=",
+  "Source": "Payment.Infrastructure",
+  "BasePath": "_content/Payment.Infrastructure",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\payment-service\\Payment.Domain\\Payment.Domain.csproj",
+      "Version": 2,
+      "Source": "Payment.Domain",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

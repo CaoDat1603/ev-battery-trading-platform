@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "s45plg2fBZ3gnBX7yYA9sn0iX5fmmzQzGBINIckdVCE=",
+  "Source": "Auction.Domain",
+  "BasePath": "_content/Auction.Domain",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

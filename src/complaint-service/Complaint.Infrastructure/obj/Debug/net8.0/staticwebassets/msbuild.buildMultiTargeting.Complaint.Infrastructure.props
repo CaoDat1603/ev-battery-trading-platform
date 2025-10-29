@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Complaint.Infrastructure.props" />
+</Project>

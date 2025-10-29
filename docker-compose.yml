@@ -1,100 +1,83 @@
-networks:
-  evnet: {}
-
-volumes:
-  pg_catalog: {}
-  pg_identity: {}
-
+version: "3.9"
 
 services:
-  catalog-db:
-    image: postgres:16
+  postgres:
+    image: postgres:15
+    container_name: ev_postgres
     environment:
-      POSTGRES_USER: ${CATALOG_DB_USER}
-      POSTGRES_PASSWORD: ${CATALOG_DB_PASSWORD}
-      POSTGRES_DB: ${CATALOG_DB_NAME}
-    ports: ["5434:5432"]               # connect từ host nếu cần
-    volumes:
-      - pg_catalog:/var/lib/postgresql/data
-    networks: [evnet]
-
-  catalog-api:
-    build:
-      context: .
-      dockerfile: src/catalog-service/Catalog.API/Dockerfile
-    environment:
-      ASPNETCORE_URLS: http://+:8080
-      ConnectionStrings__Default: "Host=catalog-db;Port=5432;Database=${CATALOG_DB_NAME};Username=${CATALOG_DB_USER};Password=${CATALOG_DB_PASSWORD}"
-    depends_on:
-      - catalog-db
+      POSTGRES_USER: ev_identity
+      POSTGRES_PASSWORD: ev_identity_pw
+      POSTGRES_DB: ev_identity
     ports:
-      - "8102:8080"                    # bypass Kong
+      - "5435:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
     networks:
-      evnet:
-        aliases:
-          - catalog-api                # alias DNS ổn định trong mạng
-    restart: unless-stopped            # nếu lỡ crash thì tự lên lại
+      - ev_network
 
-  identity-db:
-    image: postgres:16
-    environment:
-      POSTGRES_USER: ${IDENTITY_DB_USER}
-      POSTGRES_PASSWORD: ${IDENTITY_DB_PASSWORD}
-      POSTGRES_DB: ${IDENTITY_DB_NAME}
-    ports:
-      - "5435:5432"   # để connect từ host
-    volumes:
-      - pg_identity:/var/lib/postgresql/data
-    networks: [evnet]
-
-  identity-api:
+  identity-service:
     build:
       context: .
       dockerfile: src/identity-service/Identity.API/Dockerfile
-    environment:
-      ASPNETCORE_URLS: http://+:8080
-      ConnectionStrings__Default: "Host=identity-db;Port=5432;Database=${IDENTITY_DB_NAME};Username=${IDENTITY_DB_USER};Password=${IDENTITY_DB_PASSWORD}"
-    depends_on:
-      - identity-db
+    container_name: identity-service
     ports:
-      - "8103:8080"   # bypass Kong, test trực tiếp
-    networks: [evnet]
-    restart: unless-stopped
+      - "5001:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__Default=Host=postgres;Port=5432;Database=ev_identity;Username=ev_identity;Password=ev_identity_pw
+    depends_on:
+      - postgres
+    networks:
+      - ev_network
 
+  kong-database:
+    image: postgres:15
+    container_name: kong_postgres
+    environment:
+      POSTGRES_USER: kong
+      POSTGRES_DB: kong
+      POSTGRES_PASSWORD: kong
+    networks:
+      - ev_network
+    volumes:
+      - kong_data:/var/lib/postgresql/data
+
+  kong-migrations:
+    image: kong:3.5
+    depends_on:
+      - kong-database
+    environment:
+      KONG_DATABASE: postgres
+      KONG_PG_HOST: kong-database
+      KONG_PG_USER: kong
+      KONG_PG_PASSWORD: kong
+    command: "kong migrations bootstrap"
+    networks:
+      - ev_network
 
   kong:
-    image: kong:3.7
-    container_name: kong
-    volumes:
-      - ./deploy/kong/kong.yaml:/usr/local/kong/declarative/kong.yaml:ro
-      - ./logs:/tmp
+    image: kong:3.5
+    container_name: kong_gateway
+    depends_on:
+      - kong-database
+      - identity-service
     environment:
-      KONG_DATABASE: "off"
-      KONG_DECLARATIVE_CONFIG: /usr/local/kong/declarative/kong.yaml
-      KONG_PROXY_ACCESS_LOG: /dev/stdout
-      KONG_ADMIN_ACCESS_LOG: /dev/stdout
-      KONG_PROXY_ERROR_LOG: /dev/stderr
-      KONG_ADMIN_ERROR_LOG: /dev/stderr
+      KONG_DATABASE: postgres
+      KONG_PG_HOST: kong-database
+      KONG_PG_USER: kong
+      KONG_PG_PASSWORD: kong
       KONG_PROXY_LISTEN: 0.0.0.0:8000
       KONG_ADMIN_LISTEN: 0.0.0.0:8001
     ports:
-      - "8000:8000"   # Gateway
-      - "8001:8001"   # Admin API
-    depends_on:
-      - catalog-api
+      - "8000:8000"
+      - "8001:8001"
     networks:
-      evnet:
-        aliases:
-          - kong
-  konga:
-    image: pantsel/konga:latest
-    restart: unless-stopped
-    ports:
-      - "1337:1337"
-    environment:
-      NODE_ENV: production
-    networks:
-      evnet:
-        aliases:
-          - konga
+      - ev_network
 
+networks:
+  ev_network:
+    driver: bridge
+
+volumes:
+  pgdata:
+  kong_data:

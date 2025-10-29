@@ -1,1 +1,24 @@
-{"Version":1,"Hash":"WoS4nvQ/QIOihHgI5wzFzjN1yCV0mjrCZ35/xHaPeU4=","Source":"Catalog.Infrastructure","BasePath":"_content/Catalog.Infrastructure","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[{"Identity":"C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj","Version":2,"Source":"Catalog.Domain","GetPublishAssetsTargets":"ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems","AdditionalPublishProperties":"Configuration=Debug;Platform=AnyCPU","AdditionalPublishPropertiesToRemove":"WebPublishProfileFile;TargetFramework","GetBuildAssetsTargets":"GetCurrentProjectBuildStaticWebAssetItems","AdditionalBuildProperties":"Configuration=Debug;Platform=AnyCPU","AdditionalBuildPropertiesToRemove":"WebPublishProfileFile;TargetFramework"}],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "Fw4d6+NEnTJIrjenAu5FQZxA1gX4jzT56XOF7ypyUF0=",
+  "Source": "Catalog.Infrastructure",
+  "BasePath": "_content/Catalog.Infrastructure",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj",
+      "Version": 2,
+      "Source": "Catalog.Domain",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

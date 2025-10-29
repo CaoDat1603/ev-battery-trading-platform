@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.API\\Catalog.API.csproj": {}
+    "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.API\\Catalog.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.API\\Catalog.API.csproj": {
+    "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.API\\Catalog.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.API\\Catalog.API.csproj",
+        "projectUniqueName": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.API\\Catalog.API.csproj",
         "projectName": "Catalog.API",
-        "projectPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.API\\Catalog.API.csproj",
-        "packagesPath": "C:\\Users\\TranVanDu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.API\\obj\\",
+        "projectPath": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.API\\Catalog.API.csproj",
+        "packagesPath": "C:\\Users\\lqq\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\TranVanDu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\lqq\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,11 +28,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj": {
-                "projectPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj"
+              "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj": {
+                "projectPath": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj"
               },
-              "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj"
+              "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj"
               }
             }
           }
@@ -50,8 +46,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -87,25 +82,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj": {
+    "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj",
+        "projectUniqueName": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj",
         "projectName": "Catalog.Application",
-        "projectPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj",
-        "packagesPath": "C:\\Users\\TranVanDu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Application\\obj\\",
+        "projectPath": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj",
+        "packagesPath": "C:\\Users\\lqq\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\TranVanDu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\lqq\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -119,11 +110,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj": {
-                "projectPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj"
+              "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj": {
+                "projectPath": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj"
               },
-              "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj"
+              "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj"
               }
             }
           }
@@ -137,8 +128,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -168,25 +158,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj": {
+    "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj",
         "projectName": "Catalog.Domain",
-        "projectPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj",
-        "packagesPath": "C:\\Users\\TranVanDu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Domain\\obj\\",
+        "projectPath": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj",
+        "packagesPath": "C:\\Users\\lqq\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\TranVanDu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\lqq\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -211,8 +197,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -242,25 +227,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj": {
+    "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
         "projectName": "Catalog.Infrastructure",
-        "projectPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\TranVanDu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\lqq\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\TranVanDu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\lqq\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -274,8 +255,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj": {
-                "projectPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj"
+              "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj": {
+                "projectPath": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj"
               }
             }
           }
@@ -289,8 +270,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -344,7 +324,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

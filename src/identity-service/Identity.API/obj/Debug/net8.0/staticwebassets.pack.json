@@ -1,0 +1,49 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\0\\avatar_0.jpg",
+      "PackagePath": "staticwebassets\\uploads\\users\\0\\avatar_0.jpg"
+    },
+    {
+      "Id": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\0\\cic_0.webp",
+      "PackagePath": "staticwebassets\\uploads\\users\\0\\cic_0.webp"
+    },
+    {
+      "Id": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\1\\avatar_1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\users\\1\\avatar_1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\1\\cic_1.webp",
+      "PackagePath": "staticwebassets\\uploads\\users\\1\\cic_1.webp"
+    },
+    {
+      "Id": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\2\\cic_2.webp",
+      "PackagePath": "staticwebassets\\uploads\\users\\2\\cic_2.webp"
+    },
+    {
+      "Id": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\3\\avatar_3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\users\\3\\avatar_3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\3\\cic_3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\users\\3\\cic_3.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Identity.API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Identity.API.props",
+      "PackagePath": "build\\Identity.API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Identity.API.props",
+      "PackagePath": "buildMultiTargeting\\Identity.API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Identity.API.props",
+      "PackagePath": "buildTransitive\\Identity.API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Complaint.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7452000511bf16937fb888f31799c00dee394534")]
 [assembly: System.Reflection.AssemblyProductAttribute("Complaint.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Complaint.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

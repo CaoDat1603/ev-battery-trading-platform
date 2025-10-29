@@ -1,0 +1,24 @@
+{
+  "Version": 1,
+  "Hash": "u61wiuTTatufQ5/j4/efGvZ0Zw6qp0TUJfR+iEgTCkQ=",
+  "Source": "Auction.Infrastructure",
+  "BasePath": "_content/Auction.Infrastructure",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\auction-service\\Auction.Domain\\Auction.Domain.csproj",
+      "Version": 2,
+      "Source": "Auction.Domain",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

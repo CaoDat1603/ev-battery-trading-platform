@@ -1,0 +1,8 @@
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Release\net8.0\Identity.Application.csproj.AssemblyReference.cache
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Release\net8.0\Identity.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Release\net8.0\Identity.Application.AssemblyInfoInputs.cache
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Release\net8.0\Identity.Application.AssemblyInfo.cs
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Release\net8.0\Identity.Application.csproj.CoreCompileInputs.cache
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Release\net8.0\Identity.Application.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Release\net8.0\Identity.Application.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Release\net8.0\Identity.Application.sourcelink.json

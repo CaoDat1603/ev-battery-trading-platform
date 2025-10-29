@@ -1,1 +1,24 @@
-{"Version":1,"Hash":"ak76r0hsXzh3793FqYZ6LQIVpLF1hjcq1V1i3Ahkihc=","Source":"Complaint.Infrastructure","BasePath":"_content/Complaint.Infrastructure","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "jS1Cpv1h86P3dK15bzD1+3wJ72mNShizK5E/PYh7y2E=",
+  "Source": "Complaint.Infrastructure",
+  "BasePath": "_content/Complaint.Infrastructure",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\complaint-service\\Complaint.Domain\\Complaint.Domain.csproj",
+      "Version": 2,
+      "Source": "Complaint.Domain",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

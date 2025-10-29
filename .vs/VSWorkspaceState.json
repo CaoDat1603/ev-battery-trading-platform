@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src",
+    "\\deploy",
     "\\src\\catalog-service"
   ],
-  "SelectedNode": "\\Catalog.Application",
   "PreviewInSolutionExplorer": false
 }

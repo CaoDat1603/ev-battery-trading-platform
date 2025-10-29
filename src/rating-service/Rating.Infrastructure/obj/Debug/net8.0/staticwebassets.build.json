@@ -1,1 +1,24 @@
-{"Version":1,"Hash":"deLuF4PbA1s3/M/wYmpwKHdGlXRq3T+OKJobMx1LTTg=","Source":"Rating.Infrastructure","BasePath":"_content/Rating.Infrastructure","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "k996GXAC2tbZxJAgx+JwEzmtHwU7/hhDDuBjFZd40V0=",
+  "Source": "Rating.Infrastructure",
+  "BasePath": "_content/Rating.Infrastructure",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj",
+      "Version": 2,
+      "Source": "Rating.Domain",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
