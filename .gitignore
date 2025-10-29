@@ -1,0 +1,29 @@
+# .NET build folders
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Visual Studio Code
+.vscode/
+
+# Logs and cache
+*.log
+*.cache
+*.tmp
+*.dbmdl
+
+# Docker files
+**/docker-compose.override.yml
+**/Dockerfile.*
+
+# Environment files
+.env
+.env.*
+
+# System files
+Thumbs.db
+.DS_Store
