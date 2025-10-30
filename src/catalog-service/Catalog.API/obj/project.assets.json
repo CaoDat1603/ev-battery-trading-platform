@@ -3395,23 +3395,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\TranVanDu\\.nuget\\packages\\": {},
+    "C:\\Users\\caoda\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.API\\Catalog.API.csproj",
+      "projectUniqueName": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.API\\Catalog.API.csproj",
       "projectName": "Catalog.API",
-      "projectPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.API\\Catalog.API.csproj",
-      "packagesPath": "C:\\Users\\TranVanDu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.API\\obj\\",
+      "projectPath": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.API\\Catalog.API.csproj",
+      "packagesPath": "C:\\Users\\caoda\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\TranVanDu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\caoda\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3426,11 +3426,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj": {
-              "projectPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj"
+            "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj": {
+              "projectPath": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj"
             },
-            "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj"
+            "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj"
             }
           }
         }
@@ -3481,7 +3481,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

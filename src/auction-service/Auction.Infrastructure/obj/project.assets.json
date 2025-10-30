@@ -1051,6 +1051,22 @@
         "build": {
           "buildTransitive/net6.0/_._": {}
         }
+      },
+      "Auction.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Swashbuckle.AspNetCore": "6.6.2"
+        },
+        "compile": {
+          "bin/placeholder/Auction.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Auction.Domain.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -3346,10 +3362,16 @@
         "system.threading.channels.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Auction.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Auction.Domain/Auction.Domain.csproj",
+      "msbuildProject": "../Auction.Domain/Auction.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Auction.Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 9.0.4",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.4",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.4",
@@ -3358,23 +3380,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\TranVanDu\\.nuget\\packages\\": {},
+    "C:\\Users\\caoda\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\auction-service\\Auction.Infrastructure\\Auction.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\auction-service\\Auction.Infrastructure\\Auction.Infrastructure.csproj",
       "projectName": "Auction.Infrastructure",
-      "projectPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\auction-service\\Auction.Infrastructure\\Auction.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\TranVanDu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\auction-service\\Auction.Infrastructure\\obj\\",
+      "projectPath": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\auction-service\\Auction.Infrastructure\\Auction.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\caoda\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\auction-service\\Auction.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\TranVanDu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\caoda\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3388,7 +3410,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\auction-service\\Auction.Domain\\Auction.Domain.csproj": {
+              "projectPath": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\auction-service\\Auction.Domain\\Auction.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -3451,7 +3477,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

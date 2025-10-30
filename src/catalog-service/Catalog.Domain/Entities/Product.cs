@@ -56,5 +56,17 @@ namespace Catalog.Domain.Entities
             _details.Add(d);
             return d;
         }
+
+        public void ChangeStatus(ProductStatus newStatus)
+        {
+            if (!Enum.IsDefined(typeof(ProductStatus), newStatus))
+                throw new ArgumentException($"Trạng thái '{newStatus}' không hợp lệ.");
+
+            if (StatusProduct == newStatus)
+                return;
+
+            StatusProduct = newStatus;
+            UpdatedAt = DateTimeOffset.UtcNow;
+        }
     }
 }

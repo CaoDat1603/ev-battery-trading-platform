@@ -3358,23 +3358,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\TranVanDu\\.nuget\\packages\\": {},
+    "C:\\Users\\caoda\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\order-service\\Order.Infrastructure\\Order.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\order-service\\Order.Infrastructure\\Order.Infrastructure.csproj",
       "projectName": "Order.Infrastructure",
-      "projectPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\order-service\\Order.Infrastructure\\Order.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\TranVanDu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\order-service\\Order.Infrastructure\\obj\\",
+      "projectPath": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\order-service\\Order.Infrastructure\\Order.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\caoda\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\order-service\\Order.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\TranVanDu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\caoda\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3451,7 +3451,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
