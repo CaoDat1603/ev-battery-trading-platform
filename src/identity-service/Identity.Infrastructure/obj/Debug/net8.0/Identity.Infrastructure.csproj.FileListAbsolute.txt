@@ -292,3 +292,4 @@ C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Infrastructure\ob
 C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Infrastructure\obj\Debug\net8.0\Identity.Infrastructure.pdb
 C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Infrastructure\obj\Debug\net8.0\Identity.Infrastructure.genruntimeconfig.cache
 C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Infrastructure\obj\Debug\net8.0\ref\Identity.Infrastructure.dll
+C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Infrastructure\obj\Debug\net8.0\Identity.Infrastructure.sourcelink.json

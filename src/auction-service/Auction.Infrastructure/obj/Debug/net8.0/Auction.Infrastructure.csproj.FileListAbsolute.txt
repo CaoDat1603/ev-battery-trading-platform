@@ -137,3 +137,4 @@ C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.Infrastructure\obj\
 C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.Infrastructure\obj\Debug\net8.0\Auction.Infrastructure.pdb
 C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.Infrastructure\obj\Debug\net8.0\Auction.Infrastructure.genruntimeconfig.cache
 C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.Infrastructure\obj\Debug\net8.0\ref\Auction.Infrastructure.dll
+C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.Infrastructure\obj\Debug\net8.0\Auction.Infrastructure.sourcelink.json

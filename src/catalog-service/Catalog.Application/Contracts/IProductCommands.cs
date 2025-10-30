@@ -7,5 +7,6 @@ namespace Catalog.Application.Contracts
     {
         Task<int> CreateAsync(CreateProductDto dto, CancellationToken ct = default);
         Task<bool> UpdateStatusAsync(int productId, ProductStatus newStatus, CancellationToken ct = default);
+        Task<bool> DeleteProductAsync(int productId, CancellationToken ct = default);
     }
 }

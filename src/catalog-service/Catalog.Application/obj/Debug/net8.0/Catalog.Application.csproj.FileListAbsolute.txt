@@ -114,3 +114,4 @@ C:\Users\caoda\Documents\XDHTHDT\src\catalog-service\Catalog.Application\obj\Deb
 C:\Users\caoda\Documents\XDHTHDT\src\catalog-service\Catalog.Application\obj\Debug\net8.0\Catalog.Application.pdb
 C:\Users\caoda\Documents\XDHTHDT\src\catalog-service\Catalog.Application\obj\Debug\net8.0\Catalog.Application.genruntimeconfig.cache
 C:\Users\caoda\Documents\XDHTHDT\src\catalog-service\Catalog.Application\obj\Debug\net8.0\ref\Catalog.Application.dll
+C:\Users\caoda\Documents\XDHTHDT\src\catalog-service\Catalog.Application\obj\Debug\net8.0\Catalog.Application.sourcelink.json

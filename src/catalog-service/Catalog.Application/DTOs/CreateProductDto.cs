@@ -9,8 +9,8 @@
         public string PickupAddress { get; set; } = default!;
         public string ProductName { get; set; } = default!;
         public string Description { get; set; } = default!;
-        public string RegistrationCard { get; set; }
-        public string FileUrl { get; set; }
-        public string ImageUrl { get; set; }
+        public string? RegistrationCard { get; set; }
+        public IFormFile? FileUrl { get; set; }
+        public IFormFile? ImageUrl { get; set; }
     }
 }

@@ -149,3 +149,4 @@ C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.API\bin\Debug\net8.
 C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.API\bin\Debug\net8.0\Auction.Application.pdb
 C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.API\bin\Debug\net8.0\Auction.Infrastructure.pdb
 C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.API\bin\Debug\net8.0\Auction.Domain.pdb
+C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.API\obj\Debug\net8.0\Auction.API.sourcelink.json

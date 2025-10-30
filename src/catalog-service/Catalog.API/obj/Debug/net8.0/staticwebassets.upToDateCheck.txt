@@ -1,0 +1,9 @@
+wwwroot\uploads\uploads\product-details\4\document_4.pdf
+wwwroot\uploads\uploads\product-details\6\document_6.pdf
+wwwroot\uploads\uploads\products\6\product_6.png
+wwwroot\uploads\uploads\product-details\7\document_7.pdf
+wwwroot\uploads\uploads\products\7\product_7.png
+wwwroot\uploads\uploads\product-details\8\document_8.pdf
+wwwroot\uploads\uploads\products\8\product_8.png
+wwwroot\uploads\uploads\product-details\9\document_9.pdf
+wwwroot\uploads\uploads\products\9\product_9.png

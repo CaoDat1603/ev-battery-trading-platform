@@ -132,3 +132,4 @@ C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\D
 C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.pdb
 C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.genruntimeconfig.cache
 C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\ref\Identity.Application.dll
+C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.sourcelink.json

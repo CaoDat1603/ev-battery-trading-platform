@@ -28,17 +28,41 @@ namespace Catalog.Application.Services
             return products.Select(p => new ProductBriefDto(p.ProductId, p.Title, p.Price, p.StatusProduct)).ToList();
         }
 
-        public async Task<IReadOnlyList<ProductBriefDto>> SearchWithFiltersAsync(
-            string? keyword,
-            decimal? minPrice,
-            decimal? maxPrice,
-            string? pickupAddress,
-            ProductStatus? status,
+        public async Task<IReadOnlyList<ProductBriefDto>> GetPagedProductsAsync(
+            int pageNumber = 1,
+            int pageSize = 20,
+            string? keyword = null,
+            decimal? minPrice = null,
+            decimal? maxPrice = null,
+            string? pickupAddress = null,
+            ProductStatus? status = null,
+            int? sellerId = null,
             CancellationToken ct = default)
-                {
-                    var products = await _repo.SearchWithFiltersAsync(keyword, minPrice, maxPrice, pickupAddress, status, 50, ct);
-                    return products.Select(p => new ProductBriefDto(p.ProductId, p.Title, p.Price, p.StatusProduct)).ToList();
-                }
+        {
+            var (products, totalCount) = await _repo.GetPagedAsync(
+                pageNumber,
+                pageSize,
+                keyword,
+                minPrice,
+                maxPrice,
+                pickupAddress,
+                status,
+                sellerId,
+                ct);
+
+            // Map domain entities to brief DTOs
+            var result = products.Select(p =>
+                new ProductBriefDto(
+                    p.ProductId,
+                    p.Title,
+                    p.Price,
+                    p.StatusProduct))
+                .ToList()
+                .AsReadOnly();
+
+            return result;
+        }
+
 
     }
 }

@@ -159,3 +159,4 @@ C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.API\obj\Debug\net
 C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.API\obj\Debug\net8.0\Identity.API.pdb
 C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.API\obj\Debug\net8.0\Identity.API.genruntimeconfig.cache
 C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.API\obj\Debug\net8.0\ref\Identity.API.dll
+C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.API\obj\Debug\net8.0\Identity.API.sourcelink.json

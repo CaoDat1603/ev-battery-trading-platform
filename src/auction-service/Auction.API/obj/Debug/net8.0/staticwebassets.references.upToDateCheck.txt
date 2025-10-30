@@ -4,3 +4,6 @@ C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.Domain\obj\Debug\ne
 C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.Application\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.Infrastructure\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.Domain\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.Application\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.Infrastructure\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.Domain\obj\Debug\net8.0\staticwebassets.build.json

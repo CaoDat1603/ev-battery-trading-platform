@@ -56,3 +56,4 @@ C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.Application\bin\Deb
 C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.Application\bin\Debug\net8.0\Auction.Infrastructure.dll
 C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.Application\bin\Debug\net8.0\Auction.Domain.pdb
 C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.Application\bin\Debug\net8.0\Auction.Infrastructure.pdb
+C:\Users\caoda\Documents\XDHTHDT\src\auction-service\Auction.Application\obj\Debug\net8.0\Auction.Application.sourcelink.json

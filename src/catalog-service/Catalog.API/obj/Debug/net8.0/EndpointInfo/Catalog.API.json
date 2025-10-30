@@ -5,10 +5,10 @@
     "version": "1.0"
   },
   "paths": {
-    "/catalog/health": {
+    "/api/Products/health": {
       "get": {
         "tags": [
-          "Catalog.API"
+          "Products"
         ],
         "responses": {
           "200": {
@@ -17,10 +17,10 @@
         }
       }
     },
-    "/catalog/products": {
+    "/api/Products": {
       "get": {
         "tags": [
-          "Catalog.API"
+          "Products"
         ],
         "responses": {
           "200": {
@@ -30,17 +30,94 @@
       },
       "post": {
         "tags": [
-          "Catalog.API"
+          "Products"
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/CreateProductReq"
+                "required": [
+                  "Description",
+                  "PickupAddress",
+                  "Price",
+                  "ProductName",
+                  "ProductType",
+                  "SellerId",
+                  "Title"
+                ],
+                "type": "object",
+                "properties": {
+                  "Title": {
+                    "type": "string"
+                  },
+                  "Price": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "SellerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "PickupAddress": {
+                    "type": "string"
+                  },
+                  "ProductName": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "ProductType": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "RegistrationCard": {
+                    "type": "string"
+                  },
+                  "FileUrl": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ImageUrl": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Title": {
+                  "style": "form"
+                },
+                "Price": {
+                  "style": "form"
+                },
+                "SellerId": {
+                  "style": "form"
+                },
+                "PickupAddress": {
+                  "style": "form"
+                },
+                "ProductName": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "ProductType": {
+                  "style": "form"
+                },
+                "RegistrationCard": {
+                  "style": "form"
+                },
+                "FileUrl": {
+                  "style": "form"
+                },
+                "ImageUrl": {
+                  "style": "form"
+                }
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -49,10 +126,10 @@
         }
       }
     },
-    "/catalog/products/Id/{productId}": {
+    "/api/Products/{productId}": {
       "get": {
         "tags": [
-          "Catalog.API"
+          "Products"
         ],
         "parameters": [
           {
@@ -72,10 +149,10 @@
         }
       }
     },
-    "/catalog/products/seller/{sellerId}": {
+    "/api/Products/seller/{sellerId}": {
       "get": {
         "tags": [
-          "Catalog.API"
+          "Products"
         ],
         "parameters": [
           {
@@ -95,10 +172,10 @@
         }
       }
     },
-    "/catalog/products/search": {
+    "/api/Products/search": {
       "get": {
         "tags": [
-          "Catalog.API"
+          "Products"
         ],
         "parameters": [
           {
@@ -130,6 +207,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
           }
         ],
         "responses": {
@@ -139,10 +234,10 @@
         }
       }
     },
-    "/catalog/products/search/all": {
+    "/api/Products/search/all": {
       "get": {
         "tags": [
-          "Catalog.API"
+          "Products"
         ],
         "parameters": [
           {
@@ -179,7 +274,33 @@
             "name": "status",
             "in": "query",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/ProductStatus"
+            }
+          },
+          {
+            "name": "sellerId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
             }
           }
         ],
@@ -190,63 +311,33 @@
         }
       }
     },
-    "/catalog/products/status": {
+    "/api/Products/status": {
       "patch": {
         "tags": [
-          "Catalog.API"
+          "Products"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateProductStatusReq"
+                "$ref": "#/components/schemas/UpdateProductStatusRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProductStatusRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProductStatusRequest"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
             "description": "OK"
-          }
-        }
-      }
-    },
-    "/WeatherForecast": {
-      "get": {
-        "tags": [
-          "WeatherForecast"
-        ],
-        "operationId": "GetWeatherForecast",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              }
-            }
           }
         }
       }
@@ -254,48 +345,6 @@
   },
   "components": {
     "schemas": {
-      "CreateProductReq": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "price": {
-            "type": "number",
-            "format": "double"
-          },
-          "sellerId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "pickupAddress": {
-            "type": "string",
-            "nullable": true
-          },
-          "productName": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "registrationCard": {
-            "type": "string",
-            "nullable": true
-          },
-          "fileUrl": {
-            "type": "string",
-            "nullable": true
-          },
-          "imageUrl": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "ProductStatus": {
         "enum": [
           0,
@@ -307,7 +356,11 @@
         "type": "integer",
         "format": "int32"
       },
-      "UpdateProductStatusReq": {
+      "UpdateProductStatusRequest": {
+        "required": [
+          "newStatus",
+          "productId"
+        ],
         "type": "object",
         "properties": {
           "productId": {
@@ -316,29 +369,6 @@
           },
           "newStatus": {
             "$ref": "#/components/schemas/ProductStatus"
-          }
-        },
-        "additionalProperties": false
-      },
-      "WeatherForecast": {
-        "type": "object",
-        "properties": {
-          "date": {
-            "type": "string",
-            "format": "date"
-          },
-          "temperatureC": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "temperatureF": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "summary": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false
