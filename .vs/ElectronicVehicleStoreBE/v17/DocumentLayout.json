@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8E888EA5-7183-4C5A-B83C-E084FFCFB4EA}|src\\identity-service\\Identity.Application\\Identity.Application.csproj|c:\\users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\identity.application\\services\\usercommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E888EA5-7183-4C5A-B83C-E084FFCFB4EA}|src\\identity-service\\Identity.Application\\Identity.Application.csproj|solutionrelative:src\\identity-service\\identity.application\\services\\usercommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09DB34E0-FA44-46C5-9B94-00EB3E62DA3A}|src\\identity-service\\Identity.API\\Identity.API.csproj|c:\\users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\identity.api\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09DB34E0-FA44-46C5-9B94-00EB3E62DA3A}|src\\identity-service\\Identity.API\\Identity.API.csproj|solutionrelative:src\\identity-service\\identity.api\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F788F4B9-1432-4B3D-81DE-2BC859D39BB3}|src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj|c:\\users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\identity.infrastructure\\queries\\userqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F788F4B9-1432-4B3D-81DE-2BC859D39BB3}|src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj|solutionrelative:src\\identity-service\\identity.infrastructure\\queries\\userqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8E888EA5-7183-4C5A-B83C-E084FFCFB4EA}|src\\identity-service\\Identity.Application\\Identity.Application.csproj|c:\\users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\identity.application\\dtos\\verifyotprequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E888EA5-7183-4C5A-B83C-E084FFCFB4EA}|src\\identity-service\\Identity.Application\\Identity.Application.csproj|solutionrelative:src\\identity-service\\identity.application\\dtos\\verifyotprequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -27,16 +39,8 @@
       "RelativeMoniker": "D:0:0:{C40D5C0E-58BD-4704-84EB-5690B92B1533}|src\\identity-service\\Identity.Domain\\Identity.Domain.csproj|solutionrelative:src\\identity-service\\identity.domain\\abtractions\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F788F4B9-1432-4B3D-81DE-2BC859D39BB3}|src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj|c:\\users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\identity.infrastructure\\queries\\userqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F788F4B9-1432-4B3D-81DE-2BC859D39BB3}|src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj|solutionrelative:src\\identity-service\\identity.infrastructure\\queries\\userqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F788F4B9-1432-4B3D-81DE-2BC859D39BB3}|src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj|c:\\users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\identity.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F788F4B9-1432-4B3D-81DE-2BC859D39BB3}|src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj|solutionrelative:src\\identity-service\\identity.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09DB34E0-FA44-46C5-9B94-00EB3E62DA3A}|src\\identity-service\\Identity.API\\Identity.API.csproj|c:\\users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\identity.api\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09DB34E0-FA44-46C5-9B94-00EB3E62DA3A}|src\\identity-service\\Identity.API\\Identity.API.csproj|solutionrelative:src\\identity-service\\identity.api\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E888EA5-7183-4C5A-B83C-E084FFCFB4EA}|src\\identity-service\\Identity.Application\\Identity.Application.csproj|c:\\users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\identity.application\\contracts\\iuserqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -49,10 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{C40D5C0E-58BD-4704-84EB-5690B92B1533}|src\\identity-service\\Identity.Domain\\Identity.Domain.csproj|c:\\users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\identity.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C40D5C0E-58BD-4704-84EB-5690B92B1533}|src\\identity-service\\Identity.Domain\\Identity.Domain.csproj|solutionrelative:src\\identity-service\\identity.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E888EA5-7183-4C5A-B83C-E084FFCFB4EA}|src\\identity-service\\Identity.Application\\Identity.Application.csproj|c:\\users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\identity.application\\services\\usercommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E888EA5-7183-4C5A-B83C-E084FFCFB4EA}|src\\identity-service\\Identity.Application\\Identity.Application.csproj|solutionrelative:src\\identity-service\\identity.application\\services\\usercommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E888EA5-7183-4C5A-B83C-E084FFCFB4EA}|src\\identity-service\\Identity.Application\\Identity.Application.csproj|c:\\users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\identity.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -134,11 +134,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "VerifyOtpRequest.cs",
               "DocumentMoniker": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Application\\DTOs\\VerifyOtpRequest.cs",
               "RelativeDocumentMoniker": "src\\identity-service\\Identity.Application\\DTOs\\VerifyOtpRequest.cs",
@@ -146,42 +150,11 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Application\\DTOs\\VerifyOtpRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T18:35:13.794Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "WhenOpened": "2025-10-28T18:35:13.794Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Domain\\Abtractions\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "src\\identity-service\\Identity.Domain\\Abtractions\\IUserRepository.cs",
-              "ToolTip": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Domain\\Abtractions\\IUserRepository.cs",
-              "RelativeToolTip": "src\\identity-service\\Identity.Domain\\Abtractions\\IUserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T18:18:49.072Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserQueriesDTO.cs",
-              "DocumentMoniker": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Application\\DTOs\\UserQueriesDTO.cs",
-              "RelativeDocumentMoniker": "src\\identity-service\\Identity.Application\\DTOs\\UserQueriesDTO.cs",
-              "ToolTip": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Application\\DTOs\\UserQueriesDTO.cs",
-              "RelativeToolTip": "src\\identity-service\\Identity.Application\\DTOs\\UserQueriesDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T15:06:44.658Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "UserProfile.cs",
               "DocumentMoniker": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Domain\\Entities\\UserProfile.cs",
               "RelativeDocumentMoniker": "src\\identity-service\\Identity.Domain\\Entities\\UserProfile.cs",
@@ -189,12 +162,11 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Domain\\Entities\\UserProfile.cs",
               "ViewState": "AgIAABoAAAAAAAAAAADwvzMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-20T16:31:37.946Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-20T16:31:37.946Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Domain\\Entities\\User.cs",
               "RelativeDocumentMoniker": "src\\identity-service\\Identity.Domain\\Entities\\User.cs",
@@ -202,25 +174,24 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Domain\\Entities\\User.cs",
               "ViewState": "AgIAAG8AAAAAAAAAAAAcwJIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T05:23:32.059Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-23T05:23:32.059Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 0,
               "Title": "UserCommands.cs",
               "DocumentMoniker": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Application\\Services\\UserCommands.cs",
               "RelativeDocumentMoniker": "src\\identity-service\\Identity.Application\\Services\\UserCommands.cs",
               "ToolTip": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Application\\Services\\UserCommands.cs",
               "RelativeToolTip": "src\\identity-service\\Identity.Application\\Services\\UserCommands.cs",
-              "ViewState": "AgIAAL0AAAAAAAAAAAAAAOQAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAHoAAAAAAAAAAAA6wOQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-22T17:19:51.973Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "ResetPasswordRequest.cs",
               "DocumentMoniker": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Application\\DTOs\\ResetPasswordRequest.cs",
               "RelativeDocumentMoniker": "src\\identity-service\\Identity.Application\\DTOs\\ResetPasswordRequest.cs",
@@ -228,12 +199,11 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Application\\DTOs\\ResetPasswordRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T16:20:44.361Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-21T16:20:44.361Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "ResendOtpRequest.cs",
               "DocumentMoniker": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Application\\DTOs\\ResendOtpRequest.cs",
               "RelativeDocumentMoniker": "src\\identity-service\\Identity.Application\\DTOs\\ResendOtpRequest.cs",
@@ -241,12 +211,60 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Application\\DTOs\\ResendOtpRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T13:14:49.136Z",
+              "WhenOpened": "2025-10-22T13:14:49.136Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserQueries.cs",
+              "DocumentMoniker": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Infrastructure\\Queries\\UserQueries.cs",
+              "RelativeDocumentMoniker": "src\\identity-service\\Identity.Infrastructure\\Queries\\UserQueries.cs",
+              "ToolTip": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Infrastructure\\Queries\\UserQueries.cs",
+              "RelativeToolTip": "src\\identity-service\\Identity.Infrastructure\\Queries\\UserQueries.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwAwAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T14:33:29.461Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "src\\identity-service\\Identity.API\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "src\\identity-service\\Identity.API\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T14:52:29.861Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
+              "Title": "UserQueriesDTO.cs",
+              "DocumentMoniker": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Application\\DTOs\\UserQueriesDTO.cs",
+              "RelativeDocumentMoniker": "src\\identity-service\\Identity.Application\\DTOs\\UserQueriesDTO.cs",
+              "ToolTip": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Application\\DTOs\\UserQueriesDTO.cs",
+              "RelativeToolTip": "src\\identity-service\\Identity.Application\\DTOs\\UserQueriesDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T15:06:44.658Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Domain\\Abtractions\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "src\\identity-service\\Identity.Domain\\Abtractions\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Domain\\Abtractions\\IUserRepository.cs",
+              "RelativeToolTip": "src\\identity-service\\Identity.Domain\\Abtractions\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T18:18:49.072Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "TokenResponse.cs",
               "DocumentMoniker": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Application\\DTOs\\TokenResponse.cs",
               "RelativeDocumentMoniker": "src\\identity-service\\Identity.Application\\DTOs\\TokenResponse.cs",
@@ -254,12 +272,11 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Application\\DTOs\\TokenResponse.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T13:14:43.084Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-22T13:14:43.084Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "IUserQueries.cs",
               "DocumentMoniker": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Application\\Contracts\\IUserQueries.cs",
               "RelativeDocumentMoniker": "src\\identity-service\\Identity.Application\\Contracts\\IUserQueries.cs",
@@ -267,25 +284,11 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Application\\Contracts\\IUserQueries.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T14:24:20.167Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T14:24:20.167Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "src\\identity-service\\Identity.API\\Controllers\\AdminController.cs",
-              "ToolTip": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "src\\identity-service\\Identity.API\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwB0AAACCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T14:52:29.861Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Infrastructure\\Repositories\\UserRepository.cs",
               "RelativeDocumentMoniker": "src\\identity-service\\Identity.Infrastructure\\Repositories\\UserRepository.cs",
@@ -293,21 +296,7 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Infrastructure\\Repositories\\UserRepository.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T18:17:41.462Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UserQueries.cs",
-              "DocumentMoniker": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Infrastructure\\Queries\\UserQueries.cs",
-              "RelativeDocumentMoniker": "src\\identity-service\\Identity.Infrastructure\\Queries\\UserQueries.cs",
-              "ToolTip": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Infrastructure\\Queries\\UserQueries.cs",
-              "RelativeToolTip": "src\\identity-service\\Identity.Infrastructure\\Queries\\UserQueries.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAQwAwAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T14:33:29.461Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T18:17:41.462Z"
             },
             {
               "$type": "Document",
@@ -319,8 +308,7 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Application\\Services\\AuthService.cs",
               "ViewState": "AgIAALIAAAAAAAAAAAAAAKIAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T20:33:44.69Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-19T20:33:44.69Z"
             },
             {
               "$type": "Document",
@@ -332,8 +320,7 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Application\\Common\\PhoneValidator.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T16:29:48.104Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T16:29:48.104Z"
             },
             {
               "$type": "Document",
@@ -345,8 +332,7 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Infrastructure\\AppDbContext.cs",
               "ViewState": "AgIAAD8AAAAAAAAAAAAowCkAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T20:04:04.882Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-19T20:04:04.882Z"
             },
             {
               "$type": "Document",
@@ -358,8 +344,7 @@
               "RelativeToolTip": "src\\identity-service\\Identity.API\\Controllers\\UsersController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-20T17:24:19.658Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-20T17:24:19.658Z"
             },
             {
               "$type": "Document",
@@ -371,8 +356,7 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Application\\Common\\EmailValidator.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T16:22:32.294Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T16:22:32.294Z"
             },
             {
               "$type": "Document",
@@ -384,8 +368,7 @@
               "RelativeToolTip": "src\\identity-service\\Identity.API\\Controllers\\AuthController.cs",
               "ViewState": "AgIAAFsAAAAAAAAAAADwv38AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-20T03:51:31.058Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-20T03:51:31.058Z"
             },
             {
               "$type": "Document",
@@ -397,8 +380,7 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Infrastructure\\DependencyInjection.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T15:50:04.653Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-21T15:50:04.653Z"
             },
             {
               "$type": "Document",
@@ -410,8 +392,7 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Application\\DTOs\\UserResponseDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T13:14:46.712Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-22T13:14:46.712Z"
             },
             {
               "$type": "Document",
@@ -423,8 +404,7 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Application\\Services\\RegisterCache.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T15:01:34.267Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T15:01:34.267Z"
             },
             {
               "$type": "Document",
@@ -436,8 +416,7 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Application\\Services\\RefreshTokenService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T19:59:51.493Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-19T19:59:51.493Z"
             },
             {
               "$type": "Document",
@@ -449,8 +428,7 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Infrastructure\\AppDbContextFactory.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T20:12:10.819Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-19T20:12:10.819Z"
             },
             {
               "$type": "Document",
@@ -474,8 +452,7 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Infrastructure\\Services\\JwtProvider.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAE4AAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T15:30:42.556Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-21T15:30:42.556Z"
             },
             {
               "$type": "Document",
