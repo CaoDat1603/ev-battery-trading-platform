@@ -9,8 +9,9 @@ namespace Identity.Application.DTOs
         public string UserPassword { get; private set; }
         public UserStatus UserStatus { get; private set; }
         public string UserFullName { get; private set; }
-        public string UserAddress { get; private set; }
+        public string? UserAddress { get; private set; }
         public DateTime? UserBirthday { get; private set; }
+        public string? ContactPhone { get; set; }
 
         // Lưu URL
         public string? Avatar { get; private set; }
