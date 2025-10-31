@@ -50,7 +50,8 @@ namespace Identity.Domain.Entities
             }
             else
             {
-                bool changedCitizenId = citizenIdCard != UserProfile.CitizenIdCard;
+                bool changedCitizenId = !string.IsNullOrWhiteSpace(citizenIdCard)
+            && !string.Equals(citizenIdCard, UserProfile.CitizenIdCard, StringComparison.OrdinalIgnoreCase);
 
                 UserProfile.UserFullName = fullname;
                 UserProfile.UserAddress = address;
@@ -58,9 +59,13 @@ namespace Identity.Domain.Entities
                 UserProfile.Avatar = avatarUrl;
                 UserProfile.CitizenIdCard = citizenIdCard;
                 UserProfile.ContactPhone = contactPhone;
+                UserProfile.UpdatedAt = DateTimeOffset.UtcNow;
 
-                if (changedCitizenId)
-                    UserProfile.Status = ProfileVerificationStatus.Unverified;
+                if (changedCitizenId || UserProfile.Status == ProfileVerificationStatus.Rejected ||UserProfile.Status == ProfileVerificationStatus.Unverified)
+                {
+                    UserProfile.Status = ProfileVerificationStatus.Pending;
+                }
+
 
             }
 

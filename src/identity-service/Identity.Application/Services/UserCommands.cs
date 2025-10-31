@@ -11,8 +11,8 @@ namespace Identity.Application.Services
 {
     public class UserCommands : IUserCommands
     {
-        private readonly Domain.Abtractions.IUserRepository _repo;
-        private readonly Domain.Abtractions.IUnitOfWork _uow;
+        private readonly IUserRepository _repo;
+        private readonly IUnitOfWork _uow;
         private readonly IWebHostEnvironment _env;
         private readonly IFileStorage _fileStorage;
         public UserCommands(IUserRepository repo, IUnitOfWork uow, IWebHostEnvironment env, IFileStorage fileStorage)
@@ -90,6 +90,7 @@ namespace Identity.Application.Services
                 avatarUrl: avatarUrl,
                 citizenIdCard: cicUrl,
                 contactPhone: request.ContactPhone
+                
             );
 
             await _repo.AddAsync(user, cancellationToken);
@@ -184,8 +185,8 @@ namespace Identity.Application.Services
                 var fileName = $"cic_{user.UserId}{ext}";
                 using var stream = request.CitizenIdCard.OpenReadStream();
                 cicUrl = await _fileStorage.SaveFileAsync($"uploads/users/{user.UserId}", fileName, stream, cancellationToken);
+                uploadedCic = true;
 
-                
             }
 
             // --- Quản lý profile ---

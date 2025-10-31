@@ -1,4 +1,5 @@
 ﻿using Identity.Application.Contracts;
+using Identity.Application.DTOs;
 using Identity.Domain.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -34,11 +35,27 @@ namespace Identity.API.Controllers
         }
 
 
+        [HttpPost]
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> CreateUser([FromForm] CreateUserDto request,
+            CancellationToken cancellationToken)
+        {
+            var userId = await _userCommands.CreateUserAsync(request, cancellationToken);
+            return Ok(userId);
+        }
+
         [HttpPost("{id}/verify")]
         public async Task<IActionResult> Verify(int id, CancellationToken ct)
         {
             await _userCommands.VerifyUserAsync(id, ct);
             return Ok("User verified");
+        }
+
+        [HttpPost("{id}/reject")]
+        public async Task<IActionResult> Reject(int id, string? reason = null,  CancellationToken ct=default)
+        {
+            await _userCommands.RejectUserProfileAsync(id,reason,ct);
+            return Ok("User rejected");
         }
 
         [HttpPost("{id}/disable")]

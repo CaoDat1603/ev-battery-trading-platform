@@ -15,8 +15,6 @@ namespace Identity.Application.Contracts
         Task<bool> ResendOtpAsync(string emailOrPhone);
         Task<bool> RequestResetPasswordAsync(string emailOrPhone, string baseUrl);
         Task<bool> ResetPasswordAsync(DTOs.ResetPasswordRequest request);
-
-        Task<LoginResponse?> SocialLoginAsync(SocialLoginRequest request); // stub, validate provider token
         Task LogoutAsync(string refreshToken, CancellationToken cancellationToken = default);
     }
 }

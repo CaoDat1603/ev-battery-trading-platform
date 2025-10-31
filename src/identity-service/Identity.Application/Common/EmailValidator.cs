@@ -1,20 +1,20 @@
-﻿using System.Net.Mail;
+﻿using System.Text.RegularExpressions;
 
 namespace Identity.Application.Common
 {
     public static class EmailValidator
     {
+        private static readonly Regex EmailRegex = new(
+            @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
+            RegexOptions.Compiled | RegexOptions.IgnoreCase
+        );
+
         public static bool IsValidEmail(string email)
         {
-            try
-            {
-                var addr = new MailAddress(email.Trim());
-                return true; // chỉ cần khởi tạo thành công là hợp lệ
-            }
-            catch
-            {
+            if (string.IsNullOrWhiteSpace(email))
                 return false;
-            }
+
+            return EmailRegex.IsMatch(email.Trim());
         }
     }
 }

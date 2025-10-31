@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "wU85rlVExLnI+qw8eHeszCW+va8N9lZ+oeQvLUIf/X8=",
+  "Hash": "uRmwk8MLW8tMfmsYOphAov2gSoeIgUgGhQwYov8VjvU=",
   "Source": "Identity.API",
   "BasePath": "_content/Identity.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
+      "Identity": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
       "Version": 2,
       "Source": "Identity.Application",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
@@ -18,7 +18,7 @@
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
     },
     {
-      "Identity": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj",
+      "Identity": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj",
       "Version": 2,
       "Source": "Identity.Domain",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
@@ -29,7 +29,7 @@
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
     },
     {
-      "Identity": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj",
+      "Identity": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj",
       "Version": 2,
       "Source": "Identity.Infrastructure",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
@@ -44,17 +44,17 @@
     {
       "Name": "Identity.API\\wwwroot",
       "Source": "Identity.API",
-      "ContentRoot": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.API\\wwwroot\\",
       "BasePath": "_content/Identity.API",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\0\\avatar_0.jpg",
+      "Identity": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\0\\avatar_0.jpg",
       "SourceId": "Identity.API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.API\\wwwroot\\",
       "BasePath": "_content/Identity.API",
       "RelativePath": "uploads/users/0/avatar_0.jpg",
       "AssetKind": "All",
@@ -70,10 +70,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\users\\0\\avatar_0.jpg"
     },
     {
-      "Identity": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\0\\cic_0.webp",
+      "Identity": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\0\\cic_0.webp",
       "SourceId": "Identity.API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.API\\wwwroot\\",
       "BasePath": "_content/Identity.API",
       "RelativePath": "uploads/users/0/cic_0.webp",
       "AssetKind": "All",
@@ -89,10 +89,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\users\\0\\cic_0.webp"
     },
     {
-      "Identity": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\1\\avatar_1.jpg",
+      "Identity": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\1\\avatar_1.jpg",
       "SourceId": "Identity.API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.API\\wwwroot\\",
       "BasePath": "_content/Identity.API",
       "RelativePath": "uploads/users/1/avatar_1.jpg",
       "AssetKind": "All",
@@ -108,10 +108,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\users\\1\\avatar_1.jpg"
     },
     {
-      "Identity": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\1\\cic_1.webp",
+      "Identity": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\1\\cic_1.webp",
       "SourceId": "Identity.API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.API\\wwwroot\\",
       "BasePath": "_content/Identity.API",
       "RelativePath": "uploads/users/1/cic_1.webp",
       "AssetKind": "All",
@@ -127,10 +127,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\users\\1\\cic_1.webp"
     },
     {
-      "Identity": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\2\\cic_2.webp",
+      "Identity": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\2\\cic_2.webp",
       "SourceId": "Identity.API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.API\\wwwroot\\",
       "BasePath": "_content/Identity.API",
       "RelativePath": "uploads/users/2/cic_2.webp",
       "AssetKind": "All",
@@ -146,10 +146,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\users\\2\\cic_2.webp"
     },
     {
-      "Identity": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\3\\avatar_3.jpg",
+      "Identity": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\3\\avatar_3.jpg",
       "SourceId": "Identity.API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.API\\wwwroot\\",
       "BasePath": "_content/Identity.API",
       "RelativePath": "uploads/users/3/avatar_3.jpg",
       "AssetKind": "All",
@@ -165,10 +165,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\users\\3\\avatar_3.jpg"
     },
     {
-      "Identity": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\3\\cic_3.jpg",
+      "Identity": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\3\\cic_3.jpg",
       "SourceId": "Identity.API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.API\\wwwroot\\",
       "BasePath": "_content/Identity.API",
       "RelativePath": "uploads/users/3/cic_3.jpg",
       "AssetKind": "All",
@@ -182,6 +182,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\users\\3\\cic_3.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\3\\cic_3.webp",
+      "SourceId": "Identity.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.API\\wwwroot\\",
+      "BasePath": "_content/Identity.API",
+      "RelativePath": "uploads/users/3/cic_3.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\users\\3\\cic_3.webp"
+    },
+    {
+      "Identity": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.API\\wwwroot\\uploads\\users\\5\\cic_5.webp",
+      "SourceId": "Identity.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.API\\wwwroot\\",
+      "BasePath": "_content/Identity.API",
+      "RelativePath": "uploads/users/5/cic_5.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\users\\5\\cic_5.webp"
     }
   ]
 }
