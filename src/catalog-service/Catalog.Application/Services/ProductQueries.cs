@@ -48,6 +48,7 @@ namespace Catalog.Application.Services
         public async Task<IReadOnlyList<ProductBriefDto>> GetPagedProductsAsync(
             int pageNumber = 1,
             int pageSize = 20,
+            string? sortBy = "newest",
             string? keyword = null,
             decimal? minPrice = null,
             decimal? maxPrice = null,
@@ -57,10 +58,24 @@ namespace Catalog.Application.Services
             CancellationToken ct = default)
         {
             var (products, totalCount) = await _repo.GetPagedAsync(
-                pageNumber, pageSize, keyword, minPrice, maxPrice, pickupAddress, status, sellerId, ct);
+                pageNumber, pageSize, sortBy, keyword, minPrice, maxPrice, pickupAddress, status, sellerId, ct);
 
             return products.Select(MapToDto).ToList().AsReadOnly();
         }
+
+        public async Task<int> GetProductCountAsync(
+            decimal? minPrice = null,
+            decimal? maxPrice = null,
+            string? pickupAddress = null,
+            int? sellerId = null,
+            ProductStatus? status = null,
+            CancellationToken ct = default)
+        {
+            var count = await _repo.GetProductCountAsync(minPrice, maxPrice, pickupAddress, sellerId, status, ct);
+
+            return count;
+        }
+
 
         private static ProductBriefDto MapToDto(Product product)
         {
