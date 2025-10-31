@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0WNDXDsHFcg=",
+  "dgSpecHash": "TJfVEDjeggk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lqq\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\lqq\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

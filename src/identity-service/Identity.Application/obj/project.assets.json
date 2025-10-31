@@ -519,11 +519,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
+      "projectUniqueName": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
       "projectName": "Identity.Application",
-      "projectPath": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
+      "projectPath": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
       "packagesPath": "C:\\Users\\lqq\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Application\\obj\\",
+      "outputPath": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lqq\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -540,8 +540,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj": {
-              "projectPath": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj"
+            "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj": {
+              "projectPath": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj"
             }
           }
         }

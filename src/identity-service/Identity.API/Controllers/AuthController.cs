@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Identity.API.Controllers
 {
     [ApiController]
-    [Route("identity")]
+    [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
@@ -28,16 +28,27 @@ namespace Identity.API.Controllers
         public async Task<IActionResult> Login([FromBody] LoginRequest request, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+                return BadRequest(new { message = "Dữ liệu không hợp lệ." });
 
-            var result = await _authService.LoginAsync(request, cancellationToken);
+            try
+            {
+                var result = await _authService.LoginAsync(request, cancellationToken);
+                if (result == null)
+                    return Unauthorized(new { message = "Thông tin đăng nhập không chính xác." });
 
-            if (result == null)
-                return Unauthorized(new { message = "Invalid email or password" });
-
-            return Ok(result);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                // nếu có bug logic hoặc lỗi hệ thống thật
+                // log lại lỗi nhưng không show ra FE
+                Console.WriteLine(ex);
+                return StatusCode(500, new { message = "Đã xảy ra lỗi hệ thống." });
+            }
         }
 
+
+        [AllowAnonymous]
         [HttpPost("refresh-token")]
         public async Task<IActionResult> Refresh()
         {
@@ -59,22 +70,35 @@ namespace Identity.API.Controllers
         }
 
 
-        [AllowAnonymous]
-        [HttpPost("social-login")]
-        public async Task<IActionResult> SocialLogin([FromBody] SocialLoginRequest request)
-        {
-            var result = await _authService.SocialLoginAsync(request);
-            if (result == null) return Unauthorized();
-            return Ok(result);
-        }
         //------------Register-------
         [AllowAnonymous]
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterRequest request)
         {
-            var result = await _authService.RegisterAsync(request);
-            return Ok(result);
+            try
+            {
+                var result = await _authService.RegisterAsync(request);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                // Lỗi do input hoặc business rule
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Lỗi logic nghiệp vụ, ví dụ OTP đã tồn tại hoặc đã hết hạn
+                return Conflict(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                // Lỗi hệ thống
+                Console.WriteLine($"[Register] Unexpected error: {ex}");
+                return StatusCode(500, new { message = "Đã xảy ra lỗi hệ thống. Vui lòng thử lại sau." });
+            }
         }
+
+
 
         [HttpPost("verify-register-otp")]
         public async Task<IActionResult> VerifyRegisterOtp([FromBody] VerifyOtpRequest request)

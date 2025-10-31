@@ -24,15 +24,7 @@ namespace Identity.API.Controllers
             var claims = User.Claims.Select(c => new { c.Type, c.Value });
             return Ok(claims);
         }
-        //[Authorize(Roles = "Admin")]
-        [HttpPost]
-        [Consumes("multipart/form-data")]
-        public async Task<IActionResult> CreateUser([FromForm] CreateUserDto request,
-            CancellationToken cancellationToken)
-        {
-            var userId = await _userService.CreateUserAsync(request, cancellationToken);
-            return Ok(userId);
-        }
+
         [Authorize]
         [HttpPut]
         [Consumes("multipart/form-data")]

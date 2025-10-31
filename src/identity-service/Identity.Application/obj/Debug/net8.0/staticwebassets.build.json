@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "cGO/6vOE5c4e2hwQuhUbpMn9ZcMpgflJy8m1Mr/d37Q=",
+  "Hash": "b1Q6tUTsiYoG0k6Pf69STARxNqj2BCt0DMI+dVqOWRs=",
   "Source": "Identity.Application",
   "BasePath": "_content/Identity.Application",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Users\\lqq\\source\\repos\\ev-battery-trading-platform\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj",
+      "Identity": "C:\\Users\\lqq\\OneDrive\\Máy tính\\New folder\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj",
       "Version": 2,
       "Source": "Identity.Domain",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",

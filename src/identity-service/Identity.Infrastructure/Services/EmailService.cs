@@ -11,6 +11,8 @@ namespace Identity.Infrastructure.Services
 
         public async Task SendEmailAsync(string to, string subject, string body)
         {
+            Console.WriteLine($"[EmailService] Sending email to {to}...");
+
             try
             {
                 using var mail = new MailMessage

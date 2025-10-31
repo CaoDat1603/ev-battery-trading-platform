@@ -6,6 +6,7 @@ using Identity.Domain.Entities;
 using Identity.Domain.Enums;
 using System.Security.Claims;
 using System.Text.RegularExpressions;
+using System;
 
 namespace Identity.Application.Services
 {
@@ -40,13 +41,12 @@ namespace Identity.Application.Services
         public async Task<LoginResponse?> LoginAsync(LoginRequest request, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(request.Email) && string.IsNullOrWhiteSpace(request.PhoneNumber))
-                throw new ArgumentException("Vui lòng nhập email hoặc số điện thoại.");
+                return null;
 
             if (!string.IsNullOrWhiteSpace(request.Email) && !EmailValidator.IsValidEmail(request.Email))
-                throw new ArgumentException("Email không hợp lệ.");
-
+                return null;
             if (!string.IsNullOrWhiteSpace(request.PhoneNumber) && !PhoneValidator.IsValidPhone(request.PhoneNumber))
-                throw new ArgumentException("Số điện thoại không hợp lệ.");
+                return null;
             User? user = null;
 
             if (!string.IsNullOrWhiteSpace(request.Email))
@@ -59,14 +59,14 @@ namespace Identity.Application.Services
             }
 
             if (user == null)
-                throw new UnauthorizedAccessException("Thông tin đăng nhập không chính xác.");
+                return null;
 
             bool validPassword = BCrypt.Net.BCrypt.Verify(request.Password, user.UserPassword);
             if (!validPassword)
-                throw new UnauthorizedAccessException("Thông tin đăng nhập không chính xác.");
+                return null;
 
             if (user.UserStatus != UserStatus.Active)
-                throw new UnauthorizedAccessException("Tài khoản chưa được kích hoạt hoặc đã bị khóa.");
+                return null;
 
             var token = _jwtProvider.GenerateToken(user);
             var refreshToken = _refreshTokenService.GenerateToken();
@@ -272,24 +272,6 @@ namespace Identity.Application.Services
             return true;
         }
 
-
-        // Social login stub
-        public async Task<LoginResponse?> SocialLoginAsync(SocialLoginRequest request)
-        {
-            // TODO: validate provider token with each provider SDK (Google/Facebook/Apple).
-            // If validated, find or create user by provider's email.
-            _logger.LogInformation("Social login requested for provider {provider}", request.Provider);
-
-            // example pseudo flow:
-            /*
-               var externalUser = await ValidateProviderToken(request.Provider, request.ProviderToken);
-               if (externalUser == null) return null;
-               var user = await _userRepo.GetByEmailAsync(externalUser.Email) ?? CreateUserFromExternal(externalUser);
-               var jwt = _jwtProvider.GenerateToken(user);
-               return new LoginResponse { Token = jwt, ExpireAt = DateTime.UtcNow.AddMinutes(60) };
-            */
-            return null; // placeholder
-        }
 
         public  Task LogoutAsync(string? _, CancellationToken cancellationToken = default)
         {
