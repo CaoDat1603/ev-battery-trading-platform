@@ -11,6 +11,9 @@ namespace Catalog.Infrastructure
             services.AddDbContext<AppDbContext>(o => o.UseNpgsql(connectionString));
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ILocalFileStorage, Services.LocalFileStorage>();
+            services.AddScoped<IProductImageHandler, Services.ProductImageHandler>();
+            services.AddScoped<IProductFileHandler, Services.ProductFileHandler>();
             return services;
         }
     }
