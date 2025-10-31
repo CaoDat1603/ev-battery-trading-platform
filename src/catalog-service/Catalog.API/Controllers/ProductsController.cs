@@ -92,11 +92,13 @@ namespace Catalog.API.Controllers
             [FromQuery] int? sellerId,
             [FromQuery] int pageNumber = 1,
             [FromQuery] int pageSize = 10,
+            [FromQuery] string? sortBy = "newestupdate",
             CancellationToken ct = default)
         {
             var result = await _queries.GetPagedProductsAsync(
                 pageNumber,
                 pageSize,
+                sortBy,
                 q,
                 minPrice,
                 maxPrice,
@@ -121,11 +123,13 @@ namespace Catalog.API.Controllers
             [FromQuery] int? sellerId,
             [FromQuery] int pageNumber = 1,
             [FromQuery] int pageSize = 10,
+            [FromQuery] string? sortBy = "newest",
             CancellationToken ct = default)
         {
             var result = await _queries.GetPagedProductsAsync(
                 pageNumber,
                 pageSize,
+                sortBy,
                 q,
                 minPrice,
                 maxPrice,
@@ -136,6 +140,32 @@ namespace Catalog.API.Controllers
 
             return Ok(result);
         }
+
+        /// <summary>
+        /// Get count product
+        /// </summary>
+        [HttpGet("count")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
+        public async Task<ActionResult<int>> GetProductCount(
+            [FromQuery] decimal? minPrice,
+            [FromQuery] decimal? maxPrice,
+            [FromQuery] string? pickupAddress,
+            [FromQuery] ProductStatus? status,
+            [FromQuery] int? sellerId,
+            CancellationToken ct = default)
+        {
+            var result = await _queries.GetProductCountAsync(
+                minPrice: minPrice,
+                maxPrice: maxPrice,
+                pickupAddress: pickupAddress,
+                sellerId: sellerId, 
+                status: status,    
+                ct: ct
+            );
+
+            return Ok(result);
+        }
+
 
         // ======================
         // 🔹 COMMANDS

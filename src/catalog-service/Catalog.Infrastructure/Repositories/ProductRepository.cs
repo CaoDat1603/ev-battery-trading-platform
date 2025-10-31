@@ -2,6 +2,7 @@
 using Catalog.Domain.Entities;
 using Catalog.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.Eventing.Reader;
 
 namespace Catalog.Infrastructure.Repositories
 {
@@ -129,6 +130,7 @@ namespace Catalog.Infrastructure.Repositories
         public async Task<(IReadOnlyList<Product> Products, int TotalCount)> GetPagedAsync(
             int pageNumber,
             int pageSize,
+            string? sortBy = "newest",
             string? keyword = null,
             decimal? minPrice = null,
             decimal? maxPrice = null,
@@ -186,17 +188,113 @@ namespace Catalog.Infrastructure.Repositories
             if (sellerId.HasValue)
                 query = query.Where(p => p.SellerId == sellerId.Value);
 
-            // ====== PAGINATION ======
+            // ====== PAGINATION & SORTING ======
             var totalCount = await query.CountAsync(ct);
 
+            if (sortBy?.ToLower() == "oldest")
+            {
+                // Sort by (CreatedAt)  (oldest -> newest)
+                query = query.OrderBy(p => p.CreatedAt);
+            }
+            else if (sortBy?.ToLower() == "oldestupdate")
+            {
+                // Sort by (UpdatedAt) (oldest -> newest)
+                query = query.OrderBy(p => p.UpdatedAt);
+            }
+            else if (sortBy?.ToLower() == "newestupdate")
+            {
+                // Sort (Newest) by UpdatedAt
+                query = query.OrderByDescending(p => p.UpdatedAt);
+            }
+            else
+            {
+                // Sort (Newest) by CreatedAt
+                query = query.OrderByDescending(p => p.CreatedAt);
+            }
+
             var products = await query
-                .OrderByDescending(p => p.CreatedAt)
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .AsNoTracking()
                 .ToListAsync(ct);
 
             return (products, totalCount);
+        }
+
+        /// <summary>
+        /// Retrieves the total count of products that match the specified filtering criteria.
+        /// This method does not perform pagination or sorting.
+        /// </summary>
+        /// <param name="minPrice">The minimum price of the product (optional).</param>
+        /// <param name="maxPrice">The maximum price of the product (optional).</param>
+        /// <param name="pickupAddress">The pickup address (supports filtering by Province or Province + District).</param>
+        /// <param name="sellerId">The ID of the seller (optional).</param>
+        /// <param name="status">The status of the product (e.g., Auctioning, Sold, etc.).</param>
+        /// <param name="ct">CancellationToken to optionally cancel the operation.</param>
+        /// <returns>The total number of products matching the filter criteria.</returns>
+        public async Task<int> GetProductCountAsync(
+            decimal? minPrice = null,
+            decimal? maxPrice = null,
+            string? pickupAddress = null,
+            int? sellerId = null,
+            ProductStatus? status = null,
+            CancellationToken ct = default)
+        {
+            var query = _db.Products
+                .Where(p => p.DeletedAt == null)
+                .AsQueryable();
+
+            // 2. APPLY FILTERS
+
+            // Filter by minimum price
+            if (minPrice.HasValue)
+                query = query.Where(p => p.Price >= minPrice.Value);
+
+            // Filter by maximum price
+            if (maxPrice.HasValue)
+                query = query.Where(p => p.Price <= maxPrice.Value);
+
+            // Filter by pickup address
+            if (!string.IsNullOrWhiteSpace(pickupAddress))
+            {
+                var addressParts = pickupAddress
+                    .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                    .Select(a => a.ToLower())
+                    .ToArray();
+
+                // Filter by single part (e.g., Province)
+                if (addressParts.Length == 1)
+                {
+                    var province = addressParts[0];
+                    query = query.Where(p =>
+                        EF.Functions.ILike(p.PickupAddress.ToLower(), $"%{province}%"));
+                }
+                // Filter by multiple address parts (AND logic)
+                else
+                {
+                    foreach (var part in addressParts)
+                    {
+                        var localPart = part;
+                        query = query.Where(p =>
+                            EF.Functions.ILike(p.PickupAddress.ToLower(), $"%{localPart}%"));
+                    }
+                }
+            }
+
+            // Filter by product status
+            if (status.HasValue)
+                query = query.Where(p => p.StatusProduct == status.Value);
+
+            // Filter by seller ID
+            if (sellerId.HasValue)
+                query = query.Where(p => p.SellerId == sellerId.Value);
+
+            // 3. EXECUTE COUNT AND RETURN RESULT
+
+            // Execute a SELECT COUNT(*) query to get the total number
+            var totalCount = await query.CountAsync(ct);
+
+            return totalCount;
         }
     }
 }
