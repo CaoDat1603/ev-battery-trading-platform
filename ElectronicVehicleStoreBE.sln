@@ -14,12 +14,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Infrastructure", "s
 		{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E} = {9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Complaint.Infrastructure", "src\complaint-service\Complaint.Infrastructure\Complaint.Infrastructure.csproj", "{0CE27B01-2359-46E9-961B-D4996529F6F4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Complaints.Infrastructure", "src\complaint-service\Complaints.Infrastructure\Complaints.Infrastructure.csproj", "{0CE27B01-2359-46E9-961B-D4996529F6F4}"
 	ProjectSection(ProjectDependencies) = postProject
 		{4D195CF0-4638-4DB5-BDD2-242129AAAAC4} = {4D195CF0-4638-4DB5-BDD2-242129AAAAC4}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Complaint.API", "src\complaint-service\Complaint.API\Complaint.API.csproj", "{CF091D08-0BF2-476E-8D7A-101A6D9793FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Complaints.API", "src\complaint-service\Complaints.API\Complaints.API.csproj", "{CF091D08-0BF2-476E-8D7A-101A6D9793FB}"
 	ProjectSection(ProjectDependencies) = postProject
 		{0CE27B01-2359-46E9-961B-D4996529F6F4} = {0CE27B01-2359-46E9-961B-D4996529F6F4}
 		{6B174405-E57D-4340-9286-C88F53BAA474} = {6B174405-E57D-4340-9286-C88F53BAA474}
@@ -78,13 +78,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Domain", "src\iden
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Application", "src\identity-service\Identity.Application\Identity.Application.csproj", "{8E888EA5-7183-4C5A-B83C-E084FFCFB4EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Complaint.Application", "src\complaint-service\Complaint.Application\Complaint.Application.csproj", "{6B174405-E57D-4340-9286-C88F53BAA474}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Complaints.Application", "src\complaint-service\Complaints.Application\Complaints.Application.csproj", "{6B174405-E57D-4340-9286-C88F53BAA474}"
 	ProjectSection(ProjectDependencies) = postProject
 		{0CE27B01-2359-46E9-961B-D4996529F6F4} = {0CE27B01-2359-46E9-961B-D4996529F6F4}
 		{4D195CF0-4638-4DB5-BDD2-242129AAAAC4} = {4D195CF0-4638-4DB5-BDD2-242129AAAAC4}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Complaint.Domain", "src\complaint-service\Complaint.Domain\Complaint.Domain.csproj", "{4D195CF0-4638-4DB5-BDD2-242129AAAAC4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Complaints.Domain", "src\complaint-service\Complaints.Domain\Complaints.Domain.csproj", "{4D195CF0-4638-4DB5-BDD2-242129AAAAC4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Domain", "src\order-service\Order.Domain\Order.Domain.csproj", "{14A6BF40-F1EE-4136-908F-9CAF69F4114A}"
 EndProject

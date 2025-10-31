@@ -1,9 +1,0 @@
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Infrastructure\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Domain\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Infrastructure\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Domain\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Infrastructure\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Domain\obj\Debug\net8.0\staticwebassets.build.json

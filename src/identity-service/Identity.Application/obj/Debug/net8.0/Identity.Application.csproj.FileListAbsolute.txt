@@ -67,69 +67,77 @@ C:\Users\TranVanDu\source\repos\ElectronicVehicleStoreBE\src\identity-service\Id
 C:\Users\TranVanDu\source\repos\ElectronicVehicleStoreBE\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\TranVanDu\source\repos\ElectronicVehicleStoreBE\src\identity-service\Identity.Application\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\TranVanDu\source\repos\ElectronicVehicleStoreBE\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Domain.deps.json
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Domain.runtimeconfig.json
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Domain.staticwebassets.endpoints.json
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Domain.exe
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Infrastructure.deps.json
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Infrastructure.runtimeconfig.json
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Infrastructure.staticwebassets.endpoints.json
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Infrastructure.exe
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Application.staticwebassets.endpoints.json
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Application.exe
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Application.deps.json
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Application.runtimeconfig.json
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Application.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Application.pdb
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\BCrypt.Net-Next.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.OpenApi.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Npgsql.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Domain.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Infrastructure.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Domain.pdb
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Infrastructure.pdb
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.csproj.AssemblyReference.cache
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.AssemblyInfoInputs.cache
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.AssemblyInfo.cs
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.csproj.CoreCompileInputs.cache
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\scopedcss\bundle\Identity.Application.styles.css
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets.build.json.cache
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.59D253F8.Up2Date
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\refint\Identity.Application.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.pdb
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.genruntimeconfig.cache
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\ref\Identity.Application.dll
-C:\Users\caoda\Documents\XDHTHDT\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.sourcelink.json
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Domain.deps.json
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Domain.runtimeconfig.json
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Domain.exe
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Application.exe
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Application.deps.json
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Application.runtimeconfig.json
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Application.dll
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Application.pdb
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Domain.dll
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Domain.pdb
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.csproj.AssemblyReference.cache
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.AssemblyInfoInputs.cache
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.AssemblyInfo.cs
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.csproj.CoreCompileInputs.cache
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.sourcelink.json
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\scopedcss\bundle\Identity.Application.styles.css
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets\msbuild.Identity.Application.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets\msbuild.build.Identity.Application.props
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Identity.Application.props
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Identity.Application.props
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.59D253F8.Up2Date
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.dll
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\refint\Identity.Application.dll
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.pdb
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.genruntimeconfig.cache
+C:\Users\lqq\source\repos\ev-battery-trading-platform\src\identity-service\Identity.Application\obj\Debug\net8.0\ref\Identity.Application.dll
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Domain.deps.json
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Domain.runtimeconfig.json
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Domain.exe
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Application.exe
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Application.deps.json
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Application.runtimeconfig.json
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Application.dll
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Application.pdb
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Domain.dll
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\bin\Debug\net8.0\Identity.Domain.pdb
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.csproj.AssemblyReference.cache
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.AssemblyInfoInputs.cache
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.AssemblyInfo.cs
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.csproj.CoreCompileInputs.cache
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.sourcelink.json
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets\msbuild.Identity.Application.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets\msbuild.build.Identity.Application.props
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Identity.Application.props
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Identity.Application.props
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\scopedcss\bundle\Identity.Application.styles.css
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.59D253F8.Up2Date
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.dll
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\refint\Identity.Application.dll
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.pdb
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\Identity.Application.genruntimeconfig.cache
+C:\Users\lqq\OneDrive\Máy tính\New folder\src\identity-service\Identity.Application\obj\Debug\net8.0\ref\Identity.Application.dll

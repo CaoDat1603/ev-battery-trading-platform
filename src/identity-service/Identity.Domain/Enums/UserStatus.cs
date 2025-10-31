@@ -2,7 +2,8 @@
 {
     public enum UserStatus
     {
-        Ban = 0,
+        Banned = 0,
         Active = 1
+
     }
 }
