@@ -1,31 +1,48 @@
 ﻿using Catalog.Application.Contracts;
 using Catalog.Application.DTOs;
 using Catalog.Domain.Abstractions;
+using Catalog.Domain.Entities;
 using Catalog.Domain.Enums;
 
 namespace Catalog.Application.Services
 {
+    /// <summary>
+    /// Query service for retrieving product information.
+    /// </summary>
     public class ProductQueries : IProductQueries
     {
         private readonly IProductRepository _repo;
-        public ProductQueries(IProductRepository repo) => _repo = repo;
 
+        public ProductQueries(IProductRepository repo)
+        {
+            _repo = repo;
+        }
+
+        /// <summary>
+        /// Get all products as brief DTOs.
+        /// </summary>
         public async Task<IReadOnlyList<ProductBriefDto>> GetAllAsync(CancellationToken ct = default)
         {
             var items = await _repo.GetAllAsync(ct);
-            return items.Select(p => new ProductBriefDto(p.ProductId, p.Title, p.Price, p.StatusProduct)).ToList();
+            return items.Select(MapToDto).ToList().AsReadOnly();
         }
 
         public async Task<IReadOnlyList<ProductBriefDto>> SearchBySellerAsync(int sellerId, CancellationToken ct = default)
         {
-            var products = await _repo.SearchBySellerAsync(sellerId, ct);
-            return products.Select(p => new ProductBriefDto(p.ProductId, p.Title, p.Price, p.StatusProduct)).ToList();
+            var items = await _repo.SearchBySellerAsync(sellerId, ct);
+            return items.Select(MapToDto).ToList().AsReadOnly();
+        }
+
+        public async Task<IReadOnlyList<ProductBriefDto>> SearchModeratedByAsync(int id, CancellationToken ct = default)
+        {
+            var items = await _repo.SearchModeratedByAsync(id, ct);
+            return items.Select(MapToDto).ToList().AsReadOnly();
         }
 
         public async Task<IReadOnlyList<ProductBriefDto>> SearchByProductIDAsync(int productId, CancellationToken ct = default)
         {
-            var products = await _repo.SearchByProductIDAsync(productId, ct);
-            return products.Select(p => new ProductBriefDto(p.ProductId, p.Title, p.Price, p.StatusProduct)).ToList();
+            var items = await _repo.SearchByProductIDAsync(productId, ct);
+            return items.Select(MapToDto).ToList().AsReadOnly();
         }
 
         public async Task<IReadOnlyList<ProductBriefDto>> GetPagedProductsAsync(
@@ -40,29 +57,33 @@ namespace Catalog.Application.Services
             CancellationToken ct = default)
         {
             var (products, totalCount) = await _repo.GetPagedAsync(
-                pageNumber,
-                pageSize,
-                keyword,
-                minPrice,
-                maxPrice,
-                pickupAddress,
-                status,
-                sellerId,
-                ct);
+                pageNumber, pageSize, keyword, minPrice, maxPrice, pickupAddress, status, sellerId, ct);
 
-            // Map domain entities to brief DTOs
-            var result = products.Select(p =>
-                new ProductBriefDto(
-                    p.ProductId,
-                    p.Title,
-                    p.Price,
-                    p.StatusProduct))
-                .ToList()
-                .AsReadOnly();
-
-            return result;
+            return products.Select(MapToDto).ToList().AsReadOnly();
         }
 
-
+        private static ProductBriefDto MapToDto(Product product)
+        {
+            var detail = product.Details.FirstOrDefault();
+            return new ProductBriefDto
+            {
+                ProductId = product.ProductId,
+                Title = product.Title,
+                Price = product.Price,
+                SellerId = product.SellerId,
+                StatusProduct = product.StatusProduct,
+                PickupAddress = product.PickupAddress,
+                ProductName = detail?.ProductName ?? string.Empty,
+                Description = detail?.Description ?? string.Empty,
+                ProductType = detail?.ProductType ?? 0,
+                RegistrationCard = detail?.RegistrationCard,
+                FileUrl = detail?.FileUrl,
+                ImageUrl = detail?.ImageUrl,
+                ModeratedBy = product.ModeratedBy,
+                CreatedAt = product.CreatedAt,
+                UpdatedAt = product.UpdatedAt,
+                DeletedAt = product.DeletedAt
+            };
+        }
     }
 }

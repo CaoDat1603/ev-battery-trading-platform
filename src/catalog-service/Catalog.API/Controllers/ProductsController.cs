@@ -70,6 +70,17 @@ namespace Catalog.API.Controllers
         }
 
         /// <summary>
+        /// Get all products of a specific moderated by
+        /// </summary>
+        [HttpGet("moderated/{moderatedBy:int}")]
+        public async Task<IActionResult> GetByModeratedBy(int moderatedBy, CancellationToken ct)
+        {
+            var result = await _queries.SearchModeratedByAsync(moderatedBy, ct);
+            return Ok(result);
+        }
+
+
+        /// <summary>
         /// Search products for buyer (Available only)
         /// </summary>
         [HttpGet("search")]
@@ -78,6 +89,7 @@ namespace Catalog.API.Controllers
             [FromQuery] decimal? minPrice,
             [FromQuery] decimal? maxPrice,
             [FromQuery] string? pickupAddress,
+            [FromQuery] int? sellerId,
             [FromQuery] int pageNumber = 1,
             [FromQuery] int pageSize = 10,
             CancellationToken ct = default)
@@ -90,7 +102,7 @@ namespace Catalog.API.Controllers
                 maxPrice,
                 pickupAddress,
                 ProductStatus.Available,
-                null,
+                sellerId,
                 ct);
 
             return Ok(result);
@@ -167,6 +179,22 @@ namespace Catalog.API.Controllers
                 return NotFound(new { message = "Product not found" });
 
             return Ok(new { message = "Status updated successfully" });
+        }
+
+        /// <summary>
+        /// Soft delete a product
+        /// </summary>
+        [HttpDelete("{productId:int}")]
+        public async Task<IActionResult> DeleteProduct(int productId, CancellationToken ct)
+        {
+            if (productId <= 0)
+                return BadRequest(new { message = "Invalid product ID" });
+
+            var success = await _commands.DeleteProductAsync(productId, ct);
+            if (!success)
+                return NotFound(new { message = "Product not found" });
+
+            return Ok(new { message = "Product deleted successfully" });
         }
     }
 }

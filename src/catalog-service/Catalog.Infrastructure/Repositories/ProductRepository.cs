@@ -102,6 +102,19 @@ namespace Catalog.Infrastructure.Repositories
         }
 
         /// <summary>
+        /// Retrieves all products belonging to a specific moderated by.
+        /// </summary>
+        public async Task<IReadOnlyList<Product>> SearchModeratedByAsync(int id, CancellationToken ct = default)
+        {
+            return await _db.Products
+                .Where(p => p.ModeratedBy == id && p.DeletedAt == null)
+                .Include(p => p.Details)
+                .AsNoTracking()
+                .OrderByDescending(p => p.CreatedAt)
+                .ToListAsync(ct);
+        }
+
+        /// <summary>
         /// Retrieves paged products with multiple filtering options such as keyword, price range, address, and status.
         /// </summary>
         /// <param name="pageNumber">Page number (starting from 1).</param>

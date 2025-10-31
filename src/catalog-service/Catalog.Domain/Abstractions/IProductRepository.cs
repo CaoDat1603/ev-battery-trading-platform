@@ -16,10 +16,9 @@ namespace Catalog.Domain.Abstractions
 
         // Get tất cả Product
         Task<IReadOnlyList<Product>> GetAllAsync(CancellationToken ct = default);
-
         // Tìm kiếm theo SellerId
         Task<IReadOnlyList<Product>> SearchBySellerAsync(int sellerId, CancellationToken ct = default);
-
+        Task<IReadOnlyList<Product>> SearchModeratedByAsync(int id, CancellationToken ct = default);
         Task<(IReadOnlyList<Product> Products, int TotalCount)> GetPagedAsync(
             int pageNumber,
             int pageSize,

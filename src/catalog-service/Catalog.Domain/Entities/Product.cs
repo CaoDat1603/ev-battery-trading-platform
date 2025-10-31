@@ -117,6 +117,7 @@ namespace Catalog.Domain.Entities
         /// </summary>
         public void Delete()
         {
+            StatusProduct = ProductStatus.Block;
             DeletedAt = DateTimeOffset.UtcNow;
             UpdatedAt = DeletedAt;
         }

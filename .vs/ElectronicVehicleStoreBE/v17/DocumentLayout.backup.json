@@ -3,6 +3,62 @@
   "WorkspaceRootPath": "C:\\Users\\caoda\\Documents\\XDHTHDT\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{93C92F24-371C-4A93-BC57-3FAA21C02B7D}|src\\catalog-service\\Catalog.API\\Catalog.API.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93C92F24-371C-4A93-BC57-3FAA21C02B7D}|src\\catalog-service\\Catalog.API\\Catalog.API.csproj|solutionrelative:src\\catalog-service\\catalog.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.application\\contracts\\iproductqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|solutionrelative:src\\catalog-service\\catalog.application\\contracts\\iproductqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.application\\services\\productqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|solutionrelative:src\\catalog-service\\catalog.application\\services\\productqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.application\\contracts\\iproductcommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|solutionrelative:src\\catalog-service\\catalog.application\\contracts\\iproductcommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F932F674-0B7B-42FA-A74D-93552B682A97}|src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F932F674-0B7B-42FA-A74D-93552B682A97}|src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj|solutionrelative:src\\catalog-service\\catalog.infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}|src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.domain\\abstractions\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}|src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj|solutionrelative:src\\catalog-service\\catalog.domain\\abstractions\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}|src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}|src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj|solutionrelative:src\\catalog-service\\catalog.domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.application\\services\\productcommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|solutionrelative:src\\catalog-service\\catalog.application\\services\\productcommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.application\\dtos\\productbriefdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|solutionrelative:src\\catalog-service\\catalog.application\\dtos\\productbriefdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}|src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.domain\\entities\\productdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}|src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj|solutionrelative:src\\catalog-service\\catalog.domain\\entities\\productdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.application\\dtos\\createproductrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|solutionrelative:src\\catalog-service\\catalog.application\\dtos\\createproductrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.application\\dtos\\updateproductstatusrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|solutionrelative:src\\catalog-service\\catalog.application\\dtos\\updateproductstatusrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09BD51C-DADE-4349-98D7-9D4FF0530598}|src\\auction-service\\Auction.Domain\\Auction.Domain.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\auction-service\\auction.domain\\enums\\depositstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C09BD51C-DADE-4349-98D7-9D4FF0530598}|src\\auction-service\\Auction.Domain\\Auction.Domain.csproj|solutionrelative:src\\auction-service\\auction.domain\\enums\\depositstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09BD51C-DADE-4349-98D7-9D4FF0530598}|src\\auction-service\\Auction.Domain\\Auction.Domain.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\auction-service\\auction.domain\\entities\\auctionitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C09BD51C-DADE-4349-98D7-9D4FF0530598}|src\\auction-service\\Auction.Domain\\Auction.Domain.csproj|solutionrelative:src\\auction-service\\auction.domain\\entities\\auctionitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F932F674-0B7B-42FA-A74D-93552B682A97}|src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.infrastructure\\services\\productimagehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F932F674-0B7B-42FA-A74D-93552B682A97}|src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj|solutionrelative:src\\catalog-service\\catalog.infrastructure\\services\\productimagehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,28 +71,8 @@
       "RelativeMoniker": "D:0:0:{F932F674-0B7B-42FA-A74D-93552B682A97}|src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj|solutionrelative:src\\catalog-service\\catalog.infrastructure\\services\\localfilestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F932F674-0B7B-42FA-A74D-93552B682A97}|src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F932F674-0B7B-42FA-A74D-93552B682A97}|src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj|solutionrelative:src\\catalog-service\\catalog.infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F932F674-0B7B-42FA-A74D-93552B682A97}|src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.infrastructure\\catalog.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{F932F674-0B7B-42FA-A74D-93552B682A97}|src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj|solutionrelative:src\\catalog-service\\catalog.infrastructure\\catalog.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}|src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.domain\\enums\\productstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}|src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj|solutionrelative:src\\catalog-service\\catalog.domain\\enums\\productstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}|src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.domain\\entities\\productdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}|src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj|solutionrelative:src\\catalog-service\\catalog.domain\\entities\\productdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}|src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}|src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj|solutionrelative:src\\catalog-service\\catalog.domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}|src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.domain\\abstractions\\iproductfilehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}|src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj|solutionrelative:src\\catalog-service\\catalog.domain\\abstractions\\iproductfilehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}|src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.domain\\abstractions\\ilocalfilestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,44 +87,20 @@
       "RelativeMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|solutionrelative:src\\catalog-service\\catalog.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.application\\services\\productqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|solutionrelative:src\\catalog-service\\catalog.application\\services\\productqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.application\\services\\productcommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|solutionrelative:src\\catalog-service\\catalog.application\\services\\productcommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.application\\dtos\\updateproductstatusrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|solutionrelative:src\\catalog-service\\catalog.application\\dtos\\updateproductstatusrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.application\\dtos\\productbriefdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|solutionrelative:src\\catalog-service\\catalog.application\\dtos\\productbriefdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.application\\dtos\\createproductrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|solutionrelative:src\\catalog-service\\catalog.application\\dtos\\createproductrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.application\\dtos\\createproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|solutionrelative:src\\catalog-service\\catalog.application\\dtos\\createproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.application\\contracts\\iproductqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|solutionrelative:src\\catalog-service\\catalog.application\\contracts\\iproductqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.application\\contracts\\iproductcommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|solutionrelative:src\\catalog-service\\catalog.application\\contracts\\iproductcommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{93C92F24-371C-4A93-BC57-3FAA21C02B7D}|src\\catalog-service\\Catalog.API\\Catalog.API.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{93C92F24-371C-4A93-BC57-3FAA21C02B7D}|src\\catalog-service\\Catalog.API\\Catalog.API.csproj|solutionrelative:src\\catalog-service\\catalog.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{93C92F24-371C-4A93-BC57-3FAA21C02B7D}|src\\catalog-service\\Catalog.API\\Catalog.API.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{93C92F24-371C-4A93-BC57-3FAA21C02B7D}|src\\catalog-service\\Catalog.API\\Catalog.API.csproj|solutionrelative:src\\catalog-service\\catalog.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F932F674-0B7B-42FA-A74D-93552B682A97}|src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.infrastructure\\catalog.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{F932F674-0B7B-42FA-A74D-93552B682A97}|src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj|solutionrelative:src\\catalog-service\\catalog.infrastructure\\catalog.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}|src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.domain\\abstractions\\iproductfilehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}|src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj|solutionrelative:src\\catalog-service\\catalog.domain\\abstractions\\iproductfilehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F932F674-0B7B-42FA-A74D-93552B682A97}|src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.infrastructure\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -111,10 +123,6 @@
       "RelativeMoniker": "D:0:0:{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}|src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj|solutionrelative:src\\catalog-service\\catalog.domain\\abstractions\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}|src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.domain\\abstractions\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}|src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj|solutionrelative:src\\catalog-service\\catalog.domain\\abstractions\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\catalog-service\\catalog.application\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{7DC768D7-9D34-495B-89E3-D71C98C44873}|src\\catalog-service\\Catalog.Application\\Catalog.Application.csproj|solutionrelative:src\\catalog-service\\catalog.application\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -135,10 +143,6 @@
       "RelativeMoniker": "D:0:0:{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}|src\\catalog-service\\Catalog.Domain\\Catalog.Domain.csproj|solutionrelative:src\\catalog-service\\catalog.domain\\abstractions\\iproductimagehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C09BD51C-DADE-4349-98D7-9D4FF0530598}|src\\auction-service\\Auction.Domain\\Auction.Domain.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\auction-service\\auction.domain\\entities\\auctionitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C09BD51C-DADE-4349-98D7-9D4FF0530598}|src\\auction-service\\Auction.Domain\\Auction.Domain.csproj|solutionrelative:src\\auction-service\\auction.domain\\entities\\auctionitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C09BD51C-DADE-4349-98D7-9D4FF0530598}|src\\auction-service\\Auction.Domain\\Auction.Domain.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\auction-service\\auction.domain\\entities\\bid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C09BD51C-DADE-4349-98D7-9D4FF0530598}|src\\auction-service\\Auction.Domain\\Auction.Domain.csproj|solutionrelative:src\\auction-service\\auction.domain\\entities\\bid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -157,10 +161,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{ACF9DBBA-B990-44A0-8E1D-BDE9EFA8BC4A}|src\\auction-service\\Auction.Infrastructure\\Auction.Infrastructure.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\auction-service\\auction.infrastructure\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ACF9DBBA-B990-44A0-8E1D-BDE9EFA8BC4A}|src\\auction-service\\Auction.Infrastructure\\Auction.Infrastructure.csproj|solutionrelative:src\\auction-service\\auction.infrastructure\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C09BD51C-DADE-4349-98D7-9D4FF0530598}|src\\auction-service\\Auction.Domain\\Auction.Domain.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\auction-service\\auction.domain\\enums\\depositstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C09BD51C-DADE-4349-98D7-9D4FF0530598}|src\\auction-service\\Auction.Domain\\Auction.Domain.csproj|solutionrelative:src\\auction-service\\auction.domain\\enums\\depositstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C09BD51C-DADE-4349-98D7-9D4FF0530598}|src\\auction-service\\Auction.Domain\\Auction.Domain.csproj|c:\\users\\caoda\\documents\\xdhthdt\\src\\auction-service\\auction.domain\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -266,7 +266,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -274,189 +274,150 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LocalFileStorage.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Services\\LocalFileStorage.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Infrastructure\\Services\\LocalFileStorage.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Services\\LocalFileStorage.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Infrastructure\\Services\\LocalFileStorage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFMAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "IProductRepository.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductRepository.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductRepository.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductRepository.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T15:20:24.94Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProductFileHandler.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Services\\ProductFileHandler.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Infrastructure\\Services\\ProductFileHandler.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Services\\ProductFileHandler.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Infrastructure\\Services\\ProductFileHandler.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAQwFAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T15:18:40.681Z",
+              "WhenOpened": "2025-10-31T08:42:41.825Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ProductImageHandler.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Services\\ProductImageHandler.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Infrastructure\\Services\\ProductImageHandler.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Services\\ProductImageHandler.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Infrastructure\\Services\\ProductImageHandler.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBMAAAAWAAAAAAAAAA==",
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.API\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.API\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.API\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.API\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAiwEYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T15:22:04.236Z",
+              "WhenOpened": "2025-10-30T17:30:22.674Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ProductRepository.cs",
               "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Repositories\\ProductRepository.cs",
               "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Infrastructure\\Repositories\\ProductRepository.cs",
               "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Repositories\\ProductRepository.cs",
               "RelativeToolTip": "src\\catalog-service\\Catalog.Infrastructure\\Repositories\\ProductRepository.cs",
-              "ViewState": "AgIAAKUAAAAAAAAAAAAAAL0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAwwGoAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-16T15:16:01.815Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Catalog.Infrastructure",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-30T15:17:59.884Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ProductStatus.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Enums\\ProductStatus.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Domain\\Enums\\ProductStatus.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Enums\\ProductStatus.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Domain\\Enums\\ProductStatus.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T13:39:46.609Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "ProductDetail.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Entities\\ProductDetail.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Domain\\Entities\\ProductDetail.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Entities\\ProductDetail.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Domain\\Entities\\ProductDetail.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG8AAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T13:39:42.642Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Entities\\Product.cs",
               "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Domain\\Entities\\Product.cs",
               "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Entities\\Product.cs",
               "RelativeToolTip": "src\\catalog-service\\Catalog.Domain\\Entities\\Product.cs",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAYwBIAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwB0AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-17T15:48:23.596Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IProductFileHandler.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductFileHandler.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductFileHandler.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductFileHandler.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductFileHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABlAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "IProductQueries.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Contracts\\IProductQueries.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Application\\Contracts\\IProductQueries.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Contracts\\IProductQueries.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Application\\Contracts\\IProductQueries.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T15:17:12.22Z",
+              "WhenOpened": "2025-10-13T13:42:01.199Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ILocalFileStorage.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Abstractions\\ILocalFileStorage.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Domain\\Abstractions\\ILocalFileStorage.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Abstractions\\ILocalFileStorage.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Domain\\Abstractions\\ILocalFileStorage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "IProductCommands.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Contracts\\IProductCommands.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Application\\Contracts\\IProductCommands.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Contracts\\IProductCommands.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Application\\Contracts\\IProductCommands.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T15:19:19.672Z",
+              "WhenOpened": "2025-10-17T15:35:22.889Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Program.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Application\\Program.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Program.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Application\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T15:31:56.584Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Application\\DependencyInjection.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\DependencyInjection.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Application\\DependencyInjection.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T15:31:33.251Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 2,
               "Title": "ProductQueries.cs",
               "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Services\\ProductQueries.cs",
               "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Application\\Services\\ProductQueries.cs",
               "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Services\\ProductQueries.cs",
               "RelativeToolTip": "src\\catalog-service\\Catalog.Application\\Services\\ProductQueries.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAuwDgAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwCEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-16T15:31:13.665Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 10,
+              "Title": "CreateProductRequest.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\DTOs\\CreateProductRequest.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Application\\DTOs\\CreateProductRequest.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\DTOs\\CreateProductRequest.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Application\\DTOs\\CreateProductRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T17:28:54.067Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "ProductCommands.cs",
               "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Services\\ProductCommands.cs",
               "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Application\\Services\\ProductCommands.cs",
               "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Services\\ProductCommands.cs",
               "RelativeToolTip": "src\\catalog-service\\Catalog.Application\\Services\\ProductCommands.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAmwFgAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAcwFMAAABZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-16T15:35:19.766Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 8,
+              "Title": "ProductBriefDto.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\DTOs\\ProductBriefDto.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Application\\DTOs\\ProductBriefDto.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\DTOs\\ProductBriefDto.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Application\\DTOs\\ProductBriefDto.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAxwBAAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T12:06:23.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ProductDetail.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Entities\\ProductDetail.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Domain\\Entities\\ProductDetail.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Entities\\ProductDetail.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Domain\\Entities\\ProductDetail.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAowG8AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T13:39:42.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "UpdateProductStatusRequest.cs",
               "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\DTOs\\UpdateProductStatusRequest.cs",
               "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Application\\DTOs\\UpdateProductStatusRequest.cs",
@@ -469,241 +430,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ProductBriefDto.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\DTOs\\ProductBriefDto.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Application\\DTOs\\ProductBriefDto.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\DTOs\\ProductBriefDto.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Application\\DTOs\\ProductBriefDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "DepositStatus.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\auction-service\\Auction.Domain\\Enums\\DepositStatus.cs",
+              "RelativeDocumentMoniker": "src\\auction-service\\Auction.Domain\\Enums\\DepositStatus.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\auction-service\\Auction.Domain\\Enums\\DepositStatus.cs",
+              "RelativeToolTip": "src\\auction-service\\Auction.Domain\\Enums\\DepositStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T12:06:23.679Z",
+              "WhenOpened": "2025-10-17T18:29:00.134Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "CreateProductRequest.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\DTOs\\CreateProductRequest.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Application\\DTOs\\CreateProductRequest.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\DTOs\\CreateProductRequest.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Application\\DTOs\\CreateProductRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T17:28:54.067Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "CreateProductDto.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\DTOs\\CreateProductDto.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Application\\DTOs\\CreateProductDto.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\DTOs\\CreateProductDto.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Application\\DTOs\\CreateProductDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T12:03:46.573Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "IProductQueries.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Contracts\\IProductQueries.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Application\\Contracts\\IProductQueries.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Contracts\\IProductQueries.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Application\\Contracts\\IProductQueries.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T13:42:01.199Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "IProductCommands.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Contracts\\IProductCommands.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Application\\Contracts\\IProductCommands.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Contracts\\IProductCommands.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Application\\Contracts\\IProductCommands.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T15:35:22.889Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.API\\Program.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.API\\Program.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.API\\Program.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.API\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T13:32:31.383Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "ProductsController.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.API\\Controllers\\ProductsController.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.API\\Controllers\\ProductsController.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.API\\Controllers\\ProductsController.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.API\\Controllers\\ProductsController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T17:30:22.674Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "UnitOfWork.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\UnitOfWork.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Infrastructure\\UnitOfWork.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\UnitOfWork.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Infrastructure\\UnitOfWork.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T13:45:55.873Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Program.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Infrastructure\\Program.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Program.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Infrastructure\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T15:17:46.001Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Infrastructure\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\AppDbContext.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Infrastructure\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEkAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T15:16:43.437Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Program.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Domain\\Program.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Program.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Domain\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T14:59:47.406Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "IUnitOfWork.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Abstractions\\IUnitOfWork.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Domain\\Abstractions\\IUnitOfWork.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Abstractions\\IUnitOfWork.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Domain\\Abstractions\\IUnitOfWork.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T13:38:21.874Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "IProductRepository.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductRepository.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductRepository.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductRepository.cs*",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductRepository.cs*",
-              "ViewState": "AgIAABYAAAAAAAAAAAAwwBIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T14:52:33.959Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Application\\Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Properties\\launchSettings.json",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Application\\Properties\\launchSettings.json",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAACMAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-16T15:28:40.435Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "Catalog.API.http",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.API\\Catalog.API.http",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.API\\Catalog.API.http",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.API\\Catalog.API.http",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.API\\Catalog.API.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-10-16T15:41:09.321Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "Catalog.API",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.API\\Catalog.API.csproj",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.API\\Catalog.API.csproj",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.API\\Catalog.API.csproj",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.API\\Catalog.API.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-30T17:37:50.145Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Infrastructure\\DependencyInjection.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\DependencyInjection.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Infrastructure\\DependencyInjection.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABTAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T15:17:23.704Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "IProductImageHandler.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductImageHandler.cs",
-              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductImageHandler.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductImageHandler.cs",
-              "RelativeToolTip": "src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductImageHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T15:16:49.306Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 13,
               "Title": "AuctionItem.cs",
               "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\auction-service\\Auction.Domain\\Entities\\AuctionItem.cs",
               "RelativeDocumentMoniker": "src\\auction-service\\Auction.Domain\\Entities\\AuctionItem.cs",
@@ -716,7 +456,260 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ProductImageHandler.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Services\\ProductImageHandler.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Infrastructure\\Services\\ProductImageHandler.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Services\\ProductImageHandler.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Infrastructure\\Services\\ProductImageHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T15:22:04.236Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ILocalFileStorage.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Abstractions\\ILocalFileStorage.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Domain\\Abstractions\\ILocalFileStorage.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Abstractions\\ILocalFileStorage.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Domain\\Abstractions\\ILocalFileStorage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T15:19:19.672Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ProductStatus.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Enums\\ProductStatus.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Domain\\Enums\\ProductStatus.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Enums\\ProductStatus.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Domain\\Enums\\ProductStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T13:39:46.609Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "LocalFileStorage.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Services\\LocalFileStorage.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Infrastructure\\Services\\LocalFileStorage.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Services\\LocalFileStorage.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Infrastructure\\Services\\LocalFileStorage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T15:20:24.94Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ProductFileHandler.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Services\\ProductFileHandler.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Infrastructure\\Services\\ProductFileHandler.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Services\\ProductFileHandler.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Infrastructure\\Services\\ProductFileHandler.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwFAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T15:18:40.681Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Program.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Application\\Program.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Program.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Application\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T15:31:56.584Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Application\\DependencyInjection.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\DependencyInjection.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Application\\DependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T15:31:33.251Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "CreateProductDto.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\DTOs\\CreateProductDto.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Application\\DTOs\\CreateProductDto.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\DTOs\\CreateProductDto.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Application\\DTOs\\CreateProductDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T12:03:46.573Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.API\\Program.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.API\\Program.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.API\\Program.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.API\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T13:32:31.383Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Catalog.Infrastructure.csproj",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-30T15:17:59.884Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "IProductFileHandler.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductFileHandler.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductFileHandler.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductFileHandler.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductFileHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T15:17:12.22Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Infrastructure\\UnitOfWork.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\UnitOfWork.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Infrastructure\\UnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T13:45:55.873Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Program.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Infrastructure\\Program.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Program.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Infrastructure\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T15:17:46.001Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Infrastructure\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\AppDbContext.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Infrastructure\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEkAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T15:16:43.437Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Program.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Domain\\Program.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Program.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Domain\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T14:59:47.406Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Abstractions\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Domain\\Abstractions\\IUnitOfWork.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Abstractions\\IUnitOfWork.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Domain\\Abstractions\\IUnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T13:38:21.874Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Application\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Application\\Properties\\launchSettings.json",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Application\\Properties\\launchSettings.json",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACMAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-16T15:28:40.435Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Catalog.API.http",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.API\\Catalog.API.http",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.API\\Catalog.API.http",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.API\\Catalog.API.http",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.API\\Catalog.API.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-10-16T15:41:09.321Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Catalog.API.csproj",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.API\\Catalog.API.csproj",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.API\\Catalog.API.csproj",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.API\\Catalog.API.csproj",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.API\\Catalog.API.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-30T17:37:50.145Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Infrastructure\\DependencyInjection.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\DependencyInjection.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Infrastructure\\DependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T15:17:23.704Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 34,
+              "Title": "IProductImageHandler.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductImageHandler.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductImageHandler.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductImageHandler.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Domain\\Abstractions\\IProductImageHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T15:16:49.306Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
               "Title": "Bid.cs",
               "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\auction-service\\Auction.Domain\\Entities\\Bid.cs",
               "RelativeDocumentMoniker": "src\\auction-service\\Auction.Domain\\Entities\\Bid.cs",
@@ -724,12 +717,11 @@
               "RelativeToolTip": "src\\auction-service\\Auction.Domain\\Entities\\Bid.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T13:23:46.521Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-17T13:23:46.521Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\auction-service\\Auction.Infrastructure\\AppDbContext.cs",
               "RelativeDocumentMoniker": "src\\auction-service\\Auction.Infrastructure\\AppDbContext.cs",
@@ -741,7 +733,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\identity-service\\Identity.API\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "src\\identity-service\\Identity.API\\Controllers\\AuthController.cs",
@@ -753,7 +745,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "IAuctionRepository.cs",
               "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\auction-service\\Auction.Domain\\Abstractions\\IAuctionRepository.cs",
               "RelativeDocumentMoniker": "src\\auction-service\\Auction.Domain\\Abstractions\\IAuctionRepository.cs",
@@ -765,7 +757,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "AuctionRepository.cs",
               "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\auction-service\\Auction.Infrastructure\\Repositories\\AuctionRepository.cs",
               "RelativeDocumentMoniker": "src\\auction-service\\Auction.Infrastructure\\Repositories\\AuctionRepository.cs",
@@ -774,18 +766,6 @@
               "ViewState": "AgIAAAwAAAAAAAAAAAAYwB8AAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-17T14:22:38.347Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "DepositStatus.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\auction-service\\Auction.Domain\\Enums\\DepositStatus.cs",
-              "RelativeDocumentMoniker": "src\\auction-service\\Auction.Domain\\Enums\\DepositStatus.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\auction-service\\Auction.Domain\\Enums\\DepositStatus.cs",
-              "RelativeToolTip": "src\\auction-service\\Auction.Domain\\Enums\\DepositStatus.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T18:29:00.134Z"
             },
             {
               "$type": "Document",
@@ -821,8 +801,7 @@
               "RelativeToolTip": "src\\auction-service\\Auction.API\\Auction.API.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-17T14:32:23.378Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-17T14:32:23.378Z"
             },
             {
               "$type": "Document",
@@ -834,8 +813,7 @@
               "RelativeToolTip": "src\\auction-service\\Auction.Infrastructure\\Auction.Infrastructure.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-17T14:18:12.345Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-17T14:18:12.345Z"
             },
             {
               "$type": "Document",
@@ -847,8 +825,7 @@
               "RelativeToolTip": "src\\auction-service\\Auction.Application\\Auction.Application.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-17T12:47:24.945Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-17T12:47:24.945Z"
             },
             {
               "$type": "Document",
@@ -860,8 +837,7 @@
               "RelativeToolTip": "src\\auction-service\\Auction.Domain\\Auction.Domain.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-17T12:53:01.822Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-17T12:53:01.822Z"
             },
             {
               "$type": "Document",
@@ -944,8 +920,7 @@
               "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
               "RelativeToolTip": "src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-17T13:41:31.843Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-17T13:41:31.843Z"
             },
             {
               "$type": "Document",
@@ -1076,8 +1051,7 @@
               "ToolTip": "C:\\Users\\caoda\\Documents\\XDHTHDT\\src\\catalog-service\\Catalog.API\\Catalog.API.csproj",
               "RelativeToolTip": "src\\catalog-service\\Catalog.API\\Catalog.API.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-16T15:39:52.531Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-16T15:39:52.531Z"
             }
           ]
         }

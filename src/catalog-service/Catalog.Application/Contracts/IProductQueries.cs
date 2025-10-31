@@ -8,6 +8,7 @@ namespace Catalog.Application.Contracts
         Task<IReadOnlyList<ProductBriefDto>> GetAllAsync(CancellationToken ct = default);
         Task<IReadOnlyList<ProductBriefDto>> SearchByProductIDAsync(int productId, CancellationToken ct = default);
         Task<IReadOnlyList<ProductBriefDto>> SearchBySellerAsync(int sellerId, CancellationToken ct = default);
+        Task<IReadOnlyList<ProductBriefDto>> SearchModeratedByAsync(int id, CancellationToken ct = default);
         Task<IReadOnlyList<ProductBriefDto>> GetPagedProductsAsync(
            int pageNumber = 1,
            int pageSize = 20,
