@@ -1,4 +1,6 @@
 ﻿
+using Auction.Application.Contracts;
+using Auction.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 namespace Auction.Application
 {
@@ -6,7 +8,13 @@ namespace Auction.Application
     {
         public static IServiceCollection AddAuctionApplication(this IServiceCollection services)
         {
-            // Register application services here
+            // Register commands
+            services.AddScoped<IAuctionCommand, AuctionCommand>();
+            services.AddScoped<IBidCommand, BidCommand>();
+
+            // Register queries
+            services.AddScoped<IAuctionQueries, AuctionQueries>();
+            services.AddScoped<IBidQueries, BidQueries>();
             return services;
         }
     }

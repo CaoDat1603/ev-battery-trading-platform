@@ -6,7 +6,7 @@ namespace Catalog.Application.DTOs
     //    public class ProductBriefDto(
     //        int ProductId, string Title, decimal Price, ProductStatus StatusProduct);
 
-    public class ProductBriefDto
+    public class ProductResponse
     {
         [Required] public int ProductId { get; set; }
         [Required] public string Title { get; set; } = default!;

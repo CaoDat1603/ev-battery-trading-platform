@@ -19,33 +19,33 @@ namespace Catalog.Application.Services
         }
 
         /// <summary>
-        /// Get all products as brief DTOs.
+        /// Get all products as product response.
         /// </summary>
-        public async Task<IReadOnlyList<ProductBriefDto>> GetAllAsync(CancellationToken ct = default)
+        public async Task<IReadOnlyList<ProductResponse>> GetAllAsync(CancellationToken ct = default)
         {
             var items = await _repo.GetAllAsync(ct);
             return items.Select(MapToDto).ToList().AsReadOnly();
         }
 
-        public async Task<IReadOnlyList<ProductBriefDto>> SearchBySellerAsync(int sellerId, CancellationToken ct = default)
+        public async Task<IReadOnlyList<ProductResponse>> SearchBySellerAsync(int sellerId, CancellationToken ct = default)
         {
             var items = await _repo.SearchBySellerAsync(sellerId, ct);
             return items.Select(MapToDto).ToList().AsReadOnly();
         }
 
-        public async Task<IReadOnlyList<ProductBriefDto>> SearchModeratedByAsync(int id, CancellationToken ct = default)
+        public async Task<IReadOnlyList<ProductResponse>> SearchModeratedByAsync(int id, CancellationToken ct = default)
         {
             var items = await _repo.SearchModeratedByAsync(id, ct);
             return items.Select(MapToDto).ToList().AsReadOnly();
         }
 
-        public async Task<IReadOnlyList<ProductBriefDto>> SearchByProductIDAsync(int productId, CancellationToken ct = default)
+        public async Task<IReadOnlyList<ProductResponse>> SearchByProductIDAsync(int productId, CancellationToken ct = default)
         {
             var items = await _repo.SearchByProductIDAsync(productId, ct);
             return items.Select(MapToDto).ToList().AsReadOnly();
         }
 
-        public async Task<IReadOnlyList<ProductBriefDto>> GetPagedProductsAsync(
+        public async Task<IReadOnlyList<ProductResponse>> GetPagedProductsAsync(
             int pageNumber = 1,
             int pageSize = 20,
             string? sortBy = "newest",
@@ -76,11 +76,10 @@ namespace Catalog.Application.Services
             return count;
         }
 
-
-        private static ProductBriefDto MapToDto(Product product)
+        private static ProductResponse MapToDto(Product product)
         {
             var detail = product.Details.FirstOrDefault();
-            return new ProductBriefDto
+            return new ProductResponse
             {
                 ProductId = product.ProductId,
                 Title = product.Title,
