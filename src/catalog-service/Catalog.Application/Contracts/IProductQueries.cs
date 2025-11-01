@@ -5,11 +5,11 @@ namespace Catalog.Application.Contracts
 {
     public interface IProductQueries
     {
-        Task<IReadOnlyList<ProductBriefDto>> GetAllAsync(CancellationToken ct = default);
-        Task<IReadOnlyList<ProductBriefDto>> SearchByProductIDAsync(int productId, CancellationToken ct = default);
-        Task<IReadOnlyList<ProductBriefDto>> SearchBySellerAsync(int sellerId, CancellationToken ct = default);
-        Task<IReadOnlyList<ProductBriefDto>> SearchModeratedByAsync(int id, CancellationToken ct = default);
-        Task<IReadOnlyList<ProductBriefDto>> GetPagedProductsAsync(
+        Task<IReadOnlyList<ProductResponse>> GetAllAsync(CancellationToken ct = default);
+        Task<IReadOnlyList<ProductResponse>> SearchByProductIDAsync(int productId, CancellationToken ct = default);
+        Task<IReadOnlyList<ProductResponse>> SearchBySellerAsync(int sellerId, CancellationToken ct = default);
+        Task<IReadOnlyList<ProductResponse>> SearchModeratedByAsync(int id, CancellationToken ct = default);
+        Task<IReadOnlyList<ProductResponse>> GetPagedProductsAsync(
            int pageNumber = 1,
            int pageSize = 20,
            string? sortBy = "newest",

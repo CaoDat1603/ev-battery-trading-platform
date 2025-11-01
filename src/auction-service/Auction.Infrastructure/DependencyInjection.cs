@@ -10,6 +10,7 @@ namespace Auction.Infrastructure
         {
             services.AddDbContext<AppDbContext>(o => o.UseNpgsql(connectionString));
             services.AddScoped<IAuctionRepository, AuctionRepository>();
+            services.AddScoped<IBidRepository, BidRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             return services;
         }
