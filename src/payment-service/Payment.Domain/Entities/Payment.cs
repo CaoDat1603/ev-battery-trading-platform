@@ -1,11 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
 
 namespace Payment.Domain.Entities
 {
     public class Payment
     {
-        // Constrcutor rỗng
-        public Payment() { }
+        // Constructor rỗng
+        public Payment() 
+        {
+            // Provide safe defaults for EF Core
+            Method = string.Empty;
+            Status = Enums.PaymentStatus.Pending;
+            CreatedAt = DateTimeOffset.UtcNow;
+        }
 
         // Constructor nghiệp vụ
         public Payment(int transactionId, string method, decimal amount)
