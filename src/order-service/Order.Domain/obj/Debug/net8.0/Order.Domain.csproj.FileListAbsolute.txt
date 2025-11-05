@@ -32,4 +32,3 @@ D:\projects\App\ev-battery-trading-platform\src\order-service\Order.Domain\obj\D
 D:\projects\App\ev-battery-trading-platform\src\order-service\Order.Domain\obj\Debug\net8.0\Order.Domain.pdb
 D:\projects\App\ev-battery-trading-platform\src\order-service\Order.Domain\obj\Debug\net8.0\Order.Domain.genruntimeconfig.cache
 D:\projects\App\ev-battery-trading-platform\src\order-service\Order.Domain\obj\Debug\net8.0\ref\Order.Domain.dll
-D:\projects\App\ev-battery-trading-platform\src\order-service\Order.Domain\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

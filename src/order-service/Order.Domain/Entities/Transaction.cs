@@ -61,17 +61,62 @@ namespace Order.Domain.Entities
             CreatedAt = DateTimeOffset.UtcNow;
         }
 
-        // Phương thức nghiệp vụ để cập nhật trạng thái đơn hàng
+
+        // --- Phương thức nghiệp vụ ---
+
+        // Cập nhật trạng thái giao dịch, bao gồm kiểm tra tính hợp lệ của chuyển đổi trạng thái
         public void UpdateStatus(Enums.TransactionStatus newStatus)
         {
+            if (TransactionStatus == Enums.TransactionStatus.Cancelled || TransactionStatus == Enums.TransactionStatus.Completed)
+            {
+                throw new InvalidOperationException($"Cannot change status from {TransactionStatus} to {newStatus}.");
+            }
+
             TransactionStatus = newStatus;
             UpdatedAt = DateTimeOffset.UtcNow;
         }
 
-        // Có thể thêm các phương thức khác như Cancel, SoftDelete, ... nếu cần
+        // Hủy giao dịch
+        public void Cancel()
+        {
+            // Chỉ có thể hủy nếu đang ở trạng thái Pending hoặc Processing
+            if (TransactionStatus == Enums.TransactionStatus.Completed)
+            {
+                throw new InvalidOperationException("Cannot cancel a completed transaction.");
+            }
+
+            if (TransactionStatus == Enums.TransactionStatus.Cancelled)
+            {
+                return; // Đã bị hủy rồi
+            }
+
+            TransactionStatus = Enums.TransactionStatus.Cancelled;
+            UpdatedAt = DateTimeOffset.UtcNow;
+        }
+
+        // Xác nhận giao dịch đã hoàn tất
+        public void MarkAsCompleted()
+        {
+            if (TransactionStatus != Enums.TransactionStatus.Processing)
+            {
+                throw new InvalidOperationException($"Transaction must be in Processing state to be completed. Current state: {TransactionStatus}.");
+            }
+
+            TransactionStatus = Enums.TransactionStatus.Completed;
+            UpdatedAt = DateTimeOffset.UtcNow;
+        }
+
+        // Đánh dấu mềm (Soft Delete) giao dịch
         public void MarkAsDeleted()
         {
             DeletedAt = DateTimeOffset.UtcNow;
+        }
+        
+        // Kiểm tra xem giao dịch này đã sẵn sàng để chuyển sang thanh toán hay chưa
+        public bool IsReadyForPayment()
+        {
+            // Chỉ các giao dịch Pending mới có thể chuyển sang Payment
+            return TransactionStatus == Enums.TransactionStatus.Pending;
         }
     }
 }
