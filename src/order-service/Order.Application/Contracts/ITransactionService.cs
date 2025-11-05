@@ -7,5 +7,6 @@ namespace Order.Application.Contracts
     {
         Task<int> CreateNewTransaction(CreateTransactionRequest request);
         Task<bool> UpdateTransactionStatus(int transactionId, TransactionStatus newStatus);
+        Task<bool> CancelTransaction(int transactionId);
     }
 }
