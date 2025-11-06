@@ -2,3 +2,7 @@ D:\projects\App\ev-battery-trading-platform\src\order-service\Order.Domain\obj\D
 D:\projects\App\ev-battery-trading-platform\src\order-service\Order.Domain\obj\Debug\net8.0\staticwebassets.build.json
 D:\projects\App\ev-battery-trading-platform\src\order-service\Order.Domain\obj\Debug\net8.0\staticwebassets.build.json
 D:\projects\App\ev-battery-trading-platform\src\order-service\Order.Domain\obj\Debug\net8.0\staticwebassets.build.json
+D:\projects\App\ev-battery-trading-platform\src\order-service\Order.Domain\obj\Debug\net8.0\staticwebassets.build.json
+D:\projects\App\ev-battery-trading-platform\src\order-service\Order.Domain\obj\Debug\net8.0\staticwebassets.build.json
+D:\projects\App\ev-battery-trading-platform\src\order-service\Order.Domain\obj\Debug\net8.0\staticwebassets.build.json
+D:\projects\App\ev-battery-trading-platform\src\order-service\Order.Domain\obj\Debug\net8.0\staticwebassets.build.json

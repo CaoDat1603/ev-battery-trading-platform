@@ -14,7 +14,7 @@ namespace Order.Infrastructure.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<Order.Domain.Entities.Transaction> GetByIdAsync(int id)
+        public async Task<Order.Domain.Entities.Transaction?> GetByIdAsync(int id)
         {
             return await _dbContext.Transactions.FirstOrDefaultAsync(t => t.TransactionId == id);
         }
