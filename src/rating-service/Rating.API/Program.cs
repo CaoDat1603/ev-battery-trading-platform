@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Rating.API.Middlewares;
 using Rating.Application;
 using Rating.Infrastructure;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
