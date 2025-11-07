@@ -12,6 +12,7 @@
           "Microsoft.EntityFrameworkCore.Design": "9.0.4",
           "Microsoft.EntityFrameworkCore.Tools": "9.0.4",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4",
+          "Rating.Application": "1.0.0",
           "Rating.Domain": "1.0.0",
           "Swashbuckle.AspNetCore": "6.6.2"
         },
@@ -703,6 +704,18 @@
         }
       },
       "System.Threading.Channels/7.0.0": {},
+      "Rating.Application/1.0.0": {
+        "dependencies": {
+          "Rating.Domain": "1.0.0",
+          "Swashbuckle.AspNetCore": "6.6.2"
+        },
+        "runtime": {
+          "Rating.Application.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Rating.Domain/1.0.0": {
         "dependencies": {
           "Swashbuckle.AspNetCore": "6.6.2"
@@ -1071,6 +1084,11 @@
       "sha512": "sha512-qmeeYNROMsONF6ndEZcIQ+VxR4Q/TX/7uIVLJqtwIWL7dDWeh0l1UIqgo4wYyjG//5lUNhwkLDSFl+pAWO6oiA==",
       "path": "system.threading.channels/7.0.0",
       "hashPath": "system.threading.channels.7.0.0.nupkg.sha512"
+    },
+    "Rating.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Rating.Domain/1.0.0": {
       "type": "project",

@@ -2,6 +2,7 @@
 using System.Net;
 using Identity.Domain.Abtractions;
 using Microsoft.Extensions.Options;
+using Identity.Infrastructure.Settings;
 namespace Identity.Infrastructure.Services
 {
     public class EmailService : IEmailService

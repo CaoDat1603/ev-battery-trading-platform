@@ -1,7 +1,7 @@
 ﻿using Identity.Application.Common;
 using Microsoft.AspNetCore.DataProtection;
 using Identity.Application.Contracts;
-namespace Identity.Application.Services
+namespace Identity.Infrastructure.Services
 {
     public class RefreshTokenService : IRefreshTokenService
     {

@@ -1,4 +1,5 @@
 ﻿using Identity.Domain.Entities;
+using Identity.Domain.Enums;
 
 namespace Identity.Domain.Abtractions
 {
@@ -11,5 +12,7 @@ namespace Identity.Domain.Abtractions
         void Update(User entity); // không cần async
         Task<bool> ExistsByEmailAsync(string email, CancellationToken ct = default);
         Task<bool> ExistsByPhoneAsync(string phone, CancellationToken ct = default);
+        Task<IReadOnlyList<User>> SearchAsync(string q, int take = 50, CancellationToken ct = default);
+        Task<IReadOnlyList<User>> GetByProfileStatusAsync(ProfileVerificationStatus status, CancellationToken ct = default);
     }
 }

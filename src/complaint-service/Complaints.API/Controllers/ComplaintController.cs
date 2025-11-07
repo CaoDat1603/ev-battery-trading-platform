@@ -1,6 +1,7 @@
 ﻿using Complaints.Application.Contracts;
 using Complaints.Application.DTOs;
 using Complaints.Application.Mappers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,6 +31,7 @@ namespace Complaints.API.Controllers
         /// Tạo complaint mới.
         /// </summary>
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> CreateComplaint([FromForm] ComplaintCreateRequest request, CancellationToken ct)
         {
             if (!ModelState.IsValid)
@@ -43,6 +45,7 @@ namespace Complaints.API.Controllers
         /// Cập nhật trạng thái hoặc kết quả xử lý complaint.
         /// </summary>
         [HttpPut("{complaintId:int}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateComplaint(int complaintId, [FromBody] ComplaintUpdateRequest request, CancellationToken ct)
         {
             if (complaintId != request.ComplaintId)
@@ -56,6 +59,7 @@ namespace Complaints.API.Controllers
         /// Xóa mềm complaint (soft delete).
         /// </summary>
         [HttpDelete("{complaintId:int}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteComplaint(int complaintId, CancellationToken ct)
         {
             await _commands.DeleteComplaintAsync(complaintId, ct);
@@ -70,6 +74,7 @@ namespace Complaints.API.Controllers
         /// Lấy chi tiết complaint theo ID.
         /// </summary>
         [HttpGet("{complaintId:int}")]
+        [Authorize]
         public async Task<IActionResult> GetComplaintById(int complaintId, CancellationToken ct)
         {
             var complaint = await _queries.GetComplaintByIdAsync(complaintId, ct);
@@ -81,6 +86,7 @@ namespace Complaints.API.Controllers
         /// Lọc complaint theo các điều kiện.
         /// </summary>
         [HttpGet("filter")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetComplaints(
             [FromQuery] int? transactionId,
             [FromQuery] int? complaintantId,
@@ -104,6 +110,7 @@ namespace Complaints.API.Controllers
         /// Lấy complaint có phân trang.
         /// </summary>
         [HttpGet("paged")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetComplaintsPaged(
             [FromQuery] int pageNumber = 1,
             [FromQuery] int pageSize = 10,
@@ -130,6 +137,7 @@ namespace Complaints.API.Controllers
         /// Lấy thống kê complaint (total, pending, resolved, v.v.).
         /// </summary>
         [HttpGet("statistics")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetComplaintStatistics(CancellationToken ct)
         {
             var stats = await _queries.GetComplaintStatisticsAsync(ct);
@@ -140,6 +148,7 @@ namespace Complaints.API.Controllers
         /// Lấy số lượng complaint liên quan đến một user.
         /// </summary>
         [HttpGet("user/{userId:int}/count")]
+        [Authorize]
         public async Task<IActionResult> GetComplaintCountByUser(int userId, CancellationToken ct)
         {
             var count = await _queries.GetComplaintCountByUserAsync(userId, ct);

@@ -1,9 +1,16 @@
 networks:
-  evnet: {}
+  evnet:
+    name: evnet
+
 
 volumes:
   pg_catalog: {}
   pg_identity: {}
+  pg_complaint: {}
+  pg_rating: {}
+  pg_notification: {}
+  rabbitmq_data:
+    driver: local
 
 
 services:
@@ -51,7 +58,14 @@ services:
     build:
       context: .
       dockerfile: src/identity-service/Identity.API/Dockerfile
+    expose:
+      - "8080"
     environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      InternalApiKey: internal-system-secret-xyz
+      JwtSystem__Issuer: InternalSystem
+      JwtSystem__Audience: EVSSystem
+      JwtSystem__SigningKey: this_is_signing_key_system_123456789_abc
       ASPNETCORE_URLS: http://+:8080
       ConnectionStrings__Default: "Host=identity-db;Port=5432;Database=${IDENTITY_DB_NAME};Username=${IDENTITY_DB_USER};Password=${IDENTITY_DB_PASSWORD}"
     depends_on:
@@ -61,6 +75,97 @@ services:
     networks: [evnet]
     restart: unless-stopped
 
+  complaint-db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: ${COMPLAINT_DB_USER}
+      POSTGRES_PASSWORD: ${COMPLAINT_DB_PASSWORD}
+      POSTGRES_DB: ${COMPLAINT_DB_NAME}
+    ports:
+      - "5436:5432"   # để connect từ host
+    volumes:
+      - pg_complaint:/var/lib/postgresql/data
+    networks: [evnet]
+  complaint-api:
+    build:
+      context: .
+      dockerfile: src/complaint-service/Complaints.API/Dockerfile
+    expose:
+      - "8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      Identity__InternalKey: internal-system-secret-xyz
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__Default: "Host=complaint-db;Port=5432;Database=${COMPLAINT_DB_NAME};Username=${COMPLAINT_DB_USER};Password=${COMPLAINT_DB_PASSWORD}"
+    depends_on:
+      - complaint-db
+    ports:
+      - "8105:8080"   # bypass Kong, test trực tiếp
+    networks: [evnet]
+    restart: unless-stopped
+
+  rating-db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: ${RATING_DB_USER}
+      POSTGRES_PASSWORD: ${RATING_DB_PASSWORD}
+      POSTGRES_DB: ${RATING_DB_NAME}
+    ports:
+      - "5437:5432"   # để connect từ host
+    volumes:
+      - pg_rating:/var/lib/postgresql/data
+    networks: [evnet]
+  rating-api:
+    build:
+      context: .
+      dockerfile: src/rating-service/Rating.API/Dockerfile
+    expose:
+      - "8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      Identity__InternalKey: internal-system-secret-xyz
+      Identity__BaseUrl: http://identity-api:8080 
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__Default: "Host=rating-db;Port=5432;Database=${RATING_DB_NAME};Username=${RATING_DB_USER};Password=${RATING_DB_PASSWORD}"
+    depends_on:
+      - rating-db
+    ports:
+      - "8106:8080"   # bypass Kong, test trực tiếp
+    networks: [evnet]
+    restart: unless-stopped
+  
+
+  notification-db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: ${NOTIFICATION_DB_USER}
+      POSTGRES_PASSWORD: ${NOTIFICATION_DB_PASSWORD}
+      POSTGRES_DB: ${NOTIFICATION_DB_NAME}
+    ports:
+      - "5438:5432"   # để connect từ host
+    volumes:
+      - pg_notification:/var/lib/postgresql/data
+    networks: [evnet]
+
+  notification-api:
+    build:
+      context: .
+      dockerfile: src/notification-service/NotificationService.API/Dockerfile
+    expose:
+      - "8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__Default: "Host=notification-db;Port=5432;Database=${NOTIFICATION_DB_NAME};Username=${NOTIFICATION_DB_USER};Password=${NOTIFICATION_DB_PASSWORD}"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      notification-db:
+        condition: service_started
+    ports:
+      - "8107:8080"   # bypass Kong, test trực tiếp
+    networks: [evnet]
+    restart: unless-stopped
 
   kong:
     image: kong:3.7
@@ -82,6 +187,10 @@ services:
       - "8001:8001"   # Admin API
     depends_on:
       - catalog-api
+      - complaint-api
+      - identity-api
+      - rating-api
+      - notification-api
     networks:
       evnet:
         aliases:
@@ -97,4 +206,23 @@ services:
       evnet:
         aliases:
           - konga
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: ev_user
+      RABBITMQ_DEFAULT_PASS: ev_pass_very_secret
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq     # mount dữ liệu ra volume
+    networks: [evnet]
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+
 

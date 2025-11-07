@@ -13,8 +13,8 @@ namespace Identity.Application.DTOs
         public string? ContactPhone { get; set; }
         public string? Avatar { get; set; }
         public string? CitizenIdCard { get; set; }
-        public UserStatus UserStatus { get; set; }
-        public ProfileVerificationStatus ProfileStatus { get; set; }
+        public UserStatus? UserStatus { get; set; }
+        public ProfileVerificationStatus? ProfileStatus { get; set; }
         public DateTimeOffset CreatedAt { get; set; }
         public string? RejectionReason { get; set; }
     }

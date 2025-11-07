@@ -57,6 +57,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.16, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -275,6 +279,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Application\\Rating.Application.csproj": {
+                "projectPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Application\\Rating.Application.csproj"
+              },
               "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj": {
                 "projectPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj"
               }
@@ -316,6 +323,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[9.0.4, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.8.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

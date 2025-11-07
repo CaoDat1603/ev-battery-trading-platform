@@ -1,8 +1,10 @@
 ﻿using Identity.Application.Contracts;
 using Identity.Application.DTOs;
+using Identity.Application.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
 namespace Identity.API.Controllers
@@ -12,10 +14,12 @@ namespace Identity.API.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IUserCommands _userService;
+        private readonly IUserQueries _userQueries;
 
-        public UsersController(IUserCommands userService)
+        public UsersController(IUserCommands userService, IUserQueries userQueries)
         {
             _userService = userService;
+            _userQueries = userQueries;
         }
         [Authorize]
         [HttpGet("claims")]
@@ -23,6 +27,22 @@ namespace Identity.API.Controllers
         {
             var claims = User.Claims.Select(c => new { c.Type, c.Value });
             return Ok(claims);
+        }
+        [Authorize]
+        [HttpGet("{userId:int}")]
+        public async Task<IActionResult> GetUserById(int userId, CancellationToken ct = default)
+        {
+            // Lấy userId từ JWT claims
+            var jwtUserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (jwtUserId == null)
+                return Unauthorized("Invalid token.");
+
+            if (jwtUserId != userId.ToString())
+                return Forbid("You are not allowed to access this user's data.");
+
+            var user = await _userQueries.GetByIdAsync(userId, ct);
+            return Ok(user);
         }
 
         [Authorize]

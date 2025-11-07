@@ -725,6 +725,7 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "9.0.4",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4",
+          "Rating.Application": "1.0.0",
           "Rating.Domain": "1.0.0",
           "Swashbuckle.AspNetCore": "6.6.2"
         },

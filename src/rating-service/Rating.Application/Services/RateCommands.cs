@@ -1,4 +1,5 @@
-﻿using Rating.Application.Contracts;
+﻿using Rating.Application.Abstractions;
+using Rating.Application.Contracts;
 using Rating.Application.DTOs;
 using Rating.Application.Mappers;
 using Rating.Domain.Abstractions;
@@ -11,33 +12,58 @@ namespace Rating.Application.Services
         private IUnitOfWork _uow;
         private IRateRepository _rep;
         private IRateImageHandler _imageHandler;
-        public RateCommands(IUnitOfWork uow, IRateRepository rep, IRateImageHandler imageHandler)
+        private IRateQueries _queries;
+        private IIdentityClient _identityClient;
+        private IEventBus _eventBus;
+        public RateCommands(IUnitOfWork uow, IRateRepository rep, IRateImageHandler imageHandler, IRateQueries queries, IIdentityClient identity, IEventBus eventBus)
         {
             _uow = uow;
             _rep = rep;
             _imageHandler = imageHandler;
+            _queries = queries;
+            _identityClient = identity;
+            _eventBus = eventBus;
         }
 
         public async Task<RateResponse> CreateAsync(CreateRateRequest request, CancellationToken ct = default)
         {
             ValidateScore(request.Score);
-
+            if (request.UserId.HasValue)
+            {
+                var exists = await _identityClient.UserExistsAsync(request.UserId.Value, ct);
+                if (!exists)
+                    throw new ArgumentException($"User with ID {request.UserId} does not exist.");
+            }
             var rate = Rate.Create(request.FeedbackId, request.UserId, request.ProductId, request.RateBy, request.Score, request.Comment);
             await _rep.AddRateAsync(rate, ct);
             await _uow.SaveChangesAsync(ct);
+
+            var evt = new RatingNotificationEvent(
+                request.UserId ?? 0,
+                request.RateBy,
+                request.Score ?? 0
+            );
+
+            await _eventBus.PublishAsync("rating_exchange", evt);
+
+
             return rate.ToDto();
         }
-        public Task<RateResponse> CreateUserAsync(int userId, CreateRateRequest request, CancellationToken ct = default)
+        public async Task<RateResponse> CreateUserAsync(int userId, CreateRateRequest request, CancellationToken ct = default)
         {
             request.UserId = userId;
             request.ProductId = null;
-            return CreateAsync(request, ct);
+            var check = await _queries.GetAsync(null, null, request.UserId, null, request.RateBy, null, ct);
+            if (check.Any()) throw new ArgumentException("The rate already exists.");
+            return await CreateAsync(request, ct);
         }
-        public Task<RateResponse> CreateProductAsync(int productId, CreateRateRequest request, CancellationToken ct = default)
+        public async Task<RateResponse> CreateProductAsync(int productId, CreateRateRequest request, CancellationToken ct = default)
         {
             request.ProductId = productId;
             request.UserId = null;
-            return CreateAsync(request, ct);
+            var check = await _queries.GetAsync(null, null, null, request.ProductId, request.RateBy, null, ct);
+            if (check.Any()) throw new ArgumentException("The rate already exists.");
+            return await CreateAsync(request, ct);
         }
 
         public async Task UpdateAsync(int rateId, UpdateRateRequest request, CancellationToken ct = default)
@@ -90,4 +116,6 @@ namespace Rating.Application.Services
                 throw new ArgumentOutOfRangeException(nameof(score), "Score must be between 1 and 10.");
         }
     }
+    public record RatingNotificationEvent(int UserId, int rateBy, double Score);
+
 }
