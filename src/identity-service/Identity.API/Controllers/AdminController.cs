@@ -3,10 +3,11 @@ using Identity.Application.DTOs;
 using Identity.Domain.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Identity.API.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(AuthenticationSchemes = "Bearer,SystemBearer", Roles = "Admin,System")]
     [Route("api/[controller]")]
     [ApiController]
     public class AdminController : ControllerBase
@@ -17,6 +18,12 @@ namespace Identity.API.Controllers
         {
             _userQueries = userQueries;
             _userCommands = userCommands;
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetUserById(int userId, CancellationToken ct = default)
+        {
+            var users = await _userQueries.GetByIdAsync(userId, ct);
+            return Ok(users);
         }
 
         [HttpGet("users")]

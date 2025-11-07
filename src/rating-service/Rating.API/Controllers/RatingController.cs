@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Rating.Application.Contracts;
 using Rating.Application.DTOs;
@@ -73,6 +74,7 @@ namespace Rating.API.Controllers
 
         // POST: api/rate
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Create([FromBody] CreateRateRequest request, CancellationToken ct)
         {
             var result = await _commands.CreateAsync(request, ct);
@@ -81,6 +83,7 @@ namespace Rating.API.Controllers
 
         // POST: api/rate/user/{userId}
         [HttpPost("user/{userId:int}")]
+        [Authorize]
         public async Task<IActionResult> CreateForUser(int userId, [FromBody] CreateRateRequest request, CancellationToken ct)
         {
             var result = await _commands.CreateUserAsync(userId, request, ct);
@@ -89,6 +92,7 @@ namespace Rating.API.Controllers
 
         // POST: api/rate/product/{productId}
         [HttpPost("product/{productId:int}")]
+        [Authorize]
         public async Task<IActionResult> CreateForProduct(int productId, [FromBody] CreateRateRequest request, CancellationToken ct)
         {
             var result = await _commands.CreateProductAsync(productId, request, ct);
@@ -97,6 +101,7 @@ namespace Rating.API.Controllers
 
         // PUT: api/rate/{id}
         [HttpPut("{id:int}")]
+        [Authorize]
         public async Task<IActionResult> Update(int id, [FromBody] UpdateRateRequest request, CancellationToken ct)
         {
             await _commands.UpdateAsync(id, request, ct);
@@ -105,6 +110,7 @@ namespace Rating.API.Controllers
 
         // DELETE: api/rate/{id}
         [HttpDelete("{id:int}")]
+        [Authorize]
         public async Task<IActionResult> Delete(int id, CancellationToken ct)
         {
             await _commands.DeleteAsync(id, ct);
@@ -113,6 +119,7 @@ namespace Rating.API.Controllers
 
         // POST: api/rate/{rateId}/images
         [HttpPost("{rateId:int}/images")]
+        [Authorize]
         public async Task<IActionResult> AddImages(int rateId, [FromForm] IFormFileCollection files, CancellationToken ct)
         {
             var result = await _commands.AddImagesAsync(rateId, files, ct);
@@ -121,6 +128,7 @@ namespace Rating.API.Controllers
 
         // PUT: api/rate/{rateId}/images
         [HttpPut("{rateId:int}/images")]
+        [Authorize]
         public async Task<IActionResult> ReplaceImages(int rateId, [FromForm] IFormFileCollection files, CancellationToken ct)
         {
             await _commands.ReplaceImagesAsync(rateId, files, ct);
@@ -129,6 +137,7 @@ namespace Rating.API.Controllers
 
         // PUT: api/rate/image/{imageId}/url
         [HttpPut("image/{imageId:int}/url")]
+        [Authorize]
         public async Task<IActionResult> UpdateImageUrl(int imageId, [FromBody] string newUrl, CancellationToken ct)
         {
             await _commands.UpdateImageUrlAsync(imageId, newUrl, ct);
@@ -137,6 +146,7 @@ namespace Rating.API.Controllers
 
         // DELETE: api/rate/image/{imageId}
         [HttpDelete("image/{imageId:int}")]
+        [Authorize]
         public async Task<IActionResult> RemoveImage(int imageId, CancellationToken ct)
         {
             await _commands.RemoveImageAsync(imageId, ct);

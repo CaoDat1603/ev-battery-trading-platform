@@ -12,8 +12,8 @@ using Rating.Infrastructure;
 namespace Rating.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251028152451_Initial-Db")]
-    partial class InitialDb
+    [Migration("20251031183104_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -1,6 +1,7 @@
 ﻿using Complaints.Domain.Abtractions;
 using Complaints.Infrastructure.Repositories;
 using Complaints.Infrastructure.Services;
+using Complaints.Application.Contracts;
 using Microsoft.EntityFrameworkCore;
 
 namespace Complaints.Infrastructure
@@ -14,6 +15,8 @@ namespace Complaints.Infrastructure
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ILocalFileStorage, LocalFileStorage>();
             services.AddScoped<IEvidenceHandler, EvidenceHandler>();
+            services.AddHttpClient<IInternalTokenService, InternalTokenService>();
+            services.AddHttpClient<IIdentityClient, IdentityClient>();
             return services;
         }
     }

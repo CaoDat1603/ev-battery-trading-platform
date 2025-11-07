@@ -1,0 +1,7 @@
+﻿namespace Complaints.Application.Contracts
+{
+    public interface IIdentityClient
+    {
+        Task<bool> UserExistsAsync(int userId, CancellationToken ct);
+    }
+}

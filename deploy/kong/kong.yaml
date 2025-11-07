@@ -1,68 +1,252 @@
 _format_version: "3.0"
 _transform: true
 consumers:
-  - username: identity-client
-  - username: evstore
+  - username: internal-system
     keyauth_credentials:
-      - key: my-super-secret-key
+      - key: internal-system-secret-xyz
+  - username: identity-client
+
 
 jwt_secrets:
   - consumer: identity-client
     algorithm: HS256
     key: IdentityService
     secret: this_is_my_super_secret_key_123456789
+  - consumer: internal-system
+    algorithm: HS256
+    key: InternalSystem
+    secret: this_is_signing_key_system_123456789_abc
+
 
 services:
+#-----------------------------#
+  ##### Complaint Service #####
+#-----------------------------#
+  - name: complaint
+    url: http://complaint-api:8080/
+    routes:
+      - name: complaint-public
+        paths: ["/api/complaint"]
+        strip_path: false
+        methods: ["POST","OPTIONS"]
+        protocols: ["http","https"]
+        plugins:
+          - name: jwt
+            config:
+              key_claim_name: "iss"
+              claims_to_verify: ["exp"]
+              uri_param_names: ["access_token"]   # nếu muốn hỗ trợ query
+              secret_is_base64: false
+          - name: cors
+            config:
+              origins: ["http://localhost:5173","http://localhost:4200"]
+              methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
+              headers: ["Authorization","Content-Type"]
+              credentials: true
+              max_age: 3600
+          - name: rate-limiting
+            config:
+              minute: 2       # mỗi user chỉ được gửi 2 request / phút
+              policy: local
+              limit_by: consumer   # giới hạn theo người dùng (consumer)
+              fault_tolerant: true
+      - name: complaint-protected
+        paths: ["/api/complaints"]
+        strip_path: false
+        methods: ["GET","PUT","PATCH","DELETE"]
+        protocols: ["http","https"]
+        plugins:
+          - name: jwt
+            config:
+              key_claim_name: "iss"
+              claims_to_verify: ["exp"]
+              uri_param_names: ["access_token"]   # nếu muốn hỗ trợ query
+              secret_is_base64: false
+          - name: cors
+            config:
+              origins: ["http://localhost:5173","http://localhost:4200"]
+              methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
+              headers: ["Authorization","Content-Type"]
+              credentials: true
+              max_age: 3600
+          - name: rate-limiting
+            config:
+              minute: 10        # mỗi user chỉ được gửi 10 request / phút
+              policy: local
+              limit_by: consumer   # giới hạn theo người dùng (consumer)
+              fault_tolerant: true
+
+
+
+#-----------------------------#
+  ##### Rating Service #####
+#-----------------------------#
+  - name: rating
+    url: http://rating-api:8080/
+    routes:
+      # Public routes
+      - name: rating-public
+        paths: ["/api/rating"]
+        strip_path: false
+        methods: ["GET","OPTIONS"]
+        protocols: ["http","https"]
+        plugins:
+          - name: cors
+            config:
+              origins: ["http://localhost:5173","http://localhost:4200"]
+              methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
+              headers: ["Authorization","Content-Type"]
+              credentials: true
+              max_age: 3600
+          - name: rate-limiting
+            config:
+              minute: 5        # mỗi user chỉ được gửi 5 request / phút
+              policy: local
+              limit_by: consumer   # giới hạn theo người dùng (consumer)
+              fault_tolerant: true
+      # Protected routes
+      - name: rating-protected
+        paths: ["/api/rating"]
+        strip_path: false
+        methods: ["POST","PUT","PATCH","DELETE"]
+        protocols: ["http","https"]
+        plugins:
+          - name: jwt
+            config:
+              key_claim_name: "iss"
+              claims_to_verify: ["exp"]
+              uri_param_names: ["access_token"]   # nếu muốn hỗ trợ query
+              secret_is_base64: false
+          - name: cors
+            config:
+              origins: ["http://localhost:5173","http://localhost:4200"]
+              methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
+              headers: ["Authorization","Content-Type"]
+              credentials: true
+              max_age: 3600
+          - name: rate-limiting
+            config:
+              minute: 5         # hạn chế brute-force login
+              policy: local
+              limit_by: consumer
+              fault_tolerant: true
+
+
+
+#-----------------------------#
+  ##### Catalog Service #####
+#-----------------------------#
   - name: catalog
     url: http://catalog-api:8080/
     routes:
       - name: catalog-route
         paths: ["/catalog"]
         strip_path: false
-    plugins:
-      - name: key-auth
-      - name: file-log
-        config:
-          path: /tmp/catalog-requests.log
-          reopen: true
-      - name: rate-limiting
-        config:
-          minute: 30
-          policy: local
-      - name: proxy-cache
-        config:
-          strategy: memory           # cache trong RAM
-          content_type: ["application/json"]  # chỉ cache response JSON
-          cache_control: true        # tôn trọng header Cache-Control từ backend              # MB cho cache RAM
-          cache_ttl: 60                    # thời gian cache (giây)
 
-  # Service cho LOGIN (không cần JWT)
-  - name: identity-login
+
+#-----------------------------#
+  ##### Identity Service #####
+#-----------------------------#
+  - name: identity
     url: http://identity-api:8080/
     routes:
-      - name: identity-login-route
-        paths: ["/identity/login"]
+      - name: identity-auth-route
+        paths: ["/api/auth"]
         strip_path: false
-
-  # Service cho HEALTH (cần JWT)
-  - name: identity-health
-    url: http://identity-api:8080/
-    routes:
-      - name: identity-health-route
-        paths: ["/identity/health"]
+        plugins:
+          - name: rate-limiting
+            config:
+              minute: 5         # hạn chế brute-force login
+              policy: local
+              limit_by: ip
+              fault_tolerant: true
+          - name: cors
+            config:
+              origins: ["http://localhost:5173","http://localhost:4200"]
+              methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
+              headers: ["Authorization","Content-Type"]
+              credentials: true
+              max_age: 3600
+      - name: identity-user-route
+        paths: ["/api/users"]
         strip_path: false
         plugins:
           - name: jwt
             config:
-              claims_to_verify:
-                - exp
-              key_claim_name: iss     # Kong sẽ lấy claim "iss" để map tới consumer
-    plugins:
-      - name: file-log
-        config:
-          path: /tmp/identity-requests.log
-          reopen: true
-      - name: rate-limiting
-        config:
-          minute: 5         # 5 req mỗi phút
-          policy: local
+              claims_to_verify: ["exp"]
+          - name: rate-limiting
+            config:
+              minute: 5          # mỗi user chỉ được gửi 5 request / phút
+              policy: local
+              limit_by: consumer
+              fault_tolerant: true
+          - name: cors
+            config:
+              origins: ["http://localhost:5173","http://localhost:4200"]
+              methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
+              headers: ["Authorization","Content-Type"]
+              credentials: true
+              max_age: 3600
+      - name: identity-admin-route
+        paths: ["/api/admin"]
+        strip_path: false
+        plugins:
+          - name: jwt
+            config:
+              key_claim_name: "iss"            # 👈 thêm dòng này
+              claims_to_verify: ["exp"]
+              secret_is_base64: false
+          - name: rate-limiting
+            config:
+              minute: 20             # admin được phép 20 request/phút
+              policy: local
+              limit_by: consumer     # giới hạn theo người dùng (admin consumer)
+              fault_tolerant: true
+          - name: cors
+            config:
+              origins: ["http://localhost:5173","http://localhost:4200"]
+              methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
+              headers: ["Authorization","Content-Type"]
+              credentials: true
+              max_age: 3600
+      - name: identity-system-route
+        paths: ["/api/systemtoken"]
+        strip_path: false
+        plugins:
+        - name: key-auth
+          config:
+            key_names:
+              - x-internal-key
+            hide_credentials: true
+        - name: rate-limiting
+          config:
+            minute: 10
+            policy: local
+            limit_by: consumer
+            fault_tolerant: true
+  - name: notification
+    url: http://notification-api:8080/
+    routes:
+      - name: notification-route
+        paths: ["/api/notification"]
+        strip_path: false
+        plugins:
+          - name: jwt
+            config:
+              key_claim_name: "iss"
+              claims_to_verify: ["exp"]
+              uri_param_names: ["access_token"]
+              secret_is_base64: false
+          - name: rate-limiting
+            config:
+              minute: 10
+              policy: local
+              limit_by: consumer
+              fault_tolerant: true
+          - name: cors
+            config:
+              origins: ["http://localhost:5173","http://localhost:4200"]
+              methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
+              headers: ["Authorization","Content-Type"]
+              credentials: true
+              max_age: 3600

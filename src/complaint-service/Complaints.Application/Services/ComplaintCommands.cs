@@ -10,17 +10,27 @@ namespace Complaints.Application.Services
         private readonly IComplaintRepository _rep;
         private readonly IUnitOfWork _uow;
         private readonly IEvidenceHandler _evidenceHandler;
-        public ComplaintCommands(IComplaintRepository rep, IUnitOfWork uow, IEvidenceHandler evidenceHandler)
+        private readonly IIdentityClient _identityClient;
+        public ComplaintCommands(IComplaintRepository rep, IUnitOfWork uow, IEvidenceHandler evidenceHandler, IIdentityClient identityClient)
         {
             _rep = rep;
             _uow = uow;
             _evidenceHandler = evidenceHandler;
+            _identityClient = identityClient;
         }
 
         public async Task<int> CreateComplaintAsync(ComplaintCreateRequest request, CancellationToken ct = default)
         {
             if (request == null)
                 throw new ArgumentNullException(nameof(request));
+            if (request.AgainstUserId >= 0)
+            {
+                var user = _identityClient.UserExistsAsync(request.AgainstUserId, ct);
+                if (user == null)
+                {
+                    throw new ArgumentException($"User with ID {request.AgainstUserId} does not exist.");
+                }
+            }
             var complaint = Complaint.Create(request.TransactionId, request.ComplaintantId, request.AgainstUserId, request.ReasonComplaint, request.Description);
 
             var evidenceUrl = await _evidenceHandler.HandleEvidenceAsync(request.EvidenceUrl, complaint.ComplaintId, ct);

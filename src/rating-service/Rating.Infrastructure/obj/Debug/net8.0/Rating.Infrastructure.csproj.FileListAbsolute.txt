@@ -175,3 +175,9 @@ C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Infrastructure\obj\
 C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Infrastructure\obj\Debug\net8.0\Rating.Infrastructure.pdb
 C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Infrastructure\obj\Debug\net8.0\Rating.Infrastructure.genruntimeconfig.cache
 C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Infrastructure\obj\Debug\net8.0\ref\Rating.Infrastructure.dll
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Infrastructure\bin\Debug\net8.0\Rating.Application.deps.json
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Infrastructure\bin\Debug\net8.0\Rating.Application.runtimeconfig.json
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Infrastructure\bin\Debug\net8.0\Rating.Application.staticwebassets.endpoints.json
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Infrastructure\bin\Debug\net8.0\Rating.Application.exe
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Infrastructure\bin\Debug\net8.0\Rating.Application.dll
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Infrastructure\bin\Debug\net8.0\Rating.Application.pdb

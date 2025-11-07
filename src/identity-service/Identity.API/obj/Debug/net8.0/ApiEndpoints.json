@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "Identity.API.Controllers.AdminController",
+    "Method": "GetUserById",
+    "RelativePath": "api/Admin",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Identity.API.Controllers.AdminController",
     "Method": "CreateUser",
     "RelativePath": "api/Admin",
     "HttpMethod": "POST",
@@ -315,6 +331,38 @@
         "Name": "request",
         "Type": "Identity.Application.DTOs.VerifyOtpRequest",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Identity.API.Controllers.SystemTokenController",
+    "Method": "GenerateSystemToken",
+    "RelativePath": "api/SystemToken",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "x-internal-key",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Identity.API.Controllers.UsersController",
+    "Method": "GetUserById",
+    "RelativePath": "api/Users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

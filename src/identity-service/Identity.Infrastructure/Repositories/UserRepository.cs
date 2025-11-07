@@ -1,4 +1,5 @@
-﻿using Identity.Domain.Abtractions;
+﻿using Identity.Application.DTOs;
+using Identity.Domain.Abtractions;
 using Identity.Domain.Entities;
 using Identity.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
@@ -32,5 +33,36 @@ namespace Identity.Infrastructure.Repositories
         public Task<User?> GetByPhoneAsync(string phone, CancellationToken ct = default)
             => _db.Users.Include(u => u.UserProfile)
                         .FirstOrDefaultAsync(u => u.UserPhone == phone, ct);
+        public async Task<IReadOnlyList<User>> GetByProfileStatusAsync(ProfileVerificationStatus status, CancellationToken ct = default)
+        {
+            return await _db.Users
+                .Include(u => u.UserProfile)
+                .Where(u => u.UserProfile != null && u.UserProfile.Status == status)
+                .AsNoTracking()
+                .OrderByDescending(u => u.CreatedAt)
+                .ToListAsync(ct);
+        }
+
+        public async Task<IReadOnlyList<User>> SearchAsync(string q, int take = 50, CancellationToken ct = default)
+        {
+            if (string.IsNullOrWhiteSpace(q))
+                return new List<User>();
+
+            q = q.Trim();
+
+            return await _db.Users
+                .Include(u => u.UserProfile)
+                .Where(u =>
+                    (u.UserFullName != null && EF.Functions.ILike(u.UserFullName, $"%{q}%")) ||
+                    (u.UserEmail != null && EF.Functions.ILike(u.UserEmail, $"%{q}%")) ||
+                    (u.UserPhone != null && EF.Functions.ILike(u.UserPhone, $"%{q}%")) ||
+                    (u.UserProfile != null && u.UserProfile.CitizenIdCard != null && EF.Functions.ILike(u.UserProfile.CitizenIdCard, $"%{q}%"))
+                )
+                .AsNoTracking()
+                .Take(take)
+                .OrderBy(u => u.UserFullName)
+                .ToListAsync(ct);
+        }
+
     }
 }

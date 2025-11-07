@@ -6,6 +6,7 @@ using Identity.Infrastructure;
 using Identity.Infrastructure.Repositories;
 using Identity.Infrastructure.Services;
 using Identity.Infrastructure.Settings;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -51,17 +52,11 @@ builder.Services.AddSwaggerGen(c =>
 var cs = builder.Configuration.GetConnectionString("Default");
 builder.Services.AddIdentityInfrastructure(cs, builder.Configuration);
 builder.Services.AddIdentityApplication();
-
 builder.Services.AddMemoryCache();
-
-builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
-builder.Services.AddScoped<IJwtProvider, JwtProvider>();
-
-builder.Services.Configure<EmailSettings>(
-    builder.Configuration.GetSection("EmailSettings"));
-
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddDataProtection();
+
+builder.Services.AddScoped<IJwtProvider, JwtProvider>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IAuthService, AuthService>();
@@ -71,7 +66,11 @@ builder.Services.AddScoped<IRegisterCache,RegisterCache>();
 builder.Services.AddScoped<ICacheService, CacheService>();
 builder.Services.AddScoped<IRefreshTokenService, RefreshTokenService>();
 
-builder.Services.AddAuthentication("Bearer")
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
     .AddJwtBearer("Bearer", opt =>
     {
         opt.TokenValidationParameters = new TokenValidationParameters
@@ -85,6 +84,21 @@ builder.Services.AddAuthentication("Bearer")
             IssuerSigningKey = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
         };
+    })
+    .AddJwtBearer("SystemBearer", opt =>
+    {
+        // Token của service nội bộ
+        opt.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["JwtSystem:Issuer"],
+            ValidAudience = builder.Configuration["JwtSystem:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(builder.Configuration["JwtSystem:SigningKey"]!))
+        };
     });
 /*builder.WebHost.ConfigureKestrel(options =>
 {
@@ -92,7 +106,15 @@ builder.Services.AddAuthentication("Bearer")
     options.ListenAnyIP(8081, o => o.UseHttps()); // https
 });*/
 
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(options =>
+{
+    // Policy cho service nội bộ
+    options.AddPolicy("SystemPolicy", policy =>
+    {
+        policy.AuthenticationSchemes.Add("SystemBearer");
+        policy.RequireRole("System");
+    });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

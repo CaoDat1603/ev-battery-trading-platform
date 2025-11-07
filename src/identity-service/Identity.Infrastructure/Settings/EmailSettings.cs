@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
-namespace Identity.Infrastructure.Services
+namespace Identity.Infrastructure.Settings
 {
     public class EmailSettings
     {

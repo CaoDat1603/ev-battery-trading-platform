@@ -6,7 +6,8 @@ namespace Identity.Application.Contracts
 {
     public interface IUserQueries
     {
-        Task<IReadOnlyList<User>> SearchAsync(string q, int take = 50, CancellationToken ct = default);
+        Task<UserQueriesDTO?> GetByIdAsync(int id, CancellationToken ct = default);
         Task<IReadOnlyList<UserQueriesDTO>> GetByProfileStatusAsync(ProfileVerificationStatus status, CancellationToken ct = default);
+        Task<IReadOnlyList<UserQueriesDTO>> SearchAsync(string query, int take = 50, CancellationToken ct = default);
     }
 }

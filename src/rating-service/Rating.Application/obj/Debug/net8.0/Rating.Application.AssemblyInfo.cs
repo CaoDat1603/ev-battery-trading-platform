@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Rating.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7452000511bf16937fb888f31799c00dee394534")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4a5719d12afd81f7ea1a9d64324ff9a6e7360565")]
 [assembly: System.Reflection.AssemblyProductAttribute("Rating.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Rating.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

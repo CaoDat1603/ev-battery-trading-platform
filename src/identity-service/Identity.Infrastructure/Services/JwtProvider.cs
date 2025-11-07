@@ -35,7 +35,7 @@ namespace Identity.Infrastructure.Services
                 new Claim(JwtRegisteredClaimNames.Sub, user.UserId.ToString()),
                 new Claim(JwtRegisteredClaimNames.UniqueName, uniqueName),
                 new Claim(ClaimTypes.Role, Enum.GetName(typeof(UserRole), user.Role) ?? "User"),
-                 new Claim("login_type", !string.IsNullOrEmpty(user.UserEmail) ? "email" : "phone")
+                new Claim("login_type", !string.IsNullOrEmpty(user.UserEmail) ? "email" : "phone")
             };
        
             var token = new JwtSecurityToken(
