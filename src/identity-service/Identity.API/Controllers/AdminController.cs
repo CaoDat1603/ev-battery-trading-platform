@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Identity.API.Controllers
 {
-    [Authorize(AuthenticationSchemes = "Bearer,SystemBearer", Roles = "Admin,System")]
+    /*[Authorize(AuthenticationSchemes = "Bearer,SystemBearer", Roles = "Admin,System")]*/
     [Route("api/[controller]")]
     [ApiController]
     public class AdminController : ControllerBase

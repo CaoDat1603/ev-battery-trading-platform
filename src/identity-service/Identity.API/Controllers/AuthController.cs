@@ -133,8 +133,7 @@ namespace Identity.API.Controllers
         [HttpPost("request-reset-password")]
         public async Task<IActionResult> RequestReset([FromBody] string emailOrPhone)
         {
-            var baseUrl = $"{Request.Scheme}://{Request.Host}";
-            var result = await _authService.RequestResetPasswordAsync(emailOrPhone, baseUrl);
+            var result = await _authService.RequestResetPasswordAsync(emailOrPhone);
             return Ok(result);
         }
 

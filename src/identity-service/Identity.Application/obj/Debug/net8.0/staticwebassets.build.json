@@ -1,1 +1,23 @@
-{"Version":1,"Hash":"pyROUGJekKK21rpb6cEmgCMplzoDmYxPxbmUQd9Ta/Q=","Source":"Identity.Application","BasePath":"_content/Identity.Application","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[{"Identity":"C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj","Version":2,"Source":"Identity.Domain","GetPublishAssetsTargets":"ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems","AdditionalPublishProperties":"Configuration=Debug;Platform=AnyCPU","AdditionalPublishPropertiesToRemove":"WebPublishProfileFile;TargetFramework","GetBuildAssetsTargets":"GetCurrentProjectBuildStaticWebAssetItems","AdditionalBuildProperties":"Configuration=Debug;Platform=AnyCPU","AdditionalBuildPropertiesToRemove":"WebPublishProfileFile;TargetFramework"}],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "KmxIANHNtL78gtsAjwoHgSIPQfTcDjwJNx7xQklvxwc=",
+  "Source": "Identity.Application",
+  "BasePath": "_content/Identity.Application",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\lqq\\source\\repos\\Project\\ev-battery-trading-platform\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj",
+      "Version": 2,
+      "Source": "Identity.Domain",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -39,7 +39,7 @@ services:
               secret_is_base64: false
           - name: cors
             config:
-              origins: ["http://localhost:5173","http://localhost:4200"]
+              origins: ["http://localhost:5173","http://localhost:3000"]
               methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
               headers: ["Authorization","Content-Type"]
               credentials: true
@@ -64,7 +64,7 @@ services:
               secret_is_base64: false
           - name: cors
             config:
-              origins: ["http://localhost:5173","http://localhost:4200"]
+              origins: ["http://localhost:5173","http://localhost:3000"]
               methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
               headers: ["Authorization","Content-Type"]
               credentials: true
@@ -93,7 +93,7 @@ services:
         plugins:
           - name: cors
             config:
-              origins: ["http://localhost:5173","http://localhost:4200"]
+              origins: ["http://localhost:5173","http://localhost:3000"]
               methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
               headers: ["Authorization","Content-Type"]
               credentials: true
@@ -119,7 +119,7 @@ services:
               secret_is_base64: false
           - name: cors
             config:
-              origins: ["http://localhost:5173","http://localhost:4200"]
+              origins: ["http://localhost:5173","http://localhost:3000"]
               methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
               headers: ["Authorization","Content-Type"]
               credentials: true
@@ -162,7 +162,7 @@ services:
               fault_tolerant: true
           - name: cors
             config:
-              origins: ["http://localhost:5173","http://localhost:4200"]
+              origins: ["http://localhost:5173","http://localhost:3000"]
               methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
               headers: ["Authorization","Content-Type"]
               credentials: true
@@ -182,7 +182,7 @@ services:
               fault_tolerant: true
           - name: cors
             config:
-              origins: ["http://localhost:5173","http://localhost:4200"]
+              origins: ["http://localhost:5173","http://localhost:3000"]
               methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
               headers: ["Authorization","Content-Type"]
               credentials: true
@@ -204,7 +204,7 @@ services:
               fault_tolerant: true
           - name: cors
             config:
-              origins: ["http://localhost:5173","http://localhost:4200"]
+              origins: ["http://localhost:5173","http://localhost:3000"]
               methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
               headers: ["Authorization","Content-Type"]
               credentials: true
@@ -224,6 +224,11 @@ services:
             policy: local
             limit_by: consumer
             fault_tolerant: true
+      - name: identity-api-uploads-route
+        paths:
+          - /identity
+        strip_path: true
+
   - name: notification
     url: http://notification-api:8080/
     routes:
@@ -245,7 +250,7 @@ services:
               fault_tolerant: true
           - name: cors
             config:
-              origins: ["http://localhost:5173","http://localhost:4200"]
+              origins: ["http://localhost:5173","http://localhost:3000"]
               methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
               headers: ["Authorization","Content-Type"]
               credentials: true

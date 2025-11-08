@@ -22,8 +22,9 @@ namespace Identity.Application.Services
         private readonly IRegisterCache _registerCache;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ICacheService _cacheService;
+        private readonly string _frontendBaseUrl;
 
-        public AuthService(IUserRepository userRepo, IJwtProvider jwtProvider,IRefreshTokenService refreshTokenService, IUnitOfWork unitOfWork, IEmailService emailService, ISmsService smsService, ILogger<AuthService> logger,IRegisterCache cache,IHttpContextAccessor httpContextAccessor,ICacheService cacheService)
+        public AuthService(IUserRepository userRepo, IJwtProvider jwtProvider,IRefreshTokenService refreshTokenService, IUnitOfWork unitOfWork, IEmailService emailService, ISmsService smsService, ILogger<AuthService> logger,IRegisterCache cache,IHttpContextAccessor httpContextAccessor,ICacheService cacheService,IConfiguration config)
         {
             _userRepo = userRepo;
             _refreshTokenService = refreshTokenService;
@@ -35,6 +36,7 @@ namespace Identity.Application.Services
             _registerCache = cache;
             _httpContextAccessor = httpContextAccessor;
             _cacheService = cacheService;
+            _frontendBaseUrl = config["Frontend:BaseUrl"];
         }
 
         //-------------LOGIN-------------
@@ -209,7 +211,7 @@ namespace Identity.Application.Services
         }
 
 
-        public async Task<bool> RequestResetPasswordAsync(string emailOrPhone, string baseUrl)
+        public async Task<bool> RequestResetPasswordAsync(string emailOrPhone)
         {
             User? user = null;
             if (emailOrPhone.Contains("@"))
@@ -233,7 +235,7 @@ namespace Identity.Application.Services
             // Gửi email hoặc SMS
             if (emailOrPhone.Contains("@"))
             {
-                var link = $"{baseUrl}/identity/reset-password?token={tokenOrOtp}&uid={user.UserId}";
+                var link = $"{_frontendBaseUrl}/identity/reset-password?token={tokenOrOtp}&uid={user.UserId}";
                 await _emailService.SendEmailAsync(
                     emailOrPhone,
                     "Đặt lại mật khẩu",

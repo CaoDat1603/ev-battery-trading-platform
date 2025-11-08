@@ -29,8 +29,8 @@ namespace Identity.API.Controllers
             return Ok(claims);
         }
         [Authorize]
-        [HttpGet("{userId:int}")]
-        public async Task<IActionResult> GetUserById(int userId, CancellationToken ct = default)
+        [HttpGet("me")]
+        public async Task<IActionResult> GetMe( CancellationToken ct = default)
         {
             // Lấy userId từ JWT claims
             var jwtUserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -38,10 +38,9 @@ namespace Identity.API.Controllers
             if (jwtUserId == null)
                 return Unauthorized("Invalid token.");
 
-            if (jwtUserId != userId.ToString())
-                return Forbid("You are not allowed to access this user's data.");
-
+            int userId = int.Parse(jwtUserId);
             var user = await _userQueries.GetByIdAsync(userId, ct);
+                       
             return Ok(user);
         }
 

@@ -353,22 +353,6 @@
   },
   {
     "ContainingType": "Identity.API.Controllers.UsersController",
-    "Method": "GetUserById",
-    "RelativePath": "api/Users",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Identity.API.Controllers.UsersController",
     "Method": "UpdateUser",
     "RelativePath": "api/Users",
     "HttpMethod": "PUT",
@@ -412,6 +396,16 @@
     "ContainingType": "Identity.API.Controllers.UsersController",
     "Method": "GetClaims",
     "RelativePath": "api/Users/claims",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Identity.API.Controllers.UsersController",
+    "Method": "GetMe",
+    "RelativePath": "api/Users/me",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

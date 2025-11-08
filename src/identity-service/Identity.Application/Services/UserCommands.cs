@@ -203,7 +203,10 @@ namespace Identity.Application.Services
                 );
 
                 if (uploadedCic)
+                {
                     profile.SetStatus(ProfileVerificationStatus.Pending);
+                    profile.RejectionReason = null;
+                }
             }
             else
             {
@@ -217,7 +220,10 @@ namespace Identity.Application.Services
                 );
 
                 if (uploadedCic)
+                {
                     profile.SetStatus(ProfileVerificationStatus.Pending);
+                    profile.RejectionReason = null;
+                }
             }
 
             user.UpdatedAt = DateTimeOffset.UtcNow;

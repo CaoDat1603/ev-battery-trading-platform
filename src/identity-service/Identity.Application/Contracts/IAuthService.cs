@@ -13,7 +13,7 @@ namespace Identity.Application.Contracts
         Task<RegisterResponse> RegisterAsync(RegisterRequest request);
         Task<RegisterResponse> VerifyOtpAndCreateUserAsync(VerifyOtpRequest request);
         Task<bool> ResendOtpAsync(string emailOrPhone);
-        Task<bool> RequestResetPasswordAsync(string emailOrPhone, string baseUrl);
+        Task<bool> RequestResetPasswordAsync(string emailOrPhone);
         Task<bool> ResetPasswordAsync(DTOs.ResetPasswordRequest request);
         Task LogoutAsync(string refreshToken, CancellationToken cancellationToken = default);
     }
