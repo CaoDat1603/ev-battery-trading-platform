@@ -181,3 +181,4 @@ C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Infrastructure\bin\
 C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Infrastructure\bin\Debug\net8.0\Rating.Application.exe
 C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Infrastructure\bin\Debug\net8.0\Rating.Application.dll
 C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Infrastructure\bin\Debug\net8.0\Rating.Application.pdb
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Infrastructure\bin\Debug\net8.0\RabbitMQ.Client.dll

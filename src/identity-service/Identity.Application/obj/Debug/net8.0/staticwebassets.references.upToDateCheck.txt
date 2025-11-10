@@ -35,3 +35,5 @@ C:\Users\TranVanDu\Desktop\project\src\identity-service\Identity.Domain\obj\Debu
 C:\Users\TranVanDu\Desktop\project\src\identity-service\Identity.Domain\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\TranVanDu\Desktop\project\src\identity-service\Identity.Domain\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\TranVanDu\Desktop\project\src\identity-service\Identity.Domain\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\identity-service\Identity.Domain\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\identity-service\Identity.Domain\obj\Debug\net8.0\staticwebassets.build.json

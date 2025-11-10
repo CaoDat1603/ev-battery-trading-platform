@@ -1,22 +1,62 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\",
+  "WorkspaceRootPath": "C:\\Users\\TranVanDu\\Desktop\\project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ACF9DBBA-B990-44A0-8E1D-BDE9EFA8BC4A}|src\\auction-service\\Auction.Infrastructure\\Auction.Infrastructure.csproj|c:\\users\\tranvandu\\source\\repos\\electronicvehiclestorebe\\src\\auction-service\\auction.infrastructure\\auction.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{ACF9DBBA-B990-44A0-8E1D-BDE9EFA8BC4A}|src\\auction-service\\Auction.Infrastructure\\Auction.Infrastructure.csproj|solutionrelative:src\\auction-service\\auction.infrastructure\\auction.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{93C92F24-371C-4A93-BC57-3FAA21C02B7D}|src\\catalog-service\\Catalog.API\\Catalog.API.csproj|c:\\users\\tranvandu\\desktop\\project\\src\\catalog-service\\catalog.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{93C92F24-371C-4A93-BC57-3FAA21C02B7D}|src\\catalog-service\\Catalog.API\\Catalog.API.csproj|solutionrelative:src\\catalog-service\\catalog.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1117A934-DD74-4C93-BDDB-6CD3A5FED943}|src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj|c:\\users\\tranvandu\\source\\repos\\electronicvehiclestorebe\\src\\rating-service\\rating.infrastructure\\rating.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{1117A934-DD74-4C93-BDDB-6CD3A5FED943}|src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj|solutionrelative:src\\rating-service\\rating.infrastructure\\rating.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{93C92F24-371C-4A93-BC57-3FAA21C02B7D}|src\\catalog-service\\Catalog.API\\Catalog.API.csproj|c:\\users\\tranvandu\\desktop\\project\\src\\catalog-service\\catalog.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93C92F24-371C-4A93-BC57-3FAA21C02B7D}|src\\catalog-service\\Catalog.API\\Catalog.API.csproj|solutionrelative:src\\catalog-service\\catalog.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C4D86E9A-EC8D-42E7-9F23-E13EB3B2B536}|src\\payment-service\\Payment.Infrastructure\\Payment.Infrastructure.csproj|c:\\users\\tranvandu\\source\\repos\\electronicvehiclestorebe\\src\\payment-service\\payment.infrastructure\\payment.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{C4D86E9A-EC8D-42E7-9F23-E13EB3B2B536}|src\\payment-service\\Payment.Infrastructure\\Payment.Infrastructure.csproj|solutionrelative:src\\payment-service\\payment.infrastructure\\payment.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{09DB34E0-FA44-46C5-9B94-00EB3E62DA3A}|src\\identity-service\\Identity.API\\Identity.API.csproj|c:\\users\\tranvandu\\desktop\\project\\src\\identity-service\\identity.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{09DB34E0-FA44-46C5-9B94-00EB3E62DA3A}|src\\identity-service\\Identity.API\\Identity.API.csproj|solutionrelative:src\\identity-service\\identity.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3F892A25-1210-4FAA-8965-808A17F582F4}|src\\payment-service\\Payment.API\\Payment.API.csproj|c:\\users\\tranvandu\\source\\repos\\electronicvehiclestorebe\\src\\payment-service\\payment.api\\payment.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{3F892A25-1210-4FAA-8965-808A17F582F4}|src\\payment-service\\Payment.API\\Payment.API.csproj|solutionrelative:src\\payment-service\\payment.api\\payment.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{93C92F24-371C-4A93-BC57-3FAA21C02B7D}|src\\catalog-service\\Catalog.API\\Catalog.API.csproj|c:\\users\\tranvandu\\desktop\\project\\src\\catalog-service\\catalog.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93C92F24-371C-4A93-BC57-3FAA21C02B7D}|src\\catalog-service\\Catalog.API\\Catalog.API.csproj|solutionrelative:src\\catalog-service\\catalog.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09DB34E0-FA44-46C5-9B94-00EB3E62DA3A}|src\\identity-service\\Identity.API\\Identity.API.csproj|c:\\users\\tranvandu\\desktop\\project\\src\\identity-service\\identity.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09DB34E0-FA44-46C5-9B94-00EB3E62DA3A}|src\\identity-service\\Identity.API\\Identity.API.csproj|solutionrelative:src\\identity-service\\identity.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE372534-C49A-4931-AF89-CA67A1763D17}|src\\rating-service\\Rating.API\\Rating.API.csproj|c:\\users\\tranvandu\\desktop\\project\\src\\rating-service\\rating.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{FE372534-C49A-4931-AF89-CA67A1763D17}|src\\rating-service\\Rating.API\\Rating.API.csproj|solutionrelative:src\\rating-service\\rating.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF091D08-0BF2-476E-8D7A-101A6D9793FB}|src\\complaint-service\\Complaints.API\\Complaints.API.csproj|c:\\users\\tranvandu\\desktop\\project\\src\\complaint-service\\complaints.api\\controllers\\complaintcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF091D08-0BF2-476E-8D7A-101A6D9793FB}|src\\complaint-service\\Complaints.API\\Complaints.API.csproj|solutionrelative:src\\complaint-service\\complaints.api\\controllers\\complaintcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09DB34E0-FA44-46C5-9B94-00EB3E62DA3A}|src\\identity-service\\Identity.API\\Identity.API.csproj|c:\\users\\tranvandu\\desktop\\project\\src\\identity-service\\identity.api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09DB34E0-FA44-46C5-9B94-00EB3E62DA3A}|src\\identity-service\\Identity.API\\Identity.API.csproj|solutionrelative:src\\identity-service\\identity.api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F09DAF62-F398-4E2B-954B-219BAD28114A}|src\\rating-service\\Rating.Domain\\Rating.Domain.csproj|c:\\users\\tranvandu\\desktop\\project\\src\\rating-service\\rating.domain\\entities\\rate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F09DAF62-F398-4E2B-954B-219BAD28114A}|src\\rating-service\\Rating.Domain\\Rating.Domain.csproj|solutionrelative:src\\rating-service\\rating.domain\\entities\\rate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C40D5C0E-58BD-4704-84EB-5690B92B1533}|src\\identity-service\\Identity.Domain\\Identity.Domain.csproj|c:\\users\\tranvandu\\desktop\\project\\src\\identity-service\\identity.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C40D5C0E-58BD-4704-84EB-5690B92B1533}|src\\identity-service\\Identity.Domain\\Identity.Domain.csproj|solutionrelative:src\\identity-service\\identity.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F932F674-0B7B-42FA-A74D-93552B682A97}|src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj|c:\\users\\tranvandu\\desktop\\project\\src\\catalog-service\\catalog.infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F932F674-0B7B-42FA-A74D-93552B682A97}|src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj|solutionrelative:src\\catalog-service\\catalog.infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1117A934-DD74-4C93-BDDB-6CD3A5FED943}|src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj|c:\\users\\tranvandu\\desktop\\project\\src\\rating-service\\rating.infrastructure\\repositories\\raterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1117A934-DD74-4C93-BDDB-6CD3A5FED943}|src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj|solutionrelative:src\\rating-service\\rating.infrastructure\\repositories\\raterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1117A934-DD74-4C93-BDDB-6CD3A5FED943}|src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj|c:\\users\\tranvandu\\desktop\\project\\src\\rating-service\\rating.infrastructure\\services\\identityclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1117A934-DD74-4C93-BDDB-6CD3A5FED943}|src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj|solutionrelative:src\\rating-service\\rating.infrastructure\\services\\identityclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1117A934-DD74-4C93-BDDB-6CD3A5FED943}|src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj|c:\\users\\tranvandu\\desktop\\project\\src\\rating-service\\rating.infrastructure\\services\\internaltokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1117A934-DD74-4C93-BDDB-6CD3A5FED943}|src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj|solutionrelative:src\\rating-service\\rating.infrastructure\\services\\internaltokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +66,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,54 +74,184 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Auction.Infrastructure",
-              "DocumentMoniker": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\auction-service\\Auction.Infrastructure\\Auction.Infrastructure.csproj",
-              "RelativeDocumentMoniker": "src\\auction-service\\Auction.Infrastructure\\Auction.Infrastructure.csproj",
-              "ToolTip": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\auction-service\\Auction.Infrastructure\\Auction.Infrastructure.csproj",
-              "RelativeToolTip": "src\\auction-service\\Auction.Infrastructure\\Auction.Infrastructure.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-06T14:25:18.686Z",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.API\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\rating-service\\Rating.API\\appsettings.json",
+              "ToolTip": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.API\\appsettings.json",
+              "RelativeToolTip": "src\\rating-service\\Rating.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-10T18:15:19.891Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Payment.Infrastructure",
-              "DocumentMoniker": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\payment-service\\Payment.Infrastructure\\Payment.Infrastructure.csproj",
-              "RelativeDocumentMoniker": "src\\payment-service\\Payment.Infrastructure\\Payment.Infrastructure.csproj",
-              "ToolTip": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\payment-service\\Payment.Infrastructure\\Payment.Infrastructure.csproj",
-              "RelativeToolTip": "src\\payment-service\\Payment.Infrastructure\\Payment.Infrastructure.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-06T14:14:16.674Z",
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.API\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\identity-service\\Identity.API\\appsettings.json",
+              "ToolTip": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.API\\appsettings.json",
+              "RelativeToolTip": "src\\identity-service\\Identity.API\\appsettings.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-10T18:14:46.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ComplaintController.cs",
+              "DocumentMoniker": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\complaint-service\\Complaints.API\\Controllers\\ComplaintController.cs",
+              "RelativeDocumentMoniker": "src\\complaint-service\\Complaints.API\\Controllers\\ComplaintController.cs",
+              "ToolTip": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\complaint-service\\Complaints.API\\Controllers\\ComplaintController.cs",
+              "RelativeToolTip": "src\\complaint-service\\Complaints.API\\Controllers\\ComplaintController.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T18:11:53.498Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.API\\Program.cs",
+              "RelativeDocumentMoniker": "src\\identity-service\\Identity.API\\Program.cs",
+              "ToolTip": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.API\\Program.cs",
+              "RelativeToolTip": "src\\identity-service\\Identity.API\\Program.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAtwA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T17:23:33.931Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Rating.Infrastructure",
-              "DocumentMoniker": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj",
-              "RelativeDocumentMoniker": "src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj",
-              "ToolTip": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj",
-              "RelativeToolTip": "src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-06T14:11:24.468Z",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\catalog-service\\Catalog.API\\Program.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.API\\Program.cs",
+              "ToolTip": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\catalog-service\\Catalog.API\\Program.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.API\\Program.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAAABkAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T18:08:01.715Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Payment.API",
-              "DocumentMoniker": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\payment-service\\Payment.API\\Payment.API.csproj",
-              "RelativeDocumentMoniker": "src\\payment-service\\Payment.API\\Payment.API.csproj",
-              "ToolTip": "C:\\Users\\TranVanDu\\source\\repos\\ElectronicVehicleStoreBE\\src\\payment-service\\Payment.API\\Payment.API.csproj",
-              "RelativeToolTip": "src\\payment-service\\Payment.API\\Payment.API.csproj",
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\catalog-service\\Catalog.API\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.API\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\catalog-service\\Catalog.API\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.API\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T17:56:09.435Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\catalog-service\\Catalog.API\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.API\\appsettings.json",
+              "ToolTip": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\catalog-service\\Catalog.API\\appsettings.json",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-10T17:53:05.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Domain\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "src\\identity-service\\Identity.Domain\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Domain\\Entities\\User.cs",
+              "RelativeToolTip": "src\\identity-service\\Identity.Domain\\Entities\\User.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA3wAoAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T17:17:11.961Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.API\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "src\\identity-service\\Identity.API\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.API\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "src\\identity-service\\Identity.API\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAgwDgAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T17:10:06.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\catalog-service\\Catalog.Infrastructure\\Repositories\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.Infrastructure\\Repositories\\ProductRepository.cs",
+              "ToolTip": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\catalog-service\\Catalog.Infrastructure\\Repositories\\ProductRepository.cs",
+              "RelativeToolTip": "src\\catalog-service\\Catalog.Infrastructure\\Repositories\\ProductRepository.cs",
+              "ViewState": "AgIAAKEAAAAAAAAAAAAUwKIAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T17:02:47.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "RateRepository.cs",
+              "DocumentMoniker": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Infrastructure\\Repositories\\RateRepository.cs",
+              "RelativeDocumentMoniker": "src\\rating-service\\Rating.Infrastructure\\Repositories\\RateRepository.cs",
+              "ToolTip": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Infrastructure\\Repositories\\RateRepository.cs",
+              "RelativeToolTip": "src\\rating-service\\Rating.Infrastructure\\Repositories\\RateRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-06T14:10:43.996Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T17:02:30.578Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "InternalTokenService.cs",
+              "DocumentMoniker": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Infrastructure\\Services\\InternalTokenService.cs",
+              "RelativeDocumentMoniker": "src\\rating-service\\Rating.Infrastructure\\Services\\InternalTokenService.cs",
+              "ToolTip": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Infrastructure\\Services\\InternalTokenService.cs",
+              "RelativeToolTip": "src\\rating-service\\Rating.Infrastructure\\Services\\InternalTokenService.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T16:38:26.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IdentityClient.cs",
+              "DocumentMoniker": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Infrastructure\\Services\\IdentityClient.cs",
+              "RelativeDocumentMoniker": "src\\rating-service\\Rating.Infrastructure\\Services\\IdentityClient.cs",
+              "ToolTip": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Infrastructure\\Services\\IdentityClient.cs",
+              "RelativeToolTip": "src\\rating-service\\Rating.Infrastructure\\Services\\IdentityClient.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAswA8AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T16:38:26.239Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Rate.cs",
+              "DocumentMoniker": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Domain\\Entities\\Rate.cs",
+              "RelativeDocumentMoniker": "src\\rating-service\\Rating.Domain\\Entities\\Rate.cs",
+              "ToolTip": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Domain\\Entities\\Rate.cs",
+              "RelativeToolTip": "src\\rating-service\\Rating.Domain\\Entities\\Rate.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAA/wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T14:38:34.943Z",
               "EditorCaption": ""
             }
           ]

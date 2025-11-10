@@ -190,3 +190,12 @@ C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.API\obj\Debug\net8.
 C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.API\obj\Debug\net8.0\Rating.API.genruntimeconfig.cache
 C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.API\obj\Debug\net8.0\ref\Rating.API.dll
 C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.API\bin\Debug\net8.0\Rating.API.staticwebassets.runtime.json
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.API\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.API\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.API\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.API\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.API\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.API\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.API\bin\Debug\net8.0\RabbitMQ.Client.dll
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.API\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

@@ -139,9 +139,47 @@ services:
   - name: catalog
     url: http://catalog-api:8080/
     routes:
-      - name: catalog-route
-        paths: ["/catalog"]
+      - name: catalog-public-route
+        paths: ["/api/products"]
         strip_path: false
+        plugins:
+          - name: cors
+            config:
+              origins: ["http://localhost:5173","http://localhost:3000"]
+              methods: ["GET"]
+              headers: ["Authorization","Content-Type"]
+              credentials: true
+              max_age: 3600
+          - name: rate-limiting
+            config:
+              minute: 100        # mỗi user chỉ được gửi 20 request / phút
+              policy: local
+              limit_by: ip
+              fault_tolerant: true
+      - name: catalog-protected-route
+        paths: ["/api/products"]
+        strip_path: false
+        plugins:
+          - name: jwt
+            config:
+              key_claim_name: "iss"
+              claims_to_verify: ["exp"]
+              uri_param_names: ["access_token"]   # nếu muốn hỗ trợ query
+              secret_is_base64: false
+          - name: cors
+            config:
+              origins: ["http://localhost:5173","http://localhost:3000"]
+              methods: ["POST","PUT","PATCH","DELETE","OPTIONS"]
+              headers: ["Authorization","Content-Type"]
+              credentials: true
+              max_age: 3600
+          - name: rate-limiting
+            config:
+              minute: 100        # mỗi user chỉ được gửi 20 request / phút
+              policy: local
+              limit_by: consumer   # giới hạn theo người dùng (consumer)
+              fault_tolerant: true
+
 
 
 #-----------------------------#
@@ -171,9 +209,6 @@ services:
         paths: ["/api/users"]
         strip_path: false
         plugins:
-          - name: jwt
-            config:
-              claims_to_verify: ["exp"]
           - name: rate-limiting
             config:
               minute: 5          # mỗi user chỉ được gửi 5 request / phút

@@ -1,6 +1,7 @@
 ﻿using Catalog.Application.Contracts;
 using Catalog.Application.DTOs;
 using Catalog.Domain.Enums;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Catalog.API.Controllers
@@ -36,6 +37,7 @@ namespace Catalog.API.Controllers
         /// <summary>
         /// Get all products (cached for 60s)
         /// </summary>
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetAllProducts(CancellationToken ct)
         {
@@ -113,6 +115,7 @@ namespace Catalog.API.Controllers
         /// <summary>
         /// Search products for admin/seller (all statuses)
         /// </summary>
+        [Authorize]
         [HttpGet("search/all")]
         public async Task<IActionResult> SearchForAdmin(
             [FromQuery] string? q,
@@ -174,6 +177,7 @@ namespace Catalog.API.Controllers
         /// <summary>
         /// Create a new product (support file upload)
         /// </summary>
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreateProduct([FromForm] CreateProductRequest request, CancellationToken ct)
         {
@@ -201,6 +205,7 @@ namespace Catalog.API.Controllers
         /// <summary>
         /// Update product status
         /// </summary>
+        [Authorize]
         [HttpPatch("status")]
         public async Task<IActionResult> UpdateStatus([FromBody] UpdateProductStatusRequest request, CancellationToken ct)
         {
@@ -214,6 +219,7 @@ namespace Catalog.API.Controllers
         /// <summary>
         /// Soft delete a product
         /// </summary>
+        [Authorize]
         [HttpDelete("{productId:int}")]
         public async Task<IActionResult> DeleteProduct(int productId, CancellationToken ct)
         {
