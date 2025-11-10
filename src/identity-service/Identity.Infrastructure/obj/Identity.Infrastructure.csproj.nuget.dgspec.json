@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lqq\\source\\repos\\Project\\ev-battery-trading-platform\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj": {}
+    "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lqq\\source\\repos\\Project\\ev-battery-trading-platform\\src\\identity-service\\Identity.Application\\Identity.Application.csproj": {
+    "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Application\\Identity.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lqq\\source\\repos\\Project\\ev-battery-trading-platform\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
+        "projectUniqueName": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
         "projectName": "Identity.Application",
-        "projectPath": "C:\\Users\\lqq\\source\\repos\\Project\\ev-battery-trading-platform\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
-        "packagesPath": "C:\\Users\\lqq\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lqq\\source\\repos\\Project\\ev-battery-trading-platform\\src\\identity-service\\Identity.Application\\obj\\",
+        "projectPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
+        "packagesPath": "C:\\Users\\TranVanDu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lqq\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TranVanDu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\lqq\\source\\repos\\Project\\ev-battery-trading-platform\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj": {
-                "projectPath": "C:\\Users\\lqq\\source\\repos\\Project\\ev-battery-trading-platform\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj"
+              "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj": {
+                "projectPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj"
               }
             }
           }
@@ -43,7 +47,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -81,21 +86,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\lqq\\source\\repos\\Project\\ev-battery-trading-platform\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj": {
+    "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lqq\\source\\repos\\Project\\ev-battery-trading-platform\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj",
         "projectName": "Identity.Domain",
-        "projectPath": "C:\\Users\\lqq\\source\\repos\\Project\\ev-battery-trading-platform\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj",
-        "packagesPath": "C:\\Users\\lqq\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lqq\\source\\repos\\Project\\ev-battery-trading-platform\\src\\identity-service\\Identity.Domain\\obj\\",
+        "projectPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj",
+        "packagesPath": "C:\\Users\\TranVanDu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lqq\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TranVanDu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -120,7 +129,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -150,21 +160,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\lqq\\source\\repos\\Project\\ev-battery-trading-platform\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj": {
+    "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lqq\\source\\repos\\Project\\ev-battery-trading-platform\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj",
         "projectName": "Identity.Infrastructure",
-        "projectPath": "C:\\Users\\lqq\\source\\repos\\Project\\ev-battery-trading-platform\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\lqq\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lqq\\source\\repos\\Project\\ev-battery-trading-platform\\src\\identity-service\\Identity.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\TranVanDu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lqq\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TranVanDu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -178,11 +192,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\lqq\\source\\repos\\Project\\ev-battery-trading-platform\\src\\identity-service\\Identity.Application\\Identity.Application.csproj": {
-                "projectPath": "C:\\Users\\lqq\\source\\repos\\Project\\ev-battery-trading-platform\\src\\identity-service\\Identity.Application\\Identity.Application.csproj"
+              "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Application\\Identity.Application.csproj": {
+                "projectPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Application\\Identity.Application.csproj"
               },
-              "C:\\Users\\lqq\\source\\repos\\Project\\ev-battery-trading-platform\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj": {
-                "projectPath": "C:\\Users\\lqq\\source\\repos\\Project\\ev-battery-trading-platform\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj"
+              "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj": {
+                "projectPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj"
               }
             }
           }
@@ -196,7 +210,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -258,7 +273,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

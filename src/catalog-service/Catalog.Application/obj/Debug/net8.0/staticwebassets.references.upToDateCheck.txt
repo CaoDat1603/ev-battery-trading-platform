@@ -195,3 +195,9 @@ C:\Users\caoda\Documents\XDHTHDT\src\catalog-service\Catalog.Domain\obj\Debug\ne
 C:\Users\caoda\Documents\XDHTHDT\src\catalog-service\Catalog.Infrastructure\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\caoda\Documents\XDHTHDT\src\catalog-service\Catalog.Domain\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\caoda\Documents\XDHTHDT\src\catalog-service\Catalog.Infrastructure\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\catalog-service\Catalog.Domain\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\catalog-service\Catalog.Infrastructure\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\catalog-service\Catalog.Domain\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\catalog-service\Catalog.Infrastructure\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\catalog-service\Catalog.Domain\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\catalog-service\Catalog.Infrastructure\obj\Debug\net8.0\staticwebassets.build.json

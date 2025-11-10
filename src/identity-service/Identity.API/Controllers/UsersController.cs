@@ -56,6 +56,14 @@ namespace Identity.API.Controllers
             var updatedUserId = await _userService.UpdateUserAsync(userId, request, cancellationToken);
             return Ok(new { UserId = updatedUserId });
         }
+        [HttpGet("guest/{userId}")]
+        public async Task <IActionResult> GetUserForGuest(int userId, CancellationToken ct = default)
+        {
+            if (userId <= 0 || userId == null ) throw new Exception(nameof(userId));
+            var user = await _userQueries.GetByIdAsync(userId, ct);
+
+            return Ok( new {UserId = user.UserId, Fullname = user.UserFullName, Avatar = user.Avatar});
+        }
 
     }
 }

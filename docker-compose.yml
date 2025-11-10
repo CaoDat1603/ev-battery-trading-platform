@@ -30,6 +30,8 @@ services:
       context: .
       dockerfile: src/catalog-service/Catalog.API/Dockerfile
     environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      Identity__InternalKey: internal-system-secret-xyz
       ASPNETCORE_URLS: http://+:8080
       ConnectionStrings__Default: "Host=catalog-db;Port=5432;Database=${CATALOG_DB_NAME};Username=${CATALOG_DB_USER};Password=${CATALOG_DB_PASSWORD}"
     depends_on:
