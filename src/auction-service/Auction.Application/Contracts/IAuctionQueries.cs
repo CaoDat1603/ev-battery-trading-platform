@@ -24,6 +24,9 @@ namespace Auction.Application.Contracts
             DateTimeOffset? startTime = null,
             DateTimeOffset? endTime = null,
             AuctionStatus? status = null,
+            DateTimeOffset? createAt = null,
+            DateTimeOffset? updateAt = null,
+            DateTimeOffset? deleteAt = null,
             CancellationToken ct = default);
         Task<int> GetAuctionCountAsync(
             int? productId = null,
@@ -36,6 +39,9 @@ namespace Auction.Application.Contracts
             DateTimeOffset? startTime = null,
             DateTimeOffset? endTime = null,
             AuctionStatus? status = null,
+            DateTimeOffset? createAt = null,
+            DateTimeOffset? updateAt = null,
+            DateTimeOffset? deleteAt = null,
             CancellationToken ct = default);
     }
 }

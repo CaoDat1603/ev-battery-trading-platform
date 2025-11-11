@@ -32,7 +32,7 @@ namespace Catalog.Application.Services
                 throw new ArgumentNullException(nameof(dto));
 
             // Create the basic domain entity
-            var product = Product.Create(dto.Title, dto.Price, dto.SellerId, dto.PickupAddress, quantity: 1);
+            var product = Product.Create(dto.Title, dto.Price, dto.SellerId, dto.PickupAddress, quantity: 1, dto.saleMethod, isSpam: dto.IsSpam);
             //product.Approve(adminId: 1);
 
             // Save the main entity
@@ -74,6 +74,47 @@ namespace Catalog.Application.Services
 
             product.ChangeStatus(newStatus);
             await _repo.UpdateAsync(product, ct);
+            await _uow.SaveChangesAsync(ct);
+
+            return true;
+        }
+
+        public async Task<bool> UpdateSaleMethodAsync(int productId, SaleMethod newMethod, CancellationToken ct = default)
+        {
+            var product = await _repo.GetByIdAsync(productId, ct);
+            if (product == null) return false;
+
+            product.ChangesSaleMethod(newMethod);
+            await _repo.UpdateAsync(product, ct);
+            await _uow.SaveChangesAsync(ct);
+
+            return true;
+        }
+
+        public async Task<bool> MarkAsVerifiedAsync(int productId, CancellationToken ct = default)
+        {
+            await _repo.MarkAsVerified(productId, ct);
+            await _uow.SaveChangesAsync(ct);
+
+            return true;
+        }
+        public async Task<bool> UnmarkAsVerifiedAsync(int productId, CancellationToken ct = default)
+        {
+            await _repo.UnmarkAsVerified(productId, ct);
+            await _uow.SaveChangesAsync(ct);
+
+            return true;
+        }
+        public async Task<bool> MarkAsSpamAsync(int productId, CancellationToken ct = default)
+        {
+            await _repo.MarkAsSpam(productId, ct);
+            await _uow.SaveChangesAsync(ct);
+
+            return true;
+        }
+        public async Task<bool> UnmarkAsSpamAsync(int productId, CancellationToken ct = default)
+        {
+            await _repo.UnmarkAsSpam(productId, ct);
             await _uow.SaveChangesAsync(ct);
 
             return true;

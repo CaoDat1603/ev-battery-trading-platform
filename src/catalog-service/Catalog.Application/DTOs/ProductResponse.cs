@@ -16,7 +16,10 @@ namespace Catalog.Application.DTOs
         [Required] public string PickupAddress { get; set; } = default!;
         [Required] public string ProductName { get; set; } = default!;
         [Required] public string Description { get; set; } = default!;
-        [Required] public int ProductType { get; set; }
+        [Required] public ProductType ProductType { get; set; }
+        [Required] public SaleMethod MethodSale { get; set; }
+        [Required] public bool IsSpam { get; set; }
+        [Required] public bool IsVerified { get; set; }
         public string? RegistrationCard { get; set; }
         public string? FileUrl { get; set; }
         public string? ImageUrl { get; set; }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Catalog.Domain.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace Catalog.Domain.Entities
 {
@@ -11,7 +12,7 @@ namespace Catalog.Domain.Entities
         public int ProductId { get; private set; }
 
         [Required]
-        public int ProductType { get; private set; }
+        public ProductType ProductType { get; private set; }
 
         [Required]
         [MaxLength(200)]
@@ -58,7 +59,7 @@ namespace Catalog.Domain.Entities
             int productId,
             string productName,
             string description,
-            int productType,
+            ProductType productType,
             string registrationCard,
             string fileUrl,
             string imageUrl,
@@ -74,7 +75,7 @@ namespace Catalog.Domain.Entities
                 throw new ArgumentException("Image URL is required.", nameof(imageUrl));
             if (productId <= 0)
                 throw new ArgumentOutOfRangeException(nameof(productId));
-            if (productType <= 0)
+            if (productType < 0 && productId > 3)
                 throw new ArgumentOutOfRangeException(nameof(productType));
 
             ProductId = productId;

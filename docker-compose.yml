@@ -4,6 +4,8 @@ networks:
 
 
 volumes:
+  pg_auction: {}
+  pg_wishlist: {}
   pg_catalog: {}
   pg_identity: {}
   pg_complaint: {}
@@ -169,6 +171,69 @@ services:
     networks: [evnet]
     restart: unless-stopped
 
+    
+  auction-db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: ${AUCTION_DB_USER}
+      POSTGRES_PASSWORD: ${AUCTION_DB_PASSWORD}
+      POSTGRES_DB: ${AUCTION_DB_NAME}
+    ports:
+      - "5440:5432"
+    volumes:
+      - pg_auction:/var/lib/postgresql/data
+    networks: [evnet]
+
+  auction-api:
+    build:
+      context: .
+      dockerfile: src/auction-service/Auction.API/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      ASPNETCORE_ENVIRONMENT: Development
+      Identity__InternalKey: internal-system-secret-xyz
+      ConnectionStrings__Default: "Host=auction-db;Port=5432;Database=${AUCTION_DB_NAME};Username=${AUCTION_DB_USER};Password=${AUCTION_DB_PASSWORD}"
+    depends_on:
+      - auction-db
+    ports:
+      - "8111:8080"   # test trực tiếp
+    networks:
+      evnet:
+        aliases:
+          - auction-api
+    restart: unless-stopped
+
+  wishlist-db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: ${WISHLIST_DB_USER}
+      POSTGRES_PASSWORD: ${WISHLIST_DB_PASSWORD}
+      POSTGRES_DB: ${WISHLIST_DB_NAME}
+    ports:
+      - "5441:5432"
+    volumes:
+      - pg_wishlist:/var/lib/postgresql/data
+    networks: [evnet]
+
+  wishlist-api:
+    build:
+      context: .
+      dockerfile: src/wishlist-service/Wishlist.API/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      Identity__InternalKey: internal-system-secret-xyz
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__Default: "Host=wishlist-db;Port=5432;Database=${WISHLIST_DB_NAME};Username=${WISHLIST_DB_USER};Password=${WISHLIST_DB_PASSWORD}"
+    depends_on:
+      - wishlist-db
+    ports:
+      - "8110:8080"   # test trực tiếp
+    networks:
+      evnet:
+        aliases:
+          - wishlist-api
+    restart: unless-stopped
+
   kong:
     image: kong:3.7
     container_name: kong
@@ -193,6 +258,8 @@ services:
       - identity-api
       - rating-api
       - notification-api
+      - auction-api
+      - wishlist-api
     networks:
       evnet:
         aliases:
@@ -225,6 +292,3 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-
-
-

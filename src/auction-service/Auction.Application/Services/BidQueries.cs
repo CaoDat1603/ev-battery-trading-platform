@@ -67,6 +67,9 @@ namespace Auction.Application.Services
             DateTimeOffset? placedBefore = null,
             DepositStatus? statusDeposit = null,
             bool? isWinning = null,
+            DateTimeOffset? createAt = null,
+            DateTimeOffset? updateAt = null,
+            DateTimeOffset? deleteAt = null,
             CancellationToken ct = default)
         {
             var (bids, _) = await _repo.GetPagedAsync(
@@ -74,7 +77,7 @@ namespace Auction.Application.Services
                 auctionId, bidderId,
                 minAmount, maxAmount,
                 placedAfter, placedBefore,
-                statusDeposit, isWinning, ct);
+                statusDeposit, isWinning, createAt, updateAt, deleteAt, ct);
 
             return bids.Select(MapToDto).ToList().AsReadOnly();
         }
@@ -91,10 +94,13 @@ namespace Auction.Application.Services
             DateTimeOffset? placedBefore = null,
             DepositStatus? statusDeposit = null,
             bool? isWinning = null,
+            DateTimeOffset? createAt = null,
+            DateTimeOffset? updateAt = null,
+            DateTimeOffset? deleteAt = null,
             CancellationToken ct = default)
             => _repo.GetBidCountAsync(
                 auctionId, bidderId, minAmount, maxAmount,
-                placedAfter, placedBefore, statusDeposit, isWinning, ct);
+                placedAfter, placedBefore, statusDeposit, isWinning, createAt, updateAt, deleteAt, ct);
 
         // ==========================================
         // MAPPER

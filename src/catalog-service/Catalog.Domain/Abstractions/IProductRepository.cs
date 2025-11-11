@@ -11,6 +11,10 @@ namespace Catalog.Domain.Abstractions
         Task UpdateAsync(Product product, CancellationToken ct = default);
         Task SoftDeleteAsync(int productId, CancellationToken ct = default);
 
+        Task MarkAsSpam(int productId, CancellationToken ct = default);
+        Task MarkAsVerified(int productId, CancellationToken ct = default);
+        Task UnmarkAsSpam(int productId, CancellationToken ct = default);
+        Task UnmarkAsVerified(int productId, CancellationToken ct = default);
 
         Task<IReadOnlyList<Product>> SearchByProductIDAsync(int id, CancellationToken ct = default);
 
@@ -28,24 +32,39 @@ namespace Catalog.Domain.Abstractions
             decimal? maxPrice = null,
             string? pickupAddress = null,
             ProductStatus? status = null,
+            SaleMethod? saleMethod = null,
             int? sellerId = null,
+            bool? isSpam = null,
+            bool? isVerified = null,
+            ProductType? productType = null,
+            DateTimeOffset? createAt = null,
+            DateTimeOffset? updateAt = null,
+            DateTimeOffset? deleteAt = null,
             CancellationToken ct = default);
 
         Task<int> GetProductCountAsync(
+            string? keyword = null,
             decimal? minPrice = null,
             decimal? maxPrice = null,
             string? pickupAddress = null,
             int? sellerId = null,
             ProductStatus? status = null,
+            SaleMethod? saleMethod = null,
+            bool? isSpam = null,
+            bool? isVerified = null,
+            ProductType? productType = null,
+            DateTimeOffset? createAt = null,
+            DateTimeOffset? updateAt = null,
+            DateTimeOffset? deleteAt = null,
             CancellationToken ct = default);
 
-//        Task<IReadOnlyList<Product>> SearchWithFiltersAsync(
-//            string? keyword,
-//            decimal? minPrice,
-//            decimal? maxPrice,
-//            string? pickupAddress,
-//            ProductStatus? status,
-//            int take = 50,
-//            CancellationToken ct = default);
+        //        Task<IReadOnlyList<Product>> SearchWithFiltersAsync(
+        //            string? keyword,
+        //            decimal? minPrice,
+        //            decimal? maxPrice,
+        //            string? pickupAddress,
+        //            ProductStatus? status,
+        //            int take = 50,
+        //            CancellationToken ct = default);
     }
 }

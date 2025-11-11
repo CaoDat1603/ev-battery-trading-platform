@@ -1,6 +1,7 @@
 ﻿using Auction.Application.Contracts;
 using Auction.Application.DTOs;
 using Auction.Domain.Enums;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Auction.API.Controllers
@@ -36,6 +37,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Get all auctions (cached for 60s)
         /// </summary>
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetAllAuctions(CancellationToken ct)
         {
@@ -49,6 +51,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Get auction by ID
         /// </summary>
+        [Authorize]
         [HttpGet("{auctionId:int}")]
         public async Task<IActionResult> GetAuctionById(int auctionId, CancellationToken ct)
         {
@@ -62,6 +65,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Search auctions by product ID
         /// </summary>
+        [Authorize]
         [HttpGet("product/{productId:int}")]
         public async Task<IActionResult> GetByProduct(int productId, CancellationToken ct)
         {
@@ -72,6 +76,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Search auctions by winner ID
         /// </summary>
+        [Authorize]
         [HttpGet("winner/{winnerId:int}")]
         public async Task<IActionResult> GetByWinner(int winnerId, CancellationToken ct)
         {
@@ -82,6 +87,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Search auctions by transaction ID
         /// </summary>
+        [Authorize]
         [HttpGet("transaction/{transactionId:int}")]
         public async Task<IActionResult> GetByTransaction(int transactionId, CancellationToken ct)
         {
@@ -92,6 +98,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Search or filter auctions with pagination
         /// </summary>
+        [Authorize]
         [HttpGet("search")]
         public async Task<IActionResult> SearchAuctions(
             [FromQuery] int pageNumber = 1,
@@ -107,13 +114,16 @@ namespace Auction.API.Controllers
             [FromQuery] DateTimeOffset? startTime = null,
             [FromQuery] DateTimeOffset? endTime = null,
             [FromQuery] AuctionStatus? status = null,
+            [FromQuery] DateTimeOffset? createAt = null,
+            [FromQuery] DateTimeOffset? updateAt = null,
+            [FromQuery] DateTimeOffset? deleteAt = null,
             CancellationToken ct = default)
         {
             var result = await _queries.GetPagedAsync(
                 pageNumber, pageSize, sortBy,
                 productId, winnerId, sellerEmail, sellerPhone,
                 transactionId, minPrice, maxPrice,
-                startTime, endTime, status, ct);
+                startTime, endTime, status, createAt, updateAt, deleteAt, ct);
 
             return Ok(result);
         }
@@ -121,6 +131,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Get the total count of auctions matching filters
         /// </summary>
+        [Authorize]
         [HttpGet("count")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
         public async Task<ActionResult<int>> GetAuctionCount(
@@ -134,12 +145,15 @@ namespace Auction.API.Controllers
             [FromQuery] DateTimeOffset? startTime = null,
             [FromQuery] DateTimeOffset? endTime = null,
             [FromQuery] AuctionStatus? status = null,
+            [FromQuery] DateTimeOffset? createAt = null,
+            [FromQuery] DateTimeOffset? updateAt = null,
+            [FromQuery] DateTimeOffset? deleteAt = null,
             CancellationToken ct = default)
         {
             var result = await _queries.GetAuctionCountAsync(
                 productId, winnerId, sellerEmail, sellerPhone,
                 transactionId, minPrice, maxPrice,
-                startTime, endTime, status, ct);
+                startTime, endTime, status, createAt, updateAt, deleteAt, ct);
 
             return Ok(result);
         }
@@ -152,6 +166,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Create a new auction
         /// </summary>
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreateAuction([FromBody] CreateAuctionDto dto, CancellationToken ct)
         {
@@ -165,6 +180,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Update auction status (e.g. Pending → Active → Ended)
         /// </summary>
+        [Authorize]
         [HttpPatch("status")]
         public async Task<IActionResult> UpdateAuctionStatus([FromBody] UpdateAuctionStatusRequest request, CancellationToken ct)
         {
@@ -181,6 +197,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Update current auction price (when a new valid bid is placed)
         /// </summary>
+        [Authorize]
         [HttpPatch("{auctionId:int}/price")]
         public async Task<IActionResult> UpdateCurrentPrice(int auctionId, [FromQuery] decimal newPrice, CancellationToken ct)
         {
@@ -197,6 +214,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Update seller contact information
         /// </summary>
+        [Authorize]
         [HttpPatch("{auctionId:int}/seller")]
         public async Task<IActionResult> UpdateSellerContact(
             int auctionId,
@@ -214,6 +232,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Mark auction as completed and link with a transaction
         /// </summary>
+        [Authorize]
         [HttpPatch("{auctionId:int}/complete")]
         public async Task<IActionResult> CompleteAuction(
             int auctionId,
@@ -230,6 +249,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Delete an auction (soft delete)
         /// </summary>
+        [Authorize]
         [HttpDelete("{auctionId:int}")]
         public async Task<IActionResult> DeleteAuction(int auctionId, CancellationToken ct)
         {

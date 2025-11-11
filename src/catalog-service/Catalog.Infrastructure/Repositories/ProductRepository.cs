@@ -48,6 +48,83 @@ namespace Catalog.Infrastructure.Repositories
         }
 
         /// <summary>
+        /// Marks a product as spam.
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="ct"></param>
+        /// <returns></returns>
+        /// <exception cref="KeyNotFoundException"></exception>
+        public async Task MarkAsSpam(int productId, CancellationToken ct = default)
+        {
+            var product = await _db.Products
+                .FirstOrDefaultAsync(p => p.ProductId == productId && p.DeletedAt == null, ct);
+
+            if (product == null)
+                throw new KeyNotFoundException($"Product with ID = {productId} not found.");
+
+            product.MarkAsSpam();
+            _db.Products.Update(product);
+        }
+
+        /// <summary>
+        /// Marks a product as verified.
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="ct"></param>
+        /// <returns></returns>
+        /// <exception cref="KeyNotFoundException"></exception>
+        public async Task MarkAsVerified(int productId, CancellationToken ct = default)
+        {
+            var product = await _db.Products
+                .FirstOrDefaultAsync(p => p.ProductId == productId && p.DeletedAt == null, ct);
+
+            if (product == null)
+                throw new KeyNotFoundException($"Product with ID = {productId} not found.");
+
+            product.MarkAsVerified();
+            _db.Products.Update(product);
+        }
+
+        /// <summary>
+        /// Unmarks a product as spam.
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="ct"></param>
+        /// <returns></returns>
+        /// <exception cref="KeyNotFoundException"></exception>
+        public async Task UnmarkAsSpam(int productId, CancellationToken ct = default)
+        {
+            var product = await _db.Products
+                .FirstOrDefaultAsync(p => p.ProductId == productId && p.DeletedAt == null, ct);
+
+            if (product == null)
+                throw new KeyNotFoundException($"Product with ID = {productId} not found.");
+
+            product.UnmarkAsSpam();
+            _db.Products.Update(product);
+        }
+
+        /// <summary>
+        /// Unmarks a product as verified.
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="ct"></param>
+        /// <returns></returns>
+        /// <exception cref="KeyNotFoundException"></exception>
+        public async Task UnmarkAsVerified(int productId, CancellationToken ct = default)
+        {
+            var product = await _db.Products
+                .FirstOrDefaultAsync(p => p.ProductId == productId && p.DeletedAt == null, ct);
+
+            if (product == null)
+                throw new KeyNotFoundException($"Product with ID = {productId} not found.");
+
+            product.UnmarkAsVerified();
+            _db.Products.Update(product);
+        }
+
+
+        /// <summary>
         /// Performs a soft delete on the specified product by marking it as deleted.
         /// </summary>
         /// <exception cref="KeyNotFoundException">Thrown if the product does not exist.</exception>
@@ -136,7 +213,14 @@ namespace Catalog.Infrastructure.Repositories
             decimal? maxPrice = null,
             string? pickupAddress = null,
             ProductStatus? status = null,
+            SaleMethod? saleMethod = null,
             int? sellerId = null,
+            bool? isSpam = null,
+            bool? isVerified = null,
+            ProductType? productType = null,
+            DateTimeOffset? createAt = null,
+            DateTimeOffset? updateAt = null,
+            DateTimeOffset? deleteAt = null,
             CancellationToken ct = default)
         {
             var query = _db.Products
@@ -168,7 +252,7 @@ namespace Catalog.Infrastructure.Repositories
                 {
                     var province = addressParts[0];
                     query = query.Where(p =>
-                        EF.Functions.ILike(p.PickupAddress.ToLower(), $"%{province}%"));
+                        EF.Functions.ILike(p.PickupAddress.ToLower(), $"%{province},%"));
                 }
                 // Example: "Hanoi, Ba Dinh"
                 else
@@ -177,7 +261,7 @@ namespace Catalog.Infrastructure.Repositories
                     {
                         var localPart = part;
                         query = query.Where(p =>
-                            EF.Functions.ILike(p.PickupAddress.ToLower(), $"%{localPart}%"));
+                            EF.Functions.ILike(p.PickupAddress.ToLower(), $"%{localPart},%"));
                     }
                 }
             }
@@ -185,8 +269,29 @@ namespace Catalog.Infrastructure.Repositories
             if (status.HasValue)
                 query = query.Where(p => p.StatusProduct == status.Value);
 
+            if (saleMethod.HasValue)
+                query = query.Where(p => p.MethodSale == saleMethod.Value);
+
             if (sellerId.HasValue)
                 query = query.Where(p => p.SellerId == sellerId.Value);
+
+            if (isSpam.HasValue)
+                query = query.Where(p => p.IsSpam == isSpam.Value);
+
+            if (isVerified.HasValue)
+                query = query.Where(p => p.IsVerified == isVerified.Value);
+
+            if (productType.HasValue)
+                query = query.Where(p => p.Details.Any(d => d.ProductType == productType.Value));
+
+            if (updateAt.HasValue)
+                query = query.Where(p => p.UpdatedAt >= updateAt.Value);
+
+            if (createAt.HasValue)
+                query = query.Where(p => p.CreatedAt >= createAt.Value);
+
+            if (deleteAt.HasValue)
+                query = query.Where(p => p.DeletedAt >= deleteAt.Value);
 
             // ====== PAGINATION & SORTING ======
             var totalCount = await query.CountAsync(ct);
@@ -233,11 +338,19 @@ namespace Catalog.Infrastructure.Repositories
         /// <param name="ct">CancellationToken to optionally cancel the operation.</param>
         /// <returns>The total number of products matching the filter criteria.</returns>
         public async Task<int> GetProductCountAsync(
+            string? keyword = null,
             decimal? minPrice = null,
             decimal? maxPrice = null,
             string? pickupAddress = null,
             int? sellerId = null,
             ProductStatus? status = null,
+            SaleMethod? saleMethod = null,
+            bool? isSpam = null,
+            bool? isVerified = null,
+            ProductType? productType = null,
+            DateTimeOffset? createAt = null,
+            DateTimeOffset? updateAt = null,
+            DateTimeOffset? deleteAt = null,
             CancellationToken ct = default)
         {
             var query = _db.Products
@@ -254,6 +367,9 @@ namespace Catalog.Infrastructure.Repositories
             if (maxPrice.HasValue)
                 query = query.Where(p => p.Price <= maxPrice.Value);
 
+            if (productType.HasValue)
+                query = query.Where(p => p.Details.Any(d => d.ProductType == productType.Value));
+
             // Filter by pickup address
             if (!string.IsNullOrWhiteSpace(pickupAddress))
             {
@@ -267,7 +383,7 @@ namespace Catalog.Infrastructure.Repositories
                 {
                     var province = addressParts[0];
                     query = query.Where(p =>
-                        EF.Functions.ILike(p.PickupAddress.ToLower(), $"%{province}%"));
+                        EF.Functions.ILike(p.PickupAddress.ToLower(), $"%{province},%"));
                 }
                 // Filter by multiple address parts (AND logic)
                 else
@@ -276,7 +392,7 @@ namespace Catalog.Infrastructure.Repositories
                     {
                         var localPart = part;
                         query = query.Where(p =>
-                            EF.Functions.ILike(p.PickupAddress.ToLower(), $"%{localPart}%"));
+                            EF.Functions.ILike(p.PickupAddress.ToLower(), $"%{localPart},%"));
                     }
                 }
             }
@@ -285,10 +401,27 @@ namespace Catalog.Infrastructure.Repositories
             if (status.HasValue)
                 query = query.Where(p => p.StatusProduct == status.Value);
 
+            if (saleMethod.HasValue)
+                query = query.Where(p => p.MethodSale == saleMethod.Value);
+
             // Filter by seller ID
             if (sellerId.HasValue)
                 query = query.Where(p => p.SellerId == sellerId.Value);
 
+            if (isSpam.HasValue)
+                query = query.Where(p => p.IsSpam == isSpam.Value);
+
+            if (isVerified.HasValue)
+                query = query.Where(p => p.IsVerified == isVerified.Value);
+
+            if (updateAt.HasValue)
+                query = query.Where(p => p.UpdatedAt >= updateAt.Value);
+
+            if (createAt.HasValue)
+                query = query.Where(p => p.CreatedAt >= createAt.Value);
+
+            if (deleteAt.HasValue)
+                query = query.Where(p => p.DeletedAt >= deleteAt.Value);
             // 3. EXECUTE COUNT AND RETURN RESULT
 
             // Execute a SELECT COUNT(*) query to get the total number

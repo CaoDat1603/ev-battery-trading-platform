@@ -3,6 +3,8 @@ using Auction.Application.DTOs;
 using Auction.Domain.Abstractions;
 using Auction.Domain.Entities;
 using Auction.Domain.Enums;
+using Microsoft.AspNetCore.Http.HttpResults;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Auction.Application.Services
 {
@@ -83,12 +85,15 @@ namespace Auction.Application.Services
             DateTimeOffset? startTime = null,
             DateTimeOffset? endTime = null,
             AuctionStatus? status = null,
+           DateTimeOffset? createAt = null,
+            DateTimeOffset? updateAt = null,
+            DateTimeOffset? deleteAt = null,
             CancellationToken ct = default)
         {
             var (auctions, totalCount) = await _repo.GetPagedAsync(
                 pageNumber, pageSize, sortBy,
                 productId, winnerId, sellerEmail, sellerPhone, transactionId,
-                minPrice, maxPrice, startTime, endTime, status, ct);
+                minPrice, maxPrice, startTime, endTime, status, createAt, updateAt, deleteAt, ct);
 
             return auctions.Select(MapToDto).ToList().AsReadOnly();
         }
@@ -107,12 +112,14 @@ namespace Auction.Application.Services
             DateTimeOffset? startTime = null,
             DateTimeOffset? endTime = null,
             AuctionStatus? status = null,
+            DateTimeOffset? createAt = null,
+            DateTimeOffset? updateAt = null,
+            DateTimeOffset? deleteAt = null,
             CancellationToken ct = default)
         {
-            var (auctions, totalCount) = await _repo.GetPagedAsync(
-                1, 1, "newest",
+            var totalCount = await _repo.GetCountAsync(
                 productId, winnerId, sellerEmail, sellerPhone, transactionId,
-                minPrice, maxPrice, startTime, endTime, status, ct);
+                minPrice, maxPrice, startTime, endTime, status, createAt, updateAt, deleteAt, ct);
 
             return totalCount;
         }

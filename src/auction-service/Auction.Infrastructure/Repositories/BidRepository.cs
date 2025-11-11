@@ -97,6 +97,9 @@ namespace Auction.Infrastructure.Repositories
             DateTimeOffset? placedBefore = null,
             DepositStatus? statusDeposit = null,
             bool? isWinning = null,
+            DateTimeOffset? createAt = null,
+            DateTimeOffset? updateAt = null,
+            DateTimeOffset? deleteAt = null,
             CancellationToken ct = default)
         {
             var query = _db.Bids
@@ -129,6 +132,14 @@ namespace Auction.Infrastructure.Repositories
             if (isWinning.HasValue)
                 query = query.Where(x => x.IsWinning == isWinning.Value);
 
+            if (updateAt.HasValue)
+                query = query.Where(p => p.UpdatedAt >= updateAt.Value);
+
+            if (createAt.HasValue)
+                query = query.Where(p => p.CreatedAt >= createAt.Value);
+
+            if (deleteAt.HasValue)
+                query = query.Where(p => p.DeletedAt >= deleteAt.Value);
             // === Sorting ===
             query = sortBy?.ToLower() switch
             {
@@ -160,6 +171,9 @@ namespace Auction.Infrastructure.Repositories
             DateTimeOffset? placedBefore = null,
             DepositStatus? statusDeposit = null,
             bool? isWinning = null,
+            DateTimeOffset? createAt = null,
+            DateTimeOffset? updateAt = null,
+            DateTimeOffset? deleteAt = null,
             CancellationToken ct = default)
         {
             var query = _db.Bids
@@ -190,6 +204,15 @@ namespace Auction.Infrastructure.Repositories
 
             if (isWinning.HasValue)
                 query = query.Where(b => b.IsWinning == isWinning.Value);
+
+            if (updateAt.HasValue)
+                query = query.Where(p => p.UpdatedAt >= updateAt.Value);
+
+            if (createAt.HasValue)
+                query = query.Where(p => p.CreatedAt >= createAt.Value);
+
+            if (deleteAt.HasValue)
+                query = query.Where(p => p.DeletedAt >= deleteAt.Value);
 
             return await query.CountAsync(ct);
         }
