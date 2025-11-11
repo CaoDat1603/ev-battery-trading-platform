@@ -1,19 +1,36 @@
+# See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+# This stage is used when running from VS in fast mode (Default for Debug configuration)
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+USER $APP_UID
+WORKDIR /app
+EXPOSE 8080
+EXPOSE 8081
+
+RUN mkdir -p /app/wwwroot/uploads && \
+    chmod -R 777 /app/wwwroot/uploads
+
+# This stage is used to build the service project
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /app
-
-COPY ElectronicVehicleStoreBE.sln ./
-
-COPY src/catalog-service/Catalog.API/Catalog.API.csproj src/catalog-service/Catalog.API/
-COPY src/catalog-service/Catalog.Application/Catalog.Application.csproj src/catalog-service/Catalog.Application/
-COPY src/catalog-service/Catalog.Domain/Catalog.Domain.csproj src/catalog-service/Catalog.Domain/
-COPY src/catalog-service/Catalog.Infrastructure/Catalog.Infrastructure.csproj src/catalog-service/Catalog.Infrastructure/
-
-RUN dotnet restore src/catalog-service/Catalog.API/Catalog.API.csproj
-
+ARG BUILD_CONFIGURATION=Release
+WORKDIR /src
+COPY ["src/catalog-service/Catalog.API/Catalog.API.csproj", "src/catalog-service/Catalog.API/"]
+COPY ["src/catalog-service/Catalog.Application/Catalog.Application.csproj", "src/catalog-service/Catalog.Application/"]
+COPY ["src/catalog-service/Catalog.Domain/Catalog.Domain.csproj", "src/catalog-service/Catalog.Domain/"]
+COPY ["src/catalog-service/Catalog.Infrastructure/Catalog.Infrastructure.csproj", "src/catalog-service/Catalog.Infrastructure/"]
+RUN dotnet restore "./src/catalog-service/Catalog.API/Catalog.API.csproj"
 COPY . .
-RUN dotnet publish src/catalog-service/Catalog.API/Catalog.API.csproj -c Release -o /out /p:UseAppHost=false
+WORKDIR "/src/src/catalog-service/Catalog.API"
+RUN dotnet build "./Catalog.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+# This stage is used to publish the service project to be copied to the final stage
+FROM build AS publish
+ARG BUILD_CONFIGURATION=Release
+RUN dotnet publish "./Catalog.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+
+# This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
+FROM base AS final
 WORKDIR /app
-COPY --from=build /out .
+COPY --from=publish /app/publish .
+
 ENTRYPOINT ["dotnet", "Catalog.API.dll"]

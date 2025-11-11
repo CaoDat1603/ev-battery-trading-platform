@@ -21,6 +21,9 @@ namespace Auction.Application.Contracts
             DateTimeOffset? placedBefore = null,
             DepositStatus? statusDeposit = null,
             bool? isWinning = null,
+            DateTimeOffset? createAt = null,
+            DateTimeOffset? updateAt = null,
+            DateTimeOffset? deleteAt = null,
             CancellationToken ct = default);
         Task<int> GetBidCountAsync(
             int? auctionId = null,
@@ -31,6 +34,9 @@ namespace Auction.Application.Contracts
             DateTimeOffset? placedBefore = null,
             DepositStatus? statusDeposit = null,
             bool? isWinning = null,
+            DateTimeOffset? createAt = null,
+            DateTimeOffset? updateAt = null,
+            DateTimeOffset? deleteAt = null,
             CancellationToken ct = default);
     }
 }

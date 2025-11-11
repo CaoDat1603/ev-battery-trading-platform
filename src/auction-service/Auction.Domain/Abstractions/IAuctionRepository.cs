@@ -30,6 +30,25 @@ namespace Auction.Domain.Abstractions
             DateTimeOffset? startTime = null,
             DateTimeOffset? endTime = null,
             AuctionStatus? status = null,
+            DateTimeOffset? createAt = null,
+            DateTimeOffset? updateAt = null,
+            DateTimeOffset? deleteAt = null,
+            CancellationToken ct = default);
+
+        Task<int> GetCountAsync(
+            int? productId = null,
+            int? winnerId = null,
+            string? sellerEmail = null,
+            string? sellerPhone = null,
+            int? transactionId = null,
+            decimal? minPrice = null,
+            decimal? maxPrice = null,
+            DateTimeOffset? startTime = null,
+            DateTimeOffset? endTime = null,
+            AuctionStatus? status = null,
+            DateTimeOffset? createAt = null,
+            DateTimeOffset? updateAt = null,
+            DateTimeOffset? deleteAt = null,
             CancellationToken ct = default);
     }
 }

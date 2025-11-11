@@ -10,7 +10,36 @@ var builder = WebApplication.CreateBuilder(args);
 // === Add services ===
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new() { Title = "Catalog API", Version = "v1" });
+
+    // Thêm cấu hình cho JWT
+    c.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = Microsoft.OpenApi.Models.SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT",
+        In = Microsoft.OpenApi.Models.ParameterLocation.Header,
+        Description = "Nhập token theo dạng: Bearer {token}"
+    });
+
+    c.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
+    {
+        {
+            new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+            {
+                Reference = new Microsoft.OpenApi.Models.OpenApiReference
+                {
+                    Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
+});
 
 // === Dependency Injection ===
 var cs = builder.Configuration.GetConnectionString("Default");
@@ -78,20 +107,25 @@ if (app.Environment.IsDevelopment())
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+    bool hasMigrations = false;
     try
     {
-        if (!db.Database.GetAppliedMigrations().Any())
-            db.Database.EnsureCreated();
+        hasMigrations = db.Database.GetAppliedMigrations().Any();
     }
     catch (Exception ex)
     {
-        Console.WriteLine($"DB connection error: {ex.Message}");
+        Console.WriteLine("Cannot connect to DB: " + ex.Message);
     }
+
+    if (!hasMigrations)
+        db.Database.EnsureCreated();
 }
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();

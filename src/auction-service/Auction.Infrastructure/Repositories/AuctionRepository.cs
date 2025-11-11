@@ -143,6 +143,9 @@ namespace Auction.Infrastructure.Repositories
             DateTimeOffset? startTime = null,
             DateTimeOffset? endTime = null,
             AuctionStatus? status = null,
+            DateTimeOffset? createAt = null,
+            DateTimeOffset? updateAt = null,
+            DateTimeOffset? deleteAt = null,
             CancellationToken ct = default)
         {
             var query = _db.Auctions
@@ -184,6 +187,15 @@ namespace Auction.Infrastructure.Repositories
             if (status.HasValue)
                 query = query.Where(a => a.Status == status.Value);
 
+            if (updateAt.HasValue)
+                query = query.Where(p => p.UpdatedAt >= updateAt.Value);
+
+            if (createAt.HasValue)
+                query = query.Where(p => p.CreatedAt >= createAt.Value);
+
+            if (deleteAt.HasValue)
+                query = query.Where(p => p.DeletedAt >= deleteAt.Value);
+
             // ====== TOTAL COUNT ======
             var totalCount = await query.CountAsync(ct);
 
@@ -223,6 +235,75 @@ namespace Auction.Infrastructure.Repositories
                 .ToListAsync(ct);
 
             return (auctions, totalCount);
+        }
+
+        public async Task<int> GetCountAsync(
+            int? productId = null,
+            int? winnerId = null,
+            string? sellerEmail = null,
+            string? sellerPhone = null,
+            int? transactionId = null,
+            decimal? minPrice = null,
+            decimal? maxPrice = null,
+            DateTimeOffset? startTime = null,
+            DateTimeOffset? endTime = null,
+            AuctionStatus? status = null,
+            DateTimeOffset? createAt = null,
+            DateTimeOffset? updateAt = null,
+            DateTimeOffset? deleteAt = null,
+            CancellationToken ct = default)
+        {
+            var query = _db.Auctions
+                .Include(a => a.Bids)
+                .Where(a => a.DeletedAt == null)
+                .AsQueryable();
+
+            // ====== FILTERS ======
+
+            if (productId.HasValue)
+                query = query.Where(a => a.ProductId == productId.Value);
+
+            if (winnerId.HasValue)
+                query = query.Where(a => a.WinnerId == winnerId.Value);
+
+            if (transactionId.HasValue)
+                query = query.Where(a => a.TransactionId == transactionId.Value);
+
+            if (!string.IsNullOrWhiteSpace(sellerEmail))
+                query = query.Where(a => a.SellerEmail != null &&
+                                         EF.Functions.ILike(a.SellerEmail, $"%{sellerEmail}%"));
+
+            if (!string.IsNullOrWhiteSpace(sellerPhone))
+                query = query.Where(a => a.SellerPhone != null &&
+                                         EF.Functions.ILike(a.SellerPhone, $"%{sellerPhone}%"));
+
+            if (minPrice.HasValue)
+                query = query.Where(a => a.CurrentPrice >= minPrice.Value);
+
+            if (maxPrice.HasValue)
+                query = query.Where(a => a.CurrentPrice <= maxPrice.Value);
+
+            if (startTime.HasValue)
+                query = query.Where(a => a.StartTime >= startTime.Value);
+
+            if (endTime.HasValue)
+                query = query.Where(a => a.EndTime <= endTime.Value);
+
+            if (status.HasValue)
+                query = query.Where(a => a.Status == status.Value);
+
+            if (updateAt.HasValue)
+                query = query.Where(p => p.UpdatedAt >= updateAt.Value);
+
+            if (createAt.HasValue)
+                query = query.Where(p => p.CreatedAt >= createAt.Value);
+
+            if (deleteAt.HasValue)
+                query = query.Where(p => p.DeletedAt >= deleteAt.Value);
+
+            var totalCount = await query.CountAsync(ct);
+
+            return totalCount;
         }
     }
 }

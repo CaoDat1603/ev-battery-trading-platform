@@ -146,7 +146,7 @@ services:
           - name: cors
             config:
               origins: ["http://localhost:5173","http://localhost:3000"]
-              methods: ["GET"]
+              methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
               headers: ["Authorization","Content-Type"]
               credentials: true
               max_age: 3600
@@ -179,7 +179,10 @@ services:
               policy: local
               limit_by: consumer   # giới hạn theo người dùng (consumer)
               fault_tolerant: true
-
+      - name: products-api-uploads-route # <--- ĐÃ ĐƯA RA NGOÀI PHẦN PLUGINS
+        paths:
+          - /products
+        strip_path: true
 
 
 #-----------------------------#
@@ -290,3 +293,64 @@ services:
               headers: ["Authorization","Content-Type"]
               credentials: true
               max_age: 3600
+
+#-----------------------------#
+  ##### Wishlist Service #####
+#-----------------------------#
+  - name: wishlist
+    url: http://wishlist-api:8080/
+    routes:
+      - name: wishlist-route
+        paths: ["/api/wishlist"]
+        strip_path: false
+        plugins:
+          - name: jwt
+            config:
+              key_claim_name: "iss"
+              claims_to_verify: ["exp"]
+              uri_param_names: ["access_token"]
+              secret_is_base64: false
+          - name: cors
+            config:
+              origins: ["http://localhost:5173","http://localhost:3000"]
+              methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
+              headers: ["Authorization","Content-Type"]
+              credentials: true
+              max_age: 3600
+          - name: rate-limiting
+            config:
+              minute: 10
+              policy: local
+              limit_by: consumer
+              fault_tolerant: true
+
+
+#-----------------------------#
+  ##### Auction Service #####
+#-----------------------------#
+  - name: auction
+    url: http://auction-api:8080/
+    routes:
+      - name: auction-route
+        paths: ["/api/auction"]
+        strip_path: false
+        plugins:
+          - name: jwt
+            config:
+              key_claim_name: "iss"
+              claims_to_verify: ["exp"]
+              uri_param_names: ["access_token"]
+              secret_is_base64: false
+          - name: cors
+            config:
+              origins: ["http://localhost:5173","http://localhost:3000"]
+              methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
+              headers: ["Authorization","Content-Type"]
+              credentials: true
+              max_age: 3600
+          - name: rate-limiting
+            config:
+              minute: 10
+              policy: local
+              limit_by: consumer
+              fault_tolerant: true

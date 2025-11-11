@@ -54,24 +54,39 @@ namespace Catalog.Application.Services
             decimal? maxPrice = null,
             string? pickupAddress = null,
             ProductStatus? status = null,
+            SaleMethod? saleMethod = null,
             int? sellerId = null,
+            bool? isSpam = null,
+            bool? isVerified = null,
+            ProductType? productType = null,
+            DateTimeOffset? createAt = null,
+            DateTimeOffset? updateAt = null,
+            DateTimeOffset? deleteAt = null,
             CancellationToken ct = default)
         {
             var (products, totalCount) = await _repo.GetPagedAsync(
-                pageNumber, pageSize, sortBy, keyword, minPrice, maxPrice, pickupAddress, status, sellerId, ct);
+                pageNumber, pageSize, sortBy, keyword, minPrice, maxPrice, pickupAddress, status, saleMethod, sellerId, isSpam, isVerified, productType, createAt, updateAt, deleteAt, ct);
 
             return products.Select(MapToDto).ToList().AsReadOnly();
         }
 
         public async Task<int> GetProductCountAsync(
+            string? keyword = null,
             decimal? minPrice = null,
             decimal? maxPrice = null,
             string? pickupAddress = null,
             int? sellerId = null,
             ProductStatus? status = null,
+            SaleMethod? saleMethod = null,
+            bool? isSpam = null,
+            bool? isVerified = null,
+            ProductType? productType = null,
+            DateTimeOffset? createAt = null,
+            DateTimeOffset? updateAt = null,
+            DateTimeOffset? deleteAt = null,
             CancellationToken ct = default)
         {
-            var count = await _repo.GetProductCountAsync(minPrice, maxPrice, pickupAddress, sellerId, status, ct);
+            var count = await _repo.GetProductCountAsync(keyword, minPrice, maxPrice, pickupAddress, sellerId, status, saleMethod, isSpam, isVerified, productType, createAt, updateAt, deleteAt, ct);
 
             return count;
         }
@@ -85,12 +100,15 @@ namespace Catalog.Application.Services
                 Title = product.Title,
                 Price = product.Price,
                 SellerId = product.SellerId,
+                MethodSale = product.MethodSale,
                 StatusProduct = product.StatusProduct,
                 PickupAddress = product.PickupAddress,
                 ProductName = detail?.ProductName ?? string.Empty,
                 Description = detail?.Description ?? string.Empty,
-                ProductType = detail?.ProductType ?? 0,
+                ProductType = detail.ProductType,
                 RegistrationCard = detail?.RegistrationCard,
+                IsSpam = product.IsSpam,
+                IsVerified = product.IsVerified,
                 FileUrl = detail?.FileUrl,
                 ImageUrl = detail?.ImageUrl,
                 ModeratedBy = product.ModeratedBy,

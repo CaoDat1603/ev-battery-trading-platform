@@ -33,6 +33,15 @@ namespace Catalog.Domain.Entities
         [MaxLength(300)]
         public string PickupAddress { get; private set; } = default!; // Pickup location for the product
 
+        [Required]
+        public SaleMethod MethodSale { get; private set; } // Default sale method is "Buy Now"
+
+        [Required]
+        public bool IsSpam { get; private set; } = false; // Indicates if the product is marked as spam
+
+        [Required]
+        public bool IsVerified { get; private set; } = false; // Indicates if the product is verified
+
         public DateTimeOffset CreatedAt { get; private set; }
 
         public DateTimeOffset? UpdatedAt { get; private set; }
@@ -48,7 +57,7 @@ namespace Catalog.Domain.Entities
         /// <summary>
         /// Factory method for creating a new Product entity.
         /// </summary>
-        public static Product Create(string title, decimal price, int sellerId, string pickupAddress, int quantity = 1)
+        public static Product Create(string title, decimal price, int sellerId, string pickupAddress, int quantity = 1, SaleMethod method = SaleMethod.BuyNow, bool isSpam = false)
         {
             if (string.IsNullOrWhiteSpace(title))
                 throw new ArgumentException("Title is required");
@@ -64,7 +73,10 @@ namespace Catalog.Domain.Entities
                 SellerId = sellerId,
                 PickupAddress = pickupAddress,
                 Quantity = quantity,
+                MethodSale = method,
                 StatusProduct = ProductStatus.Pending,
+                IsSpam = isSpam,
+                IsVerified = false,
                 CreatedAt = DateTimeOffset.UtcNow
             };
         }
@@ -86,7 +98,7 @@ namespace Catalog.Domain.Entities
         public ProductDetail AddDetail(
             string productName,
             string description,
-            int productType,
+            ProductType productType,
             string registrationCard,
             string fileUrl,
             string imageUrl,
@@ -113,6 +125,21 @@ namespace Catalog.Domain.Entities
         }
 
         /// <summary>
+        /// Changes the sale method of the product.
+        /// </summary>
+        /// <param name="newMethod"></param>
+        /// <exception cref="ArgumentException"></exception>
+        public void ChangesSaleMethod(SaleMethod newMethod)
+        {
+            if (!Enum.IsDefined(typeof(SaleMethod), newMethod))
+                throw new ArgumentException($"Invalid method value: '{newMethod}'");
+            if (MethodSale == newMethod)
+                return;
+            MethodSale = newMethod;
+            UpdatedAt = DateTimeOffset.UtcNow;
+        }
+
+        /// <summary>
         /// Soft deletes the product (marks it as deleted without removing it from the database).
         /// </summary>
         public void Delete()
@@ -120,6 +147,30 @@ namespace Catalog.Domain.Entities
             StatusProduct = ProductStatus.Block;
             DeletedAt = DateTimeOffset.UtcNow;
             UpdatedAt = DeletedAt;
+        }
+
+        public void MarkAsSpam()
+        {
+            IsSpam = true;
+            UpdatedAt = DateTimeOffset.UtcNow;
+        }
+
+        public void UnmarkAsSpam()
+        {
+            IsSpam = false;
+            UpdatedAt = DateTimeOffset.UtcNow;
+        }
+
+        public void MarkAsVerified()
+        {
+            IsVerified = true;
+            UpdatedAt = DateTimeOffset.UtcNow;
+        }
+
+        public void UnmarkAsVerified()
+        {
+            IsVerified = false;
+            UpdatedAt = DateTimeOffset.UtcNow;
         }
     }
 }

@@ -1,7 +1,10 @@
 ﻿using Auction.Application.Contracts;
 using Auction.Application.DTOs;
 using Auction.Domain.Enums;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Auction.API.Controllers
 {
@@ -25,6 +28,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Health check for the bid service
         /// </summary>
+        [Authorize]
         [HttpGet("health")]
         public IActionResult Health()
         {
@@ -36,6 +40,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Get all bids (cached for 60s)
         /// </summary>
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetAllBids(CancellationToken ct)
         {
@@ -49,6 +54,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Get bid details by ID
         /// </summary>
+        [Authorize]
         [HttpGet("{bidId:int}")]
         public async Task<IActionResult> GetBidById(int bidId, CancellationToken ct)
         {
@@ -62,6 +68,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Get bids for a specific auction
         /// </summary>
+        [Authorize]
         [HttpGet("auction/{auctionId:int}")]
         public async Task<IActionResult> GetByAuction(int auctionId, CancellationToken ct)
         {
@@ -72,6 +79,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Get bids placed by a specific bidder
         /// </summary>
+        [Authorize]
         [HttpGet("bidder/{bidderId:int}")]
         public async Task<IActionResult> GetByBidder(int bidderId, CancellationToken ct)
         {
@@ -82,6 +90,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Search bids with pagination and filters
         /// </summary>
+        [Authorize]
         [HttpGet("search")]
         public async Task<IActionResult> SearchBids(
             [FromQuery] int pageNumber = 1,
@@ -95,12 +104,15 @@ namespace Auction.API.Controllers
             [FromQuery] DateTimeOffset? placedBefore = null,
             [FromQuery] DepositStatus? statusDeposit = null,
             [FromQuery] bool? isWinning = null,
+            [FromQuery] DateTimeOffset? createAt = null,
+            [FromQuery] DateTimeOffset? updateAt = null,
+            [FromQuery] DateTimeOffset? deleteAt = null,
             CancellationToken ct = default)
         {
             var result = await _queries.GetPagedBidsAsync(
                 pageNumber, pageSize, sortBy,
                 auctionId, bidderId, minAmount, maxAmount,
-                placedAfter, placedBefore, statusDeposit, isWinning, ct);
+                placedAfter, placedBefore, statusDeposit, isWinning, createAt, updateAt, deleteAt, ct);
 
             return Ok(result);
         }
@@ -108,6 +120,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Get bid count matching filters
         /// </summary>
+        [Authorize]
         [HttpGet("count")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
         public async Task<ActionResult<int>> GetBidCount(
@@ -119,11 +132,14 @@ namespace Auction.API.Controllers
             [FromQuery] DateTimeOffset? placedBefore = null,
             [FromQuery] DepositStatus? statusDeposit = null,
             [FromQuery] bool? isWinning = null,
+            [FromQuery] DateTimeOffset? createAt = null,
+            [FromQuery] DateTimeOffset? updateAt = null,
+            [FromQuery] DateTimeOffset? deleteAt = null,
             CancellationToken ct = default)
         {
             var count = await _queries.GetBidCountAsync(
                 auctionId, bidderId, minAmount, maxAmount,
-                placedAfter, placedBefore, statusDeposit, isWinning, ct);
+                placedAfter, placedBefore, statusDeposit, isWinning, createAt, updateAt, deleteAt, ct);
 
             return Ok(count);
         }
@@ -136,11 +152,18 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Place a new bid on an auction
         /// </summary>
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> PlaceBid([FromBody] PlaceBidDto dto, CancellationToken ct)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+
+            var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+            if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out var userId))
+                return Unauthorized("Invalid token");
+
+            dto.BidderId = userId;
 
             var bidId = await _commands.PlaceBidAsync(dto, ct);
             return CreatedAtAction(nameof(GetBidById), new { bidId = bidId }, new { BidId = bidId });
@@ -149,6 +172,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Update the deposit status of a bid
         /// </summary>
+        [Authorize]
         [HttpPatch("status")]
         public async Task<IActionResult> UpdateBidStatus([FromBody] UpdateBidStatusRequest request, CancellationToken ct)
         {
@@ -165,6 +189,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Update bidder contact info (email/phone)
         /// </summary>
+        [Authorize]
         [HttpPatch("{bidId:int}/contact")]
         public async Task<IActionResult> UpdateContact(
             int bidId,
@@ -182,6 +207,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Update bid amount (only valid for active auctions)
         /// </summary>
+        [Authorize]
         [HttpPatch("{bidId:int}/amount")]
         public async Task<IActionResult> UpdateBidAmount(int bidId, [FromQuery] decimal newAmount, CancellationToken ct)
         {
@@ -198,6 +224,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Mark a bid as winning or not
         /// </summary>
+        [Authorize]
         [HttpPatch("{bidId:int}/winning")]
         public async Task<IActionResult> UpdateWinningStatus(int bidId, [FromQuery] bool isWinning, CancellationToken ct)
         {
@@ -211,6 +238,7 @@ namespace Auction.API.Controllers
         /// <summary>
         /// Delete a bid (soft delete)
         /// </summary>
+        [Authorize]
         [HttpDelete("{bidId:int}")]
         public async Task<IActionResult> DeleteBid(int bidId, CancellationToken ct)
         {
