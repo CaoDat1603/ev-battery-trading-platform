@@ -159,6 +159,12 @@ namespace Auction.API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+            var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+            if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out var userId))
+                return Unauthorized("Invalid token");
+
+            dto.BidderId = userId;
+
             var bidId = await _commands.PlaceBidAsync(dto, ct);
             return CreatedAtAction(nameof(GetBidById), new { bidId = bidId }, new { BidId = bidId });
         }

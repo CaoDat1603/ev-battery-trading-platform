@@ -123,6 +123,7 @@ namespace Catalog.API.Controllers
         /// <summary>
         /// Search products for admin/seller (all statuses)
         /// </summary>
+        [Authorize]
         [HttpGet("search/all")]
         public async Task<IActionResult> SearchForAdmin(
             [FromQuery] string? q,
@@ -143,6 +144,21 @@ namespace Catalog.API.Controllers
             [FromQuery] DateTimeOffset? deleteAt = null,
             CancellationToken ct = default)
         {
+            var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+            if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out var userId))
+                return Unauthorized("Invalid token");
+
+            var roleClaim = User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value;
+            var isAdmin = string.Equals(roleClaim, "Admin", StringComparison.OrdinalIgnoreCase);
+
+            if (!isAdmin && sellerId.HasValue)
+                return Forbid("Only Admin can set product status to Available");
+
+            if (!isAdmin && !sellerId.HasValue)
+            {
+                sellerId = userId;
+            }
+
             var result = await _queries.GetPagedProductsAsync(
                 pageNumber: pageNumber,
                 pageSize: pageSize,
@@ -206,6 +222,47 @@ namespace Catalog.API.Controllers
             return Ok(result);
         }
 
+        [HttpGet("count-seller")]
+        [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
+        public async Task<ActionResult<int>> GetProductCountSeller(
+            [FromQuery] string? q,
+            [FromQuery] decimal? minPrice,
+            [FromQuery] decimal? maxPrice,
+            [FromQuery] string? pickupAddress,
+            [FromQuery] ProductStatus? status,
+            [FromQuery] SaleMethod? saleMethod,
+            [FromQuery] bool? isSamp = null,
+            [FromQuery] bool? isVerified = null,
+            [FromQuery] ProductType? productType = null,
+            [FromQuery] DateTimeOffset? createAt = null,
+            [FromQuery] DateTimeOffset? updateAt = null,
+            [FromQuery] DateTimeOffset? deleteAt = null,
+            CancellationToken ct = default)
+        {
+            var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+            if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out var userId))
+                return Unauthorized("Invalid token");
+
+            var result = await _queries.GetProductCountAsync(
+                keyword: q,
+                minPrice: minPrice,
+                maxPrice: maxPrice,
+                pickupAddress: pickupAddress,
+                sellerId: userId,
+                status: status,
+                saleMethod: saleMethod,
+                isSpam: isSamp,
+                isVerified: isVerified,
+                productType: productType,
+                createAt: createAt,
+                updateAt: updateAt,
+                deleteAt: deleteAt,
+                ct: ct
+            );
+
+            return Ok(result);
+        }
 
         // ======================
         // 🔹 COMMANDS

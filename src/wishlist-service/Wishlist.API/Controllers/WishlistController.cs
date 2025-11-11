@@ -75,9 +75,13 @@ namespace Wishlist.API.Controllers
         /// <param name="ct"></param>
         /// <returns></returns>
         [Authorize]
-        [HttpGet("user/{userId:int}")]
-        public async Task<IActionResult> GetWishlistByUserId(int userId, CancellationToken ct)
+        [HttpGet("user/")]
+        public async Task<IActionResult> GetWishlistByUserId(CancellationToken ct)
         {
+            var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+            if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out var userId))
+                return Unauthorized("Invalid token");
+
             var result = await _queries.SearchByUserIdAsync(userId, ct);
             if (result == null || result.Count == 0)
                 return NotFound(new { message = "Wishlist not found for the user" });
@@ -97,18 +101,33 @@ namespace Wishlist.API.Controllers
         [Authorize]
         [HttpGet("search")]
         public async Task<IActionResult> SearchWishlist(
-            [FromQuery] int? userId,
+            [FromQuery] int? Id,
             [FromQuery] int? productId,
             [FromQuery] string? sortBy = "newest",
             [FromQuery] int pageNumber = 1,
             [FromQuery] int pageSize = 10,
             CancellationToken ct = default)
         {
+            var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+            if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out var userId))
+                return Unauthorized("Invalid token");
+
+            var roleClaim = User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value;
+            var isAdmin = string.Equals(roleClaim, "Admin", StringComparison.OrdinalIgnoreCase);
+
+            if (!isAdmin && Id.HasValue)
+                return Forbid("Only Admin can set product status to Available");
+
+            if (!isAdmin && !Id.HasValue)
+            {
+                Id = userId;
+            }
+
             var result = await _queries.GetPagedAsync(
                 pageNumber,
                 pageSize,
                 sortBy,
-                userId,
+                Id,
                 productId,
                 ct);
 
@@ -126,12 +145,27 @@ namespace Wishlist.API.Controllers
         [HttpGet("count")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
         public async Task<ActionResult> GetWishlistCount(
-            [FromQuery] int? userId,
+            [FromQuery] int? Id,
             [FromQuery] int? productId,
             CancellationToken ct = default)
         {
+            var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+            if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out var userId))
+                return Unauthorized("Invalid token");
+
+            var roleClaim = User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value;
+            var isAdmin = string.Equals(roleClaim, "Admin", StringComparison.OrdinalIgnoreCase);
+
+            if (!isAdmin && Id.HasValue)
+                return Forbid("Only Admin can set product status to Available");
+
+            if (!isAdmin && !Id.HasValue)
+            {
+                Id = userId;
+            }
+
             var count = await _queries.GetWishlistCountAsync(
-                userId,
+                Id,
                 productId,
                 ct);
 
@@ -155,9 +189,13 @@ namespace Wishlist.API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+            var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+            if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out var userId))
+                return Unauthorized("Invalid token");
+
             var dto = new CreateWishlistDto
             {
-                UserId = request.UserId,
+                UserId = userId,
                 ProductId = request.ProductId
             };
 

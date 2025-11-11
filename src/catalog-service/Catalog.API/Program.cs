@@ -107,15 +107,19 @@ if (app.Environment.IsDevelopment())
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+    bool hasMigrations = false;
     try
     {
-        if (!db.Database.GetAppliedMigrations().Any())
-            db.Database.EnsureCreated();
+        hasMigrations = db.Database.GetAppliedMigrations().Any();
     }
     catch (Exception ex)
     {
-        Console.WriteLine($"DB connection error: {ex.Message}");
+        Console.WriteLine("Cannot connect to DB: " + ex.Message);
     }
+
+    if (!hasMigrations)
+        db.Database.EnsureCreated();
 }
 
 app.UseHttpsRedirection();

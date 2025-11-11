@@ -98,12 +98,30 @@ builder.Services.AddAuthorization(options =>
 });
 var app = builder.Build();
 
-
-// Configure the HTTP request pipeline.
+// === Configure middleware ===
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+
+// auto-migrate cho demo
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+    bool hasMigrations = false;
+    try
+    {
+        hasMigrations = db.Database.GetAppliedMigrations().Any();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Cannot connect to DB: " + ex.Message);
+    }
+
+    if (!hasMigrations)
+        db.Database.EnsureCreated();
 }
 
 app.UseHttpsRedirection();
