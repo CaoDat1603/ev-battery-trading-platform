@@ -5,24 +5,11 @@ namespace Identity.Application.Contracts
     public interface IUserCommands
     {
         Task<int> CreateUserAsync(CreateUserDto request, CancellationToken cancellationToken = default);
-        Task UpdateUserAsync(CreateUserDto request, CancellationToken cancellationToken = default);
-        Task ChangePasswordAsync(int userId, string newPassword, CancellationToken cancellationToken = default);
-
-        // Xác thực tài khoản -> status á "verified" | "unverified"
+        Task<int> UpdateUserAsync(int userId, UpdateUserDto request, CancellationToken cancellationToken = default);
         Task VerifyUserAsync(int userId, CancellationToken cancellationToken = default);
-        Task UnverifyUserAsync(int userId, CancellationToken cancellationToken = default);
-
-        // Soft delete
+        Task RejectUserProfileAsync(int userId, string? reason = null, CancellationToken ct = default);
         Task DeleteUserAsync(int userId, CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Khóa tài khoản (disable).
-        /// </summary>
         Task DisableUserAsync(int userId, CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Mở khóa tài khoản (enable).
-        /// </summary>
         Task EnableUserAsync(int userId, CancellationToken cancellationToken = default);
     }
 }

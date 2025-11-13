@@ -1,26 +1,81 @@
-using Identity.Application;
+﻿using Identity.Application;
 using Identity.Application.Contracts;
-using Identity.Application.DTOs;
+using Identity.Application.Services;
+using Identity.Domain.Abtractions;
 using Identity.Infrastructure;
-using Microsoft.AspNetCore.Mvc;
+using Identity.Infrastructure.Repositories;
+using Identity.Infrastructure.Services;
+using Identity.Infrastructure.Settings;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using System.Text;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(opts =>
+    {
+        opts.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Electronic Vehicle Store", Version = "v1" });
 
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = "Nhập token vào ô bên dưới (không còn chữ 'Bearer')",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
+});
 // DI
 var cs = builder.Configuration.GetConnectionString("Default");
-builder.Services.AddIndentityInfrastructure(cs);
+builder.Services.AddIdentityInfrastructure(cs, builder.Configuration);
 builder.Services.AddIdentityApplication();
-builder.Services.AddAuthentication("Bearer")
+builder.Services.AddMemoryCache();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddDataProtection();
+
+builder.Services.AddScoped<IJwtProvider, JwtProvider>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<ISmsService, SmsService>();
+builder.Services.AddScoped<IRegisterCache,RegisterCache>();
+builder.Services.AddScoped<ICacheService, CacheService>();
+builder.Services.AddScoped<IRefreshTokenService, RefreshTokenService>();
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
     .AddJwtBearer("Bearer", opt =>
     {
         opt.TokenValidationParameters = new TokenValidationParameters
@@ -34,6 +89,21 @@ builder.Services.AddAuthentication("Bearer")
             IssuerSigningKey = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
         };
+    })
+    .AddJwtBearer("SystemBearer", opt =>
+    {
+        // Token của service nội bộ
+        opt.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["JwtSystem:Issuer"],
+            ValidAudience = builder.Configuration["JwtSystem:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(builder.Configuration["JwtSystem:SigningKey"]!))
+        };
     });
 /*builder.WebHost.ConfigureKestrel(options =>
 {
@@ -41,13 +111,22 @@ builder.Services.AddAuthentication("Bearer")
     options.ListenAnyIP(8081, o => o.UseHttps()); // https
 });*/
 
+builder.Services.AddAuthorization(options =>
+{
+    // Policy cho service nội bộ
+    options.AddPolicy("SystemPolicy", policy =>
+    {
+        policy.AuthenticationSchemes.Add("SystemBearer");
+        policy.RequireRole("System");
+    });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
 //{
-    app.UseSwagger();
-    app.UseSwaggerUI();
+app.UseSwagger();
+app.UseSwaggerUI();
 //}
 // auto-migrate cho demo
 using (var scope = app.Services.CreateScope())
@@ -68,20 +147,23 @@ using (var scope = app.Services.CreateScope())
         db.Database.EnsureCreated();
 }
 
+
+// --- Endpoints ---
 //app.MapGet("/identity/health", () => Results.Ok(new { ok = true, svc = "identity" }));
-app.MapPost("/identity/login", async (
-    [FromBody] LoginRequest request,
-    IAuthService authService,
-    CancellationToken cancellationToken) =>
-{
-    var result = await authService.LoginAsync(request, cancellationToken);
-    return result is null
-        ? Results.Unauthorized()
-        : Results.Ok(result);
-});
+//app.MapPost("/identity/login", async (
+//    [FromBody] LoginRequest request,
+//    IAuthService authService,
+//    CancellationToken cancellationToken) =>
+//{
+//    var result = await authService.LoginAsync(request, cancellationToken);
+//    return result is null
+//        ? Results.Unauthorized()
+//        : Results.Ok(result);
+//});
+
+// --- Middleware ---
 app.UseStaticFiles();
 //app.UseHttpsRedirection();
-
 app.UseAuthentication();
 app.UseAuthorization();
 

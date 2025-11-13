@@ -14,12 +14,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Infrastructure", "s
 		{9E4F51AD-6E00-414A-965C-1F8AFF20CF7E} = {9E4F51AD-6E00-414A-965C-1F8AFF20CF7E}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Complaint.Infrastructure", "src\complaint-service\Complaint.Infrastructure\Complaint.Infrastructure.csproj", "{0CE27B01-2359-46E9-961B-D4996529F6F4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Complaints.Infrastructure", "src\complaint-service\Complaints.Infrastructure\Complaints.Infrastructure.csproj", "{0CE27B01-2359-46E9-961B-D4996529F6F4}"
 	ProjectSection(ProjectDependencies) = postProject
 		{4D195CF0-4638-4DB5-BDD2-242129AAAAC4} = {4D195CF0-4638-4DB5-BDD2-242129AAAAC4}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Complaint.API", "src\complaint-service\Complaint.API\Complaint.API.csproj", "{CF091D08-0BF2-476E-8D7A-101A6D9793FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Complaints.API", "src\complaint-service\Complaints.API\Complaints.API.csproj", "{CF091D08-0BF2-476E-8D7A-101A6D9793FB}"
 	ProjectSection(ProjectDependencies) = postProject
 		{0CE27B01-2359-46E9-961B-D4996529F6F4} = {0CE27B01-2359-46E9-961B-D4996529F6F4}
 		{6B174405-E57D-4340-9286-C88F53BAA474} = {6B174405-E57D-4340-9286-C88F53BAA474}
@@ -78,13 +78,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Domain", "src\iden
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Application", "src\identity-service\Identity.Application\Identity.Application.csproj", "{8E888EA5-7183-4C5A-B83C-E084FFCFB4EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Complaint.Application", "src\complaint-service\Complaint.Application\Complaint.Application.csproj", "{6B174405-E57D-4340-9286-C88F53BAA474}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Complaints.Application", "src\complaint-service\Complaints.Application\Complaints.Application.csproj", "{6B174405-E57D-4340-9286-C88F53BAA474}"
 	ProjectSection(ProjectDependencies) = postProject
-		{0CE27B01-2359-46E9-961B-D4996529F6F4} = {0CE27B01-2359-46E9-961B-D4996529F6F4}
 		{4D195CF0-4638-4DB5-BDD2-242129AAAAC4} = {4D195CF0-4638-4DB5-BDD2-242129AAAAC4}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Complaint.Domain", "src\complaint-service\Complaint.Domain\Complaint.Domain.csproj", "{4D195CF0-4638-4DB5-BDD2-242129AAAAC4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Complaints.Domain", "src\complaint-service\Complaints.Domain\Complaints.Domain.csproj", "{4D195CF0-4638-4DB5-BDD2-242129AAAAC4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Domain", "src\order-service\Order.Domain\Order.Domain.csproj", "{14A6BF40-F1EE-4136-908F-9CAF69F4114A}"
 EndProject
@@ -106,7 +105,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rating.Domain", "src\rating
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rating.Application", "src\rating-service\Rating.Application\Rating.Application.csproj", "{2671E920-3122-4534-B76D-F2B275960BB8}"
 	ProjectSection(ProjectDependencies) = postProject
-		{1117A934-DD74-4C93-BDDB-6CD3A5FED943} = {1117A934-DD74-4C93-BDDB-6CD3A5FED943}
 		{F09DAF62-F398-4E2B-954B-219BAD28114A} = {F09DAF62-F398-4E2B-954B-219BAD28114A}
 	EndProjectSection
 EndProject
@@ -128,6 +126,22 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auction.Infrastructure", "s
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auction.Domain", "src\auction-service\Auction.Domain\Auction.Domain.csproj", "{C09BD51C-DADE-4349-98D7-9D4FF0530598}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationService.Domain", "src\notification-service\NotificationService.Domain\NotificationService.Domain.csproj", "{A1FBE8F3-01A0-4C06-8981-530A99148476}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationService.Infrastructure", "src\notification-service\NotificationService.Infrastructure\NotificationService.Infrastructure.csproj", "{A2FD7447-CA04-4128-93F0-E9389A5C434B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationService.Application", "src\notification-service\NotificationService.Application\NotificationService.Application.csproj", "{923BE26A-EC43-486D-913A-B1A9E8079903}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationService.API", "src\notification-service\NotificationService.API\NotificationService.API.csproj", "{67AAADA5-7281-4986-9184-2D98DBC1758A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wishlist.API", "src\wishlist-service\Wishlist.API\Wishlist.API.csproj", "{5A10B7A8-F133-4C8A-ADAF-C712D0F6F60A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wishlist.Application", "src\wishlist-service\Wishlist.Application\Wishlist.Application.csproj", "{A452524E-7B54-4291-84E0-0A3F72359142}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wishlist.Domain", "src\wishlist-service\Wishlist.Domain\Wishlist.Domain.csproj", "{6EA3CA44-2C2B-4548-B5EB-841F3A3942E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wishlist.Infrastructure", "src\wishlist-service\Wishlist.Infrastructure\Wishlist.Infrastructure.csproj", "{B50CA365-BA4F-4E70-9A58-641DC8E9B412}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -247,6 +261,38 @@ Global
 		{C09BD51C-DADE-4349-98D7-9D4FF0530598}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C09BD51C-DADE-4349-98D7-9D4FF0530598}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C09BD51C-DADE-4349-98D7-9D4FF0530598}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1FBE8F3-01A0-4C06-8981-530A99148476}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1FBE8F3-01A0-4C06-8981-530A99148476}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1FBE8F3-01A0-4C06-8981-530A99148476}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1FBE8F3-01A0-4C06-8981-530A99148476}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2FD7447-CA04-4128-93F0-E9389A5C434B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2FD7447-CA04-4128-93F0-E9389A5C434B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2FD7447-CA04-4128-93F0-E9389A5C434B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2FD7447-CA04-4128-93F0-E9389A5C434B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{923BE26A-EC43-486D-913A-B1A9E8079903}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{923BE26A-EC43-486D-913A-B1A9E8079903}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{923BE26A-EC43-486D-913A-B1A9E8079903}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{923BE26A-EC43-486D-913A-B1A9E8079903}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67AAADA5-7281-4986-9184-2D98DBC1758A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67AAADA5-7281-4986-9184-2D98DBC1758A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67AAADA5-7281-4986-9184-2D98DBC1758A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67AAADA5-7281-4986-9184-2D98DBC1758A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A10B7A8-F133-4C8A-ADAF-C712D0F6F60A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A10B7A8-F133-4C8A-ADAF-C712D0F6F60A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A10B7A8-F133-4C8A-ADAF-C712D0F6F60A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A10B7A8-F133-4C8A-ADAF-C712D0F6F60A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A452524E-7B54-4291-84E0-0A3F72359142}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A452524E-7B54-4291-84E0-0A3F72359142}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A452524E-7B54-4291-84E0-0A3F72359142}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A452524E-7B54-4291-84E0-0A3F72359142}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EA3CA44-2C2B-4548-B5EB-841F3A3942E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EA3CA44-2C2B-4548-B5EB-841F3A3942E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EA3CA44-2C2B-4548-B5EB-841F3A3942E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EA3CA44-2C2B-4548-B5EB-841F3A3942E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B50CA365-BA4F-4E70-9A58-641DC8E9B412}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B50CA365-BA4F-4E70-9A58-641DC8E9B412}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B50CA365-BA4F-4E70-9A58-641DC8E9B412}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B50CA365-BA4F-4E70-9A58-641DC8E9B412}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

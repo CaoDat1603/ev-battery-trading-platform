@@ -26,110 +26,147 @@ namespace Identity.Infrastructure.Migrations
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("user_id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("UserId"));
 
                     b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
 
                     b.Property<DateTimeOffset?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("deleted_at");
+
+                    b.Property<bool>("IsEmailConfirmed")
+                        .HasColumnType("boolean")
+                        .HasColumnName("is_email_confirmed");
+
+                    b.Property<bool>("IsPhoneConfirmed")
+                        .HasColumnType("boolean")
+                        .HasColumnName("is_phone_confirmed");
+
+                    b.Property<int>("Role")
+                        .HasColumnType("integer")
+                        .HasColumnName("role");
 
                     b.Property<DateTimeOffset?>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("updated_at");
 
                     b.Property<string>("UserEmail")
-                        .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("user_email");
+
+                    b.Property<string>("UserFullName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("user_full_name");
 
                     b.Property<string>("UserPassword")
                         .IsRequired()
                         .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
+                        .HasColumnType("character varying(256)")
+                        .HasColumnName("user_password");
 
                     b.Property<string>("UserPhone")
-                        .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("character varying(20)");
+                        .HasColumnType("character varying(20)")
+                        .HasColumnName("user_phone");
 
                     b.Property<int?>("UserStatus")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("user_status");
 
-                    b.HasKey("UserId");
+                    b.HasKey("UserId")
+                        .HasName("pk_users");
 
-                    b.ToTable("Users");
+                    b.ToTable("users");
                 });
 
             modelBuilder.Entity("Identity.Domain.Entities.UserProfile", b =>
                 {
-                    b.Property<int>("UserProfileId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("UserProfileId"));
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer")
+                        .HasColumnName("user_id");
 
                     b.Property<string>("Avatar")
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("avatar");
 
                     b.Property<string>("CitizenIdCard")
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("citizen_id_card");
+
+                    b.Property<string>("ContactPhone")
+                        .HasColumnType("text")
+                        .HasColumnName("contact_phone");
 
                     b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
 
                     b.Property<DateTimeOffset?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("deleted_at");
 
-                    b.Property<string>("Status")
+                    b.Property<string>("RejectionReason")
+                        .HasColumnType("text")
+                        .HasColumnName("rejection_reason");
+
+                    b.Property<int>("Status")
                         .HasMaxLength(20)
-                        .HasColumnType("character varying(20)");
+                        .HasColumnType("integer")
+                        .HasColumnName("status");
 
                     b.Property<decimal?>("TotalAmountPurchase")
-                        .HasColumnType("numeric");
+                        .HasColumnType("numeric")
+                        .HasColumnName("total_amount_purchase");
 
                     b.Property<decimal?>("TotalAmountSold")
-                        .HasColumnType("numeric");
+                        .HasColumnType("numeric")
+                        .HasColumnName("total_amount_sold");
 
                     b.Property<DateTimeOffset?>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("updated_at");
 
                     b.Property<string>("UserAddress")
-                        .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                        .HasColumnType("character varying(200)")
+                        .HasColumnName("user_address");
 
                     b.Property<DateTime?>("UserBirthday")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("user_birthday");
 
                     b.Property<string>("UserFullName")
-                        .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("user_full_name");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
+                    b.HasKey("UserId")
+                        .HasName("pk_user_profiles");
 
-                    b.HasKey("UserProfileId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserProfiles");
+                    b.ToTable("user_profiles");
                 });
 
             modelBuilder.Entity("Identity.Domain.Entities.UserProfile", b =>
                 {
-                    b.HasOne("Identity.Domain.Entities.User", null)
-                        .WithMany("UserProfiles")
-                        .HasForeignKey("UserId")
+                    b.HasOne("Identity.Domain.Entities.User", "User")
+                        .WithOne("UserProfile")
+                        .HasForeignKey("Identity.Domain.Entities.UserProfile", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Identity.Domain.Entities.User", b =>
                 {
-                    b.Navigation("UserProfiles");
+                    b.Navigation("UserProfile");
                 });
 #pragma warning restore 612, 618
         }

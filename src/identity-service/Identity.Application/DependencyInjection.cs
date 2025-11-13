@@ -1,5 +1,6 @@
 ﻿using Identity.Application.Contracts;
 using Identity.Application.Services;
+using Identity.Domain.Abtractions;
 
 namespace Identity.Application
 {
@@ -7,8 +8,11 @@ namespace Identity.Application
     {
         public static IServiceCollection AddIdentityApplication (this IServiceCollection services)
         {
-            services.AddScoped<IUserCommands, UserCommands>();
+            services.AddScoped<IUserQueries, UserQueries>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IRegisterCache, RegisterCache>();
+            services.AddScoped<ISystemTokenService, SystemTokenService>();
+            services.AddScoped<IUserCommands, UserCommands>();
             return services;
         }
     }

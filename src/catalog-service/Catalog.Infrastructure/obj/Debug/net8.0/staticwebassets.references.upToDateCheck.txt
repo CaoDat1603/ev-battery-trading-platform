@@ -1,8 +1,2 @@
-C:\Users\TranVanDu\source\repos\ElectronicVehicleStoreBE\src\catalog-service\Catalog.Domain\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\TranVanDu\source\repos\ElectronicVehicleStoreBE\src\catalog-service\Catalog.Domain\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\TranVanDu\source\repos\ElectronicVehicleStoreBE\src\catalog-service\Catalog.Domain\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\TranVanDu\source\repos\ElectronicVehicleStoreBE\src\catalog-service\Catalog.Domain\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\TranVanDu\source\repos\ElectronicVehicleStoreBE\src\catalog-service\Catalog.Domain\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\TranVanDu\source\repos\ElectronicVehicleStoreBE\src\catalog-service\Catalog.Domain\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\TranVanDu\source\repos\ElectronicVehicleStoreBE\src\catalog-service\Catalog.Domain\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\TranVanDu\source\repos\ElectronicVehicleStoreBE\src\catalog-service\Catalog.Domain\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\caoda\OneDrive\Desktop\New folder (7)\src\catalog-service\Catalog.Domain\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\caoda\Documents\GIT\src\catalog-service\Catalog.Domain\obj\Debug\net8.0\staticwebassets.build.json

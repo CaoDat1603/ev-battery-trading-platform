@@ -1,26 +1,40 @@
 ﻿using Order.Domain.Abstraction;
 using Order.Infrastructure.Data;
 using Order.Infrastructure.Repositories;
+<<<<<<< HEAD
 using Order.Application.Contracts;
 using Order.Infrastructure.Clients;
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+=======
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+>>>>>>> main
 
 namespace Order.Infrastructure
 {
     public static class DependencyInjection
     {
+<<<<<<< HEAD
         public static IServiceCollection AddOrderInfrastructure(this IServiceCollection services, string connectionString, IConfiguration configuration)
         {
             // 1. Đăng ký DbContext (Kết nối PostgreSQL)
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(connectionString));
+=======
+        public static IServiceCollection AddOrderInfrastructure(this IServiceCollection services, string ConnectionString)
+        {
+            // 1. Đăng ký DbContext (Kết nối PostgreSQL)
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseNpgsql(ConnectionString));
+>>>>>>> main
 
             // 2. Đăng ký Repository (Abstraction -> Implementation)
             services.AddScoped<ITransactionRepository, TransactionRepository>();
 
+<<<<<<< HEAD
             // 3. Đăng ký HTTP Client (IPaymentServiceClient)
             string paymentApiUrl = configuration["Clients:PaymentApiBaseUrl"]
                 ?? "http://payment-api:8080";
@@ -30,6 +44,8 @@ namespace Order.Infrastructure
                 client.BaseAddress = new Uri(paymentApiUrl);
             });
 
+=======
+>>>>>>> main
             return services;
         }
     }

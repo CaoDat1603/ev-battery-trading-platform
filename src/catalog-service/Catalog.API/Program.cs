@@ -1,31 +1,109 @@
-using Catalog.Application;
-using Catalog.Application.Contracts;
-using Catalog.Application.DTOs;
+﻿using Catalog.Application;
 using Catalog.Infrastructure;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+// === Add services ===
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new() { Title = "Catalog API", Version = "v1" });
 
-// DI
+    // Thêm cấu hình cho JWT
+    c.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = Microsoft.OpenApi.Models.SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT",
+        In = Microsoft.OpenApi.Models.ParameterLocation.Header,
+        Description = "Nhập token theo dạng: Bearer {token}"
+    });
+
+    c.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
+    {
+        {
+            new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+            {
+                Reference = new Microsoft.OpenApi.Models.OpenApiReference
+                {
+                    Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
+});
+
+// === Dependency Injection ===
 var cs = builder.Configuration.GetConnectionString("Default");
 builder.Services.AddCatalogInfrastructure(cs);
 builder.Services.AddCatalogApplication();
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+    .AddJwtBearer("Bearer", opt =>
+    {
+        opt.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
+        };
+    })
+    .AddJwtBearer("SystemBearer", opt =>
+    {
+        // Token của service nội bộ
+        opt.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["JwtSystem:Issuer"],
+            ValidAudience = builder.Configuration["JwtSystem:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(builder.Configuration["JwtSystem:SigningKey"]!))
+        };
+    });
+/*builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(8080); // http
+    options.ListenAnyIP(8081, o => o.UseHttps()); // https
+});*/
 
+builder.Services.AddAuthorization(options =>
+{
+    // Policy cho service nội bộ
+    options.AddPolicy("SystemPolicy", policy =>
+    {
+        policy.AuthenticationSchemes.Add("SystemBearer");
+        policy.RequireRole("System");
+    });
+});
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// === Configure middleware ===
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-// auto-migrate cho demo
+
+// === Auto-migrate (demo only) ===
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
@@ -44,55 +122,10 @@ using (var scope = app.Services.CreateScope())
         db.Database.EnsureCreated();
 }
 
-// Health check, cache 30 gi�y
-app.MapGet("/catalog/health", (HttpResponse response) =>
-{
-    response.Headers["Cache-Control"] = "public, max-age=30"; // cache 30 gi�y
-    response.Headers["Expires"] = DateTime.UtcNow.AddSeconds(30).ToString("R");
-
-    return Results.Ok(new { ok = true, svc = "catalog" });
-});
-
-// Search products, cache 60 gi�y
-app.MapGet("/catalog/products/search", async (string q, IProductQueries query, HttpResponse response) =>
-{
-    response.Headers["Cache-Control"] = "public, max-age=60";
-    response.Headers["Expires"] = DateTime.UtcNow.AddSeconds(60).ToString("R");
-
-    var result = await query.SearchAsync(q);
-    return Results.Ok(result);
-});
-
-// Create product, kh�ng cache (POST ??ng)
-app.MapPost("/catalog/products", async (CreateProductReq req, IProductCommands cmd, HttpResponse response) =>
-{
-    response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
-    response.Headers["Pragma"] = "no-cache";
-    response.Headers["Expires"] = "0";
-
-    var id = await cmd.CreateAsync(new CreateProductDto
-    {
-        Title = req.Title,
-        Price = req.Price,
-        SellerId = req.SellerId,
-        PickupAddress = req.PickupAddress,
-        ProductName = req.ProductName,
-        Description = req.Description,
-        RegistrationCard = req.RegistrationCard,
-        FileUrl = req.FileUrl,
-        ImageUrl = req.ImageUrl
-    });
-
-    return Results.Created($"/catalog/products/{id}", new { productId = id });
-});
-
-
-//app.UseHttpsRedirection();
-
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
-record CreateProductReq(string Title, decimal Price, int SellerId, string PickupAddress,
-    string ProductName, string Description, string? RegistrationCard, string? FileUrl, string? ImageUrl);
