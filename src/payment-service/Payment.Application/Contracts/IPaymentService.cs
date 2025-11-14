@@ -9,6 +9,6 @@ namespace Payment.Application.Contracts
         Task<bool> InitiateRefund(int transactionId);
         Task<IEnumerable<PaymentDto>> GetPaymentsByTransactionIdAsync(int transactionId);
         Task<IEnumerable<PaymentDto>> GetAllPaymentsAsync(); // Cho Admin
-        Task<(bool ok, string rspCode, string message)> HandleVnPayIpnAsync(string queryString);
+        //Task<(bool ok, string rspCode, string message)> HandleVnPayIpnAsync(string queryString);
     }
 }

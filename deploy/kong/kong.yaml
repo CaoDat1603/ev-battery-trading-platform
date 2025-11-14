@@ -197,7 +197,7 @@ services:
         plugins:
           - name: rate-limiting
             config:
-              minute: 5         # hạn chế brute-force login
+              minute: 50         # hạn chế brute-force login
               policy: local
               limit_by: ip
               fault_tolerant: true
@@ -214,7 +214,7 @@ services:
         plugins:
           - name: rate-limiting
             config:
-              minute: 5          # mỗi user chỉ được gửi 5 request / phút
+              minute: 50          # mỗi user chỉ được gửi 5 request / phút
               policy: local
               limit_by: consumer
               fault_tolerant: true
@@ -351,6 +351,84 @@ services:
           - name: rate-limiting
             config:
               minute: 10
+              policy: local
+              limit_by: consumer
+              fault_tolerant: true
+
+
+
+  - name: transaction
+    url: http://order-api:8080/
+    routes:
+      - name: transaction-route
+        paths: ["/api/transaction"]
+        strip_path: false
+        plugins:
+          - name: cors
+            config:
+              origins: ["http://localhost:5173","http://localhost:3000"]
+              methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
+              headers: ["Authorization","Content-Type"]
+              credentials: true
+              max_age: 3600
+          - name: rate-limiting
+            config:
+              minute: 50
+              policy: local
+              limit_by: consumer
+              fault_tolerant: true
+      - name: fee-route
+        paths: ["/api/feesettings"]
+        strip_path: false
+        plugins:
+          - name: cors
+            config:
+              origins: ["http://localhost:5173","http://localhost:3000"]
+              methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
+              headers: ["Authorization","Content-Type"]
+              credentials: true
+              max_age: 3600
+          - name: rate-limiting
+            config:
+              minute: 50
+              policy: local
+              limit_by: consumer
+              fault_tolerant: true
+      - name: transaction-internal-route
+        paths: ["/api/internaltransaction"]
+        strip_path: false
+        plugins:
+          - name: cors
+            config:
+              origins: ["http://localhost:5173","http://localhost:3000"]
+              methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
+              headers: ["Authorization","Content-Type"]
+              credentials: true
+              max_age: 3600
+          - name: rate-limiting
+            config:
+              minute: 50
+              policy: local
+              limit_by: consumer
+              fault_tolerant: true
+
+  - name: payment
+    url: http://payment-api:8080/
+    routes:
+      - name: payment-route
+        paths: ["/api/payment"]
+        strip_path: false
+        plugins:
+          - name: cors
+            config:
+              origins: ["http://localhost:5173","http://localhost:3000"]
+              methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
+              headers: ["Authorization","Content-Type"]
+              credentials: true
+              max_age: 3600
+          - name: rate-limiting
+            config:
+              minute: 50
               policy: local
               limit_by: consumer
               fault_tolerant: true

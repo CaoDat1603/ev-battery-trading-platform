@@ -11,6 +11,8 @@ namespace Order.Application
             // Đăng ký Service nghiệp vụ
             services.AddScoped<ITransactionService, TransactionService>();
 
+            services.AddScoped<IFeeSettingsService, FeeSettingsService>();
+
             return services;
         }
     }

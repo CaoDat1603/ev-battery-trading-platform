@@ -2,13 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Order.Application.Contracts;
 using Order.Application.DTOs;
-using Shared.Authorization;
 
 namespace Order.API.Controllers
 {
     [ApiController]
-    [Route("api/admin/fees")]
-    [Authorize(Policy = AuthorizationPolicies.AdminOnly)]
+    [Route("api/[controller]/admin")]
+    //[Authorize(Policy = AuthorizationPolicies.AdminOnly)]
     public class FeeSettingsController : ControllerBase
     {
         private readonly IFeeSettingsService _feeSettingsService;

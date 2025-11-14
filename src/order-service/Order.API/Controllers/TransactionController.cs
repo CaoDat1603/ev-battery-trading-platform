@@ -2,6 +2,8 @@
 using Order.Application.DTOs;
 using Order.Domain.Enums;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace Order.API.Controllers
 {
@@ -16,20 +18,102 @@ namespace Order.API.Controllers
             _transactionService = transactionService;
         }
 
+        // --- Phương thức Helper để lấy UserId từ Token ---
+        private int GetCurrentUserId()
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value
+                ?? User.FindFirst("sub")?.Value; // Fallback to JWT 'sub'
+
+            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
+            {
+                throw new UnauthorizedAccessException("Invalid user token.");
+            }
+            return userId;
+        }
+
+        // Endpoint tạo giao dịch
+        // POST /api/transaction/create
         [HttpPost("create")]
+        //[Authorize(Policy = AuthorizationPolicies.MemberOnly)] // Chỉ cho phép Member tạo giao dịch
+        [Authorize (Roles = "Member")]
         public async Task<IActionResult> CreateTransaction([FromBody] CreateTransactionRequest request)
         {
-            var transactionId = await _transactionService.CreateNewTransaction(request);
+            var buyerId = GetCurrentUserId();
+            var transactionId = await _transactionService.CreateNewTransaction(request, buyerId);
             // Có thể trả về URL để redirect đến trang thanh toán của PaymentService
             return Ok(new { TransactionId = transactionId });
         }
 
-        [HttpPost("{id}/status")]
-        public async Task<IActionResult> UpdateStatus(int id, [FromQuery] TransactionStatus newStatus)
+        // GET /api/transaction/my-purchases
+        [HttpGet("my-purchases")]
+        //[Authorize(Policy = AuthorizationPolicies.MemberOnly)] // Chỉ cho phép Member xem giao dịch của mình
+        [Authorize (Roles = "Member")]
+        public async Task<IActionResult> GetMyPurchases()
         {
-            var success = await _transactionService.UpdateTransactionStatus(id, newStatus);
-            if (!success) return NotFound();
-            return Ok();
+            var userId = GetCurrentUserId();
+            var transactions = await _transactionService.GetTransactionsByBuyerAsync(userId);
+            return Ok(transactions);
+        }
+
+        // GET /api/transaction/my-sales
+        [HttpGet("my-sales")]
+        [Authorize(Roles = "Member")]
+        public async Task<IActionResult> GetMySales() {
+            var userId = GetCurrentUserId();
+            var transactions = await _transactionService.GetTransactionsBySellerAsync(userId);
+            return Ok(transactions);
+        }
+
+        // GET /api/transaction/{id}
+        [HttpGet("{id}")]
+        [Authorize(Roles = "Member")]
+        public async Task<IActionResult> GetTransactionById(int id)
+        {
+            var currentUserId = GetCurrentUserId();
+
+            var transaction = await _transactionService.GetTransactionByIdAsync(id, currentUserId);
+            if (transaction == null) return NotFound("Transaction not found or you do not have permission.");
+            return Ok(transaction);
+        }
+
+        // Endpoint hủy giao dịch
+        [HttpPost("{id}/cancel")]
+        [Authorize(Roles = "Member")]
+        public async Task<IActionResult> CancelTransaction(int id)
+        {
+            var success = await _transactionService.CancelTransaction(id);
+            if (!success) return BadRequest("Unable to cancel transaction. Check if it's already completed.");
+            return Ok("Transaction cancellation request processed.");
+        }
+
+        // --- API NỘI BỘ ---
+        // Endpoint cập nhật trạng thái giao dịch
+        
+
+        // Endpoint nhận thông báo HOÀN TIỀN từ Payment Service
+        // POST /api/transaction/{id}/refund-status (Nội bộ)
+        
+
+        // GET /api/transaction/ (Admin)
+        [HttpGet]
+        [Authorize (Roles = "Admin")]
+        public async Task<IActionResult> GetAllTransactions()
+        {
+            var transactions = await _transactionService.GetAllTransactionsAsync();
+            return Ok(transactions);
+        }
+
+        //[Authorize]
+        [HttpGet("debug/me")]
+        public IActionResult Me()
+        {
+            var claims = User.Claims.Select(c => new { c.Type, c.Value });
+            return Ok(new
+            {
+                name = User.Identity?.Name,
+                roles = User.Claims.Where(x => x.Type == "role" || x.Type.EndsWith("/role")).Select(x => x.Value),
+                all = claims
+            });
         }
     }
 }
