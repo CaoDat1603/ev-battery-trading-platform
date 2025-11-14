@@ -33,13 +33,14 @@ namespace Payment.Domain.Entities
         public string Method { get; private set; }
         public decimal Amount { get; private set; }
         public Enums.PaymentStatus Status { get; private set; }
-        public string? ReferenceCode { get; private set; } // Nullable string, mã giao dịch từ VnPay
+        public string? ReferenceCode { get; private set; } // Lưu vnp_TransactionNo từ VnPay nếu thanh toán thành công
         public DateTimeOffset CreatedAt { get; private set; }
 
         // Phương thức nghiệp vụ
         // Cập nhật trạng thái thanh toán, trả về mã giao dịch từ VnPay nếu thành công
         public void MarkAsSuccess(string referenceCode)
         {
+            if (Status == Enums.PaymentStatus.Success) return; // Nếu đã là Success thì không cần cập nhật lại
             Status = Enums.PaymentStatus.Success;
             ReferenceCode = referenceCode;
         }
@@ -62,6 +63,24 @@ namespace Payment.Domain.Entities
         public void MarkAsCancelled()
         {
             Status = Enums.PaymentStatus.Cancelled;
+        }
+        public class PaymentInformationModel
+        {
+            public string OrderType { get; set; }
+            public double Amount { get; set; }
+            public string OrderDescription { get; set; }
+            public string Name { get; set; }
+        }
+        public class PaymentResponseModel
+        {
+            public string OrderDescription { get; set; }
+            public string TransactionId { get; set; }
+            public string OrderId { get; set; }
+            public string PaymentMethod { get; set; }
+            public string PaymentId { get; set; }
+            public bool Success { get; set; }
+            public string Token { get; set; }
+            public string VnPayResponseCode { get; set; }
         }
     }
 }

@@ -22,6 +22,37 @@ namespace Order.Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("Order.Domain.Entities.FeeSettings", b =>
+                {
+                    b.Property<int>("FeeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("FeeId"));
+
+                    b.Property<decimal>("CommissionPercent")
+                        .HasColumnType("numeric");
+
+                    b.Property<DateTimeOffset?>("EffectiveDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTimeOffset?>("EndedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<decimal>("FeePercent")
+                        .HasColumnType("numeric");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("integer");
+
+                    b.HasKey("FeeId");
+
+                    b.ToTable("FeeSettings");
+                });
+
             modelBuilder.Entity("Order.Domain.Entities.Transaction", b =>
                 {
                     b.Property<int>("TransactionId")

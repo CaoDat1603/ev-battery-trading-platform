@@ -17,8 +17,8 @@ namespace Order.Infrastructure.Clients
         // Phuơng thức gọi Payment API để cập nhật trạng thái Order (Sau khi Payment thành công)
         public async Task<bool> UpdateTransactionStatusAsync(int transactionId, int status)
         {
-            // Endpoint giả định: POST /api/payment/transaction-status
-            var url = $"/api/payment/transaction-status?transactionId={transactionId}&status={status}";
+            // Gọi qua đường dẫn nội bộ: /payment-internal
+            var url = $"/payment-internal/api/payment/transaction-status?transactionId={transactionId}&status={status}";
 
             var response = await _httpClient.PostAsync(url, null);
 
@@ -28,8 +28,8 @@ namespace Order.Infrastructure.Clients
         // Phương thức gọi Payment API để yêu cầu hoàn tiền
         public async Task<bool> RequestRefundAsync(int transactionId)
         {
-            // Endpoint giả định: POST /api/payment/refund/{transactionId}
-            var url = $"/api/payment/refund/{transactionId}";
+            // Gọi qua đường dẫn nội bộ: /payment-internal
+            var url = $"/payment-internal/api/payment/refund/{transactionId}";
 
             var response = await _httpClient.PostAsync(url, null);
 

@@ -135,3 +135,83 @@ C:\Users\TranVanDu\source\repos\ElectronicVehicleStoreBE\src\payment-service\Pay
 C:\Users\TranVanDu\source\repos\ElectronicVehicleStoreBE\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.pdb
 C:\Users\TranVanDu\source\repos\ElectronicVehicleStoreBE\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.genruntimeconfig.cache
 C:\Users\TranVanDu\source\repos\ElectronicVehicleStoreBE\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\ref\Payment.Infrastructure.dll
+D:\projects\App\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Infrastructure.deps.json
+D:\projects\App\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Infrastructure.runtimeconfig.json
+D:\projects\App\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Infrastructure.dll
+D:\projects\App\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Infrastructure.pdb
+D:\projects\App\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Application.dll
+D:\projects\App\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Domain.dll
+D:\projects\App\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Application.pdb
+D:\projects\App\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Domain.pdb
+D:\projects\App\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.csproj.AssemblyReference.cache
+D:\projects\App\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\projects\App\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.AssemblyInfoInputs.cache
+D:\projects\App\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.AssemblyInfo.cs
+D:\projects\App\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.csproj.CoreCompileInputs.cache
+D:\projects\App\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.sourcelink.json
+D:\projects\App\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment..FAAC6C76.Up2Date
+D:\projects\App\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.dll
+D:\projects\App\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\refint\Payment.Infrastructure.dll
+D:\projects\App\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.pdb
+D:\projects\App\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.genruntimeconfig.cache
+D:\projects\App\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\ref\Payment.Infrastructure.dll
+C:\Users\TranVanDu\Desktop\Cu đan\FeeSettings\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Infrastructure.deps.json
+C:\Users\TranVanDu\Desktop\Cu đan\FeeSettings\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Infrastructure.runtimeconfig.json
+C:\Users\TranVanDu\Desktop\Cu đan\FeeSettings\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Infrastructure.dll
+C:\Users\TranVanDu\Desktop\Cu đan\FeeSettings\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Infrastructure.pdb
+C:\Users\TranVanDu\Desktop\Cu đan\FeeSettings\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Application.dll
+C:\Users\TranVanDu\Desktop\Cu đan\FeeSettings\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Domain.dll
+C:\Users\TranVanDu\Desktop\Cu đan\FeeSettings\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Application.pdb
+C:\Users\TranVanDu\Desktop\Cu đan\FeeSettings\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Domain.pdb
+C:\Users\TranVanDu\Desktop\Cu đan\FeeSettings\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\TranVanDu\Desktop\Cu đan\FeeSettings\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TranVanDu\Desktop\Cu đan\FeeSettings\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\TranVanDu\Desktop\Cu đan\FeeSettings\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.AssemblyInfo.cs
+C:\Users\TranVanDu\Desktop\Cu đan\FeeSettings\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\TranVanDu\Desktop\Cu đan\FeeSettings\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.sourcelink.json
+C:\Users\TranVanDu\Desktop\Cu đan\FeeSettings\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment..FAAC6C76.Up2Date
+C:\Users\TranVanDu\Desktop\Cu đan\FeeSettings\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.dll
+C:\Users\TranVanDu\Desktop\Cu đan\FeeSettings\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\refint\Payment.Infrastructure.dll
+C:\Users\TranVanDu\Desktop\Cu đan\FeeSettings\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.pdb
+C:\Users\TranVanDu\Desktop\Cu đan\FeeSettings\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.genruntimeconfig.cache
+C:\Users\TranVanDu\Desktop\Cu đan\FeeSettings\ev-battery-trading-platform\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\ref\Payment.Infrastructure.dll
+C:\Users\TranVanDu\Desktop\project\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Infrastructure.deps.json
+C:\Users\TranVanDu\Desktop\project\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Infrastructure.runtimeconfig.json
+C:\Users\TranVanDu\Desktop\project\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Infrastructure.dll
+C:\Users\TranVanDu\Desktop\project\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Infrastructure.pdb
+C:\Users\TranVanDu\Desktop\project\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Application.dll
+C:\Users\TranVanDu\Desktop\project\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Domain.dll
+C:\Users\TranVanDu\Desktop\project\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Application.pdb
+C:\Users\TranVanDu\Desktop\project\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Domain.pdb
+C:\Users\TranVanDu\Desktop\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\TranVanDu\Desktop\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TranVanDu\Desktop\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\TranVanDu\Desktop\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.AssemblyInfo.cs
+C:\Users\TranVanDu\Desktop\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\TranVanDu\Desktop\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.sourcelink.json
+C:\Users\TranVanDu\Desktop\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment..FAAC6C76.Up2Date
+C:\Users\TranVanDu\Desktop\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.dll
+C:\Users\TranVanDu\Desktop\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\refint\Payment.Infrastructure.dll
+C:\Users\TranVanDu\Desktop\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.pdb
+C:\Users\TranVanDu\Desktop\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.genruntimeconfig.cache
+C:\Users\TranVanDu\Desktop\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\ref\Payment.Infrastructure.dll
+D:\projects\App\fix\project\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Infrastructure.deps.json
+D:\projects\App\fix\project\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Infrastructure.runtimeconfig.json
+D:\projects\App\fix\project\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Infrastructure.dll
+D:\projects\App\fix\project\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Infrastructure.pdb
+D:\projects\App\fix\project\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Application.dll
+D:\projects\App\fix\project\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Domain.dll
+D:\projects\App\fix\project\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Application.pdb
+D:\projects\App\fix\project\src\payment-service\Payment.Infrastructure\bin\Debug\net8.0\Payment.Domain.pdb
+D:\projects\App\fix\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.csproj.AssemblyReference.cache
+D:\projects\App\fix\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\projects\App\fix\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.AssemblyInfoInputs.cache
+D:\projects\App\fix\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.AssemblyInfo.cs
+D:\projects\App\fix\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.csproj.CoreCompileInputs.cache
+D:\projects\App\fix\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.sourcelink.json
+D:\projects\App\fix\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment..FAAC6C76.Up2Date
+D:\projects\App\fix\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.dll
+D:\projects\App\fix\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\refint\Payment.Infrastructure.dll
+D:\projects\App\fix\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.pdb
+D:\projects\App\fix\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\Payment.Infrastructure.genruntimeconfig.cache
+D:\projects\App\fix\project\src\payment-service\Payment.Infrastructure\obj\Debug\net8.0\ref\Payment.Infrastructure.dll
