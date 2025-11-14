@@ -25,24 +25,12 @@ namespace Payment.Application.Services
 
         public async Task<string> CreatePaymentUrl(CreatePaymentRequest request, string ipAddress)
         {
-            //1. Hỏi Order Service số tiền phải thu từ người mua
-            var transactionDetails = await _orderServiceClient.GetTransactionByIdAsync(request.TransactionId);
-
-            //2. Kiểm tra nghiệp vụ
-            if (transactionDetails == null)
-                throw new Exception($"Transaction with ID {request.TransactionId} not found.");
-
-            if (transactionDetails.BuyerAmount <= 0)
-                throw new InvalidOperationException("Invalid transaction amount. Amount must be positive.");
-
-            decimal amount = transactionDetails.BuyerAmount;
-
-            //3. Tạo Entity Payment và lưu DB (status: pending) với amount = buyerAmount
-            var payment = new Domain.Entities.Payment(request.TransactionId, "VNPay", amount);
+            //1. Tạo Entity Payment và lưu DB (status: pending)
+            var payment = new Domain.Entities.Payment(request.TransactionId, "VNPay", request.Amount);
             await _paymentRepository.AddAsync(payment);
 
-            //3. Gọi VNPAY Service để tạo URL
-            return _vnPayService.CreatePaymentUrl(payment.PaymentId, amount, ipAddress);
+            //2. Gọi VNPAY Service để tạo URL
+            return _vnPayService.CreatePaymentUrl(payment.PaymentId, payment.Amount, ipAddress);
         }
 
         public async Task<bool> HandleVnPayReturn(string queryString)
@@ -122,49 +110,6 @@ namespace Payment.Application.Services
             // Hoàn tiền thất bại: Gửi thông báo thất bại
             await _orderServiceClient.NotifyRefundCompletionAsync(transactionId, false);
             return false;
-        }
-
-        public async Task<(bool ok, string rspCode, string message)> HandleVnPayIpnAsync(string queryString)
-        {
-            // 1) Validate chữ ký
-            if (!_vnPayService.ValidateSignature(queryString))
-                return (false, "97", "Invalid signature"); // theo VNPay: 97 = checksum sai
-
-            // 2) Parse
-            var data = _vnPayService.GetResponseData(queryString);
-            if (!data.TryGetValue("vnp_TxnRef", out var txnRef) || !int.TryParse(txnRef, out var paymentId))
-                return (false, "01", "Order not found"); // 01 = không tìm thấy đơn
-
-            var payment = await _paymentRepository.GetByIdAsync(paymentId);
-            if (payment == null) return (false, "01", "Order not found");
-
-            // 3) (Khuyến nghị) Xác thực amount
-            if (!data.TryGetValue("vnp_Amount", out var rawAmount)) return (false, "04", "Invalid amount");
-            // VNPay *100*
-            var amountFromVnp = decimal.Parse(rawAmount) / 100m;
-            if (amountFromVnp != payment.Amount)
-                return (false, "04", "Invalid amount"); // 04 = dữ liệu không hợp lệ
-
-            // 4) Cập nhật trạng thái theo ResponseCode
-            var code = data.TryGetValue("vnp_ResponseCode", out var rc) ? rc : "99";
-            if (code == "00")
-            {
-                var vnpTxnNo = data.TryGetValue("vnp_TransactionNo", out var vnptx) ? vnptx : "";
-                payment.MarkAsSuccess(vnpTxnNo);
-                await _paymentRepository.UpdateAsync(payment);
-
-                // Đẩy Order sang trạng thái Processing
-                var upd = await _orderServiceClient.UpdateTransactionStatusAsync(payment.TransactionId, 2);
-                if (!upd) Console.WriteLine($"WARN: Update Order status fail for Tx:{payment.TransactionId}");
-
-                return (true, "00", "Confirm Success");
-            }
-            else
-            {
-                payment.MarkAsFailed();
-                await _paymentRepository.UpdateAsync(payment);
-                return (false, "00", "Confirm Success"); // vẫn trả 00 để VNPay không gọi lại nữa
-            }
         }
 
         // Các phương thức GET (Mapping) ---

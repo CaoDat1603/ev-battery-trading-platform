@@ -40,12 +40,6 @@ namespace Order.Domain.Entities
             if (basePrice <= 0)
                 throw new ArgumentException("Base price must be positive.", nameof(basePrice));
 
-            if (buyerAmount <= 0)
-                throw new ArgumentException("Buyer amount must be positive.", nameof(buyerAmount));
-
-            if (platformAmount < 0)
-                throw new ArgumentException("Platform amount cannot be negative.", nameof(platformAmount));
-
             ProductId = productId;
             SellerId = sellerId;
             BuyerId = buyerId;

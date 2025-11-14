@@ -1,8 +1,12 @@
-﻿namespace Payment.Domain.Abstraction
+﻿using System.Net.Http;
+using static Payment.Domain.Entities.Payment;
+using Microsoft.AspNetCore.Http;
+
+namespace Payment.Domain.Abstraction
 {
     public interface IVnPayService
     {
-        // Tạo URL thanh toán
+        string CreatePaymentUrl(PaymentInformationModel model, HttpContext context);
         string CreatePaymentUrl(int paymentId, decimal amount, string ipAddress);
 
         // Kiểm tra chữ ký bảo mật từ VNPAY gửi về
@@ -10,5 +14,9 @@
 
         // Trích xuất dữ liệu trả về từ VNPAY
         Dictionary<string, string> GetResponseData(string queryString);
+
+        // Gửi yêu cầu hoàn tiền đến VNPAY
+        Task<string> RequestVnPayRefundAsync(int paymentId, decimal amount);
+        PaymentResponseModel PaymentExecute(IQueryCollection collections);
     }
 }

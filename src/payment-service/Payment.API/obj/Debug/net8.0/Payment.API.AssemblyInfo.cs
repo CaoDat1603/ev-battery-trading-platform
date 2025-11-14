@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("d246b33d-3de4-4c38-b9bf-9d7512e8e554")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Payment.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae5ad3103fc2a30f44f9e020d1d6789cc4d4949a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8e5dc017754a4ddce07dd1dce2dff7e36e7c40c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Payment.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Payment.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

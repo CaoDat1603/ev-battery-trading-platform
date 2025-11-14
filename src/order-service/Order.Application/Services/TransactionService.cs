@@ -10,29 +10,39 @@ namespace Order.Application.Services
     {
         private readonly ITransactionRepository _transactionRepository;
         private readonly IPaymentServiceClient _paymentServiceClient;
-        
-        // Dependency Injection qua constructor
-        public TransactionService(ITransactionRepository transactionRepository, IPaymentServiceClient paymentServiceClient)
+        private readonly IFeeSettingsRepository _feeSettingsRepository;
+
+        public TransactionService(ITransactionRepository transactionRepository, IFeeSettingsRepository feeSettingsRepository, IPaymentServiceClient paymentServiceClient)
         {
             _transactionRepository = transactionRepository;
             _paymentServiceClient = paymentServiceClient;
+            _feeSettingsRepository = feeSettingsRepository;
         }
 
-        public async Task<int> CreateNewTransaction(CreateTransactionRequest request)
+        public async Task<int> CreateNewTransaction(CreateTransactionRequest request, int buyerId)
         {
-            // Sử dụng constructor nghiệp vụ để tạo đối tượng
+            var feeSettings = await _feeSettingsRepository.GetActiveFeeSettingsAsync(request.ProductType);
+            if (feeSettings == null) throw new InvalidOperationException($"Fee settings for product type {request.ProductType} not found.");
+
+            var basePrice = request.BasePrice;
+            var commissionFee = basePrice * (feeSettings.CommissionPercent / 100);
+            var serviceFee = basePrice * (feeSettings.FeePercent / 100);
+            var platformAmount = commissionFee + serviceFee;
+            var buyerAmount = basePrice + serviceFee;
+            var sellerAmount = basePrice - commissionFee;
+
             var transaction = new Transaction(
                 request.ProductId,
                 request.SellerId,
                 request.BuyerId,
-                request.FeeId,
+                feeSettings.FeeId,
                 request.ProductType,
-                request.BasePrice,
-                request.CommissionFee,
-                request.ServiceFee,
-                request.BuyerAmount,
-                request.SellerAmount,
-                request.PlatformAmount
+                basePrice,
+                commissionFee,
+                serviceFee,
+                buyerAmount,
+                sellerAmount,
+                platformAmount
             );
 
             await _transactionRepository.AddAsync(transaction);
@@ -46,14 +56,12 @@ namespace Order.Application.Services
 
             try
             {
-                // Gọi phương thức nghiệp vụ của Entity
                 transaction.UpdateStatus(newStatus);
                 await _transactionRepository.UpdateAsync(transaction);
                 return true;
             }
             catch (InvalidOperationException)
             {
-                // Lỗi nghiệp vụ (ví dụ: cố gắng chuyển trạng thái không hợp lệ)
                 return false;
             }
         }
@@ -63,38 +71,95 @@ namespace Order.Application.Services
             var transaction = await _transactionRepository.GetByIdAsync(transactionId);
             if (transaction == null) return false;
 
-            // 1. Kiểm tra trạng thái trước khi hủy
-            bool wasProcessing = transaction.TransactionStatus == TransactionStatus.Processing;
+            var wasProcessing = transaction.TransactionStatus == TransactionStatus.Processing;
 
             try
             {
-                transaction.Cancel(); // Entity ghi nhận ý định hủy
+                transaction.Cancel();
             }
             catch (InvalidOperationException)
             {
-                // Lỗi: ví dụ, cố gắng hủy một giao dịch đã hoàn thành
                 return false;
             }
 
-            // 2. Nếu đã thanh toán (Processing), YÊU CẦU HOÀN TIÈN
             if (wasProcessing)
             {
-                Console.WriteLine($"Initiating refund for Transaction ID: {transactionId}");
-                bool refundRequestSuccess = await _paymentServiceClient.RequestRefundAsync(transactionId);
-
+                var refundRequestSuccess = await _paymentServiceClient.RequestRefundAsync(transactionId);
                 if (!refundRequestSuccess)
                 {
-                    // Lỗi: Payment Service không chấp nhận yêu cầu hoàn tiền (hoặc lỗi kết nối)
-                    // HỆ THỐNG CẦN CÓ CƠ CHẾ SAGA/RETRY (Ví dụ: lưu vào Outbox/Message Queue)
                     Console.WriteLine($"CRITICAL FAILURE: Refund request failed for Transaction {transactionId}. Order state is Cancelled, but refund is pending.");
-                    // Vẫn lưu trạng thái hủy vào Order DB để tránh việc người dùng gửi yêu cầu hủy lần nữa.
-                    // Tuy nhiên, việc xử lý retry phải nằm ngoài phạm vi này.
                 }
             }
 
-            // 3. Cập nhật trạng thái hủy vào DB Order
             await _transactionRepository.UpdateAsync(transaction);
             return true;
+        }
+
+        public async Task<bool> HandleRefundNotificationAsync(int transactionId, bool refundSuccess)
+        {
+            var transaction = await _transactionRepository.GetByIdAsync(transactionId);
+            if (transaction == null) return false;
+
+            if (refundSuccess)
+            {
+                transaction.UpdateStatus(TransactionStatus.Cancelled);
+                await _transactionRepository.UpdateAsync(transaction);
+                return true;
+            }
+
+            Console.WriteLine($"WARNING: Refund failed notification for Transaction {transactionId}.");
+            return false;
+        }
+
+        public async Task<TransactionDto?> GetTransactionByIdAsync(int transactionId, int loggedInUserId)
+        {
+            var tx = await _transactionRepository.GetByIdAsync(transactionId);
+            if (tx == null) return null;
+            if (tx.BuyerId != loggedInUserId && tx.SellerId != loggedInUserId) return null;
+            return MapToDto(tx);
+        }
+
+        public async Task<IEnumerable<TransactionDto>> GetTransactionsByBuyerAsync(int buyerId)
+        {
+            var txs = await _transactionRepository.GetByBuyerIdAsync(buyerId);
+            return txs.Select(MapToDto);
+        }
+
+        public async Task<IEnumerable<TransactionDto>> GetTransactionsBySellerAsync(int sellerId)
+        {
+            var txs = await _transactionRepository.GetBySellerIdAsync(sellerId);
+            return txs.Select(MapToDto);
+        }
+
+        public async Task<IEnumerable<TransactionDto>> GetAllTransactionsAsync()
+        {
+            var txs = await _transactionRepository.GetAllAsync();
+            return txs.Select(MapToDto);
+        }
+        public async Task<TransactionDto?> GetTransactionByIdForInternalAsync(int transactionId)
+        {
+            var tx = await _transactionRepository.GetByIdAsync(transactionId);
+            return MapToDto(tx);
+        }
+
+        private static TransactionDto MapToDto(Transaction tx)
+        {
+            return new TransactionDto
+            {
+                TransactionId = tx.TransactionId,
+                ProductId = tx.ProductId,
+                SellerId = tx.SellerId,
+                BuyerId = tx.BuyerId,
+                ProductType = tx.ProductType,
+                TransactionStatus = tx.TransactionStatus.ToString(),
+                BasePrice = tx.BasePrice,
+                BuyerAmount = tx.BuyerAmount,
+                SellerAmount = tx.SellerAmount,
+                PlatformAmount = tx.PlatformAmount,
+                CreatedAt = tx.CreatedAt,
+                UpdatedAt = tx.UpdatedAt,
+                DeletedAt = tx.DeletedAt
+            };
         }
     }
 }

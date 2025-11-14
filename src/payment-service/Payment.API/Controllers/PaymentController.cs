@@ -2,13 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Payment.Application.Contracts;
 using Payment.Application.DTOs;
-using Shared.Authorization;
 
 namespace Payment.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize] // Tất cả API đều cần xác thực (ngoại trừ callback)
+    //[Authorize] // Tất cả API đều cần xác thực (ngoại trừ callback)
     public class PaymentController : ControllerBase
     {
         private readonly IPaymentService _paymentService;
@@ -20,7 +19,7 @@ namespace Payment.API.Controllers
 
         // POST /api/payment/create
         [HttpPost("create")]
-        [Authorize(Policy = AuthorizationPolicies.MemberOnly)] // Chỉ Member
+        //[Authorize(Policy = AuthorizationPolicies.MemberOnly)] // Chỉ Member
         public async Task<IActionResult> CreatePaymentUrl([FromBody] CreatePaymentRequest request)
         {
             try
@@ -38,7 +37,7 @@ namespace Payment.API.Controllers
 
         // GET /api/payment/by-transaction/{transactionId}
         [HttpGet("by-transaction/{transactionId}")]
-        [Authorize(Policy = AuthorizationPolicies.MemberOrAdmin)] // Member owns or Admin
+        //[Authorize(Policy = AuthorizationPolicies.MemberOrAdmin)] // Member owns or Admin
         public async Task<IActionResult> GetPaymentsByTransaction(int transactionId)
         {
             var payments = await _paymentService.GetPaymentsByTransactionIdAsync(transactionId);
@@ -47,7 +46,7 @@ namespace Payment.API.Controllers
 
         // GET /api/payment/ (Admin)
         [HttpGet]
-        [Authorize(Policy = AuthorizationPolicies.AdminOnly)]
+        //[Authorize(Policy = AuthorizationPolicies.AdminOnly)]
         public async Task<IActionResult> GetAllPayments()
         {
             var payments = await _paymentService.GetAllPaymentsAsync();
@@ -71,7 +70,7 @@ namespace Payment.API.Controllers
             return BadRequest("Thanh toán thất bại hoặc chữ ký không hợp lệ.");
         }
 
-        [HttpGet("vnpay-ipn")]
+        /*[HttpGet("vnpay-ipn")]
         [AllowAnonymous]
         public async Task<IActionResult> VnPayIpn()
         {
@@ -80,12 +79,12 @@ namespace Payment.API.Controllers
 
             // VNPay yêu cầu JSON
             return Ok(new { RspCode = rspCode, Message = message });
-        }
+        }*/
 
         // --- ENDPOINT NỘI BỘ (Cho Order Service dùng Key-Auth) ---
         // POST /api/payment/refund/{transactionId}
         [HttpPost("refund/{transactionId}")]
-        [Authorize(Policy = AuthorizationPolicies.InternalOnly)]
+        //[Authorize(Policy = AuthorizationPolicies.InternalOnly)]
         public async Task<IActionResult> RequestRefund(int transactionId)
         {
             var success = await _paymentService.InitiateRefund(transactionId);

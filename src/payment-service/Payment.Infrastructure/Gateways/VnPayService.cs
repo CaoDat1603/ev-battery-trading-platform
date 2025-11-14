@@ -25,6 +25,54 @@ namespace Payment.Infrastructure.Gateways
             _httpClient = httpClient;
         }
 
+        public string CreatePaymentUrl(PaymentInformationModel model, HttpContext context)
+        {
+            var tmnCode = _configuration["VnPay:TmnCode"];
+            var hashSecret = _configuration["VnPay:HashSecret"];
+            var returnUrl = _configuration["VnPay:ReturnUrl"];
+            var vnpayUrl = _configuration["VnPay:VnPayUrl"];
+
+            if (string.IsNullOrWhiteSpace(tmnCode)) throw new InvalidOperationException("VnPay TmnCode is not configured.");
+            if (string.IsNullOrWhiteSpace(hashSecret)) throw new InvalidOperationException("VnPay HashSecret is not configured.");
+            if (string.IsNullOrWhiteSpace(returnUrl)) throw new InvalidOperationException("VnPay ReturnUrl is not configured.");
+            if (string.IsNullOrWhiteSpace(vnpayUrl)) throw new InvalidOperationException("VnPay VnPayUrl is not configured.");
+
+            //0. Reset data nếu thư viện tái sử dụng 1 instance
+            _vnPayLibrary.ResetRequestData();
+
+            //1. Giờ Việt Nam (GMT+7)
+            var tzId = System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.Windows)
+                ? "SE Asia Standard Time" // Windows
+                : "Asia/Ho_Chi_Minh"; // Linux
+            var vnTz = TimeZoneInfo.FindSystemTimeZoneById(tzId);
+            var nowVN = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, vnTz);
+
+            // Dùng để phân biệt unique cho TxnRef
+            var tick = DateTime.Now.Ticks.ToString();
+
+            //3. Thêm các tham số bắt buộc khi dùng VNPAY
+            _vnPayLibrary.AddRequestData("vnp_Version", "2.1.0");
+            _vnPayLibrary.AddRequestData("vnp_Command", "pay");
+            _vnPayLibrary.AddRequestData("vnp_TmnCode", tmnCode);
+            _vnPayLibrary.AddRequestData("vnp_Amount", ((int)model.Amount * 100).ToString());
+            _vnPayLibrary.AddRequestData("vnp_CreateDate", nowVN.ToString("yyyyMMddHHmmss"));
+            _vnPayLibrary.AddRequestData("vnp_CurrCode", "VND");
+            _vnPayLibrary.AddRequestData("vnp_IpAddr", _vnPayLibrary.GetIpAddress(context));
+            _vnPayLibrary.AddRequestData("vnp_Locale", "vn");
+            _vnPayLibrary.AddRequestData("vnp_OrderInfo", $"{model.Name} {model.OrderDescription} {model.Amount}");
+            _vnPayLibrary.AddRequestData("vnp_OrderType", "other");
+            _vnPayLibrary.AddRequestData("vnp_ReturnUrl", returnUrl);
+            // Set expire date to 15 minutes from now in VNPAY format
+            _vnPayLibrary.AddRequestData("vnp_ExpireDate", nowVN.AddMinutes(15).ToString("yyyyMMddHHmmss"));
+            _vnPayLibrary.AddRequestData("vnp_TxnRef", tick);
+
+            //4. Sinh URL đã sắp xếp + ký chuẩn (thêm vnp_SecureHashType cho chắc)
+            var paymentUrl = _vnPayLibrary.CreateRequestUrl(vnpayUrl, hashSecret);
+
+            //5. Kết quả cuối
+            return paymentUrl;
+        }
+
         // Overload dùng trong nghiệp vụ nội bộ: đã có PaymentId và Amount, chỉ cần ipAddress
         public string CreatePaymentUrl(int paymentId, decimal amount, string ipAddress)
         {
@@ -60,7 +108,7 @@ namespace Payment.Infrastructure.Gateways
             _vnPayLibrary.AddRequestData("vnp_ExpireDate", nowVN.AddMinutes(15).ToString("yyyyMMddHHmmss"));
             _vnPayLibrary.AddRequestData("vnp_TxnRef", paymentId.ToString());
 
-            return _vnPayLibrary.CreateSignedUrl(vnpayUrl, hashSecret);
+            return _vnPayLibrary.CreateRequestUrl(vnpayUrl, hashSecret);
         }
 
         public bool ValidateSignature(string queryString)
@@ -173,6 +221,12 @@ namespace Payment.Infrastructure.Gateways
             }
 
             return "99"; // lỗi hệ thống nội bộ
+        }
+
+        public PaymentResponseModel PaymentExecute(IQueryCollection collections)
+        {
+            var hashSecret = _configuration["VnPay:HashSecret"] ?? string.Empty;
+            return _vnPayLibrary.GetFullResponseData(collections, hashSecret);
         }
     }
 }
