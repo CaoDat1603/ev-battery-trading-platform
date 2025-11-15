@@ -10,5 +10,6 @@
         Task<Payment.Domain.Entities.Payment?> GetSuccessfulPaymentByTransactionIdAsync(int transactionId);
         Task<IEnumerable<Payment.Domain.Entities.Payment>> GetPaymentsByTransactionIdAsync(int transactionId);
         Task<IEnumerable<Payment.Domain.Entities.Payment>> GetAllAsync(); // Cho Admin
+        Task<Payment.Domain.Entities.Payment?> GetPendingPaymentByTransactionIdAsync(int transactionId);
     }
 }

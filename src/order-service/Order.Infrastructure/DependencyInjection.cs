@@ -29,7 +29,8 @@ namespace Order.Infrastructure
             services.AddHttpClient<IPaymentServiceClient, PaymentServiceClient>(client =>
             {
                 client.BaseAddress = new Uri(paymentApiUrl);
-                client.DefaultRequestHeaders.Add("apikey", "my-super-secret-key");
+
+                client.DefaultRequestHeaders.Add("x-internal-key", configuration["InternalApiKey"]);
             });
 
             return services;

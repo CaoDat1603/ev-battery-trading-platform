@@ -6,9 +6,9 @@ namespace Payment.Application.Contracts
     {
         Task<string> CreatePaymentUrl(CreatePaymentRequest request, string ipAddress);
         Task<bool> HandleVnPayReturn(string queryString);
-        Task<bool> InitiateRefund(int transactionId);
+        Task<bool> InitiateRefund(int transactionId, string ipAddress);
         Task<IEnumerable<PaymentDto>> GetPaymentsByTransactionIdAsync(int transactionId);
         Task<IEnumerable<PaymentDto>> GetAllPaymentsAsync(); // Cho Admin
-        //Task<(bool ok, string rspCode, string message)> HandleVnPayIpnAsync(string queryString);
+        Task<VnPayIpnResponse> HandleVnPayIpnAsync(string rawQuery);
     }
 }

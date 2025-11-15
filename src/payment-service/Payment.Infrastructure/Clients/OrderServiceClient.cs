@@ -29,7 +29,7 @@ namespace Payment.Infrastructure.Clients
             {
                 var token = await _tokenService.GetSystemTokenAsync(ct);
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                var url = $"http://kong:8000/api/internaltransaction/{transactionId}/status?newStatus={status}";
+                var url = $"http://order-api:8080/api/internaltransaction/{transactionId}/status?newStatus={status}";
 
                 var response = await _httpClient.PostAsync(url, null);
 
@@ -46,7 +46,7 @@ namespace Payment.Infrastructure.Clients
         {
             var token = await _tokenService.GetSystemTokenAsync(ct);
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var url = $"http://kong:8000/api/internaltransaction/{transactionId}/refund-status?success={isSuccess}";
+            var url = $"http://order-api:8080/api/internaltransaction/{transactionId}/refund-status?success={isSuccess}";
 
             var response = await _httpClient.PostAsync(url, null);
 
@@ -59,7 +59,7 @@ namespace Payment.Infrastructure.Clients
             {
                 var token = await _tokenService.GetSystemTokenAsync(ct);
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                var url = $"http://kong:8000/api/internaltransaction/{transactionId}";
+                var url = $"http://order-api:8080/api/internaltransaction/{transactionId}";
 
                 var response = await _httpClient.GetAsync(url);
 

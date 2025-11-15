@@ -39,9 +39,18 @@ namespace Payment.Infrastructure.Repositories
             // Lấy giao dịch thanh toán THÀNH CÔNG (Status = Success) gần nhất
             // Đây là bản ghi cần hoàn tiền
             return await _dbContext.Payments
-                .Where(p => p.TransactionId == transactionId && p.Status == Payment.Domain.Enums.PaymentStatus.Success)
+                //.Where(p => p.TransactionId == transactionId && p.Status == Payment.Domain.Enums.PaymentStatus.Success)
                 .OrderByDescending(p => p.CreatedAt) // Lấy giao dịch mới nhất (nếu có nhiều lần thanh toán)
-                .FirstOrDefaultAsync(); // Lấy bản ghi đầu tiền hoặc null nếu không tìm thấy
+                .FirstOrDefaultAsync(p => p.TransactionId == transactionId && p.Status == Payment.Domain.Enums.PaymentStatus.Success);
+        }
+
+        public async Task<Payment.Domain.Entities.Payment?> GetPendingPaymentByTransactionIdAsync(int transactionId)
+        {
+            // Lấy giao dịch thanh toán ĐANG CHỜ (Status = Pending) gần nhất
+            return await _dbContext.Payments
+                //.Where(p => p.TransactionId == transactionId && p.Status == Payment.Domain.Enums.PaymentStatus.Pending)
+                .OrderByDescending(p => p.CreatedAt)
+                .FirstOrDefaultAsync(p => p.TransactionId == transactionId && p.Status == Payment.Domain.Enums.PaymentStatus.Pending);
         }
 
         public async Task<IEnumerable<Payment.Domain.Entities.Payment>> GetPaymentsByTransactionIdAsync(int transactionId)

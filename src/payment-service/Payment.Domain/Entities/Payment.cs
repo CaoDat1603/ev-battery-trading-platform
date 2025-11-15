@@ -35,19 +35,32 @@ namespace Payment.Domain.Entities
         public Enums.PaymentStatus Status { get; private set; }
         public string? ReferenceCode { get; private set; } // Lưu vnp_TransactionNo từ VnPay nếu thanh toán thành công
         public DateTimeOffset CreatedAt { get; private set; }
+        public string? VnPayPayDate { get; private set; } // Lưu vnp_PayDate từ VnPay nếu thanh toán thành công
+        public string? VnPayCreateDate { get; private set; }
+        public string? VnPayTxnRef { get; private set; }
 
         // Phương thức nghiệp vụ
         // Cập nhật trạng thái thanh toán, trả về mã giao dịch từ VnPay nếu thành công
-        public void MarkAsSuccess(string referenceCode)
+        public void MarkAsSuccess(string referenceCode, string? vnPayPayDate = null)
         {
             if (Status == Enums.PaymentStatus.Success) return; // Nếu đã là Success thì không cần cập nhật lại
             Status = Enums.PaymentStatus.Success;
             ReferenceCode = referenceCode;
+
+            if (!string.IsNullOrEmpty(vnPayPayDate))
+            {
+                VnPayPayDate = vnPayPayDate;
+            }
         }
 
-        public void MarkAsFailed()
+        // Cập nhật trạng thái thanh toán khi thất bại, có mã giao dịch từ VnPay (IPN handler cần)
+        public void MarkAsFailed(string? referenceCode = null)
         {
             Status = Enums.PaymentStatus.Failed;
+            if (!string.IsNullOrEmpty(referenceCode))
+            {
+                ReferenceCode = referenceCode;
+            }
         }
 
         public void MarkAsPending()
@@ -64,6 +77,18 @@ namespace Payment.Domain.Entities
         {
             Status = Enums.PaymentStatus.Cancelled;
         }
+
+        public void SetVnPayCreateDate(string vnPayCreateDate)
+        {
+            VnPayCreateDate = vnPayCreateDate;
+        }
+
+        public void SetVnPayTxnRef(string vnPayTxnRef)
+        {
+            VnPayTxnRef = vnPayTxnRef;
+        }
+
+        // Models hỗ trợ nghiệp vụ
         public class PaymentInformationModel
         {
             public string OrderType { get; set; }
@@ -71,6 +96,7 @@ namespace Payment.Domain.Entities
             public string OrderDescription { get; set; }
             public string Name { get; set; }
         }
+        // Model phản hồi sau khi xử lý thanh toán
         public class PaymentResponseModel
         {
             public string OrderDescription { get; set; }
