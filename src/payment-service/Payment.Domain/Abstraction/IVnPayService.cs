@@ -7,7 +7,7 @@ namespace Payment.Domain.Abstraction
     public interface IVnPayService
     {
         string CreatePaymentUrl(PaymentInformationModel model, HttpContext context);
-        string CreatePaymentUrl(int paymentId, decimal amount, string ipAddress);
+        string CreatePaymentUrl(int paymentId, decimal amount, string ipAddress, out string vnPayCreateDate);
 
         // Kiểm tra chữ ký bảo mật từ VNPAY gửi về
         bool ValidateSignature(string queryString);
@@ -16,7 +16,7 @@ namespace Payment.Domain.Abstraction
         Dictionary<string, string> GetResponseData(string queryString);
 
         // Gửi yêu cầu hoàn tiền đến VNPAY
-        Task<string> RequestVnPayRefundAsync(int paymentId, decimal amount);
+        Task<string> RequestVnPayRefundAsync(int paymentId, decimal amount, string ipAddress, string? payDate);
         PaymentResponseModel PaymentExecute(IQueryCollection collections);
     }
 }

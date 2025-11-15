@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Payment.Application;
+using Payment.Application.Services;
 using Payment.Infrastructure;
 using Payment.Infrastructure.Data;
 using System.Security.Claims;
@@ -140,6 +141,24 @@ app.MapGet("/api/auth/me", [Authorize] (ClaimsPrincipal user) =>
     var name = user.FindFirst("unique_name")?.Value ?? user.Identity?.Name;
     return Results.Ok(new { name, roles, all });
 });
+
+app.Use(async (context, next) =>
+{
+    try
+    {
+        await next();
+    }
+    catch (BusinessException ex)
+    {
+        context.Response.StatusCode = ex.StatusCode;
+        await context.Response.WriteAsJsonAsync(new
+        {
+            error = ex.Message,
+            status = ex.StatusCode
+        });
+    }
+});
+
 
 
 app.MapControllers();

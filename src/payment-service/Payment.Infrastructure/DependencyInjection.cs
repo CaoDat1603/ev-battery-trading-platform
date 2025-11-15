@@ -22,7 +22,12 @@ namespace Payment.Infrastructure
 
             // 3. Đăng ký External Service (VNPAY Gateway)
             services.AddScoped<IVnPayService, VnPayService>();
-            services.AddHttpClient<IInternalTokenService, InternalTokenService>();
+            services.AddHttpClient<IInternalTokenService, InternalTokenService>(client =>
+            {
+                var identityBaseUrl = configuration["Clients:IdentityApiBaseUrl"] ?? "http://identity-api:8080";
+
+                client.BaseAddress = new Uri(identityBaseUrl);
+            });
 
             // 4. Đăng ký HttpClient Factory cho Order Service Client
             var orderApiBaseUrl = configuration["Clients:OrderApiBaseUrl"] ?? "http://order-api:8080";
@@ -30,7 +35,7 @@ namespace Payment.Infrastructure
             {
                 client.BaseAddress = new Uri(orderApiBaseUrl);
 
-                client.DefaultRequestHeaders.Add("apikey", "my-super-secret-key");
+                client.DefaultRequestHeaders.Add("x-internal-key", configuration["InternalApiKey"]);
             });
 
             return services;

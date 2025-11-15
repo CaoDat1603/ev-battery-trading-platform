@@ -5,6 +5,7 @@
         public int TransactionId { get; set; }
         public decimal BuyerAmount { get; set; }
         public int ProductId { get; set; }
+        public string TransactionStatus { get; set; } = string.Empty; // Added for status validation
     }
 
     public interface IOrderServiceClient

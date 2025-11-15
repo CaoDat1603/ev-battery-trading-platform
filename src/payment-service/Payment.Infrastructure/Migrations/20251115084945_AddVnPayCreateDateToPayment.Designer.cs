@@ -12,15 +12,15 @@ using Payment.Infrastructure.Data;
 namespace Payment.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251105100156_FinalPaymentSchema")]
-    partial class FinalPaymentSchema
+    [Migration("20251115084945_AddVnPayCreateDateToPayment")]
+    partial class AddVnPayCreateDateToPayment
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.4")
+                .HasAnnotation("ProductVersion", "9.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -51,6 +51,12 @@ namespace Payment.Infrastructure.Migrations
 
                     b.Property<int>("TransactionId")
                         .HasColumnType("integer");
+
+                    b.Property<string>("VnPayCreateDate")
+                        .HasColumnType("text");
+
+                    b.Property<string>("VnPayPayDate")
+                        .HasColumnType("text");
 
                     b.HasKey("PaymentId");
 

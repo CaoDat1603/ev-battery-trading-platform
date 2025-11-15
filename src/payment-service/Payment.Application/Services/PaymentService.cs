@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using Payment.Application.Contracts;
 using Payment.Application.DTOs;
 using Payment.Domain.Abstraction;
@@ -15,6 +17,8 @@ namespace Payment.Application.Services
 
         // Value taken from Order.Domain.Enums.TransactionStatus.Processing (2)
         private const int OrderTransactionProcessingStatus = 2;
+        // TransactionStatus.Completed (3)
+        private const int OrderTransactionCompletedStatus = 3;
 
         public PaymentService(IPaymentRepository paymentRepository, IVnPayService vnPayService, IOrderServiceClient orderServiceClient)
         {
@@ -25,94 +29,209 @@ namespace Payment.Application.Services
 
         public async Task<string> CreatePaymentUrl(CreatePaymentRequest request, string ipAddress)
         {
-            //1. Tạo Entity Payment và lưu DB (status: pending)
-            var payment = new Domain.Entities.Payment(request.TransactionId, "VNPay", request.Amount);
+            // 1. Lấy transaction từ Order Service
+            var transaction = await _orderServiceClient.GetTransactionByIdAsync(request.TransactionId);
+
+            // 2. Không tìm thấy transaction
+            if (transaction == null)
+            {
+                throw new BusinessException("TRANSACTION_NOT_FOUND", $"Transaction with ID {request.TransactionId} does not exist.", 404);
+            }
+
+            // 3. Số tiền không hợp lệ
+            if (transaction.BuyerAmount <= 0)
+            {
+                throw new BusinessException("INVALID_AMOUNT", $"BuyerAmount must be greater than 0 (got {transaction.BuyerAmount}).", 400);
+            }
+
+            // 4. Trạng thái không hợp lệ (chỉ cho phép Pending)
+            if (!string.Equals(transaction.TransactionStatus, "Pending", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new BusinessException("INVALID_TRANSACTION_STATUS", $"Transaction {request.TransactionId} is not in Pending status (current: {transaction.TransactionStatus}).", 400);
+            }
+
+            // Variable to capture vnp_CreateDate from VNPay
+            string vnPayCreateDate;
+
+            // 5. Kiểm tra payment đã tồn tại chưa (đã thanh toán thành công)
+            var successPayment = await _paymentRepository.GetSuccessfulPaymentByTransactionIdAsync(request.TransactionId);
+            if (successPayment != null)
+            {
+                throw new BusinessException("PAYMENT_ALREADY_SUCCESS", $"Transaction with ID {request.TransactionId} already has a completed payment.", 409);
+            }
+
+            // 6. Tìm payment đang chờ (tái sử dụng nếu có)
+            var pendingPayment = await _paymentRepository.GetPendingPaymentByTransactionIdAsync(request.TransactionId);
+            if (pendingPayment != null)
+            {
+                Console.WriteLine($"[PaymentService] Reusing existing PENDING payment. TransactionId={request.TransactionId}, PaymentId={pendingPayment.PaymentId}, Amount={pendingPayment.Amount}");
+                return _vnPayService.CreatePaymentUrl(pendingPayment.PaymentId, pendingPayment.Amount, ipAddress, out vnPayCreateDate);
+            }
+
+            // 7. Tạo Payment mới
+            var payment = new Domain.Entities.Payment(request.TransactionId, "VNPay", transaction.BuyerAmount);
             await _paymentRepository.AddAsync(payment);
 
-            //2. Gọi VNPAY Service để tạo URL
-            return _vnPayService.CreatePaymentUrl(payment.PaymentId, payment.Amount, ipAddress);
+            // 8. Tạo URL thanh toán + lấy vnp_CreateDate gốc
+            var paymentUrl = _vnPayService.CreatePaymentUrl(payment.PaymentId, payment.Amount, ipAddress, out vnPayCreateDate);
+
+            // 9. Lưu vnp_CreateDate vào DB
+            var txnRef = $"{payment.PaymentId}_{DateTimeOffset.UtcNow.ToUnixTimeSeconds()}";
+            payment.SetVnPayCreateDate(vnPayCreateDate);
+            payment.SetVnPayTxnRef(txnRef);
+            await _paymentRepository.UpdateAsync(payment);
+            return paymentUrl;
         }
 
         public async Task<bool> HandleVnPayReturn(string queryString)
         {
-            //1. Xác thực chữ ký
+            // 1. Xác thực chữ ký
             if (!_vnPayService.ValidateSignature(queryString)) return false;
 
-            //2. Lấy dữ liệu VNPAY
+            // 2. Lấy dữ liệu VNPAY
             var responseData = _vnPayService.GetResponseData(queryString);
-            var vnpResponseCode = responseData["vnp_ResponseCode"];
-            var paymentId = int.Parse(responseData["vnp_TxnRef"]);
-            var vnpTransactionNo = responseData["vnp_TransactionNo"]; // Mã giao dịch của VNPAY
+            if (!responseData.TryGetValue("vnp_ResponseCode", out var vnpResponseCode)) return false;
+            if (!responseData.TryGetValue("vnp_TxnRef", out var txnRef) || !int.TryParse(txnRef, out var paymentId)) return false;
 
             var payment = await _paymentRepository.GetByIdAsync(paymentId);
             if (payment == null) return false;
 
-            //3. Xử lý trạng thái dựa trên mã phản hồi VNPAY (00: thành công, khác00: không thành công)
-            if (responseData["vnp_ResponseCode"] == "00")
+            // 3. Cập nhật trạng thái thanh toán
+            if (vnpResponseCode == "00")
             {
-                payment.MarkAsSuccess(responseData["vnp_TransactionNo"]);
+                var referenceCode = responseData.TryGetValue("vnp_TransactionNo", out var txNo) ? txNo : string.Empty;
+                payment.MarkAsSuccess(referenceCode);
                 await _paymentRepository.UpdateAsync(payment);
 
-                // Gọi đến Order Service sau khi thanh toán thành công
-                // Cập nhật trạng thái Transaction thành 'Processing'
-                bool updateSuccess = await _orderServiceClient.UpdateTransactionStatusAsync(payment.TransactionId, OrderTransactionProcessingStatus);
+                // 4. Cập nhật trạng thái Transaction bên Order Service
+                var updateSuccess = await _orderServiceClient.UpdateTransactionStatusAsync(payment.TransactionId, OrderTransactionProcessingStatus);
                 if (!updateSuccess)
                 {
-                    // Xử lý lỗi: Cần Message Queue (RabbitMQ/Kafka) để retry sau
                     Console.WriteLine($"WARNING: Failed to update Order status for Transaction ID: {payment.TransactionId}");
+                    // TODO: enqueue retry event
                 }
             }
             else
             {
                 payment.MarkAsFailed();
+                await _paymentRepository.UpdateAsync(payment);
             }
-
-            //4. Cập nhật Payment Entity
-            await _paymentRepository.UpdateAsync(payment);
 
             return vnpResponseCode == "00";
         }
 
-        public async Task<bool> InitiateRefund(int transactionId)
+        public async Task<VnPayIpnResponse> HandleVnPayIpnAsync(string rawQuery)
         {
-            // 1. Tìm bản ghi Payment liên quan
-            var payment = await _paymentRepository.GetSuccessfulPaymentByTransactionIdAsync(transactionId);
+            //1. Check checksum
+            var isValidSignature = _vnPayService.ValidateSignature(rawQuery);
+            if (!isValidSignature)
+            {
+                // 97: Sai checksum -> VNPAY sẽ retry
+                return new VnPayIpnResponse("97", "Invalid signature");
+            }
 
-            // 2. Kiểm tra điều kiện hoàn tiền
+            var data = HttpUtility.ParseQueryString(rawQuery);
+
+            var vnpTmnCode = data["vnp_TmnCode"];
+            var vnpAmountRaw = data["vnp_Amount"];
+            var vnpBankCode = data["vnp_BankCode"];
+            var vnpPayDate = data["vnp_PayDate"];
+            var vnpOrderInfo = data["vnp_OrderInfo"];
+            var vnpTransactionNo = data["vnp_TransactionNo"];
+            var vnpResponseCode = data["vnp_ResponseCode"];
+            var vnpTransactionStatus = data["vnp_TransactionStatus"];
+            var vnpTxnRef = data["vnp_TxnRef"];
+            
+
+            if (string.IsNullOrEmpty(vnpTxnRef) || !int.TryParse(vnpTxnRef, out var paymentId))
+            {
+                // 01: Order không tồn tại / sai định dạng
+                return new VnPayIpnResponse("01", "Order not found");
+            }
+
+            var payment = await _paymentRepository.GetByIdAsync(paymentId);
             if (payment == null)
             {
-                // Không thể hoàn tiền nếu không tìm thấy Payment
-                Console.WriteLine($"Error: No success payment found for Transaction ID {transactionId}.");
+                return new VnPayIpnResponse("01", "Order not found");
+            }
+
+            //2. So sánh số tiền
+            if (!long.TryParse(vnpAmountRaw, out var vnpAmount100))
+            {
+                return new VnPayIpnResponse("04", "Invalid amount");
+            }
+
+            var vnpAmount = vnpAmount100 / 100m; // VNPAY gửi *100
+            if (payment.Amount != vnpAmount)
+            {
+                // 04: Số tiền không khớp -> VNPAY sẽ retry
+                return new VnPayIpnResponse("04", "Amount mismatch");
+            }
+
+            //3. Đã xử lý rồi thì trả '02'
+            if (payment.Status == PaymentStatus.Success || payment.Status == PaymentStatus.Failed)
+            {
+                return new VnPayIpnResponse("02", "Order already confirmed");
+            }
+
+            //4. Cập nhật trạng thái theo VNPay
+            if (vnpResponseCode == "00" && vnpTransactionStatus == "00")
+            {
+                payment.MarkAsSuccess(vnpTransactionNo ?? string.Empty, vnpPayDate);
+                await _paymentRepository.UpdateAsync(payment);
+
+                // Gọi Order Service: set TransactionStatus = Completed (3)
+                var updated = await _orderServiceClient.UpdateTransactionStatusAsync(payment.TransactionId, OrderTransactionCompletedStatus);
+
+                if (!updated)
+                {
+                    Console.WriteLine($"[PAYMENT][IPN] WARNING: Failed to update Order status for Transaction {payment.TransactionId}");
+                    // TODO: Có thể push vào queue để retry ở đây
+                }
+            }
+            else
+            {
+                payment.MarkAsFailed(vnpTransactionNo ?? string.Empty);
+                await _paymentRepository.UpdateAsync(payment);
+            }
+
+            //5. Merchant xử lý xong => Luôn trả về 00 để VNPAY dừng retry
+            return new VnPayIpnResponse("00", "Confirm Success");
+        }
+
+        public async Task<bool> InitiateRefund(int transactionId, string ipAddress)
+        {
+            Console.WriteLine($"[REFUND] Start refund for transactionId={transactionId}");
+
+            var payment = await _paymentRepository.GetSuccessfulPaymentByTransactionIdAsync(transactionId);
+
+            if (payment == null)
+            {
+                Console.WriteLine($"[REFUND] No success payment found for transactionId={transactionId}.");
                 return false;
             }
             if (payment.Status != PaymentStatus.Success)
             {
-                // Không thể hoàn tiền nếu trạng thái giao dịch khác thành công
-                Console.WriteLine($"Error: Payment status is {payment.Status}, not eligible for refund.");
+                Console.WriteLine($"[REFUND] Payment status is {payment.Status}, not eligible for refund.");
                 return false;
             }
 
-            // --- 3. Gọi API hoàn tiền VNPay ---
-            string vnpayResponseCode = await _vnPayService.RequestVnPayRefundAsync(payment.PaymentId, payment.Amount);
-
-            bool refundSuccess = vnpayResponseCode == "00";
+            var vnpayResponseCode = await _vnPayService.RequestVnPayRefundAsync(payment.PaymentId, payment.Amount, ipAddress, payment.VnPayPayDate);
+            var refundSuccess = vnpayResponseCode == "00";
 
             if (refundSuccess)
             {
-                payment.MarkAsRefunded(); // Cập nhật trạng thái Entity
+                Console.WriteLine($"[REFUND] Found paymentId={payment.PaymentId}, status={payment.Status}, amount={payment.Amount}");
+                payment.MarkAsRefunded();
                 await _paymentRepository.UpdateAsync(payment);
-
-                // --- 4. Gửi thông báo cho Order Service ---
                 await _orderServiceClient.NotifyRefundCompletionAsync(transactionId, true);
-
                 return true;
             }
-            // Hoàn tiền thất bại: Gửi thông báo thất bại
+
             await _orderServiceClient.NotifyRefundCompletionAsync(transactionId, false);
             return false;
         }
 
-        // Các phương thức GET (Mapping) ---
         public async Task<IEnumerable<PaymentDto>> GetPaymentsByTransactionIdAsync(int transactionId)
         {
             var payments = await _paymentRepository.GetPaymentsByTransactionIdAsync(transactionId);
@@ -125,9 +244,8 @@ namespace Payment.Application.Services
             return payments.Select(MapToDto);
         }
 
-        private PaymentDto MapToDto(Domain.Entities.Payment p)
-        {
-            return new PaymentDto
+        private PaymentDto MapToDto(Domain.Entities.Payment p) =>
+            new PaymentDto
             {
                 PaymentId = p.PaymentId,
                 TransactionId = p.TransactionId,
@@ -137,6 +255,18 @@ namespace Payment.Application.Services
                 ReferenceCode = p.ReferenceCode ?? string.Empty,
                 CreatedAt = p.CreatedAt
             };
+    }
+
+    public class BusinessException : Exception
+    {
+        public string Code { get; }
+        public int StatusCode { get; }
+
+        public BusinessException(string code, string message, int statusCode = 400)
+            : base(message)
+        {
+            Code = code;
+            StatusCode = statusCode;
         }
     }
 }

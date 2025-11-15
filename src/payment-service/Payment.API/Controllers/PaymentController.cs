@@ -19,7 +19,7 @@ namespace Payment.API.Controllers
 
         // POST /api/payment/create
         [HttpPost("create")]
-        //[Authorize(Policy = AuthorizationPolicies.MemberOnly)] // Chỉ Member
+        [Authorize(Roles = "Member")]
         public async Task<IActionResult> CreatePaymentUrl([FromBody] CreatePaymentRequest request)
         {
             try
@@ -37,7 +37,7 @@ namespace Payment.API.Controllers
 
         // GET /api/payment/by-transaction/{transactionId}
         [HttpGet("by-transaction/{transactionId}")]
-        //[Authorize(Policy = AuthorizationPolicies.MemberOrAdmin)] // Member owns or Admin
+        [Authorize(Roles = "Admin,Member")]
         public async Task<IActionResult> GetPaymentsByTransaction(int transactionId)
         {
             var payments = await _paymentService.GetPaymentsByTransactionIdAsync(transactionId);
@@ -46,7 +46,7 @@ namespace Payment.API.Controllers
 
         // GET /api/payment/ (Admin)
         [HttpGet]
-        //[Authorize(Policy = AuthorizationPolicies.AdminOnly)]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllPayments()
         {
             var payments = await _paymentService.GetAllPaymentsAsync();
@@ -70,16 +70,17 @@ namespace Payment.API.Controllers
             return BadRequest("Thanh toán thất bại hoặc chữ ký không hợp lệ.");
         }
 
-        /*[HttpGet("vnpay-ipn")]
+        [HttpGet("vnpay-ipn")]
         [AllowAnonymous]
         public async Task<IActionResult> VnPayIpn()
         {
-            var queryString = HttpContext.Request.QueryString.ToString();
-            var (ok, rspCode, message) = await _paymentService.HandleVnPayIpnAsync(queryString);
+            var queryString = HttpContext.Request.QueryString.Value ?? string.Empty;
 
-            // VNPay yêu cầu JSON
-            return Ok(new { RspCode = rspCode, Message = message });
-        }*/
+            var result = await _paymentService.HandleVnPayIpnAsync(queryString);
+
+            // VNPay yêu cầu JSON {RspCode, Message}
+            return new JsonResult(result);
+        }
 
         // --- ENDPOINT NỘI BỘ (Cho Order Service dùng Key-Auth) ---
         // POST /api/payment/refund/{transactionId}
@@ -87,7 +88,8 @@ namespace Payment.API.Controllers
         //[Authorize(Policy = AuthorizationPolicies.InternalOnly)]
         public async Task<IActionResult> RequestRefund(int transactionId)
         {
-            var success = await _paymentService.InitiateRefund(transactionId);
+            var ipAddress = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "127.0.0.1";
+            var success = await _paymentService.InitiateRefund(transactionId, ipAddress);
             if (success)
             {
                 return Accepted(new { message = "Refund request accepted and is being processed." });
