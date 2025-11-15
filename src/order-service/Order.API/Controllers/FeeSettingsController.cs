@@ -7,7 +7,7 @@ namespace Order.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]/admin")]
-    //[Authorize(Policy = AuthorizationPolicies.AdminOnly)]
+    // Admin only
     public class FeeSettingsController : ControllerBase
     {
         private readonly IFeeSettingsService _feeSettingsService;
@@ -18,6 +18,7 @@ namespace Order.API.Controllers
 
         // GET /api/admin/fees/active/{productType}
         [HttpGet("active/{productType:int}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetActiveSettings(int productType)
         {
             var settings = await _feeSettingsService.GetActiveFeeSettingsAsync(productType);
@@ -30,6 +31,7 @@ namespace Order.API.Controllers
 
         // GET /api/admin/fees/history
         [HttpGet("history")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetHistory()
         {
             return Ok(await _feeSettingsService.GetFeeSettingsHistoryAsync());
@@ -37,12 +39,11 @@ namespace Order.API.Controllers
 
         // PUT /api/admin/fees/update
         [HttpPut("update")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateFees([FromBody] UpdateFeeSettingsRequest request)
         {
             await _feeSettingsService.UpdateFeeSettingsAsync(request);
             return NoContent(); // 204 No content (Thành công)
         }
-
-
     }
 }
