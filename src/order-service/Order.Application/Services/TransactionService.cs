@@ -34,7 +34,8 @@ namespace Order.Application.Services
             var transaction = new Transaction(
                 request.ProductId,
                 request.SellerId,
-                request.BuyerId,
+                //request.BuyerId,
+                buyerId,
                 feeSettings.FeeId,
                 request.ProductType,
                 basePrice,
@@ -111,11 +112,11 @@ namespace Order.Application.Services
             return false;
         }
 
-        public async Task<TransactionDto?> GetTransactionByIdAsync(int transactionId, int loggedInUserId)
+        public async Task<TransactionDto?> GetTransactionByIdAsync(int transactionId, int loggedInUserId, bool isAdmin)
         {
             var tx = await _transactionRepository.GetByIdAsync(transactionId);
             if (tx == null) return null;
-            if (tx.BuyerId != loggedInUserId && tx.SellerId != loggedInUserId) return null;
+            if (!isAdmin && tx.BuyerId != loggedInUserId && tx.SellerId != loggedInUserId) return null;
             return MapToDto(tx);
         }
 

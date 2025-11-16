@@ -6,7 +6,7 @@ namespace Order.Application.Contracts
     public interface ITransactionService
     {
         Task<int> CreateNewTransaction(CreateTransactionRequest request, int buyerId);
-        Task<TransactionDto?> GetTransactionByIdAsync(int transactionId, int loggedInUserId);
+        Task<TransactionDto?> GetTransactionByIdAsync(int transactionId, int loggedInUserId, bool isAdmin);
         Task<IEnumerable<TransactionDto>> GetTransactionsByBuyerAsync(int buyerId);
         Task<IEnumerable<TransactionDto>> GetTransactionsBySellerAsync(int sellerId);
         Task<IEnumerable<TransactionDto>> GetAllTransactionsAsync(); // Admin

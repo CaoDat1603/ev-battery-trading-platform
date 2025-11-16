@@ -46,8 +46,8 @@ namespace Order.API.Controllers
 
         // GET /api/transaction/my-purchases
         [HttpGet("my-purchases")]
-        // Chỉ cho phép Member xem giao dịch của mình
-        [Authorize(Roles = "Member")]
+        // Chỉ cho phép Member xem giao dịch của mình (Admin xem được tất cả)
+        [Authorize(Roles = "Member, Admin")]
         public async Task<IActionResult> GetMyPurchases()
         {
             var userId = GetCurrentUserId();
@@ -57,7 +57,7 @@ namespace Order.API.Controllers
 
         // GET /api/transaction/my-sales
         [HttpGet("my-sales")]
-        [Authorize(Roles = "Member")]
+        [Authorize(Roles = "Member, Admin")]
         public async Task<IActionResult> GetMySales() {
             var userId = GetCurrentUserId();
             var transactions = await _transactionService.GetTransactionsBySellerAsync(userId);
@@ -66,19 +66,20 @@ namespace Order.API.Controllers
 
         // GET /api/transaction/{id}
         [HttpGet("{id}")]
-        [Authorize(Roles = "Member")]
+        [Authorize(Roles = "Member, Admin")]
         public async Task<IActionResult> GetTransactionById(int id)
         {
             var currentUserId = GetCurrentUserId();
+            var isAdmin = User.IsInRole("Admin");
 
-            var transaction = await _transactionService.GetTransactionByIdAsync(id, currentUserId);
+            var transaction = await _transactionService.GetTransactionByIdAsync(id, currentUserId, isAdmin);
             if (transaction == null) return NotFound("Transaction not found or you do not have permission.");
             return Ok(transaction);
         }
 
         // Endpoint hủy giao dịch
         [HttpPost("{id}/cancel")]
-        [Authorize(Roles = "Member")]
+        [Authorize(Roles = "Member, Admin")]
         public async Task<IActionResult> CancelTransaction(int id)
         {
             var success = await _transactionService.CancelTransaction(id);
