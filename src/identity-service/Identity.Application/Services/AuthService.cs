@@ -23,6 +23,7 @@ namespace Identity.Application.Services
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ICacheService _cacheService;
         private readonly string _frontendBaseUrl;
+        private readonly string _adminFrontendBaseUrl;
 
         public AuthService(IUserRepository userRepo, IJwtProvider jwtProvider,IRefreshTokenService refreshTokenService, IUnitOfWork unitOfWork, IEmailService emailService, ISmsService smsService, ILogger<AuthService> logger,IRegisterCache cache,IHttpContextAccessor httpContextAccessor,ICacheService cacheService,IConfiguration config)
         {
@@ -36,7 +37,8 @@ namespace Identity.Application.Services
             _registerCache = cache;
             _httpContextAccessor = httpContextAccessor;
             _cacheService = cacheService;
-            _frontendBaseUrl = config["Frontend:BaseUrl"];
+            _frontendBaseUrl = config["Frontend:UserBaseUrl"];
+            _adminFrontendBaseUrl = config["Fontend:AdminBaseUrl"];
         }
 
         //-------------LOGIN-------------
@@ -231,6 +233,8 @@ namespace Identity.Application.Services
 
             // Lưu tạm vào cache
             _cacheService.Set($"reset:{tokenOrOtp}", user.UserId, TimeSpan.FromMinutes(15));
+            string frontendBaseUrl = user.Role == UserRole.Admin? _adminFrontendBaseUrl: _frontendBaseUrl;
+
 
             // Gửi email hoặc SMS
             if (emailOrPhone.Contains("@"))

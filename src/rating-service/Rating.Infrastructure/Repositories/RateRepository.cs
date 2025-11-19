@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Rating.Domain.Abstractions;
+using Rating.Application.Abstractions;
+using Rating.Application.DTOs;
 using Rating.Domain.Entities;
 using System.Linq;
 
@@ -77,23 +78,62 @@ namespace Rating.Infrastructure.Repositories
             return await rate.CountAsync(ct);
         }
 
-        public async Task<IReadOnlyList<Rate>> GetRatesAsync(int? rateId, int? feedbackId, int? userId, int? productId, int? rateBy, int? score, CancellationToken ct = default)
+        // Repo method (defensive)
+        public async Task<PaginatedResult<Rate>> GetRatesAsync(
+            int? rateId,
+            int? feedbackId,
+            int? userId,
+            int? productId,
+            int? rateBy,
+            int? score,
+            int pageNumber = 1,
+            int pageSize = 10,
+            CancellationToken ct = default)
         {
-            var list = _appDbContext.Rates
+            // Defensive normalization
+            if (pageNumber < 1) pageNumber = 1;
+            if (pageSize < 1) pageSize = 10;
+
+            Console.WriteLine($"GetRatesAsync filters: rateId={rateId}, pageNumber={pageNumber}, pageSize={pageSize}", rateId, pageNumber, pageSize);
+
+            var query = _appDbContext.Rates
                 .Include(r => r.Images)
                 .Where(x => x.DeletedAt == null)
                 .AsQueryable();
-            if(rateId.HasValue) list = list.Where( x=> x.RateId == rateId.Value);
-            if(feedbackId.HasValue) list = list.Where(x=> x.FeedBackId == feedbackId.Value);
-            if (userId.HasValue) list = list.Where(x => x.UserId == userId.Value);
-            if(productId.HasValue) list = list.Where(x => x.ProductId == productId.Value);
-            if(rateBy.HasValue) list = list.Where(x=> x.RateBy == rateBy.Value);
-            if (score.HasValue) list = list.Where(x => x.Score == score);
-            return await list
-                .OrderByDescending(x=> x.CreatedAt)
+
+            if (rateId.HasValue) query = query.Where(x => x.RateId == rateId.Value);
+            if (feedbackId.HasValue) query = query.Where(x => x.FeedBackId == feedbackId.Value);
+            if (userId.HasValue) query = query.Where(x => x.UserId == userId.Value);
+            if (productId.HasValue) query = query.Where(x => x.ProductId == productId.Value);
+            if (rateBy.HasValue) query = query.Where(x => x.RateBy == rateBy.Value);
+            if (score.HasValue) query = query.Where(x => x.Score == score.Value);
+
+            var totalItems = await query.CountAsync(ct);
+
+            // Safe compute pages
+            var totalPages = pageSize > 0
+                ? (int)Math.Ceiling(totalItems / (double)pageSize)
+                : 0;
+
+            var items = await query
+                .OrderByDescending(x => x.CreatedAt)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
                 .AsNoTracking()
                 .ToListAsync(ct);
+
+            Console.WriteLine($"GetRatesAsync result: totalItems={totalItems}, itemsCount={items.Count}, totalPages={totalPages}");
+
+            return new PaginatedResult<Rate>
+            {
+                Items = items,
+                TotalItems = totalItems,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalPages = totalPages
+            };
         }
+
 
         public async Task RemoveImageAsync(int rateImageId, CancellationToken ct = default)
         {
@@ -146,5 +186,12 @@ namespace Rating.Infrastructure.Repositories
             rate.Update(score, comment);
             _appDbContext.Rates.Update(rate);
         }
+        public async Task<bool> CheckExistAsync(int? userId, int? productId, int rateBy, CancellationToken ct = default)
+        {
+            return await _appDbContext.Rates.AnyAsync(x =>
+                (x.RateBy == userId ||
+                x.ProductId == productId) && x.RateBy == rateBy, ct);
+        }
+
     }
 }

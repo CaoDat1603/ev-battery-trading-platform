@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\caoda\\Documents\\GIT\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj": {}
+    "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\caoda\\Documents\\GIT\\src\\identity-service\\Identity.Application\\Identity.Application.csproj": {
+    "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Application\\Identity.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
+        "projectUniqueName": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
         "projectName": "Identity.Application",
-        "projectPath": "C:\\Users\\caoda\\Documents\\GIT\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
-        "packagesPath": "C:\\Users\\caoda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caoda\\Documents\\GIT\\src\\identity-service\\Identity.Application\\obj\\",
+        "projectPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
+        "packagesPath": "C:\\Users\\TranVanDu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\caoda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TranVanDu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -32,8 +32,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\caoda\\Documents\\GIT\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj": {
-                "projectPath": "C:\\Users\\caoda\\Documents\\GIT\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj"
+              "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj": {
+                "projectPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj"
               }
             }
           }
@@ -86,24 +86,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\caoda\\Documents\\GIT\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj": {
+    "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj",
         "projectName": "Identity.Domain",
-        "projectPath": "C:\\Users\\caoda\\Documents\\GIT\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj",
-        "packagesPath": "C:\\Users\\caoda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caoda\\Documents\\GIT\\src\\identity-service\\Identity.Domain\\obj\\",
+        "projectPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj",
+        "packagesPath": "C:\\Users\\TranVanDu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\caoda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TranVanDu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -160,24 +160,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\caoda\\Documents\\GIT\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj": {
+    "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj",
         "projectName": "Identity.Infrastructure",
-        "projectPath": "C:\\Users\\caoda\\Documents\\GIT\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\caoda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caoda\\Documents\\GIT\\src\\identity-service\\Identity.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\TranVanDu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\caoda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TranVanDu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -192,11 +192,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\caoda\\Documents\\GIT\\src\\identity-service\\Identity.Application\\Identity.Application.csproj": {
-                "projectPath": "C:\\Users\\caoda\\Documents\\GIT\\src\\identity-service\\Identity.Application\\Identity.Application.csproj"
+              "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Application\\Identity.Application.csproj": {
+                "projectPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Application\\Identity.Application.csproj"
               },
-              "C:\\Users\\caoda\\Documents\\GIT\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj": {
-                "projectPath": "C:\\Users\\caoda\\Documents\\GIT\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj"
+              "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj": {
+                "projectPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj"
               }
             }
           }
@@ -273,7 +273,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

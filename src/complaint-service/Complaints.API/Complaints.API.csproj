@@ -24,8 +24,4 @@
     <ProjectReference Include="..\Complaints.Infrastructure\Complaints.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
 </Project>

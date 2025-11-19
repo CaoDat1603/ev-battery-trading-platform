@@ -3,6 +3,7 @@ using Complaints.Infrastructure.Repositories;
 using Complaints.Infrastructure.Services;
 using Complaints.Application.Contracts;
 using Microsoft.EntityFrameworkCore;
+using Complaints.Infrastructure.Messaging;
 
 namespace Complaints.Infrastructure
 {
@@ -17,6 +18,9 @@ namespace Complaints.Infrastructure
             services.AddScoped<IEvidenceHandler, EvidenceHandler>();
             services.AddHttpClient<IInternalTokenService, InternalTokenService>();
             services.AddHttpClient<IIdentityClient, IdentityClient>();
+            services.AddHttpClient<IOrderClient, OrderClient >();
+            services.AddHttpClient<ICatalogClient, CatalogClient>();
+            services.AddSingleton<IEventBus, ComplaintPublisher>();
             return services;
         }
     }

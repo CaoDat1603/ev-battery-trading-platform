@@ -14,5 +14,7 @@ namespace Identity.Domain.Abtractions
         Task<bool> ExistsByPhoneAsync(string phone, CancellationToken ct = default);
         Task<IReadOnlyList<User>> SearchAsync(string q, int take = 50, CancellationToken ct = default);
         Task<IReadOnlyList<User>> GetByProfileStatusAsync(ProfileVerificationStatus status, CancellationToken ct = default);
+        Task<IReadOnlyList<User>> GetUsersByIdsAsync(List<int> ids, CancellationToken ct = default);
+
     }
 }

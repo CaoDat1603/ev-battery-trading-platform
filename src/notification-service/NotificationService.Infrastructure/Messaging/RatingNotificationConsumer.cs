@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
+using NotificationService.Application.Contracts;
 using NotificationService.Domain.Abstractions;
 using NotificationService.Domain.Entities;
 using NotificationService.Infrastructure.Settings;
@@ -21,6 +22,7 @@ namespace NotificationService.Infrastructure.Messaging
 
             var repo = scope.ServiceProvider.GetRequiredService<INotificationRepository>();
             var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
+            var notifier = scope.ServiceProvider.GetRequiredService<IRealtimeNotifier>();
 
             var noti = Notification.Create(
                 data.UserId,
@@ -32,6 +34,15 @@ namespace NotificationService.Infrastructure.Messaging
 
             await repo.AddAsync(noti, ct);
             await unitOfWork.SaveChangesAsync();
+
+            // Bắn SignalR realtime
+            await notifier.SendToUserAsync(
+                data.UserId,
+                "Đánh giá mới",
+                $"Bạn bị đánh giá bởi người dùng {data.FromUserName}",
+                "", // link nếu có
+                ct
+            );
         }
     }
 

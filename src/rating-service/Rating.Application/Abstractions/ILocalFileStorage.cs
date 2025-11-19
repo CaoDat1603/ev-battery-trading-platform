@@ -1,4 +1,4 @@
-﻿namespace Rating.Domain.Abstractions
+﻿namespace Rating.Application.Abstractions
 {
     public interface ILocalFileStorage
     {

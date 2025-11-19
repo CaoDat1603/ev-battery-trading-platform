@@ -6,7 +6,11 @@ USER $APP_UID
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
-
+########## ? FIX QUY?N GHI CHO UPLOADS ##########
+# T?o th? m?c uploads và c?p quy?n ghi
+RUN mkdir -p /app/wwwroot/uploads && \
+    chmod -R 777 /app/wwwroot/uploads
+##################################################
 
 # This stage is used to build the service project
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build

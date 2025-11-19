@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
+using NotificationService.Application.Contracts;
 using NotificationService.Domain.Abstractions;
 using NotificationService.Domain.Entities;
 using NotificationService.Infrastructure.Settings;
@@ -22,19 +23,29 @@ namespace NotificationService.Infrastructure.Messaging
 
             var repo = scope.ServiceProvider.GetRequiredService<INotificationRepository>();
             var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
+            var notifier = scope.ServiceProvider.GetRequiredService<IRealtimeNotifier>();
 
             var noti = Notification.Create(
-                data.TargetUserId,
+                data.userId,
                 "Khiếu nại mới",
-                $"Bạn bị khiếu nại bởi người dùng {data.FromUserId}",
+                data.content,
                 "ComplaintService",
                 ""
             );
 
             await repo.AddAsync(noti, ct);
             await unitOfWork.SaveChangesAsync();
+
+            // Bắn SignalR realtime
+            await notifier.SendToUserAsync(
+                data.userId,
+                "Khiếu nại mới",
+                data.content,
+                "", // link nếu có
+                ct
+            );
         }
     }
 
-    public record ComplaintNotificationEvent(int TargetUserId, int FromUserId, string Reason);
+    public record ComplaintNotificationEvent(int userId, string content);
 }

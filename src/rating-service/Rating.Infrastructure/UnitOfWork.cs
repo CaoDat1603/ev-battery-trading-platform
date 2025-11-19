@@ -1,4 +1,4 @@
-﻿using Rating.Domain.Abstractions;
+﻿using Rating.Application.Abstractions;
 
 namespace Rating.Infrastructure
 {

@@ -12,6 +12,7 @@ namespace Complaints.Application.Mappers
                 ComplaintStatusDto.Pending => ComplaintStatus.Pending,
                 ComplaintStatusDto.InReview => ComplaintStatus.InReview,
                 ComplaintStatusDto.Resolved => ComplaintStatus.Resolved,
+                ComplaintStatusDto.Rejected => ComplaintStatus.Rejected,
                 ComplaintStatusDto.Cancelled => ComplaintStatus.Cancelled,
                 _ => throw new ArgumentOutOfRangeException(nameof(dto), dto, "Invalid ComplaintStatusDto value")
             };
@@ -24,6 +25,7 @@ namespace Complaints.Application.Mappers
                 ComplaintStatus.Pending => ComplaintStatusDto.Pending,
                 ComplaintStatus.InReview => ComplaintStatusDto.InReview,
                 ComplaintStatus.Resolved => ComplaintStatusDto.Resolved,
+                ComplaintStatus.Rejected => ComplaintStatusDto.Rejected,
                 ComplaintStatus.Cancelled => ComplaintStatusDto.Cancelled,
                 _ => throw new ArgumentOutOfRangeException(nameof(domain), domain, "Invalid ComplaintStatus value")
             };

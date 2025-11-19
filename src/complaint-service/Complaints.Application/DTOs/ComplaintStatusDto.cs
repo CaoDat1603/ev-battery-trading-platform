@@ -2,10 +2,11 @@
 {
     public enum ComplaintStatusDto
     {
-        Pending,
-        InReview,
-        Resolved,
-        Cancelled
+        Pending = 1,
+        InReview = 2,
+        Resolved = 3,
+        Rejected = 4,
+        Cancelled = 5,
     }
 }
 

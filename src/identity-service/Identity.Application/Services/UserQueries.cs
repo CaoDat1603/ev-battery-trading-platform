@@ -32,6 +32,12 @@ namespace Identity.Application.Services
             var users = await _repo.SearchAsync(query, take, ct);
             return users.Select(u => u.ToDto()).ToList();
         }
+        public async Task<List<UserQueriesDTO>> GetUsersByIds(List<int> ids)
+        {
+            var users = await _repo.GetUsersByIdsAsync(ids);
+
+            return users.Select(u => u.ToDto()).ToList();
+        }
     }
     public static class UserMappingExtensions
     {

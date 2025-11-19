@@ -36,9 +36,11 @@ namespace Rating.API.Controllers
             [FromQuery] int? productId,
             [FromQuery] int? rateBy,
             [FromQuery] int? score,
+            [FromQuery] int pageNumber,
+            [FromQuery] int pageSize,
             CancellationToken ct)
         {
-            var list = await _queries.GetAsync(rateId, feedbackId, userId, productId, rateBy, score, ct);
+            var list = await _queries.GetAsync(rateId, feedbackId, userId, productId, rateBy, score, pageNumber, pageSize, ct);
             return Ok(list);
         }
 
@@ -73,13 +75,13 @@ namespace Rating.API.Controllers
         }
 
         // POST: api/rate
-        [HttpPost]
+/*        [HttpPost]
         [Authorize]
         public async Task<IActionResult> Create([FromBody] CreateRateRequest request, CancellationToken ct)
         {
             var result = await _commands.CreateAsync(request, ct);
             return CreatedAtAction(nameof(GetById), new { id = result.RateId }, result);
-        }
+        }*/
 
         // POST: api/rate/user/{userId}
         [HttpPost("user/{userId:int}")]

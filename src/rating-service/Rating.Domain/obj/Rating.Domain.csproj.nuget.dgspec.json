@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\caoda\\Documents\\GIT\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj": {}
+    "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\caoda\\Documents\\GIT\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj": {
+    "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj",
         "projectName": "Rating.Domain",
-        "projectPath": "C:\\Users\\caoda\\Documents\\GIT\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj",
-        "packagesPath": "C:\\Users\\caoda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caoda\\Documents\\GIT\\src\\rating-service\\Rating.Domain\\obj\\",
+        "projectPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj",
+        "packagesPath": "C:\\Users\\TranVanDu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\TranVanDu\\Desktop\\project\\src\\rating-service\\Rating.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\caoda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TranVanDu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -74,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
