@@ -91,17 +91,29 @@ namespace Complaints.API.Controllers
         [Authorize]
         public async Task<IActionResult> GetComplaintById(int complaintId, CancellationToken ct)
         {
-            var complaint = await _queries.GetComplaintByIdAsync(complaintId, ct);
-            if (complaint == null) return NotFound();
             var claim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var role = User.FindFirst(ClaimTypes.Role)?.Value;
 
             if (claim == null)
             {
                 return Unauthorized("Không tìm thấy UserId trong token.");
             }
-            if(complaint.ComplaintantId != int.Parse(claim)) return Unauthorized("UserId trong token ko khớp.");
+
+            var complaint = await _queries.GetComplaintByIdAsync(complaintId, ct);
+            if (complaint == null) return NotFound();
+
+
+            if (!string.Equals(role, "Admin", StringComparison.OrdinalIgnoreCase))
+            {
+                if (complaint.ComplaintantId != int.Parse(claim))
+                {
+                    return Unauthorized("UserId trong token không khớp hoặc bạn không có quyền xem khiếu nại này.");
+                }
+            }
+
             return Ok(complaint);
         }
+
 
         /// <summary>
         /// Lọc complaint theo các điều kiện.
