@@ -26,3 +26,11 @@ C:\Users\caoda\Documents\GIT\src\rating-service\Rating.Application\obj\Debug\net
 C:\Users\caoda\Documents\GIT\src\rating-service\Rating.Domain\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\caoda\Documents\GIT\src\rating-service\Rating.Application\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\caoda\Documents\GIT\src\rating-service\Rating.Domain\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Application\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Domain\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Application\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Domain\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Application\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Domain\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Application\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\TranVanDu\Desktop\project\src\rating-service\Rating.Domain\obj\Debug\net8.0\staticwebassets.build.json

@@ -2,6 +2,7 @@
 using Complaints.Application.DTOs;
 using Complaints.Domain.Abtractions;
 using Complaints.Domain.Entities;
+using System.Runtime.CompilerServices;
 
 namespace Complaints.Application.Services
 {
@@ -11,12 +12,16 @@ namespace Complaints.Application.Services
         private readonly IUnitOfWork _uow;
         private readonly IEvidenceHandler _evidenceHandler;
         private readonly IIdentityClient _identityClient;
-        public ComplaintCommands(IComplaintRepository rep, IUnitOfWork uow, IEvidenceHandler evidenceHandler, IIdentityClient identityClient)
+        private readonly IOrderClient _orderClient;
+        private IEventBus _eventBus;
+        public ComplaintCommands(IComplaintRepository rep, IUnitOfWork uow, IEvidenceHandler evidenceHandler, IIdentityClient identityClient, IOrderClient orderClient, IEventBus eventBus)
         {
             _rep = rep;
             _uow = uow;
             _evidenceHandler = evidenceHandler;
             _identityClient = identityClient;
+            _orderClient = orderClient;
+            _eventBus = eventBus;
         }
 
         public async Task<int> CreateComplaintAsync(ComplaintCreateRequest request, CancellationToken ct = default)
@@ -25,11 +30,16 @@ namespace Complaints.Application.Services
                 throw new ArgumentNullException(nameof(request));
             if (request.AgainstUserId >= 0)
             {
-                var user = _identityClient.UserExistsAsync(request.AgainstUserId, ct);
+                var user = await _identityClient.UserExistsAsync(request.AgainstUserId, ct);
                 if (user == null)
                 {
                     throw new ArgumentException($"User with ID {request.AgainstUserId} does not exist.");
                 }
+            }
+            if(request.TransactionId >= 0)
+            {
+                var transaction = await _orderClient.GetTransactionInfoAsync(request.TransactionId, ct);
+                if (transaction == null) throw new ArgumentException($"Transaction with Id {request.TransactionId} does not exist.");
             }
             var complaint = Complaint.Create(request.TransactionId, request.ComplaintantId, request.AgainstUserId, request.ReasonComplaint, request.Description);
 
@@ -39,6 +49,13 @@ namespace Complaints.Application.Services
 
             await _rep.AddComplaintAsync(complaint, ct);
             await _uow.SaveChangesAsync(ct);
+
+            var evt = new ComplaintNotificationEvent(
+                request.ComplaintantId,
+                "Đã tạo khiếu nại"
+            );
+
+            await _eventBus.PublishAsync("complaint_exchange", evt);
             return complaint.ComplaintId;
         }
 
@@ -57,4 +74,5 @@ namespace Complaints.Application.Services
             return true;
         }
     }
+    public record ComplaintNotificationEvent (int userId, string content);
 }

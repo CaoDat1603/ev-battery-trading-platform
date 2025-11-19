@@ -1,4 +1,4 @@
-﻿using Rating.Domain.Abstractions;
+﻿using Rating.Application.Abstractions;
 using System.Reflection.Metadata.Ecma335;
 
 namespace Rating.Infrastructure.Services

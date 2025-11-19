@@ -6,13 +6,15 @@ namespace Rating.Application.Contracts
     {
         Task<RateResponse?> GetByIdAsync(int id, CancellationToken ct = default);
 
-        Task<IReadOnlyList<RateResponse>> GetAsync(
+        Task<PaginatedResult<RateResponse>> GetAsync(
             int? rateId,
             int? feedbackId,
             int? userId,
             int? productId,
             int? rateBy,
             int? score,
+            int pageNumber = 1,
+            int pageSize = 10,
             CancellationToken ct = default);
 
         Task<int> GetCountAsync(int? userId, int? productId, CancellationToken ct = default);

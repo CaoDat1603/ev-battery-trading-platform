@@ -1,6 +1,7 @@
 ﻿using Rating.Domain.Entities;
+using Rating.Application.DTOs;
 
-namespace Rating.Domain.Abstractions
+namespace Rating.Application.Abstractions
 {
     public interface IRateRepository
     {
@@ -9,15 +10,18 @@ namespace Rating.Domain.Abstractions
         Task<Rate?> GetRateByIdAsync(int rateId, CancellationToken ct = default);
         Task UpdateRateAsync(int rateId, int? score, string? comment, CancellationToken ct = default);
         Task DeleteRateAsync(int rateId, CancellationToken ct = default);
+        Task<bool> CheckExistAsync(int? userId, int? productId, int rateBy, CancellationToken ct = default);
 
         // Truy vấn linh hoạt (hoặc chuyển sang 1 RateFilter object)
-        Task<IReadOnlyList<Rate>> GetRatesAsync(
+        Task<PaginatedResult<Rate>> GetRatesAsync(
             int? rateId,
             int? feedbackId,
             int? userId,
             int? productId,
             int? rateBy,
             int? score,
+            int pageNumber = 1,
+            int pageSize = 10,
             CancellationToken ct = default);
 
         // Tổng quan thống kê

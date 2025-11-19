@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Identity.API.Controllers
 {
-    /*[Authorize(AuthenticationSchemes = "Bearer,SystemBearer", Roles = "Admin,System")]*/
+    [Authorize(AuthenticationSchemes = "Bearer,SystemBearer", Roles = "Admin,System")]
     [Route("api/[controller]")]
     [ApiController]
     public class AdminController : ControllerBase
@@ -25,6 +25,12 @@ namespace Identity.API.Controllers
             var users = await _userQueries.GetByIdAsync(userId, ct);
             return Ok(users);
         }
+        [HttpPost("batch")]
+        public async Task<List<UserQueriesDTO>> GetBatchUsers([FromBody] List<int> ids)
+        {
+            return await _userQueries.GetUsersByIds(ids);
+        }
+
 
         [HttpGet("users")]
         public async Task<IActionResult> GetUsers([FromQuery] ProfileVerificationStatus status, CancellationToken ct)

@@ -40,7 +40,7 @@ namespace Complaints.Infrastructure.Repositories
                 .FirstOrDefaultAsync(x => x.ComplaintId == complaintId && x.DeleteAt == null, cancellationToken);
 
             if (complaint == null)
-                throw new KeyNotFoundException($"Không tìm thấy complaint với Id = {complaintId}");
+                throw new KeyNotFoundException($"Không tìm thấy complaint với Id = {complaintId}. (Đã xóa?)");
 
             complaint.Update(complaintStatus, resolution, resolvedBy);
             _appDbContext.Complaints.Update(complaint);

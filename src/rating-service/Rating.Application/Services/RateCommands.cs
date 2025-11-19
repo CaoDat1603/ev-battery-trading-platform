@@ -2,7 +2,6 @@
 using Rating.Application.Contracts;
 using Rating.Application.DTOs;
 using Rating.Application.Mappers;
-using Rating.Domain.Abstractions;
 using Rating.Domain.Entities;
 
 namespace Rating.Application.Services
@@ -14,14 +13,16 @@ namespace Rating.Application.Services
         private IRateImageHandler _imageHandler;
         private IRateQueries _queries;
         private IIdentityClient _identityClient;
+        private ICatalogClient _catalogClient;
         private IEventBus _eventBus;
-        public RateCommands(IUnitOfWork uow, IRateRepository rep, IRateImageHandler imageHandler, IRateQueries queries, IIdentityClient identity, IEventBus eventBus)
+        public RateCommands(IUnitOfWork uow, IRateRepository rep, IRateImageHandler imageHandler, IRateQueries queries, IIdentityClient identity,ICatalogClient catalogClient, IEventBus eventBus)
         {
             _uow = uow;
             _rep = rep;
             _imageHandler = imageHandler;
             _queries = queries;
             _identityClient = identity;
+            _catalogClient = catalogClient;
             _eventBus = eventBus;
         }
 
@@ -33,6 +34,11 @@ namespace Rating.Application.Services
                 var exists = await _identityClient.UserExistsAsync(request.UserId.Value, ct);
                 if (!exists)
                     throw new ArgumentException($"User with ID {request.UserId} does not exist.");
+            }
+            if (request.ProductId.HasValue)
+            {
+                var exist = await _catalogClient.GetProductInfoAsync(request.ProductId.Value, ct);
+                if (exist.ProductId == null) throw new ArgumentException($"Product with ID {request.ProductId} does not exist.");
             }
             var rate = Rate.Create(request.FeedbackId, request.UserId, request.ProductId, request.RateBy, request.Score, request.Comment);
             await _rep.AddRateAsync(rate, ct);
@@ -53,16 +59,16 @@ namespace Rating.Application.Services
         {
             request.UserId = userId;
             request.ProductId = null;
-            var check = await _queries.GetAsync(null, null, request.UserId, null, request.RateBy, null, ct);
-            if (check.Any()) throw new ArgumentException("The rate already exists.");
+            bool check = await _rep.CheckExistAsync(request.UserId, null, request.RateBy, ct);
+            if (check == true) throw new ArgumentException("The rate already exists.");
             return await CreateAsync(request, ct);
         }
         public async Task<RateResponse> CreateProductAsync(int productId, CreateRateRequest request, CancellationToken ct = default)
         {
             request.ProductId = productId;
             request.UserId = null;
-            var check = await _queries.GetAsync(null, null, null, request.ProductId, request.RateBy, null, ct);
-            if (check.Any()) throw new ArgumentException("The rate already exists.");
+            bool check = await _rep.CheckExistAsync(null, request.ProductId, request.RateBy, ct);
+            if (check == true) throw new ArgumentException("The rate already exists.");
             return await CreateAsync(request, ct);
         }
 

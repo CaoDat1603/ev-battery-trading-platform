@@ -5,8 +5,11 @@
         public int RateId { get; set; }
         public int? FeedbackId { get; set; }
         public int? UserId { get; set; }
+        public string? UserName { get; set; }
         public int? ProductId { get; set; }
         public int RateBy { get; set; }
+        public string? ReviwerIsName { get; set; }
+        public string? ReviwerIsAvartar { get; set; }
         public int? Score { get; set; }
         public string Comment { get; set; } = default!;
         public DateTimeOffset? CreatedAt { get; set; }

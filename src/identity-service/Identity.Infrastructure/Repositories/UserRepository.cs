@@ -63,6 +63,17 @@ namespace Identity.Infrastructure.Repositories
                 .OrderBy(u => u.UserFullName)
                 .ToListAsync(ct);
         }
+        public async Task<IReadOnlyList<User>> GetUsersByIdsAsync(List<int> ids, CancellationToken ct = default)
+        {
+            if (ids == null || ids.Count == 0)
+                return new List<User>();
+
+            return await _db.Users
+                .Include(u => u.UserProfile)
+                .Where(u => ids.Contains(u.UserId))
+                .AsNoTracking()
+                .ToListAsync(ct);
+        }
 
     }
 }

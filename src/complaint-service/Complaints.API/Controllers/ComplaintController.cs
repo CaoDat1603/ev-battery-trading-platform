@@ -4,6 +4,7 @@ using Complaints.Application.Mappers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Complaints.API.Controllers
 {
@@ -36,7 +37,6 @@ namespace Complaints.API.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-
             var complaintId = await _commands.CreateComplaintAsync(request, ct);
             return CreatedAtAction(nameof(GetComplaintById), new { complaintId }, new { ComplaintId = complaintId });
         }
@@ -46,14 +46,28 @@ namespace Complaints.API.Controllers
         /// </summary>
         [HttpPut("{complaintId:int}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> UpdateComplaint(int complaintId, [FromBody] ComplaintUpdateRequest request, CancellationToken ct)
+        public async Task<IActionResult> UpdateComplaint(int complaintId,
+            [FromBody] ComplaintUpdateRequest request,
+            CancellationToken ct)
         {
             if (complaintId != request.ComplaintId)
                 return BadRequest("ComplaintId không khớp giữa URL và body.");
 
+            // Lấy id admin đang xử lý complaint
+            var claim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (claim == null)
+            {
+                return Unauthorized("Không tìm thấy UserId trong token.");
+            }
+
+            request.resolvedBy = int.Parse(claim);
+
             var success = await _commands.UpdateComplaintAsync(request, ct);
+
             return success ? NoContent() : NotFound();
         }
+
 
         /// <summary>
         /// Xóa mềm complaint (soft delete).
@@ -79,6 +93,13 @@ namespace Complaints.API.Controllers
         {
             var complaint = await _queries.GetComplaintByIdAsync(complaintId, ct);
             if (complaint == null) return NotFound();
+            var claim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (claim == null)
+            {
+                return Unauthorized("Không tìm thấy UserId trong token.");
+            }
+            if(complaint.ComplaintantId != int.Parse(claim)) return Unauthorized("UserId trong token ko khớp.");
             return Ok(complaint);
         }
 
@@ -97,12 +118,25 @@ namespace Complaints.API.Controllers
             [FromQuery] DateTimeOffset? toDate,
             CancellationToken ct)
         {
-            ComplaintStatusDto? dtoStatus = Enum.TryParse(status, true, out ComplaintStatusDto parsedStatus)
-                ? parsedStatus
-                : (ComplaintStatusDto?)null;
-
+            ComplaintStatusDto? dtoStatus = null;
+            if (!string.IsNullOrWhiteSpace(status) && !status.Equals("All", StringComparison.OrdinalIgnoreCase))
+            {
+                if (!Enum.TryParse(status, true, out ComplaintStatusDto parsedStatus))
+                {
+                    // Nếu "Rejected" bị lỗi, lỗi này sẽ bắt nó
+                    return BadRequest($"Invalid ComplaintStatus value: {status}");
+                }
+                dtoStatus = parsedStatus;
+            }
+            // 3. Xử lý thành công (Convert DTO Enum sang Domain Enum)
             var domainStatus = dtoStatus.ToDomainNullable();
             var results = await _queries.GetComplaintsAsync(transactionId, complaintantId, againstUserId, resolvedBy, domainStatus, fromDate, toDate, ct);
+            /*ComplaintStatusDto? dtoStatus = Enum.TryParse(status, true, out ComplaintStatusDto parsedStatus)
+                ? parsedStatus
+                : (ComplaintStatusDto?)null;*/
+
+            //var domainStatus = dtoStatus.ToDomainNullable();
+            //var results = await _queries.GetComplaintsAsync(transactionId, complaintantId, againstUserId, resolvedBy, domainStatus, fromDate, toDate, ct);
             return Ok(results);
         }
 
@@ -153,6 +187,21 @@ namespace Complaints.API.Controllers
         {
             var count = await _queries.GetComplaintCountByUserAsync(userId, ct);
             return Ok(new { UserId = userId, ComplaintCount = count });
+        }
+        [HttpGet("by-complaintant/{userId}")]
+        [Authorize]
+        public async Task<IActionResult> GetByComplaintant(int userId, CancellationToken ct)
+        {
+            var claim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (claim == null)
+            {
+                return Unauthorized("Không tìm thấy UserId trong token.");
+            }
+            userId = int.Parse(claim);
+            var result = await _queries.GetComplaintsAsync(null, userId, null, null, null, null, null, ct);
+
+            return Ok(result);
         }
     }
 }

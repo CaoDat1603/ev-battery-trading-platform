@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Rating.Application.Abstractions;
 using Rating.Application.Contracts;
-using Rating.Domain.Abstractions;
 using Rating.Infrastructure.Messaging;
 using Rating.Infrastructure.Repositories;
 using Rating.Infrastructure.Services;
@@ -20,6 +19,7 @@ namespace Rating.Infrastructure
             services.AddHttpClient<IInternalTokenService, InternalTokenService>();
             services.AddHttpClient<IIdentityClient, IdentityClient>();
             services.AddSingleton<IEventBus, RatingPublisher>();
+            services.AddHttpClient<ICatalogClient, CatalogClient>();
             return services;
         }
     }
