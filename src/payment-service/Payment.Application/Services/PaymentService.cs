@@ -115,7 +115,7 @@ namespace Payment.Application.Services
 
                 var updateOk = await _orderServiceClient.UpdateTransactionStatusAsync(
                     payment.TransactionId,
-                    OrderTransactionProcessingStatus   // = Processing
+                    OrderTransactionCompletedStatus // Set to Completed (3)
                 );
 
                 if (!updateOk)
