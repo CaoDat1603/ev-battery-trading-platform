@@ -41,7 +41,7 @@ namespace Payment.Infrastructure.Repositories
             return await _dbContext.Payments
                 //.Where(p => p.TransactionId == transactionId && p.Status == Payment.Domain.Enums.PaymentStatus.Success)
                 .OrderByDescending(p => p.CreatedAt) // Lấy giao dịch mới nhất (nếu có nhiều lần thanh toán)
-                .FirstOrDefaultAsync(p => p.TransactionId == transactionId && p.Status == Payment.Domain.Enums.PaymentStatus.Success);
+                .FirstOrDefaultAsync(p => p.TransactionId == transactionId && p.Status == Payment.Domain.Enums.PaymentStatus.Success); // Lấy bản ghi đầu tiền hoặc null nếu không tìm thấy
         }
 
         public async Task<Payment.Domain.Entities.Payment?> GetPendingPaymentByTransactionIdAsync(int transactionId)

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "42fXca8/fAk=",
+  "dgSpecHash": "y4sqZD60NbA=",
   "success": true,
-  "projectFilePath": "D:\\projects\\App\\new2\\ev-battery-trading-platform\\src\\payment-service\\Payment.Application\\Payment.Application.csproj",
+  "projectFilePath": "D:\\projects\\backup\\App\\new2\\re-ev-battery-trading-platform\\ev-battery-trading-platform\\src\\payment-service\\Payment.Application\\Payment.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.aspnetcore.http\\2.3.0\\microsoft.aspnetcore.http.2.3.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.3.0\\microsoft.aspnetcore.http.abstractions.2.3.0.nupkg.sha512",
