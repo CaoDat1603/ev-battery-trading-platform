@@ -34,8 +34,8 @@ namespace Order.API.Controllers
         // Endpoint tạo giao dịch
         // POST /api/transaction/create
         [HttpPost("create")]
-        // Chỉ cho phép Member tạo giao dịch
-        [Authorize(Roles = "Member")]
+        //[Authorize(Policy = AuthorizationPolicies.MemberOnly)] // Chỉ cho phép Member tạo giao dịch
+        [Authorize (Roles = "Member")]
         public async Task<IActionResult> CreateTransaction([FromBody] CreateTransactionRequest request)
         {
             var buyerId = GetCurrentUserId();
@@ -46,8 +46,8 @@ namespace Order.API.Controllers
 
         // GET /api/transaction/my-purchases
         [HttpGet("my-purchases")]
-        // Chỉ cho phép Member xem giao dịch của mình (Admin xem được tất cả)
-        [Authorize(Roles = "Member, Admin")]
+        //[Authorize(Policy = AuthorizationPolicies.MemberOnly)] // Chỉ cho phép Member xem giao dịch của mình
+        [Authorize (Roles = "Member,Admin")]
         public async Task<IActionResult> GetMyPurchases()
         {
             var userId = GetCurrentUserId();
@@ -57,7 +57,7 @@ namespace Order.API.Controllers
 
         // GET /api/transaction/my-sales
         [HttpGet("my-sales")]
-        [Authorize(Roles = "Member, Admin")]
+        [Authorize(Roles = "Member,Admin")]
         public async Task<IActionResult> GetMySales() {
             var userId = GetCurrentUserId();
             var transactions = await _transactionService.GetTransactionsBySellerAsync(userId);
@@ -66,7 +66,7 @@ namespace Order.API.Controllers
 
         // GET /api/transaction/{id}
         [HttpGet("{id}")]
-        [Authorize(Roles = "Member, Admin")]
+        [Authorize(Roles = "Member,Admin")]
         public async Task<IActionResult> GetTransactionById(int id)
         {
             var currentUserId = GetCurrentUserId();
@@ -79,17 +79,25 @@ namespace Order.API.Controllers
 
         // Endpoint hủy giao dịch
         [HttpPost("{id}/cancel")]
-        [Authorize(Roles = "Member, Admin")]
+        [Authorize(Roles = "Member,Admin")]
         public async Task<IActionResult> CancelTransaction(int id)
         {
             var success = await _transactionService.CancelTransaction(id);
             if (!success) return BadRequest("Unable to cancel transaction. Check if it's already completed.");
             return Ok("Transaction cancellation request processed.");
         }
+
+        // --- API NỘI BỘ ---
+        // Endpoint cập nhật trạng thái giao dịch
         
+
+        // Endpoint nhận thông báo HOÀN TIỀN từ Payment Service
+        // POST /api/transaction/{id}/refund-status (Nội bộ)
+        
+
         // GET /api/transaction/ (Admin)
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        [Authorize (Roles = "Admin")]
         public async Task<IActionResult> GetAllTransactions()
         {
             var transactions = await _transactionService.GetAllTransactionsAsync();
