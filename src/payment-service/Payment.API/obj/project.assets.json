@@ -4370,11 +4370,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\projects\\App\\new2\\ev-battery-trading-platform\\src\\payment-service\\Payment.API\\Payment.API.csproj",
+      "projectUniqueName": "D:\\projects\\backup\\App\\new2\\re-ev-battery-trading-platform\\ev-battery-trading-platform\\src\\payment-service\\Payment.API\\Payment.API.csproj",
       "projectName": "Payment.API",
-      "projectPath": "D:\\projects\\App\\new2\\ev-battery-trading-platform\\src\\payment-service\\Payment.API\\Payment.API.csproj",
+      "projectPath": "D:\\projects\\backup\\App\\new2\\re-ev-battery-trading-platform\\ev-battery-trading-platform\\src\\payment-service\\Payment.API\\Payment.API.csproj",
       "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-      "outputPath": "D:\\projects\\App\\new2\\ev-battery-trading-platform\\src\\payment-service\\Payment.API\\obj\\",
+      "outputPath": "D:\\projects\\backup\\App\\new2\\re-ev-battery-trading-platform\\ev-battery-trading-platform\\src\\payment-service\\Payment.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4395,11 +4395,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\projects\\App\\new2\\ev-battery-trading-platform\\src\\payment-service\\Payment.Application\\Payment.Application.csproj": {
-              "projectPath": "D:\\projects\\App\\new2\\ev-battery-trading-platform\\src\\payment-service\\Payment.Application\\Payment.Application.csproj"
+            "D:\\projects\\backup\\App\\new2\\re-ev-battery-trading-platform\\ev-battery-trading-platform\\src\\payment-service\\Payment.Application\\Payment.Application.csproj": {
+              "projectPath": "D:\\projects\\backup\\App\\new2\\re-ev-battery-trading-platform\\ev-battery-trading-platform\\src\\payment-service\\Payment.Application\\Payment.Application.csproj"
             },
-            "D:\\projects\\App\\new2\\ev-battery-trading-platform\\src\\payment-service\\Payment.Infrastructure\\Payment.Infrastructure.csproj": {
-              "projectPath": "D:\\projects\\App\\new2\\ev-battery-trading-platform\\src\\payment-service\\Payment.Infrastructure\\Payment.Infrastructure.csproj"
+            "D:\\projects\\backup\\App\\new2\\re-ev-battery-trading-platform\\ev-battery-trading-platform\\src\\payment-service\\Payment.Infrastructure\\Payment.Infrastructure.csproj": {
+              "projectPath": "D:\\projects\\backup\\App\\new2\\re-ev-battery-trading-platform\\ev-battery-trading-platform\\src\\payment-service\\Payment.Infrastructure\\Payment.Infrastructure.csproj"
             }
           }
         }

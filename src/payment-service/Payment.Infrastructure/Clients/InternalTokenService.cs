@@ -19,7 +19,7 @@ namespace Payment.Infrastructure.Clients
 
         public async Task<string> GetSystemTokenAsync(CancellationToken ct)
         {
-            var key = _config["InternalApiKey"];
+            var key = _config["Identity:InternalKey"];
             var req = new HttpRequestMessage(HttpMethod.Post, "http://identity-api:8080/api/systemtoken");
             req.Headers.Add("X-Internal-Key", key);
 

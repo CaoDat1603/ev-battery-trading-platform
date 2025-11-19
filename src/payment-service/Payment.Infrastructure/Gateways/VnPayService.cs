@@ -108,6 +108,7 @@ namespace Payment.Infrastructure.Gateways
             _vnPayLibrary.AddRequestData("vnp_OrderType", "other");
             _vnPayLibrary.AddRequestData("vnp_ReturnUrl", returnUrl);
             _vnPayLibrary.AddRequestData("vnp_ExpireDate", nowVN.AddMinutes(15).ToString("yyyyMMddHHmmss"));
+            //_vnPayLibrary.AddRequestData("vnp_TxnRef", paymentId.ToString());
 
             // vnp_TxnRef must be the payment id so return/IPN can map it back
             var txnRef = paymentId.ToString();
@@ -159,13 +160,11 @@ namespace Payment.Infrastructure.Gateways
             return result;
         }
 
-        public async Task<string> RequestVnPayRefundAsync(int paymentId, decimal amount, string ipAddress, string transactionDate)
+        public async Task<string> RequestVnPayRefundAsync(int paymentId, decimal amount)
         {
             var tmnCode = _configuration["VnPay:TmnCode"];
             var hashSecret = _configuration["VnPay:HashSecret"];
             var refundApiUrl = _configuration["VnPay:RefundApiUrl"];
-
-            Console.WriteLine($"[REFUND] Start refund paymentId={paymentId}, amount={amount}");
 
             if (string.IsNullOrWhiteSpace(tmnCode)) throw new InvalidOperationException("VnPay TmnCode is not configured.");
             if (string.IsNullOrWhiteSpace(hashSecret)) throw new InvalidOperationException("VnPay HashSecret is not configured.");
@@ -175,7 +174,7 @@ namespace Payment.Infrastructure.Gateways
             _vnPayLibrary.ResetRequestData();
 
             //1. Thêm các tham số bắt buộc khi dùng VNPAY Refund
-            _vnPayLibrary.AddRequestData("vnp_RequestId", Guid.NewGuid().ToString("N")); // Unique request ID
+            _vnPayLibrary.AddRequestData("vnp_RequestId", Guid.NewGuid().ToString().Replace("-", ""));
             _vnPayLibrary.AddRequestData("vnp_Version", "2.1.0");
             _vnPayLibrary.AddRequestData("vnp_Command", "refund");
             _vnPayLibrary.AddRequestData("vnp_TmnCode", tmnCode);
@@ -185,111 +184,66 @@ namespace Payment.Infrastructure.Gateways
             _vnPayLibrary.AddRequestData("vnp_OrderInfo", $"Hoan tien giao dich {paymentId}");
             _vnPayLibrary.AddRequestData("vnp_TransactionNo", ""); // Số giao dịch gốc, để trống nếu không có
             // Use current time as transaction date
-            _vnPayLibrary.AddRequestData("vnp_TransactionDate", transactionDate);
+            _vnPayLibrary.AddRequestData("vnp_TransactionDate", DateTimeOffset.Now.ToString("yyyyMMddHHmmss"));
             _vnPayLibrary.AddRequestData("vnp_CreateBy", "admin");
             _vnPayLibrary.AddRequestData("vnp_CreateDate", DateTimeOffset.Now.ToString("yyyyMMddHHmmss"));
-            _vnPayLibrary.AddRequestData("vnp_IpAddr", ipAddress);
+            _vnPayLibrary.AddRequestData("vnp_IpAddr", "127.0.0.1");
 
-            //2. Tạo chuỗi ký + query
+            // Tạo chuỗi Request và Hash
             string requestString = _vnPayLibrary.CreateRefundRequestUrl(hashSecret);
 
-            Console.WriteLine("=====================================");
-            Console.WriteLine("[VNPAY][REFUND] RAW REQUEST STRING:");
-            Console.WriteLine(requestString);
-            Console.WriteLine("=====================================");
+            // Gửi yêu cầu POST tới API của VNPay
+            var content = new StringContent(requestString, Encoding.UTF8, "application/x-www-form-urlencoded");
+            var response = await _httpClient.PostAsync(refundApiUrl, content);
 
-            //3. Gửi yêu cầu POST tới API của VNPay
-            var dict = requestString
-                .Split('&', StringSplitOptions.RemoveEmptyEntries)
-                .Select(part =>
+            if (response.IsSuccessStatusCode)
+            {
+                var respDto = await response.Content.ReadFromJsonAsync<Payment.Infrastructure.Gateways.VnPayRefundResponseDto>();
+
+                if (respDto != null)
                 {
-                    var idx = part.IndexOf('=');
-                    var key = part[..idx];
-                    var value = part[(idx + 1)..];
-                    return new KeyValuePair<string, string>(key, value);
-                })
-                .ToDictionary(kv => kv.Key, kv => kv.Value);
+                    // --- BƯỚC KIỂM TRA CHỮ KÝ PHẢN HỒI ---
 
-            var json = System.Text.Json.JsonSerializer.Serialize(dict);
-            var content = new StringContent(requestString, Encoding.UTF8, "application/json");
-            HttpResponseMessage response;
+                    // 1. Reset thư viện và chuẩn bị kiểm tra Hash
+                    _vnPayLibrary.ResetResponseData();
 
-            try
-            {
-                response = await _httpClient.PostAsync(refundApiUrl, content);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("[VNPAY][REFUND] HTTP CALL FAILED: " + ex.Message);
+                    // 2. Lấy tất cả các thuộc tính của DTO để kiểm tra Hash
+                    var properties = typeof(Payment.Infrastructure.Gateways.VnPayRefundResponseDto).GetProperties();
+
+                    foreach (var prop in properties)
+                    {
+                        var key = "";
+                        var value = prop.GetValue(respDto)?.ToString();
+
+                        // Lấy tên gốc của tham số VNPay từ JsonPropertyName
+                        var jsonPropertyAttribute = prop.GetCustomAttribute<JsonPropertyNameAttribute>();
+                        key = jsonPropertyAttribute != null ? jsonPropertyAttribute.Name : prop.Name;
+
+                        // Thêm toàn bộ tham số (bao gồm cả vnp_SecureHash) để ValidateSecureHash tự lấy và so sánh
+                        if (!string.IsNullOrEmpty(key))
+                        {
+                            _vnPayLibrary.AddResponseData(key, value);
+                        }
+                    }
+
+                    // 4. Kiểm tra Hash dựa trên secret
+                    bool isValidHash = _vnPayLibrary.ValidateSecureHash(hashSecret!);
+
+                    if (!isValidHash)
+                    {
+                        Console.WriteLine($"SECURITY ALERT: Invalid SecureHash received for Refund Transaction {respDto.VnpTxnRef}");
+                        return "97";
+                    }
+
+                    // Trả về mã phản hồi từ VNPay (vnp_ResponseCode) nếu Hash hợp lệ
+                    return respDto?.VnpResponseCode ?? "99";
+
+                }
+
                 return "99";
             }
 
-            //4. Log status code
-            Console.WriteLine($"[VNPAY][REFUND] HTTP STATUS: {(int)response.StatusCode} {response.StatusCode}");
-
-            //5. Log raw response body
-            var rawBody = await response.Content.ReadAsStringAsync();
-            Console.WriteLine("=====================================");
-            Console.WriteLine("[VNPAY][REFUND] RAW RESPONSE BODY:");
-            Console.WriteLine(rawBody);
-            Console.WriteLine("=====================================");
-
-
-            if (!response.IsSuccessStatusCode)
-            {
-                Console.WriteLine("[VNPAY][REFUND] VNPay returned error HTTP status.");
-                return "99";
-            }
-
-
-            //6. Parse JSON trả về
-            VnPayRefundResponseDto? respDto = null;
-            try
-            {
-                respDto = System.Text.Json.JsonSerializer.Deserialize<VnPayRefundResponseDto>(rawBody);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("[VNPAY][REFUND] JSON PARSE FAILED: " + ex.Message);
-                return "99";
-            }
-
-            if (respDto == null)
-            {
-                Console.WriteLine("[VNPAY][REFUND] respDto is null.");
-                return "99";
-            }
-
-            Console.WriteLine("[VNPAY][REFUND] PARSED RESPONSE DTO:");
-            Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(respDto));
-
-            //7. Valide SecureHash
-            _vnPayLibrary.ResetResponseData();
-            var props = typeof(VnPayRefundResponseDto).GetProperties();
-
-            foreach (var p in props)
-            {
-                var jsonAttr = p.GetCustomAttribute<JsonPropertyNameAttribute>();
-                string key = jsonAttr?.Name ?? p.Name;
-                string val = p.GetValue(respDto)?.ToString() ?? "";
-
-                _vnPayLibrary.AddResponseData(key, val);
-
-                Console.WriteLine($"[VNPAY][HASH] Add: {key} = {val}");
-            }
-
-            bool isValidHash = _vnPayLibrary.ValidateSecureHash(hashSecret!);
-            Console.WriteLine($"[VNPAY][HASH] RESULT: {(isValidHash ? "VALID" : "INVALID")}");
-
-            if (!isValidHash)
-            {
-                Console.WriteLine("[VNPAY][SECURITY] INVALID SECURE HASH!");
-                return "97";
-            }
-
-            //8. Trả về mã phản hồi chuẩn
-            Console.WriteLine($"[VNPAY][REFUND] FINAL RESPONSE CODE: {respDto.VnpResponseCode}");
-            return respDto.VnpResponseCode ?? "99";
+            return "99"; // lỗi hệ thống nội bộ
         }
 
         public PaymentResponseModel PaymentExecute(IQueryCollection collections)

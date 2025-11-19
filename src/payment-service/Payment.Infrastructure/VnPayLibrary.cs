@@ -185,11 +185,6 @@ namespace Payment.Infrastructure
         {
             var rspRaw = GetResponseData();
             var myChecksum = HmacSha512(secretKey, rspRaw);
-
-            Console.WriteLine("[VNPay][VERIFY] rspRaw: " + rspRaw);
-            Console.WriteLine("[VNPay][VERIFY] myChecksum: " + myChecksum);
-            Console.WriteLine("[VNPay][VERIFY] inputHash: " + inputHash);
-
             return myChecksum.Equals(inputHash, StringComparison.InvariantCultureIgnoreCase);
         }
 
@@ -202,11 +197,6 @@ namespace Payment.Infrastructure
 
             var signData = BuildSignData(_responseData);
             var expected = HmacSha512(hashSecret, signData);
-
-            Console.WriteLine("[VNPay][VERIFY] signData: " + signData);
-            Console.WriteLine("[VNPay][VERIFY] expected: " + expected);
-            Console.WriteLine("[VNPay][VERIFY] received: " + received);
-
             return expected.Equals(received, StringComparison.OrdinalIgnoreCase);
         }
 

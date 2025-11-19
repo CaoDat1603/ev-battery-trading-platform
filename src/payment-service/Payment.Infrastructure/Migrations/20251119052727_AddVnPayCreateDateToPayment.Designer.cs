@@ -12,7 +12,7 @@ using Payment.Infrastructure.Data;
 namespace Payment.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251115084945_AddVnPayCreateDateToPayment")]
+    [Migration("20251119052727_AddVnPayCreateDateToPayment")]
     partial class AddVnPayCreateDateToPayment
     {
         /// <inheritdoc />
@@ -56,6 +56,9 @@ namespace Payment.Infrastructure.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("VnPayPayDate")
+                        .HasColumnType("text");
+
+                    b.Property<string>("VnPayTxnRef")
                         .HasColumnType("text");
 
                     b.HasKey("PaymentId");

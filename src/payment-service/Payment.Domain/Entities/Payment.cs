@@ -53,11 +53,10 @@ namespace Payment.Domain.Entities
             }
         }
 
-        // Cập nhật trạng thái thanh toán khi thất bại, có mã giao dịch từ VnPay (IPN handler cần)
         public void MarkAsFailed(string? referenceCode = null)
         {
             Status = Enums.PaymentStatus.Failed;
-            if (!string.IsNullOrEmpty(referenceCode))
+            if (string.IsNullOrEmpty(referenceCode))
             {
                 ReferenceCode = referenceCode;
             }
@@ -88,7 +87,6 @@ namespace Payment.Domain.Entities
             VnPayTxnRef = vnPayTxnRef;
         }
 
-        // Models hỗ trợ nghiệp vụ
         public class PaymentInformationModel
         {
             public string OrderType { get; set; }
@@ -96,7 +94,6 @@ namespace Payment.Domain.Entities
             public string OrderDescription { get; set; }
             public string Name { get; set; }
         }
-        // Model phản hồi sau khi xử lý thanh toán
         public class PaymentResponseModel
         {
             public string OrderDescription { get; set; }

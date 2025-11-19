@@ -16,7 +16,7 @@ namespace Payment.Domain.Abstraction
         Dictionary<string, string> GetResponseData(string queryString);
 
         // Gửi yêu cầu hoàn tiền đến VNPAY
-        Task<string> RequestVnPayRefundAsync(int paymentId, decimal amount, string ipAddress, string? payDate);
+        Task<string> RequestVnPayRefundAsync(int paymentId, decimal amount);
         PaymentResponseModel PaymentExecute(IQueryCollection collections);
     }
 }

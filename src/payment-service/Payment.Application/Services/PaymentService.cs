@@ -1,11 +1,11 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using Payment.Application.Contracts;
+﻿using Payment.Application.Contracts;
 using Payment.Application.DTOs;
 using Payment.Domain.Abstraction;
 using Payment.Domain.Enums;
+using System;
+using System.Threading.Tasks;
+using System.Web;
+using System.Linq;
 
 namespace Payment.Application.Services
 {
@@ -29,8 +29,12 @@ namespace Payment.Application.Services
 
         public async Task<string> CreatePaymentUrl(CreatePaymentRequest request, string ipAddress)
         {
-            // 1. Lấy transaction từ Order Service
+            //1. Lấy transaction từ Order Service
             var transaction = await _orderServiceClient.GetTransactionByIdAsync(request.TransactionId);
+            if (transaction == null)
+            {
+                throw new ArgumentException($"Transaction with ID {request.TransactionId} not found in Order Service.");
+            }
 
             // 2. Không tìm thấy transaction
             if (transaction == null)
@@ -83,32 +87,40 @@ namespace Payment.Application.Services
             return paymentUrl;
         }
 
-        public async Task<bool> HandleVnPayReturn(string queryString)
+        public async Task<(bool Success, int? TransactionId)> HandleVnPayReturn(string queryString)
         {
-            // 1. Xác thực chữ ký
-            if (!_vnPayService.ValidateSignature(queryString)) return false;
+            // 1.Xác thực chữ ký VNPay
+            if (!_vnPayService.ValidateSignature(queryString))
+            {
+                return (false, null);
+            }
 
-            // 2. Lấy dữ liệu VNPAY
+            // 2. Lấy dữ liệu VNPay
             var responseData = _vnPayService.GetResponseData(queryString);
-            if (!responseData.TryGetValue("vnp_ResponseCode", out var vnpResponseCode)) return false;
-            if (!responseData.TryGetValue("vnp_TxnRef", out var txnRef) || !int.TryParse(txnRef, out var paymentId)) return false;
+            var vnpResponseCode = responseData["vnp_ResponseCode"];
+            var paymentId = int.Parse(responseData["vnp_TxnRef"]);
+            var vnpTransactionNo = responseData["vnp_TransactionNo"];
 
             var payment = await _paymentRepository.GetByIdAsync(paymentId);
-            if (payment == null) return false;
+            if (payment == null)
+            {
+                return (false, null);
+            }
 
-            // 3. Cập nhật trạng thái thanh toán
+            // 3. Update payment + transaction status
             if (vnpResponseCode == "00")
             {
-                var referenceCode = responseData.TryGetValue("vnp_TransactionNo", out var txNo) ? txNo : string.Empty;
-                payment.MarkAsSuccess(referenceCode);
+                payment.MarkAsSuccess(vnpTransactionNo);
                 await _paymentRepository.UpdateAsync(payment);
 
-                // 4. Cập nhật trạng thái Transaction bên Order Service
-                var updateSuccess = await _orderServiceClient.UpdateTransactionStatusAsync(payment.TransactionId, OrderTransactionProcessingStatus);
-                if (!updateSuccess)
+                var updateOk = await _orderServiceClient.UpdateTransactionStatusAsync(
+                    payment.TransactionId,
+                    OrderTransactionProcessingStatus   // = Processing
+                );
+
+                if (!updateOk)
                 {
                     Console.WriteLine($"WARNING: Failed to update Order status for Transaction ID: {payment.TransactionId}");
-                    // TODO: enqueue retry event
                 }
             }
             else
@@ -117,7 +129,8 @@ namespace Payment.Application.Services
                 await _paymentRepository.UpdateAsync(payment);
             }
 
-            return vnpResponseCode == "00";
+            var ok = vnpResponseCode == "00";
+            return (ok, payment.TransactionId);
         }
 
         public async Task<VnPayIpnResponse> HandleVnPayIpnAsync(string rawQuery)
@@ -141,7 +154,7 @@ namespace Payment.Application.Services
             var vnpResponseCode = data["vnp_ResponseCode"];
             var vnpTransactionStatus = data["vnp_TransactionStatus"];
             var vnpTxnRef = data["vnp_TxnRef"];
-            
+
 
             if (string.IsNullOrEmpty(vnpTxnRef) || !int.TryParse(vnpTxnRef, out var paymentId))
             {
@@ -199,39 +212,46 @@ namespace Payment.Application.Services
             return new VnPayIpnResponse("00", "Confirm Success");
         }
 
-        public async Task<bool> InitiateRefund(int transactionId, string ipAddress)
+        public async Task<bool> InitiateRefund(int transactionId)
         {
-            Console.WriteLine($"[REFUND] Start refund for transactionId={transactionId}");
-
+            // 1. Tìm bản ghi Payment liên quan
             var payment = await _paymentRepository.GetSuccessfulPaymentByTransactionIdAsync(transactionId);
 
+            // 2. Kiểm tra điều kiện hoàn tiền
             if (payment == null)
             {
-                Console.WriteLine($"[REFUND] No success payment found for transactionId={transactionId}.");
+                // Không thể hoàn tiền nếu không tìm thấy Payment
+                Console.WriteLine($"Error: No success payment found for Transaction ID {transactionId}.");
                 return false;
             }
             if (payment.Status != PaymentStatus.Success)
             {
-                Console.WriteLine($"[REFUND] Payment status is {payment.Status}, not eligible for refund.");
+                // Không thể hoàn tiền nếu trạng thái giao dịch khác thành công
+                Console.WriteLine($"Error: Payment status is {payment.Status}, not eligible for refund.");
                 return false;
             }
 
-            var vnpayResponseCode = await _vnPayService.RequestVnPayRefundAsync(payment.PaymentId, payment.Amount, ipAddress, payment.VnPayPayDate);
-            var refundSuccess = vnpayResponseCode == "00";
+            // --- 3. Gọi API hoàn tiền VNPay ---
+            string vnpayResponseCode = await _vnPayService.RequestVnPayRefundAsync(payment.PaymentId, payment.Amount);
+
+            bool refundSuccess = vnpayResponseCode == "00";
 
             if (refundSuccess)
             {
-                Console.WriteLine($"[REFUND] Found paymentId={payment.PaymentId}, status={payment.Status}, amount={payment.Amount}");
-                payment.MarkAsRefunded();
+                payment.MarkAsRefunded(); // Cập nhật trạng thái Entity
                 await _paymentRepository.UpdateAsync(payment);
+
+                // --- 4. Gửi thông báo cho Order Service ---
                 await _orderServiceClient.NotifyRefundCompletionAsync(transactionId, true);
+
                 return true;
             }
-
+            // Hoàn tiền thất bại: Gửi thông báo thất bại
             await _orderServiceClient.NotifyRefundCompletionAsync(transactionId, false);
             return false;
         }
 
+        // Các phương thức GET (Mapping) ---
         public async Task<IEnumerable<PaymentDto>> GetPaymentsByTransactionIdAsync(int transactionId)
         {
             var payments = await _paymentRepository.GetPaymentsByTransactionIdAsync(transactionId);
@@ -244,8 +264,9 @@ namespace Payment.Application.Services
             return payments.Select(MapToDto);
         }
 
-        private PaymentDto MapToDto(Domain.Entities.Payment p) =>
-            new PaymentDto
+        private PaymentDto MapToDto(Domain.Entities.Payment p)
+        {
+            return new PaymentDto
             {
                 PaymentId = p.PaymentId,
                 TransactionId = p.TransactionId,
@@ -255,6 +276,7 @@ namespace Payment.Application.Services
                 ReferenceCode = p.ReferenceCode ?? string.Empty,
                 CreatedAt = p.CreatedAt
             };
+        }
     }
 
     public class BusinessException : Exception
