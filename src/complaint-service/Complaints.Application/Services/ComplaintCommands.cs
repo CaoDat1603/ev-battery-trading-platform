@@ -40,6 +40,7 @@ namespace Complaints.Application.Services
             {
                 var transaction = await _orderClient.GetTransactionInfoAsync(request.TransactionId, ct);
                 if (transaction == null) throw new ArgumentException($"Transaction with Id {request.TransactionId} does not exist.");
+                if (transaction.BuyerId != request.ComplaintantId  && transaction.SellerId != request.ComplaintantId) throw new ArgumentException($"You do not have permission to create a complaint");
             }
             var complaint = Complaint.Create(request.TransactionId, request.ComplaintantId, request.AgainstUserId, request.ReasonComplaint, request.Description);
 
