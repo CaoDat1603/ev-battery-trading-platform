@@ -27,11 +27,6 @@ namespace Identity.Application.Services
             return users.Select(u => u.ToDto()).ToList();
         }
 
-        public async Task<IReadOnlyList<UserQueriesDTO>> SearchAsync(string query, int take = 50, CancellationToken ct = default)
-        {
-            var users = await _repo.SearchAsync(query, take, ct);
-            return users.Select(u => u.ToDto()).ToList();
-        }
         public async Task<List<UserQueriesDTO>> GetUsersByIds(List<int> ids)
         {
             var users = await _repo.GetUsersByIdsAsync(ids);

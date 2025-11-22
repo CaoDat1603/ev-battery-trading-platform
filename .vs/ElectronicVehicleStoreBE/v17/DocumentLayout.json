@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\caoda\\Documents\\GIT3\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8E888EA5-7183-4C5A-B83C-E084FFCFB4EA}|src\\identity-service\\Identity.Application\\Identity.Application.csproj|c:\\users\\caoda\\documents\\git3\\src\\identity-service\\identity.application\\services\\userqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E888EA5-7183-4C5A-B83C-E084FFCFB4EA}|src\\identity-service\\Identity.Application\\Identity.Application.csproj|solutionrelative:src\\identity-service\\identity.application\\services\\userqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3F892A25-1210-4FAA-8965-808A17F582F4}|src\\payment-service\\Payment.API\\Payment.API.csproj|c:\\users\\caoda\\documents\\git3\\src\\payment-service\\payment.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3F892A25-1210-4FAA-8965-808A17F582F4}|src\\payment-service\\Payment.API\\Payment.API.csproj|solutionrelative:src\\payment-service\\payment.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -33,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8E888EA5-7183-4C5A-B83C-E084FFCFB4EA}|src\\identity-service\\Identity.Application\\Identity.Application.csproj|c:\\users\\caoda\\documents\\git3\\src\\identity-service\\identity.application\\dtos\\userqueriesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E888EA5-7183-4C5A-B83C-E084FFCFB4EA}|src\\identity-service\\Identity.Application\\Identity.Application.csproj|solutionrelative:src\\identity-service\\identity.application\\dtos\\userqueriesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E888EA5-7183-4C5A-B83C-E084FFCFB4EA}|src\\identity-service\\Identity.Application\\Identity.Application.csproj|c:\\users\\caoda\\documents\\git3\\src\\identity-service\\identity.application\\services\\userqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E888EA5-7183-4C5A-B83C-E084FFCFB4EA}|src\\identity-service\\Identity.Application\\Identity.Application.csproj|solutionrelative:src\\identity-service\\identity.application\\services\\userqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C40D5C0E-58BD-4704-84EB-5690B92B1533}|src\\identity-service\\Identity.Domain\\Identity.Domain.csproj|c:\\users\\caoda\\documents\\git3\\src\\identity-service\\identity.domain\\abtractions\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -219,11 +219,11 @@
         },
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.API\\Program.cs",
               "RelativeDocumentMoniker": "src\\payment-service\\Payment.API\\Program.cs",
@@ -236,20 +236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PaymentController.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.API\\Controllers\\PaymentController.cs",
-              "RelativeDocumentMoniker": "src\\payment-service\\Payment.API\\Controllers\\PaymentController.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.API\\Controllers\\PaymentController.cs",
-              "RelativeToolTip": "src\\payment-service\\Payment.API\\Controllers\\PaymentController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T06:45:38.705Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\caoda\\Documents\\GIT3\\src\\order-service\\Order.API\\Program.cs",
               "RelativeDocumentMoniker": "src\\order-service\\Order.API\\Program.cs",
@@ -257,12 +244,36 @@
               "RelativeToolTip": "src\\order-service\\Order.API\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T06:44:51.026Z",
+              "WhenOpened": "2025-11-22T06:44:51.026Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserQueries.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Application\\Services\\UserQueries.cs",
+              "RelativeDocumentMoniker": "src\\identity-service\\Identity.Application\\Services\\UserQueries.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Application\\Services\\UserQueries.cs",
+              "RelativeToolTip": "src\\identity-service\\Identity.Application\\Services\\UserQueries.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T06:40:26.477Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
+              "Title": "PaymentController.cs",
+              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.API\\Controllers\\PaymentController.cs",
+              "RelativeDocumentMoniker": "src\\payment-service\\Payment.API\\Controllers\\PaymentController.cs",
+              "ToolTip": "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.API\\Controllers\\PaymentController.cs",
+              "RelativeToolTip": "src\\payment-service\\Payment.API\\Controllers\\PaymentController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T06:45:38.705Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "TransactionController.cs",
               "DocumentMoniker": "C:\\Users\\caoda\\Documents\\GIT3\\src\\order-service\\Order.API\\Controllers\\TransactionController.cs",
               "RelativeDocumentMoniker": "src\\order-service\\Order.API\\Controllers\\TransactionController.cs",
@@ -270,12 +281,11 @@
               "RelativeToolTip": "src\\order-service\\Order.API\\Controllers\\TransactionController.cs",
               "ViewState": "AgIAAFIAAAAAAAAAAAA/wAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T06:44:26.655Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-22T06:44:26.655Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "InternalTransactionController.cs",
               "DocumentMoniker": "C:\\Users\\caoda\\Documents\\GIT3\\src\\order-service\\Order.API\\Controllers\\InternalTransactionController.cs",
               "RelativeDocumentMoniker": "src\\order-service\\Order.API\\Controllers\\InternalTransactionController.cs",
@@ -283,12 +293,11 @@
               "RelativeToolTip": "src\\order-service\\Order.API\\Controllers\\InternalTransactionController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T06:44:13.366Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-22T06:44:13.366Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "FeeSettingsController.cs",
               "DocumentMoniker": "C:\\Users\\caoda\\Documents\\GIT3\\src\\order-service\\Order.API\\Controllers\\FeeSettingsController.cs",
               "RelativeDocumentMoniker": "src\\order-service\\Order.API\\Controllers\\FeeSettingsController.cs",
@@ -296,25 +305,11 @@
               "RelativeToolTip": "src\\order-service\\Order.API\\Controllers\\FeeSettingsController.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAqwCoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T06:43:31.295Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-22T06:43:31.295Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "UserQueries.cs",
-              "DocumentMoniker": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Application\\Services\\UserQueries.cs",
-              "RelativeDocumentMoniker": "src\\identity-service\\Identity.Application\\Services\\UserQueries.cs",
-              "ToolTip": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Application\\Services\\UserQueries.cs",
-              "RelativeToolTip": "src\\identity-service\\Identity.Application\\Services\\UserQueries.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAQwFUAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T06:40:26.477Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "UserQueriesDTO.cs",
               "DocumentMoniker": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Application\\DTOs\\UserQueriesDTO.cs",
               "RelativeDocumentMoniker": "src\\identity-service\\Identity.Application\\DTOs\\UserQueriesDTO.cs",
@@ -322,12 +317,11 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Application\\DTOs\\UserQueriesDTO.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAQwBYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T06:41:33.859Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-22T06:41:33.859Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "AdminController.cs",
               "DocumentMoniker": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.API\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "src\\identity-service\\Identity.API\\Controllers\\AdminController.cs",
@@ -335,8 +329,7 @@
               "RelativeToolTip": "src\\identity-service\\Identity.API\\Controllers\\AdminController.cs",
               "ViewState": "AgIAAE4AAAAAAAAAAAAAwDQAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T12:57:02.98Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-11T12:57:02.98Z"
             },
             {
               "$type": "Document",
@@ -348,8 +341,7 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Domain\\Abtractions\\IUserRepository.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAmwBQAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T06:42:04.875Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-22T06:42:04.875Z"
             },
             {
               "$type": "Document",
@@ -361,8 +353,7 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Infrastructure\\Repositories\\UserRepository.cs",
               "ViewState": "AgIAAEEAAAAAAAAAAAAqwJoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T06:42:27.377Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-22T06:42:27.377Z"
             },
             {
               "$type": "Document",
@@ -374,8 +365,7 @@
               "RelativeToolTip": "src\\identity-service\\Identity.Application\\Contracts\\IUserQueries.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAuwBoAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T06:40:08.668Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-22T06:40:08.668Z"
             },
             {
               "$type": "Document",
@@ -387,8 +377,7 @@
               "RelativeToolTip": "src\\catalog-service\\Catalog.API\\Program.cs",
               "ViewState": "AgIAAGkAAAAAAAAAAAAAAGIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T18:08:01.715Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T18:08:01.715Z"
             },
             {
               "$type": "Document",
