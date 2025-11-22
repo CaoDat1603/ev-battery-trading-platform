@@ -11,12 +11,14 @@ namespace Order.Application.Services
         private readonly ITransactionRepository _transactionRepository;
         private readonly IPaymentServiceClient _paymentServiceClient;
         private readonly IFeeSettingsRepository _feeSettingsRepository;
+        private readonly IEventBus _eventBus;
 
-        public TransactionService(ITransactionRepository transactionRepository, IFeeSettingsRepository feeSettingsRepository, IPaymentServiceClient paymentServiceClient)
+        public TransactionService(ITransactionRepository transactionRepository, IFeeSettingsRepository feeSettingsRepository, IPaymentServiceClient paymentServiceClient, IEventBus eventBus)
         {
             _transactionRepository = transactionRepository;
             _paymentServiceClient = paymentServiceClient;
             _feeSettingsRepository = feeSettingsRepository;
+            _eventBus = eventBus;
         }
 
         public async Task<int> CreateNewTransaction(CreateTransactionRequest request, int buyerId)
@@ -47,6 +49,9 @@ namespace Order.Application.Services
             );
 
             await _transactionRepository.AddAsync(transaction);
+
+            var noti1 = new OrderNotificationEvent(buyerId, transaction.TransactionId, "Giao dịch đã được khởi tạo.", "Khởi tạo thành công.");
+            await _eventBus.PublishAsync("order_exchange", noti1);
             return transaction.TransactionId;
         }
 
@@ -59,6 +64,10 @@ namespace Order.Application.Services
             {
                 transaction.UpdateStatus(newStatus);
                 await _transactionRepository.UpdateAsync(transaction);
+                var noti1 = new OrderNotificationEvent(transaction.BuyerId, transaction.TransactionId, "Giao dịch đã được cập nhập.", "Cập nhập thành công.");
+                await _eventBus.PublishAsync("order_exchage", noti1);
+                var noti2 = new OrderNotificationEvent(transaction.SellerId, transaction.TransactionId, "Giao dịch đã được cập nhập.", "Cập nhập thành công.");
+                await _eventBus.PublishAsync("order_exchage", noti2);
                 return true;
             }
             catch (InvalidOperationException)
@@ -93,6 +102,8 @@ namespace Order.Application.Services
             }
 
             await _transactionRepository.UpdateAsync(transaction);
+            var noti1 = new OrderNotificationEvent(transaction.BuyerId, transaction.TransactionId, "Giao dịch đã được hủy.", "Giao dịch của bạn đã hủy.");
+            await _eventBus.PublishAsync("order_exchage", noti1);
             return true;
         }
 
@@ -163,4 +174,5 @@ namespace Order.Application.Services
             };
         }
     }
+    public record OrderNotificationEvent(int userId, int transactionId, string title, string content);
 }

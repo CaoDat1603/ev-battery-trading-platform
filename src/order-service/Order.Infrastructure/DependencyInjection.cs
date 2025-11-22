@@ -7,6 +7,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Order.Infrastructure.Messaging;
 
 namespace Order.Infrastructure
 {
@@ -31,6 +32,7 @@ namespace Order.Infrastructure
                 client.BaseAddress = new Uri(paymentApiUrl);
                 client.DefaultRequestHeaders.Add("apikey", "my-super-secret-key");
             });
+            services.AddSingleton<IEventBus, OrderPublisher>();
 
             return services;
         }
