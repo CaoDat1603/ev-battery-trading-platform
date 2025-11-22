@@ -43,25 +43,115 @@ namespace Identity.Infrastructure.Repositories
                 .ToListAsync(ct);
         }
 
-        public async Task<IReadOnlyList<User>> SearchAsync(string q, int take = 50, CancellationToken ct = default)
+
+        public async Task<IReadOnlyList<User>> SearchAsync(
+            string q,
+            UserStatus? userStatus,
+            ProfileVerificationStatus? profileStatus,
+            UserRole? role,
+            DateTimeOffset? createdAt,
+            int take = 50,
+            int page = 1,
+            CancellationToken ct = default)
         {
-            if (string.IsNullOrWhiteSpace(q))
-                return new List<User>();
-
-            q = q.Trim();
-
-            return await _db.Users
+            var query = _db.Users
                 .Include(u => u.UserProfile)
-                .Where(u =>
+                .AsQueryable();
+
+            // --- Search by q ---
+            if (!string.IsNullOrWhiteSpace(q))
+            {
+                q = q.Trim();
+                query = query.Where(u =>
                     (u.UserFullName != null && EF.Functions.ILike(u.UserFullName, $"%{q}%")) ||
                     (u.UserEmail != null && EF.Functions.ILike(u.UserEmail, $"%{q}%")) ||
                     (u.UserPhone != null && EF.Functions.ILike(u.UserPhone, $"%{q}%")) ||
-                    (u.UserProfile != null && u.UserProfile.CitizenIdCard != null && EF.Functions.ILike(u.UserProfile.CitizenIdCard, $"%{q}%"))
-                )
-                .AsNoTracking()
-                .Take(take)
+                    (u.UserProfile != null
+                        && u.UserProfile.CitizenIdCard != null
+                        && EF.Functions.ILike(u.UserProfile.CitizenIdCard, $"%{q}%"))
+                );
+            }
+
+            // --- Filter by UserStatus ---
+            if (userStatus.HasValue)
+                query = query.Where(u => u.UserStatus == userStatus.Value);
+
+            // --- Filter by ProfileVerificationStatus ---
+            if (profileStatus.HasValue)
+                query = query.Where(u =>
+                    u.UserProfile != null
+                    && u.UserProfile.Status == profileStatus.Value);
+
+            // --- Filter by UserRole ---
+            if (role.HasValue)
+                query = query.Where(u => u.Role == role.Value);
+
+            // --- Filter by CreatedAt (date only) ---
+            if (createdAt.HasValue)
+            {
+                var date = createdAt.Value.Date;
+                query = query.Where(u => u.CreatedAt.Date == date);
+            }
+
+            // --- Pagination ---
+            query = query
                 .OrderBy(u => u.UserFullName)
+                .Skip((page - 1) * take)
+                .Take(take);
+
+            return await query
+                .AsNoTracking()
                 .ToListAsync(ct);
+        }
+
+        public async Task<int> CountAsync(
+            string q,
+            UserStatus? userStatus,
+            ProfileVerificationStatus? profileStatus,
+            UserRole? role,
+            DateTimeOffset? createdAt,
+            CancellationToken ct = default)
+        {
+            var query = _db.Users
+                .Include(u => u.UserProfile)
+                .AsQueryable();
+
+            // --- Search by q ---
+            if (!string.IsNullOrWhiteSpace(q))
+            {
+                q = q.Trim();
+                query = query.Where(u =>
+                    (u.UserFullName != null && EF.Functions.ILike(u.UserFullName, $"%{q}%")) ||
+                    (u.UserEmail != null && EF.Functions.ILike(u.UserEmail, $"%{q}%")) ||
+                    (u.UserPhone != null && EF.Functions.ILike(u.UserPhone, $"%{q}%")) ||
+                    (u.UserProfile != null
+                        && u.UserProfile.CitizenIdCard != null
+                        && EF.Functions.ILike(u.UserProfile.CitizenIdCard, $"%{q}%"))
+                );
+            }
+
+            // --- Filter by UserStatus ---
+            if (userStatus.HasValue)
+                query = query.Where(u => u.UserStatus == userStatus.Value);
+
+            // --- Filter by ProfileVerificationStatus ---
+            if (profileStatus.HasValue)
+                query = query.Where(u =>
+                    u.UserProfile != null
+                    && u.UserProfile.Status == profileStatus.Value);
+
+            // --- Filter by UserRole ---
+            if (role.HasValue)
+                query = query.Where(u => u.Role == role.Value);
+
+            // --- Filter by CreatedAt (date only) ---
+            if (createdAt.HasValue)
+            {
+                var date = createdAt.Value.Date;
+                query = query.Where(u => u.CreatedAt.Date == date);
+            }
+
+            return await query.CountAsync(ct);
         }
         public async Task<IReadOnlyList<User>> GetUsersByIdsAsync(List<int> ids, CancellationToken ct = default)
         {

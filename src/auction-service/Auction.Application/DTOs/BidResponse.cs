@@ -10,6 +10,8 @@ namespace Auction.Application.DTOs
         [Required] public int BidderId { get; set; }
         public string? BidderEmail { get; set; }
         public string? BidderPhone { get; set; }
+        public int? TransactionId { get; set; }
+
         [Required] public decimal BidAmount { get; set; }
         public DepositStatus StatusDeposit { get; set; }
         public bool IsWinning { get; set; }

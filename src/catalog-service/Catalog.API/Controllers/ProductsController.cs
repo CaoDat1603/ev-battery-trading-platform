@@ -62,6 +62,23 @@ namespace Catalog.API.Controllers
             return Ok(result.First());
         }
 
+        [Authorize]
+        [HttpGet("is-me/{productId:int}")]
+        public async Task<IActionResult> GetIsMeProductById(int productId, CancellationToken ct)
+        {
+            var result = await _queries.SearchByProductIDAsync(productId, ct);
+            if (result == null)
+                return NotFound(new { message = "Product not found" });
+
+            var product = result[0];
+
+            var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+            if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out var userId))
+                return Unauthorized("Invalid token");
+
+            return Ok(userId == product.SellerId);
+        }
+
         /// <summary>
         /// Get all products of a specific seller
         /// </summary>
@@ -408,6 +425,32 @@ namespace Catalog.API.Controllers
                 return NotFound(new { message = "Product not found" });
 
             return Ok(new { message = "Product deleted successfully" });
+        }
+
+        [Authorize]
+        [HttpPatch("{productId:int}/verify-transaction")]
+        public async Task<IActionResult> VerifyAndCompleteTransaction(
+        int productId,
+        [FromBody] VerifyTransactionRequest request,
+        CancellationToken ct)
+        {
+            var success = await _commands.VerifyAndCompleteTransaction(
+                request.TransactionId,
+                productId,
+                ct
+            );
+
+            if (!success)
+                return BadRequest(new
+                {
+                    message = "Transaction is not valid or not completed."
+                });
+
+            return Ok(new
+            {
+                message = "Product marked as SoldOut.",
+                productId = productId
+            });
         }
     }
 }

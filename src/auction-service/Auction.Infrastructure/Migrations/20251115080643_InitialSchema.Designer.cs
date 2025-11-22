@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Auction.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251101170418_UpdateAuctionAndBidEntities")]
-    partial class UpdateAuctionAndBidEntities
+    [Migration("20251115080643_InitialSchema")]
+    partial class InitialSchema
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -140,6 +140,10 @@ namespace Auction.Infrastructure.Migrations
                     b.Property<int>("StatusDeposit")
                         .HasColumnType("integer")
                         .HasColumnName("status_deposit");
+
+                    b.Property<int?>("TransactionId")
+                        .HasColumnType("integer")
+                        .HasColumnName("transaction_id");
 
                     b.Property<DateTimeOffset?>("UpdatedAt")
                         .HasColumnType("timestamp with time zone")

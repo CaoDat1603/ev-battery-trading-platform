@@ -1,9 +1,11 @@
 ﻿using Catalog.Application.Contracts;
 using Catalog.Application.DTOs;
 using Catalog.Domain.Abstractions;
+using Catalog.Application.Contracts;
 using Catalog.Domain.Entities;
 using Catalog.Domain.Enums;
-using Microsoft.EntityFrameworkCore;
+using Catalog.Application.Abstractions;
+using OpenQA.Selenium;
 
 namespace Catalog.Application.Services
 {
@@ -13,17 +15,20 @@ namespace Catalog.Application.Services
         private readonly IUnitOfWork _uow;
         private readonly IProductFileHandler _fileHandler;
         private readonly IProductImageHandler _imageHandler;
+        private readonly IOrderClient _orderClient;
 
         public ProductCommands(
             IProductRepository repo,
             IUnitOfWork uow,
             IProductFileHandler fileHandler,
-            IProductImageHandler imageHandler)
+            IProductImageHandler imageHandler,
+            IOrderClient orderClient)
         {
             _repo = repo;
             _uow = uow;
             _fileHandler = fileHandler;
             _imageHandler = imageHandler;
+            _orderClient = orderClient;
         }
 
         public async Task<int> CreateAsync(CreateProductDto dto, CancellationToken ct = default)
@@ -131,6 +136,32 @@ namespace Catalog.Application.Services
             await _repo.SoftDeleteAsync(productId, ct);
             await _uow.SaveChangesAsync(ct);
 
+            return true;
+        }
+
+        public async Task<bool> VerifyAndCompleteTransaction(
+            int transactionId,
+            int productId,
+            CancellationToken ct)
+        {
+            var product = await _repo.GetByIdAsync(productId, ct);
+            if (product == null)
+                throw new NotFoundException("Product not found");
+
+            var ok = await _orderClient.IsTransactionCompleted(
+                transactionId,
+                product,
+                product.StatusProduct,
+                ct
+            );
+
+            if (!ok)
+                return false;
+
+            // Update domain
+            product.ChangeStatus(ProductStatus.SoldOut);
+            await _repo.UpdateAsync(product, ct);
+            await _uow.SaveChangesAsync(ct);
             return true;
         }
     }

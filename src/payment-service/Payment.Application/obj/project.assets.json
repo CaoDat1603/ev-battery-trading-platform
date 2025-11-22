@@ -462,23 +462,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ACER\\.nuget\\packages\\": {},
+    "C:\\Users\\caoda\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\projects\\backup\\App\\new2\\re-ev-battery-trading-platform\\ev-battery-trading-platform\\src\\payment-service\\Payment.Application\\Payment.Application.csproj",
+      "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.Application\\Payment.Application.csproj",
       "projectName": "Payment.Application",
-      "projectPath": "D:\\projects\\backup\\App\\new2\\re-ev-battery-trading-platform\\ev-battery-trading-platform\\src\\payment-service\\Payment.Application\\Payment.Application.csproj",
-      "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-      "outputPath": "D:\\projects\\backup\\App\\new2\\re-ev-battery-trading-platform\\ev-battery-trading-platform\\src\\payment-service\\Payment.Application\\obj\\",
+      "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.Application\\Payment.Application.csproj",
+      "packagesPath": "C:\\Users\\caoda\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\caoda\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -493,8 +493,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\projects\\backup\\App\\new2\\re-ev-battery-trading-platform\\ev-battery-trading-platform\\src\\payment-service\\Payment.Domain\\Payment.Domain.csproj": {
-              "projectPath": "D:\\projects\\backup\\App\\new2\\re-ev-battery-trading-platform\\ev-battery-trading-platform\\src\\payment-service\\Payment.Domain\\Payment.Domain.csproj"
+            "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.Domain\\Payment.Domain.csproj": {
+              "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.Domain\\Payment.Domain.csproj"
             }
           }
         }
@@ -509,7 +509,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "10.0.100"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
@@ -536,7 +536,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

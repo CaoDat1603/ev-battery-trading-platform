@@ -13,5 +13,10 @@ namespace Catalog.Application.Contracts
         Task<bool> MarkAsSpamAsync(int productId, CancellationToken ct = default);
         Task<bool> UnmarkAsSpamAsync(int productId, CancellationToken ct = default);
         Task<bool> DeleteProductAsync(int productId, CancellationToken ct = default);
+
+        Task<bool> VerifyAndCompleteTransaction(
+            int transactionId,
+            int productId,
+            CancellationToken ct);
     }
 }

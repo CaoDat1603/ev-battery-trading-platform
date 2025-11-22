@@ -4,7 +4,6 @@ using Auction.Domain.Abstractions;
 using Auction.Domain.Entities;
 using Auction.Domain.Enums;
 using Microsoft.AspNetCore.Http.HttpResults;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Auction.Application.Services
 {
@@ -142,6 +141,7 @@ namespace Auction.Application.Services
                 DepositAmount = auction.DepositAmount,
                 Status = auction.Status,
                 StartTime = auction.StartTime,
+                EndTime = auction.EndTime,
                 CreatedAt = auction.CreatedAt,
                 UpdatedAt = auction.UpdatedAt,
                 DeletedAt = auction.DeletedAt

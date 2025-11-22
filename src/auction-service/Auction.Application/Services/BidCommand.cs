@@ -1,6 +1,7 @@
 ﻿using Auction.Application.Contracts;
 using Auction.Application.DTOs;
 using Auction.Domain.Abstractions;
+using Auction.Application.Abstractions;
 using Auction.Domain.Entities;
 using Auction.Domain.Enums;
 
@@ -11,6 +12,7 @@ namespace Auction.Application.Services
         private readonly IAuctionRepository _auctionRepo;
         private readonly IBidRepository _bidRepo;
         private readonly IUnitOfWork _uow;
+        private readonly IOrderClient _orderClient;
 
         public BidCommand(IAuctionRepository auctionRepo, IBidRepository bidRepo, IUnitOfWork uow)
         {
@@ -31,12 +33,19 @@ namespace Auction.Application.Services
             if (auction == null)
                 throw new InvalidOperationException($"Auction with ID {dto.AuctionId} does not exist.");
 
+            var ok = await _orderClient.IsTransactionCompleted(dto.TransactionId ,dto.Amount, ct);
+            if (!ok)
+            {
+                throw new InvalidOperationException($"Transaction with ID {dto.TransactionId} does not exist.");
+            }
+
             // Call domain logic to place a bid
             var bid = auction.PlaceBid(
                 dto.BidderId,
                 dto.BidderEmail,
                 dto.BidderPhone,
-                dto.Amount
+                dto.Amount,
+                dto.TransactionId
             );
 
             await _bidRepo.AddAsync(bid, ct);
@@ -123,6 +132,16 @@ namespace Auction.Application.Services
             auction.UpdateCurrentPrice(newAmount);
 
             await _auctionRepo.UpdateAsync(auction, ct);
+            await _uow.SaveChangesAsync(ct);
+            return true;
+        }
+
+        public async Task<bool> UpdateTransactionAsync(int bidId, int transactionId, CancellationToken ct = default)
+        {
+            var bid = await _bidRepo.GetByIdAsync(bidId, ct);
+            if (bid == null) return false;
+
+            await _bidRepo.UpdateTransaction(bidId, transactionId, ct);
             await _uow.SaveChangesAsync(ct);
             return true;
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hnM3KbIw8tE=",
+  "dgSpecHash": "odM2z95V4dI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\caoda\\Documents\\GIT\\src\\auction-service\\Auction.Domain\\Auction.Domain.csproj",
+  "projectFilePath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\auction-service\\Auction.Domain\\Auction.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\caoda\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\caoda\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",

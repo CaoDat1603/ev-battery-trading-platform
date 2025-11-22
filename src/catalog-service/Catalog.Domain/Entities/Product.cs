@@ -61,6 +61,8 @@ namespace Catalog.Domain.Entities
         {
             if (string.IsNullOrWhiteSpace(title))
                 throw new ArgumentException("Title is required");
+            if (string.IsNullOrWhiteSpace(pickupAddress))
+                throw new ArgumentException("Address is required");
             if (price < 0)
                 throw new ArgumentOutOfRangeException(nameof(price));
             if (quantity <= 0)

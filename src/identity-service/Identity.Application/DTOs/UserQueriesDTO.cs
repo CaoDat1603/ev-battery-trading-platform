@@ -16,6 +16,7 @@ namespace Identity.Application.DTOs
         public UserStatus? UserStatus { get; set; }
         public ProfileVerificationStatus? ProfileStatus { get; set; }
         public DateTimeOffset CreatedAt { get; set; }
+        public UserRole Role { get; set; }
         public string? RejectionReason { get; set; }
     }
 }

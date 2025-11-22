@@ -63,6 +63,7 @@ namespace Auction.Application.Services
             int? bidderId = null,
             decimal? minAmount = null,
             decimal? maxAmount = null,
+            int? transactionId = null,
             DateTimeOffset? placedAfter = null,
             DateTimeOffset? placedBefore = null,
             DepositStatus? statusDeposit = null,
@@ -75,7 +76,7 @@ namespace Auction.Application.Services
             var (bids, _) = await _repo.GetPagedAsync(
                 pageNumber, pageSize, sortBy,
                 auctionId, bidderId,
-                minAmount, maxAmount,
+                minAmount, maxAmount, transactionId,
                 placedAfter, placedBefore,
                 statusDeposit, isWinning, createAt, updateAt, deleteAt, ct);
 
@@ -90,6 +91,7 @@ namespace Auction.Application.Services
             int? bidderId = null,
             decimal? minAmount = null,
             decimal? maxAmount = null,
+            int? transactionId = null,
             DateTimeOffset? placedAfter = null,
             DateTimeOffset? placedBefore = null,
             DepositStatus? statusDeposit = null,
@@ -99,7 +101,7 @@ namespace Auction.Application.Services
             DateTimeOffset? deleteAt = null,
             CancellationToken ct = default)
             => _repo.GetBidCountAsync(
-                auctionId, bidderId, minAmount, maxAmount,
+                auctionId, bidderId, minAmount, maxAmount, transactionId,
                 placedAfter, placedBefore, statusDeposit, isWinning, createAt, updateAt, deleteAt, ct);
 
         // ==========================================
@@ -113,6 +115,7 @@ namespace Auction.Application.Services
             BidderId = bid.BidderId,
             BidderEmail = bid.BidderEmail,
             BidderPhone = bid.BidderPhone,
+            TransactionId = bid.TransactionId,
             BidAmount = bid.BidAmount,
             StatusDeposit = bid.StatusDeposit,
             IsWinning = bid.IsWinning,

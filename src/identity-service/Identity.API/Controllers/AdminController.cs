@@ -39,12 +39,32 @@ namespace Identity.API.Controllers
             return Ok(users);
         }
 
-
         [HttpGet("users/search")]
-        public async Task<IActionResult> SearchUsers([FromQuery] string q, [FromQuery] int take = 50, CancellationToken ct=default)
+        public async Task<IActionResult> SearchUsers(
+            [FromQuery] string? q = null,
+            [FromQuery] UserStatus? userStatus = null,
+            [FromQuery] ProfileVerificationStatus? profileStatus = null,
+            [FromQuery] UserRole? role = null,
+            [FromQuery] DateTimeOffset? createdAt = null,
+            [FromQuery] int take = 50,
+            [FromQuery] int page = 1,
+            CancellationToken ct = default)
         {
-            var users = await _userQueries.SearchAsync(q, take, ct);
+            var users = await _userQueries.SearchAsync(q, userStatus, profileStatus, role, createdAt, take, page, ct);
             return Ok(users);
+        }
+
+        [HttpGet("users/count")]
+        public async Task<IActionResult> CountUsers(
+            [FromQuery] string? q = null,
+            [FromQuery] UserStatus? userStatus = null,
+            [FromQuery] ProfileVerificationStatus? profileStatus = null,
+            [FromQuery] UserRole? role = null,
+            [FromQuery] DateTimeOffset? createdAt = null,
+            CancellationToken ct = default)
+        {
+            var count = await _userQueries.CountAsync(q, userStatus, profileStatus, role, createdAt, ct);
+            return Ok(count);
         }
 
 

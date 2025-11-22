@@ -39,6 +39,14 @@ namespace Auction.Infrastructure.Repositories
             await Task.CompletedTask;
         }
 
+        public async Task UpdateTransaction(int bidId, int transactionId, CancellationToken ct = default)
+        {
+            var bid = await _db.Bids.FirstOrDefaultAsync(x => x.BidId == bidId && x.DeletedAt == null, ct);
+            if (bid == null) return;
+
+            bid.updateTransaction(transactionId);
+            _db.Bids.Update(bid);
+        }
         /// <summary>
         /// Soft deletes a Bid (marks DeletedAt).
         /// </summary>
@@ -93,6 +101,7 @@ namespace Auction.Infrastructure.Repositories
             int? bidderId = null,
             decimal? minAmount = null,
             decimal? maxAmount = null,
+            int? transactionId = null,
             DateTimeOffset? placedAfter = null,
             DateTimeOffset? placedBefore = null,
             DepositStatus? statusDeposit = null,
@@ -140,6 +149,9 @@ namespace Auction.Infrastructure.Repositories
 
             if (deleteAt.HasValue)
                 query = query.Where(p => p.DeletedAt >= deleteAt.Value);
+
+            if (transactionId.HasValue)
+                query = query.Where(a => a.TransactionId == transactionId.Value);
             // === Sorting ===
             query = sortBy?.ToLower() switch
             {
@@ -167,6 +179,7 @@ namespace Auction.Infrastructure.Repositories
             int? bidderId = null,
             decimal? minAmount = null,
             decimal? maxAmount = null,
+            int? transactionId = null,
             DateTimeOffset? placedAfter = null,
             DateTimeOffset? placedBefore = null,
             DepositStatus? statusDeposit = null,
@@ -213,6 +226,9 @@ namespace Auction.Infrastructure.Repositories
 
             if (deleteAt.HasValue)
                 query = query.Where(p => p.DeletedAt >= deleteAt.Value);
+
+            if (transactionId.HasValue)
+                query = query.Where(a => a.TransactionId == transactionId.Value);
 
             return await query.CountAsync(ct);
         }

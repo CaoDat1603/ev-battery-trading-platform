@@ -1,6 +1,7 @@
-﻿
+﻿using Auction.Application.Abstractions;
 using Auction.Application.Contracts;
 using Auction.Application.Services;
+using Auction.Domain.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 namespace Auction.Application
 {

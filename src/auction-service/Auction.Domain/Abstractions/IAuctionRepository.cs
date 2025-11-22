@@ -50,5 +50,7 @@ namespace Auction.Domain.Abstractions
             DateTimeOffset? updateAt = null,
             DateTimeOffset? deleteAt = null,
             CancellationToken ct = default);
+
+        Task<IEnumerable<AuctionItem>> GetActiveAuctionsEndingBeforeAsync(DateTimeOffset utcTime, CancellationToken ct = default);
     }
 }

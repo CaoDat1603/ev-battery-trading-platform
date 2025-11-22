@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Auction.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class TestAuctionMigration : Migration
+    public partial class InitialSchema : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,6 +19,8 @@ namespace Auction.Infrastructure.Migrations
                     auction_id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     product_id = table.Column<int>(type: "integer", nullable: false),
+                    seller_email = table.Column<string>(type: "text", nullable: true),
+                    seller_phone = table.Column<string>(type: "text", nullable: true),
                     winner_id = table.Column<int>(type: "integer", nullable: true),
                     transaction_id = table.Column<int>(type: "integer", nullable: true),
                     starting_price = table.Column<decimal>(type: "numeric", nullable: false),
@@ -44,10 +46,15 @@ namespace Auction.Infrastructure.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     auction_id = table.Column<int>(type: "integer", nullable: false),
                     bidder_id = table.Column<int>(type: "integer", nullable: false),
+                    bidder_email = table.Column<string>(type: "text", nullable: true),
+                    bidder_phone = table.Column<string>(type: "text", nullable: true),
                     bid_amount = table.Column<decimal>(type: "numeric(18,2)", nullable: false),
+                    transaction_id = table.Column<int>(type: "integer", nullable: true),
                     status_deposit = table.Column<int>(type: "integer", nullable: false),
                     is_winning = table.Column<bool>(type: "boolean", nullable: false),
-                    bid_time = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
+                    created_at = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
+                    updated_at = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
+                    deleted_at = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true)
                 },
                 constraints: table =>
                 {

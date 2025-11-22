@@ -9,6 +9,7 @@ namespace Auction.Domain.Abstractions
         Task AddAsync(Bid entity, CancellationToken ct = default);
         Task<Bid?> GetByIdAsync(int bidId, CancellationToken ct = default);
         Task UpdateAsync(Bid bid, CancellationToken ct = default);
+        Task UpdateTransaction(int bid, int transactionId, CancellationToken ct = default);
         Task SoftDeleteAsync(int bidId, CancellationToken ct = default);
 
         // === Queries ===
@@ -23,6 +24,7 @@ namespace Auction.Domain.Abstractions
             int? bidderId = null,
             decimal? minAmount = null,
             decimal? maxAmount = null,
+            int? transactionId = null,
             DateTimeOffset? placedAfter = null,
             DateTimeOffset? placedBefore = null,
             DepositStatus? statusDeposit = null,
@@ -36,6 +38,7 @@ namespace Auction.Domain.Abstractions
             int? bidderId = null,
             decimal? minAmount = null,
             decimal? maxAmount = null,
+            int? transactionId = null,
             DateTimeOffset? placedAfter = null,
             DateTimeOffset? placedBefore = null,
             DepositStatus? statusDeposit = null,

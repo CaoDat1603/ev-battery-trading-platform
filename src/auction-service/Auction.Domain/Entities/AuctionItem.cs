@@ -115,15 +115,24 @@ namespace Auction.Domain.Entities
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
         /// <exception cref="ArgumentException"></exception>
-        public Bid PlaceBid(int bidderId, string bidderEmail, string bidderPhone,decimal amount)
+        public Bid PlaceBid(int bidderId, string bidderEmail, string bidderPhone,decimal amount, int transactionId)
         {
             if (Status != AuctionStatus.Active)
                 throw new InvalidOperationException("Auction is not active");
 
-            if (amount <= CurrentPrice)
-                throw new ArgumentException("Bid amount must be higher than current price");
+            if (!_bids.Any())
+            {
+                if (amount < StartingPrice)
+                    throw new ArgumentException("Bid amount must be equal or greater than the starting price");
+            }
+            else
+            {
+                // There are bids already
+                if (amount <= CurrentPrice)
+                    throw new ArgumentException("Bid amount must be higher than current price");
+            }
 
-            var bid = Bid.Create(AuctionId, bidderId, bidderEmail, bidderPhone, amount);
+            var bid = Bid.Create(AuctionId, bidderId, bidderEmail, bidderPhone, amount, transactionId);
             _bids.Add(bid);
             CurrentPrice = amount;
             UpdatedAt = DateTimeOffset.UtcNow;

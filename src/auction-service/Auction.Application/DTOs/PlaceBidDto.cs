@@ -9,5 +9,7 @@ namespace Auction.Application.DTOs
         [Required] public decimal Amount { get; set; }
         public string? BidderEmail { get; set;}
         public string? BidderPhone { get; set; }
+
+        [Required] public int TransactionId { get; set; }
     }
 }

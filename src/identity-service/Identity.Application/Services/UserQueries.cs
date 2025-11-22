@@ -38,6 +38,32 @@ namespace Identity.Application.Services
 
             return users.Select(u => u.ToDto()).ToList();
         }
+
+        public async Task<IReadOnlyList<UserQueriesDTO>> SearchAsync(
+            string query,
+            UserStatus? userStatus,
+            ProfileVerificationStatus? profileStatus,
+            UserRole? role,
+            DateTimeOffset? createdAt,
+            int take = 50,
+            int page = 1,
+            CancellationToken ct = default)
+        {
+            var users = await _repo.SearchAsync(query, userStatus, profileStatus, role, createdAt, take, page, ct);
+            return users.Select(u => u.ToDto()).ToList();
+        }
+
+        public async Task<int> CountAsync(
+            string query,
+            UserStatus? userStatus,
+            ProfileVerificationStatus? profileStatus,
+            UserRole? role,
+            DateTimeOffset? createdAt,
+            CancellationToken ct = default)
+        {
+            var count = await _repo.CountAsync(query, userStatus, profileStatus, role, createdAt, ct);
+            return count;
+        }
     }
     public static class UserMappingExtensions
     {
@@ -57,6 +83,7 @@ namespace Identity.Application.Services
                 UserStatus = user.UserStatus,
                 ProfileStatus = user.UserProfile?.Status,
                 RejectionReason = user.UserProfile?.RejectionReason,
+                Role = user.Role,
                 CreatedAt = user.CreatedAt
             };
         }

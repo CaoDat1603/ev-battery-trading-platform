@@ -18,7 +18,21 @@ namespace Order.API.Controllers
 
         // GET /api/admin/fees/active/{productType}
         [HttpGet("active/{productType:int}")]
+        [Authorize(AuthenticationSchemes = "Bearer,SystemBearer", Roles = "Admin,System")]
         public async Task<IActionResult> GetActiveSettings(int productType)
+        {
+            var settings = await _feeSettingsService.GetActiveFeeSettingsAsync(productType);
+            if (settings == null)
+            {
+                return NotFound($"Active fee settings for product type {productType} not found."); // 404 Not Found (Không tìm thấy)
+            }
+            return Ok(settings);
+        }
+
+
+        [HttpGet("member/{productType:int}")]
+        [Authorize(Roles = "Member")]
+        public async Task<IActionResult> GetActiveMemberSettings(int productType)
         {
             var settings = await _feeSettingsService.GetActiveFeeSettingsAsync(productType);
             if (settings == null)

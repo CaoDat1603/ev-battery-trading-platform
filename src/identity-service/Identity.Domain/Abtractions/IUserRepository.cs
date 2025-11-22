@@ -12,7 +12,22 @@ namespace Identity.Domain.Abtractions
         void Update(User entity); // không cần async
         Task<bool> ExistsByEmailAsync(string email, CancellationToken ct = default);
         Task<bool> ExistsByPhoneAsync(string phone, CancellationToken ct = default);
-        Task<IReadOnlyList<User>> SearchAsync(string q, int take = 50, CancellationToken ct = default);
+        Task<IReadOnlyList<User>> SearchAsync(
+            string q,
+            UserStatus? userStatus,
+            ProfileVerificationStatus? profileStatus,
+            UserRole? role,
+            DateTimeOffset? createdAt,
+            int take = 50,
+            int page = 1,
+            CancellationToken ct = default);
+        Task<int> CountAsync(
+            string q,
+            UserStatus? userStatus,
+            ProfileVerificationStatus? profileStatus,
+            UserRole? role,
+            DateTimeOffset? createdAt,
+            CancellationToken ct = default);
         Task<IReadOnlyList<User>> GetByProfileStatusAsync(ProfileVerificationStatus status, CancellationToken ct = default);
         Task<IReadOnlyList<User>> GetUsersByIdsAsync(List<int> ids, CancellationToken ct = default);
 

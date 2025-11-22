@@ -91,6 +91,40 @@ namespace Auction.API.Controllers
         /// Search bids with pagination and filters
         /// </summary>
         [Authorize]
+        [HttpGet("search/me")]
+        public async Task<IActionResult> SearchBids(
+            [FromQuery] int pageNumber = 1,
+            [FromQuery] int pageSize = 20,
+            [FromQuery] string? sortBy = "highest",
+            [FromQuery] int? auctionId = null,
+            [FromQuery] decimal? minAmount = null,
+            [FromQuery] decimal? maxAmount = null,
+            [FromQuery] int? transactionId = null,
+            [FromQuery] DateTimeOffset? placedAfter = null,
+            [FromQuery] DateTimeOffset? placedBefore = null,
+            [FromQuery] DepositStatus? statusDeposit = null,
+            [FromQuery] bool? isWinning = null,
+            [FromQuery] DateTimeOffset? createAt = null,
+            [FromQuery] DateTimeOffset? updateAt = null,
+            [FromQuery] DateTimeOffset? deleteAt = null,
+            CancellationToken ct = default)
+        {
+            var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+            if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out var userId))
+                return Unauthorized("Invalid token");
+
+            var result = await _queries.GetPagedBidsAsync(
+                pageNumber, pageSize, sortBy,
+                auctionId, userId, minAmount, maxAmount, transactionId,
+                placedAfter, placedBefore, statusDeposit, isWinning, createAt, updateAt, deleteAt, ct);
+
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// Search bids with pagination and filters
+        /// </summary>
+        [Authorize]
         [HttpGet("search")]
         public async Task<IActionResult> SearchBids(
             [FromQuery] int pageNumber = 1,
@@ -100,6 +134,7 @@ namespace Auction.API.Controllers
             [FromQuery] int? bidderId = null,
             [FromQuery] decimal? minAmount = null,
             [FromQuery] decimal? maxAmount = null,
+            [FromQuery] int? transactionId = null,
             [FromQuery] DateTimeOffset? placedAfter = null,
             [FromQuery] DateTimeOffset? placedBefore = null,
             [FromQuery] DepositStatus? statusDeposit = null,
@@ -111,10 +146,41 @@ namespace Auction.API.Controllers
         {
             var result = await _queries.GetPagedBidsAsync(
                 pageNumber, pageSize, sortBy,
-                auctionId, bidderId, minAmount, maxAmount,
+                auctionId, bidderId, minAmount, maxAmount, transactionId,
                 placedAfter, placedBefore, statusDeposit, isWinning, createAt, updateAt, deleteAt, ct);
 
             return Ok(result);
+        }
+
+        /// <summary>
+        /// Get bid count matching filters
+        /// </summary>
+        [Authorize]
+        [HttpGet("count/me")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
+        public async Task<ActionResult<int>> GetBidCount(
+            [FromQuery] int? auctionId = null,
+            [FromQuery] decimal? minAmount = null,
+            [FromQuery] decimal? maxAmount = null,
+            [FromQuery] int? transactionId = null,
+            [FromQuery] DateTimeOffset? placedAfter = null,
+            [FromQuery] DateTimeOffset? placedBefore = null,
+            [FromQuery] DepositStatus? statusDeposit = null,
+            [FromQuery] bool? isWinning = null,
+            [FromQuery] DateTimeOffset? createAt = null,
+            [FromQuery] DateTimeOffset? updateAt = null,
+            [FromQuery] DateTimeOffset? deleteAt = null,
+            CancellationToken ct = default)
+        {
+            var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+            if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out var userId))
+                return Unauthorized("Invalid token");
+
+            var count = await _queries.GetBidCountAsync(
+                auctionId, userId, minAmount, maxAmount, transactionId,
+                placedAfter, placedBefore, statusDeposit, isWinning, createAt, updateAt, deleteAt, ct);
+
+            return Ok(count);
         }
 
         /// <summary>
@@ -128,6 +194,7 @@ namespace Auction.API.Controllers
             [FromQuery] int? bidderId = null,
             [FromQuery] decimal? minAmount = null,
             [FromQuery] decimal? maxAmount = null,
+            [FromQuery] int? transactionId = null,
             [FromQuery] DateTimeOffset? placedAfter = null,
             [FromQuery] DateTimeOffset? placedBefore = null,
             [FromQuery] DepositStatus? statusDeposit = null,
@@ -138,7 +205,7 @@ namespace Auction.API.Controllers
             CancellationToken ct = default)
         {
             var count = await _queries.GetBidCountAsync(
-                auctionId, bidderId, minAmount, maxAmount,
+                auctionId, bidderId, minAmount, maxAmount, transactionId,
                 placedAfter, placedBefore, statusDeposit, isWinning, createAt, updateAt, deleteAt, ct);
 
             return Ok(count);
@@ -169,6 +236,18 @@ namespace Auction.API.Controllers
             return CreatedAtAction(nameof(GetBidById), new { bidId = bidId }, new { BidId = bidId });
         }
 
+        [Authorize]
+        [HttpPatch("transaction")]
+        public async Task<IActionResult> UpdateTransactionAsync([FromRoute] int bidId, [FromRoute] int transactionId, CancellationToken ct)
+        {
+            if (bidId <= 0 || transactionId <= 0)
+                NotFound(new { message = "Bid not found or update failed" });
+
+            var success = await _commands.UpdateTransactionAsync(bidId, transactionId, ct);
+            if (!success)
+                return NotFound(new { message = "Bid update failed" });
+            return Ok(success);
+        }
         /// <summary>
         /// Update the deposit status of a bid
         /// </summary>

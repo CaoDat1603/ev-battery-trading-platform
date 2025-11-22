@@ -1,4 +1,5 @@
 ﻿using Auction.Application;
+using Auction.Application.Services;
 using Auction.Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -47,6 +48,9 @@ builder.Services.AddSwaggerGen(c =>
 var cs = builder.Configuration.GetConnectionString("Default");
 builder.Services.AddAuctionInfrastructure(cs);
 builder.Services.AddAuctionApplication();
+
+builder.Services.AddHostedService<AuctionEndBackgroundService>();
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

@@ -21,6 +21,7 @@ namespace Auction.Domain.Entities
 
         [Required]
         public decimal BidAmount { get; private set; }
+        public int? TransactionId { get; private set; }
         public DepositStatus StatusDeposit { get; private set; }
 
         public bool IsWinning { get; private set; }
@@ -33,7 +34,7 @@ namespace Auction.Domain.Entities
         /// <summary>
         /// Factory method for creating a new Bid entity.
         /// </summary> 
-        public static Bid Create(int auctionId, int bidderId, string bidderEmail, string bidderPhone, decimal amount)
+        public static Bid Create(int auctionId, int bidderId, string bidderEmail, string bidderPhone, decimal amount, int transactionId)
         {
             return new Bid
             {
@@ -44,6 +45,7 @@ namespace Auction.Domain.Entities
                 BidAmount = amount,
                 StatusDeposit = DepositStatus.Paid,
                 IsWinning = false,
+                TransactionId = transactionId,
                 CreatedAt = DateTimeOffset.UtcNow
             };
         }
@@ -94,6 +96,11 @@ namespace Auction.Domain.Entities
         public void RefundDeposit() => ChangeDepositStatus(DepositStatus.Refunded);
         public void ForfeitDeposit() => ChangeDepositStatus(DepositStatus.Forfeited);
         public void MarkDepositAsPaid() => ChangeDepositStatus(DepositStatus.Paid);
+
+        public void updateTransaction(int  transactionId)
+        {
+            TransactionId = transactionId;
+        }
 
         /// <summary>
         /// Deletes the bid (soft delete).

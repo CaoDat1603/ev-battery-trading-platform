@@ -117,14 +117,19 @@ if (app.Environment.IsDevelopment())
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+    bool hasMigrations = false;
     try
     {
-        db.Database.Migrate();
+        hasMigrations = db.Database.GetAppliedMigrations().Any();
     }
     catch (Exception ex)
     {
-        Console.WriteLine("An error occurred while migrating the database: " + ex.Message);
+        Console.WriteLine("Cannot connect to DB: " + ex.Message);
     }
+
+    if (!hasMigrations)
+        db.Database.EnsureCreated();
 }
 // ---------------------------------
 

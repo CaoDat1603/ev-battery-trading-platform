@@ -138,6 +138,10 @@ namespace Auction.Infrastructure.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("status_deposit");
 
+                    b.Property<int?>("TransactionId")
+                        .HasColumnType("integer")
+                        .HasColumnName("transaction_id");
+
                     b.Property<DateTimeOffset?>("UpdatedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("updated_at");

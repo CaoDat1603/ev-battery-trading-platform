@@ -305,5 +305,13 @@ namespace Auction.Infrastructure.Repositories
 
             return totalCount;
         }
+
+        public async Task<IEnumerable<AuctionItem>> GetActiveAuctionsEndingBeforeAsync(DateTimeOffset utcTime, CancellationToken ct = default)
+        {
+            return await _db.Auctions.AsNoTracking()
+                .Where(a => a.Status == AuctionStatus.Active && a.EndTime <= utcTime &&
+                    a.DeletedAt == null)
+                .ToListAsync(ct);
+        }
     }
 }

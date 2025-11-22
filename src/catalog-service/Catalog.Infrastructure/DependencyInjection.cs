@@ -1,5 +1,7 @@
 ﻿using Catalog.Domain.Abstractions;
 using Catalog.Infrastructure.Repositories;
+using Catalog.Application.Abstractions;
+using Catalog.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace Catalog.Infrastructure
@@ -14,6 +16,9 @@ namespace Catalog.Infrastructure
             services.AddScoped<ILocalFileStorage, Services.LocalFileStorage>();
             services.AddScoped<IProductImageHandler, Services.ProductImageHandler>();
             services.AddScoped<IProductFileHandler, Services.ProductFileHandler>();
+            services.AddHttpClient<IInternalTokenService, InternalTokenService>();
+            services.AddHttpClient<IOrderClient, OrderClient>();
+            //services.AddHttpClient<IIdentityClient, IdentityClient>();
             return services;
         }
     }

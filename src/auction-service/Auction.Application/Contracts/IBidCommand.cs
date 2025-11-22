@@ -10,6 +10,7 @@ namespace Auction.Application.Contracts
         Task<bool> UpdateContactInfoAsync(int bidId, string? newEmail, string? newPhone, CancellationToken ct = default);
         Task<bool> UpdateWinningBidAsync(int bidId, bool isWinning, CancellationToken ct = default);
         Task<bool> UpdateBidAmountAsync(int bidId, decimal newAmount, CancellationToken ct = default);
+        Task<bool> UpdateTransactionAsync(int bidId, int transactionId, CancellationToken ct = default);
         Task<bool> DeleteBidAsync(int bidId, CancellationToken ct = default);
     }
 }

@@ -160,7 +160,7 @@ services:
               max_age: 3600
           - name: rate-limiting
             config:
-              minute: 100        # mỗi user chỉ được gửi 20 request / phút
+              minute: 300        # mỗi user chỉ được gửi 20 request / phút
               policy: local
               limit_by: ip
               fault_tolerant: true
@@ -340,7 +340,7 @@ services:
     url: http://auction-api:8080/
     routes:
       - name: auction-route
-        paths: ["/api/auction"]
+        paths: ["/api/auctions", "/api/Auctions"]
         strip_path: false
         plugins:
           - name: jwt
@@ -358,10 +358,28 @@ services:
               max_age: 3600
           - name: rate-limiting
             config:
-              minute: 10
+              minute: 300
               policy: local
               limit_by: consumer
               fault_tolerant: true
+      - name: bid-routes
+        paths:
+          ["/api/bids", "/api/Bids"]
+        strip_path: false
+        plugins:
+          - name: jwt
+            config:
+              key_claim_name: "iss"
+              claims_to_verify: ["exp"]
+              uri_param_names: ["access_token"]
+              secret_is_base64: false
+          - name: cors
+            config:
+              origins: ["http://localhost:5173","http://localhost:3000"]
+              methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
+              headers: ["Authorization","Content-Type"]
+              credentials: true
+              max_age: 3600
 
 
 

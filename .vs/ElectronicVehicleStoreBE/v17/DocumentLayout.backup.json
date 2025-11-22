@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\caoda\\Documents\\GIT\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3A816139-D0C2-4012-966C-C1453561F38D}|src\\auction-service\\Auction.API\\Auction.API.csproj|c:\\users\\caoda\\documents\\git\\src\\auction-service\\auction.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A816139-D0C2-4012-966C-C1453561F38D}|src\\auction-service\\Auction.API\\Auction.API.csproj|solutionrelative:src\\auction-service\\auction.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5A10B7A8-F133-4C8A-ADAF-C712D0F6F60A}|src\\wishlist-service\\Wishlist.API\\Wishlist.API.csproj|c:\\users\\caoda\\documents\\git\\src\\wishlist-service\\wishlist.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5A10B7A8-F133-4C8A-ADAF-C712D0F6F60A}|src\\wishlist-service\\Wishlist.API\\Wishlist.API.csproj|solutionrelative:src\\wishlist-service\\wishlist.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{93C92F24-371C-4A93-BC57-3FAA21C02B7D}|src\\catalog-service\\Catalog.API\\Catalog.API.csproj|c:\\users\\caoda\\documents\\git\\src\\catalog-service\\catalog.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{93C92F24-371C-4A93-BC57-3FAA21C02B7D}|src\\catalog-service\\Catalog.API\\Catalog.API.csproj|solutionrelative:src\\catalog-service\\catalog.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3A816139-D0C2-4012-966C-C1453561F38D}|src\\auction-service\\Auction.API\\Auction.API.csproj|c:\\users\\caoda\\documents\\git\\src\\auction-service\\auction.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A816139-D0C2-4012-966C-C1453561F38D}|src\\auction-service\\Auction.API\\Auction.API.csproj|solutionrelative:src\\auction-service\\auction.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{09DB34E0-FA44-46C5-9B94-00EB3E62DA3A}|src\\identity-service\\Identity.API\\Identity.API.csproj|c:\\users\\caoda\\documents\\git\\src\\identity-service\\identity.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -205,7 +205,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
@@ -229,31 +229,30 @@
               "RelativeToolTip": "src\\wishlist-service\\Wishlist.API\\Controllers\\WishlistController.cs",
               "ViewState": "AgIAAN4AAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T19:05:31.521Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-11T19:05:31.521Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\caoda\\Documents\\GIT\\src\\auction-service\\Auction.API\\Program.cs",
               "RelativeDocumentMoniker": "src\\auction-service\\Auction.API\\Program.cs",
               "ToolTip": "C:\\Users\\caoda\\Documents\\GIT\\src\\auction-service\\Auction.API\\Program.cs",
               "RelativeToolTip": "src\\auction-service\\Auction.API\\Program.cs",
-              "ViewState": "AgIAAF8AAAAAAAAAAAAwwGYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAwwGkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-11T18:54:01.162Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\caoda\\Documents\\GIT\\src\\wishlist-service\\Wishlist.API\\Program.cs",
               "RelativeDocumentMoniker": "src\\wishlist-service\\Wishlist.API\\Program.cs",
               "ToolTip": "C:\\Users\\caoda\\Documents\\GIT\\src\\wishlist-service\\Wishlist.API\\Program.cs",
               "RelativeToolTip": "src\\wishlist-service\\Wishlist.API\\Program.cs",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAAAGIAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAAAGQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-11T19:03:40.883Z",
               "EditorCaption": ""
@@ -362,8 +361,7 @@
               "RelativeToolTip": "src\\auction-service\\Auction.API\\Controllers\\BidsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T10:37:09.852Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-11T10:37:09.852Z"
             },
             {
               "$type": "Document",
@@ -375,18 +373,17 @@
               "RelativeToolTip": "src\\identity-service\\Identity.API\\Program.cs",
               "ViewState": "AgIAAJwAAAAAAAAAAAAAAK8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T17:23:33.931Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T17:23:33.931Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\caoda\\Documents\\GIT\\src\\catalog-service\\Catalog.API\\Program.cs",
               "RelativeDocumentMoniker": "src\\catalog-service\\Catalog.API\\Program.cs",
               "ToolTip": "C:\\Users\\caoda\\Documents\\GIT\\src\\catalog-service\\Catalog.API\\Program.cs",
               "RelativeToolTip": "src\\catalog-service\\Catalog.API\\Program.cs",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAAAHkAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAGIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-10T18:08:01.715Z",
               "EditorCaption": ""

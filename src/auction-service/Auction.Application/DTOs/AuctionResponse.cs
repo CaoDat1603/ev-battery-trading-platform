@@ -16,6 +16,7 @@ namespace Auction.Application.DTOs
         [Required] public decimal DepositAmount { get; set; }
         [Required] public AuctionStatus Status { get; set; }
         [Required] public DateTimeOffset StartTime { get; set; }
+        [Required] public DateTimeOffset EndTime { get; set; }
         public DateTimeOffset CreatedAt { get; set; }
         public DateTimeOffset? UpdatedAt { get; set; }
         public DateTimeOffset? DeletedAt { get; set; }
