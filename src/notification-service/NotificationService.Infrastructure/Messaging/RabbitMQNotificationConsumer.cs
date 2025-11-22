@@ -78,7 +78,7 @@ namespace NotificationService.Infrastructure.Messaging
                     var json = Encoding.UTF8.GetString(ea.Body.ToArray());
                     var options = new JsonSerializerOptions
                     {
-                        PropertyNameCaseInsensitive = true // ✅ fix mismatch UserId/userId
+                        PropertyNameCaseInsensitive = true // fix mismatch UserId/userId
                     };
                     var data = JsonSerializer.Deserialize<T>(json, options);
 

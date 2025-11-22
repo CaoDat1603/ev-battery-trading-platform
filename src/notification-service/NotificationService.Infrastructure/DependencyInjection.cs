@@ -22,6 +22,8 @@ namespace NotificationService.Infrastructure
 
             services.AddHostedService<RatingNotificationConsumer>();
             services.AddHostedService<ComplaintNotificationConsumer>();
+            services.AddHostedService<OrderNotificationConsumer>();
+            services.AddHostedService<PaymentNotificationConsumer>();
 
             services.Configure<RabbitMQSettings>(
                 configuration.GetSection("RabbitMQ"));
