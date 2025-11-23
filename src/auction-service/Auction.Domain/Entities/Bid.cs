@@ -34,7 +34,7 @@ namespace Auction.Domain.Entities
         /// <summary>
         /// Factory method for creating a new Bid entity.
         /// </summary> 
-        public static Bid Create(int auctionId, int bidderId, string bidderEmail, string bidderPhone, decimal amount, int transactionId)
+        public static Bid Create(int auctionId, int bidderId, string bidderEmail, string bidderPhone, decimal amount, int? transactionId)
         {
             return new Bid
             {

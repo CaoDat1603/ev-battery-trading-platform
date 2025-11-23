@@ -17,7 +17,7 @@ namespace Auction.Infrastructure.Services
             _tokenService = tokenService;
         }
 
-        public async Task<bool> IsTransactionCompleted(int transactionId, decimal Amount, CancellationToken ct)
+        public async Task<bool> IsTransactionCompleted(int? transactionId, decimal Amount, CancellationToken ct)
         {
             try
             {

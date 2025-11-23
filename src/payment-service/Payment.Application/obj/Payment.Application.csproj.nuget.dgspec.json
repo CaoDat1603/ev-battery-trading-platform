@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.Application\\Payment.Application.csproj": {}
+    "C:\\Users\\caoda\\Documents\\GIT4\\src\\payment-service\\Payment.Application\\Payment.Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.Application\\Payment.Application.csproj": {
+    "C:\\Users\\caoda\\Documents\\GIT4\\src\\payment-service\\Payment.Application\\Payment.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.Application\\Payment.Application.csproj",
+        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT4\\src\\payment-service\\Payment.Application\\Payment.Application.csproj",
         "projectName": "Payment.Application",
-        "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.Application\\Payment.Application.csproj",
+        "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\payment-service\\Payment.Application\\Payment.Application.csproj",
         "packagesPath": "C:\\Users\\caoda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.Application\\obj\\",
+        "outputPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\payment-service\\Payment.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.Domain\\Payment.Domain.csproj": {
-                "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.Domain\\Payment.Domain.csproj"
+              "C:\\Users\\caoda\\Documents\\GIT4\\src\\payment-service\\Payment.Domain\\Payment.Domain.csproj": {
+                "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\payment-service\\Payment.Domain\\Payment.Domain.csproj"
               }
             }
           }
@@ -79,14 +79,14 @@
         }
       }
     },
-    "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.Domain\\Payment.Domain.csproj": {
+    "C:\\Users\\caoda\\Documents\\GIT4\\src\\payment-service\\Payment.Domain\\Payment.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.Domain\\Payment.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT4\\src\\payment-service\\Payment.Domain\\Payment.Domain.csproj",
         "projectName": "Payment.Domain",
-        "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.Domain\\Payment.Domain.csproj",
+        "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\payment-service\\Payment.Domain\\Payment.Domain.csproj",
         "packagesPath": "C:\\Users\\caoda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.Domain\\obj\\",
+        "outputPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\payment-service\\Payment.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

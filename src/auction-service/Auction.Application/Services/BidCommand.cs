@@ -14,11 +14,12 @@ namespace Auction.Application.Services
         private readonly IUnitOfWork _uow;
         private readonly IOrderClient _orderClient;
 
-        public BidCommand(IAuctionRepository auctionRepo, IBidRepository bidRepo, IUnitOfWork uow)
+        public BidCommand(IAuctionRepository auctionRepo, IBidRepository bidRepo, IUnitOfWork uow, IOrderClient orderClient)
         {
             _auctionRepo = auctionRepo;
             _bidRepo = bidRepo;
             _uow = uow;
+            _orderClient = orderClient;
         }
 
         /// <summary>
@@ -33,10 +34,13 @@ namespace Auction.Application.Services
             if (auction == null)
                 throw new InvalidOperationException($"Auction with ID {dto.AuctionId} does not exist.");
 
-            var ok = await _orderClient.IsTransactionCompleted(dto.TransactionId ,dto.Amount, ct);
-            if (!ok)
+            if (dto.TransactionId != null)
             {
-                throw new InvalidOperationException($"Transaction with ID {dto.TransactionId} does not exist.");
+                var ok = await _orderClient.IsTransactionCompleted(dto.TransactionId, auction.DepositAmount, ct);
+                if (!ok)
+                {
+                    throw new InvalidOperationException($"Transaction with ID {dto.TransactionId} does not exist.");
+                }
             }
 
             // Call domain logic to place a bid

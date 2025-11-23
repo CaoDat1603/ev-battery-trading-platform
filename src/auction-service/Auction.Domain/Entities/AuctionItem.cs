@@ -115,7 +115,7 @@ namespace Auction.Domain.Entities
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
         /// <exception cref="ArgumentException"></exception>
-        public Bid PlaceBid(int bidderId, string bidderEmail, string bidderPhone,decimal amount, int transactionId)
+        public Bid PlaceBid(int bidderId, string bidderEmail, string bidderPhone,decimal amount, int? transactionId)
         {
             if (Status != AuctionStatus.Active)
                 throw new InvalidOperationException("Auction is not active");

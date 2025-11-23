@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HaxVA0BMTfE=",
+  "dgSpecHash": "bPT22HoMjc8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.API\\Payment.API.csproj",
+  "projectFilePath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\payment-service\\Payment.API\\Payment.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\caoda\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\caoda\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.10\\microsoft.aspnetcore.authentication.jwtbearer.8.0.10.nupkg.sha512",

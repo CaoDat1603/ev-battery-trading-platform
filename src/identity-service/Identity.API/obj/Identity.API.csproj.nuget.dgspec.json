@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.API\\Identity.API.csproj": {}
+    "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.API\\Identity.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.API\\Identity.API.csproj": {
+    "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.API\\Identity.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.API\\Identity.API.csproj",
+        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.API\\Identity.API.csproj",
         "projectName": "Identity.API",
-        "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.API\\Identity.API.csproj",
+        "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.API\\Identity.API.csproj",
         "packagesPath": "C:\\Users\\caoda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.API\\obj\\",
+        "outputPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,11 +32,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Application\\Identity.Application.csproj": {
-                "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Application\\Identity.Application.csproj"
+              "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Application\\Identity.Application.csproj": {
+                "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Application\\Identity.Application.csproj"
               },
-              "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj"
+              "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj"
               }
             }
           }
@@ -95,14 +95,14 @@
         }
       }
     },
-    "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Application\\Identity.Application.csproj": {
+    "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Application\\Identity.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
+        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
         "projectName": "Identity.Application",
-        "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
+        "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
         "packagesPath": "C:\\Users\\caoda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Application\\obj\\",
+        "outputPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -123,8 +123,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj": {
-                "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj"
+              "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj": {
+                "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj"
               }
             }
           }
@@ -181,14 +181,14 @@
         }
       }
     },
-    "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj": {
+    "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj",
         "projectName": "Identity.Domain",
-        "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj",
+        "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj",
         "packagesPath": "C:\\Users\\caoda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Domain\\obj\\",
+        "outputPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -255,14 +255,14 @@
         }
       }
     },
-    "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj": {
+    "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj",
         "projectName": "Identity.Infrastructure",
-        "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Infrastructure\\Identity.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\caoda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -283,11 +283,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Application\\Identity.Application.csproj": {
-                "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Application\\Identity.Application.csproj"
+              "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Application\\Identity.Application.csproj": {
+                "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Application\\Identity.Application.csproj"
               },
-              "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj": {
-                "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj"
+              "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj": {
+                "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj"
               }
             }
           }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "L6wHiXfeS18=",
+  "dgSpecHash": "FPFPKIYf69M=",
   "success": true,
-  "projectFilePath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\payment-service\\Payment.Application\\Payment.Application.csproj",
+  "projectFilePath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\payment-service\\Payment.Application\\Payment.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\caoda\\.nuget\\packages\\microsoft.aspnetcore.http\\2.3.0\\microsoft.aspnetcore.http.2.3.0.nupkg.sha512",
     "C:\\Users\\caoda\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.3.0\\microsoft.aspnetcore.http.abstractions.2.3.0.nupkg.sha512",

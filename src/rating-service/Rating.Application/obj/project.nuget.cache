@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DyIpbQXlyXk=",
+  "dgSpecHash": "3F21WZ5GEUM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Application\\Rating.Application.csproj",
+  "projectFilePath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Application\\Rating.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\caoda\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\caoda\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",

@@ -453,11 +453,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj",
       "projectName": "Identity.Domain",
-      "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj",
+      "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Domain\\Identity.Domain.csproj",
       "packagesPath": "C:\\Users\\caoda\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Domain\\obj\\",
+      "outputPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

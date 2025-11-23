@@ -5,6 +5,6 @@ namespace Auction.Application.Abstractions
 {
     public interface IOrderClient
     {
-        Task<bool> IsTransactionCompleted(int transactionId, decimal Amount, CancellationToken ct);
+        Task<bool> IsTransactionCompleted(int? transactionId, decimal Amount, CancellationToken ct);
     }
 }

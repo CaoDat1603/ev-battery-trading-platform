@@ -62,6 +62,27 @@ namespace Auction.API.Controllers
             return Ok(result.First());
         }
 
+        [Authorize]
+        [HttpGet("is-me-winner/{auctionId:int}")]
+        public async Task<IActionResult> IsWinnerUser(int auctionId, CancellationToken ct)
+        {
+            if (auctionId <= 0)
+                return BadRequest(new { message = "Invalid auction ID" });
+
+            var result = await _queries.SearchByAuctionIDAsync(auctionId, ct);
+            if (result == null || result.Count == 0)
+                return NotFound(new { message = "Auction not found" });
+
+            if (result.First().WinnerId == null)
+                return BadRequest(new { message = "Auction has no winner yet" });
+
+            var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+            if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out var userId))
+                return Unauthorized("Invalid token");
+
+            return Ok(userId == result.First().WinnerId);
+        }
+
         /// <summary>
         /// Search auctions by product ID
         /// </summary>

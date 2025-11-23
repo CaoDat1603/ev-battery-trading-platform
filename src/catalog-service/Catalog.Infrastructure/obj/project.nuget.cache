@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "eeOH9UwooV4=",
+  "dgSpecHash": "rvOgDf/MWbo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\catalog-service\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\caoda\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\caoda\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.16\\microsoft.aspnetcore.authentication.jwtbearer.8.0.16.nupkg.sha512",

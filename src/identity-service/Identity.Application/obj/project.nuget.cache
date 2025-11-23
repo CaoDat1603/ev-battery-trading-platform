@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sUz8CHVkpBc=",
+  "dgSpecHash": "an8y74mKR+I=",
   "success": true,
-  "projectFilePath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
+  "projectFilePath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\identity-service\\Identity.Application\\Identity.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\caoda\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\caoda\\.nuget\\packages\\mediatr\\13.0.0\\mediatr.13.0.0.nupkg.sha512",

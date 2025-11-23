@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.API\\Rating.API.csproj": {}
+    "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.API\\Rating.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.API\\Rating.API.csproj": {
+    "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.API\\Rating.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.API\\Rating.API.csproj",
+        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.API\\Rating.API.csproj",
         "projectName": "Rating.API",
-        "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.API\\Rating.API.csproj",
+        "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.API\\Rating.API.csproj",
         "packagesPath": "C:\\Users\\caoda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.API\\obj\\",
+        "outputPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,11 +32,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Application\\Rating.Application.csproj": {
-                "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Application\\Rating.Application.csproj"
+              "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Application\\Rating.Application.csproj": {
+                "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Application\\Rating.Application.csproj"
               },
-              "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj"
+              "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj"
               }
             }
           }
@@ -99,14 +99,14 @@
         }
       }
     },
-    "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Application\\Rating.Application.csproj": {
+    "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Application\\Rating.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Application\\Rating.Application.csproj",
+        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Application\\Rating.Application.csproj",
         "projectName": "Rating.Application",
-        "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Application\\Rating.Application.csproj",
+        "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Application\\Rating.Application.csproj",
         "packagesPath": "C:\\Users\\caoda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Application\\obj\\",
+        "outputPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -127,8 +127,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj": {
-                "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj"
+              "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj": {
+                "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj"
               }
             }
           }
@@ -177,14 +177,14 @@
         }
       }
     },
-    "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj": {
+    "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj",
         "projectName": "Rating.Domain",
-        "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj",
+        "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj",
         "packagesPath": "C:\\Users\\caoda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Domain\\obj\\",
+        "outputPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -251,14 +251,14 @@
         }
       }
     },
-    "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj": {
+    "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj",
         "projectName": "Rating.Infrastructure",
-        "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Infrastructure\\Rating.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\caoda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -279,11 +279,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Application\\Rating.Application.csproj": {
-                "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Application\\Rating.Application.csproj"
+              "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Application\\Rating.Application.csproj": {
+                "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Application\\Rating.Application.csproj"
               },
-              "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj": {
-                "projectPath": "C:\\Users\\caoda\\Documents\\GIT3\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj"
+              "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj": {
+                "projectPath": "C:\\Users\\caoda\\Documents\\GIT4\\src\\rating-service\\Rating.Domain\\Rating.Domain.csproj"
               }
             }
           }

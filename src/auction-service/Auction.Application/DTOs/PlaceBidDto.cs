@@ -10,6 +10,6 @@ namespace Auction.Application.DTOs
         public string? BidderEmail { get; set;}
         public string? BidderPhone { get; set; }
 
-        [Required] public int TransactionId { get; set; }
+        public int? TransactionId { get; set; }
     }
 }
